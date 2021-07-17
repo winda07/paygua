@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500;0,700;1,400&display=swap");
+* {
+  font-family: "DM Sans";
+}
+
+.App {
+    
+    height: 700px;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #dcdcdc; 
+    
+  }
+  .form-signin {
+    background-color: white;
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    margin-bottom: 390px;
+    margin: 0px auto;
+    border-radius: 10px;
+    margin-top: 100px;
+  }
+
+.popup{
+        width: 171px;
+        margin-left: 85px;
+}
+.text{
+    margin-left: 60px;
+}

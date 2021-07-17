@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500;0,700;1,400&display=swap");
+* {
+  font-family: "DM Sans";
+}
+
+.App {
+    
+    height: 2500px;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #dcdcdc; 
+  }
+  .form-signin {
+    background-color: white;
+    width: 100%;
+    height: 2500px;
+    max-width: 350px;
+    padding: 15px;
+    margin-bottom: 390px;
+    margin: 0px auto;
+    position: relative;
+    border-radius: 5px;
+  }
+  .menu{
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin-left: 310px;
+  }
+  .dropdown{
+    position: absolute;
+    flex-direction: column;
+    align-items: space-between;
+    box-shadow: 0 10px 10px gray;
+    margin: 25px 0;
+    z-index: 1;
+    background-color: white;
+    width: 160px;
+    display: none;
+
+  }
+  .dropdown a{
+    
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+  /*   margin: 20px; */
+    font-size: 15px;
+    display: block;
+    position: relative;
+  }
+  .dropdown a:hover{
+    background-color: #464646;
+    color: white;
+  }
+  .menu:hover .dropdown{
+    display: block;
+  }
+   .textBold{
+    margin-left: 50px;
+    position: absolute;
+    width: 380px ;
+    height: 500px;
+    color: #FFFFFF;
+    padding-bottom: 70px;
+    padding-left: 70px;
+}
+.TentangKami{
+    margin-top: 10px;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+
+}
+.text{
+    margin-left: 1px;
+    position: absolute;
+    width:293px;
+    height: 80px;
+    color: #EFF0F2;
+    font-size: 15px;
+    
+}
+
+.button {
+    margin-right: 130px;
+    margin-top: 300px;
+	position: absolute;
+	appearance: none;
+	padding: 2px 20px;
+	color: white;
+	cursor: pointer;
+	outline: none;
+	border-radius: 100px;
+	border: 2px solid white;
+	background: transparent;
+}
+.choose{
+    position: absolute;
+    height: 300px;
+    width:500px;
+}
+
+.gambar1{
+    position: absolute;
+}
+
+.KK{
+    position: absolute;
+    font-size: 12px;
+    height: 90px;
+    width: 100px;
+    color: white;
+    margin-top: 35px;
+    margin-left: 17px;
+}
+.VA{
+    position: absolute;
+    font-size: 12px;
+    height: 100px;
+    color: white;
+    margin-top: 50px;
+    margin-left: 118px;
+}
+
+.E-Wallet{
+    font-size: 12px;
+    position: absolute;
+    color: white;
+    height: 100px;
+    margin-left: 245px;
+    margin-top: 55px;
+} 
+
+.TentangKami2{
+    margin-top: 150px;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+}
+
+.textblack{
+    margin-left: 40px;
+    width: 260px;
+    font-size: 18px;
+    position: absolute;
+    color: #FFFFFF;
+    height: 100px;
+    margin-bottom: 40px;
+}
+
+.rules{
+    margin-left: 20px;
+    height: 200px;
+    position: relative;
+}
+
+.b{
+  
+    margin-left: 30px;
+}
+.c{
+    margin-left: 30px;
+}
+ .d{
+    margin-left: 30px;
+}
+.e{
+    margin-left: 30px;
+
+}
+
+.why{
+    position: relative;
+    margin-top: 265px;
+    margin-right: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.f{
+    margin-left: 15px;
+    height: 100px;
+    position: relative;
+}
+
+.g{
+    height: 70px;
+
+}
+
+.img1{
+    margin-left: 70px;
+    margin-top: -290px;
+    position: absolute;
+    width: 200px ;
+    color:#FFFFFF;
+    font-size: 13px;
+}
+
+.img2{
+    margin-left: 70px;
+    margin-top: -180px;
+    position: absolute;
+    width: 200px ;
+    color:#FFFFFF;
+    font-size: 13px;
+}
+
+.img3{
+    margin-left: 70px;
+    margin-top: -100px;
+    position: absolute;
+    width: 200px ;
+    color:#FFFFFF;
+    font-size: 13px;
+}
+
+.n{
+    margin-left: 10px;
+    margin-top: 310px;
+}
+
+.cocok{
+    position: relative;
+}
+
+.box1{
+    width: 100%;
+    height: 400px;
+    background: #21242B;
+    margin-top: 60px;
+    margin-left: -15px;
+    position: absolute;
+    }
+
+.fot1{
+    margin-top: 150px;
+    margin-left: 20px;
+    
+}
+h6{
+    margin-left: 10px;
+    color: #EFF0F2;
+}
+
+.p1{
+    color: white;
+}
+.p2{
+    color: white;
+}
+
+.p3{
+    color: white;
+}
+
+.boxdua{
+    width: 300px;
+    height: 100px;
+    left: 25px;
+    top: 50px;
+    border-radius: 5px;
+    background-color:white;
+    z-index: 2;
+    position: absolute;
+    margin-top: -90px;
+    margin-left: 10px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+}
+
+.pay{
+    text-align: center;
+    font-size: 15px;
+}
+.by{
+    text-align: center;
+    color: black;
+}

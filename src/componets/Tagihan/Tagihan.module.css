@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500;0,700;1,400&display=swap");
+* {
+  font-family: "DM Sans";
+}
+
+.App {
+    
+    height: 700px;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #dcdcdc; 
+  }
+  .form-signin {
+    background-color: white;
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    margin-bottom: 390px;
+    margin: 0px auto;
+  }
+
+  .button {
+    margin-left: 240px;
+    margin-top:-50px;
+	position: absolute;
+	appearance: none;
+	padding: -9em 1em;
+	color: white;
+	cursor: pointer;
+	outline: none;
+	border-radius: 100px;
+	border: 1px solid black;
+	background: black;
+}
+
+.boxdua{
+  width: 300px;
+  height: 104px;
+  left: 25px;
+  top: 50px;
+  border-radius: 5px;
+  background-color:white;
+  z-index: 2;
+  margin-top: 50px;
+  margin-left: 20px;
+  box-shadow: 4px 5px 5px rgb(169, 169, 169);
+}
+.boxdua2{
+  width: 300px;
+  height: 100px;
+  left: 25px;
+  top: 50px;
+  border-radius: 5px;
+  background-color:white;
+  z-index: 2;
+  margin-top: 50px;
+  margin-left: 20px;
+  box-shadow: 4px 5px 5px rgb(169, 169, 169);
+}
+.boxdua3{
+  width: 300px;
+  height: 100px;
+  left: 25px;
+  top: 50px;
+  border-radius: 5px;
+  background-color:white;
+  z-index: 2;
+  margin-top: 50px;
+  margin-left: 20px;
+  box-shadow: 4px 5px 5px rgb(169, 169, 169);
+}
+
+.arah{
+  margin-top: -60px;
+  margin-left: 270px;
+  position: absolute;
+  cursor: pointer;
+}
+h6{
+  color: rgb(169, 169, 169);
+}
+ 
