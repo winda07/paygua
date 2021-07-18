@@ -57,10 +57,6 @@
   color: white;
   text-align: center;
 }
-.text-center1 {
-  color: #21242b;
-  text-align: center;
-}
 .img {
   position: absolute;
   cursor: pointer;
@@ -68,4 +64,12 @@
   margin-top: 20px;
   margin-right: 200px;
   right: -160px;
+}
+.text-center1 {
+  color: #838790;
+  text-align: center;
+}
+.text-center2 {
+  color: #21242b;
+  text-align: center;
 }

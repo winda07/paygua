@@ -115,7 +115,12 @@ const Login = ({ submitForm }) => {
             </div>
 
             <div class="form-group">
-              <p class={styles['text-center1']}>Belum Punya Akun? <Link to="/register"> <strong><u>Daftar disini!</u></strong></Link></p>
+              <p class={styles["text-center1"]}>
+                Belum Punya Akun?{" "}
+                <Link class={styles["text-center2"]} to="/register">
+                  Masuk disini!
+                </Link>
+              </p>
             </div>
           </div>
         </header>

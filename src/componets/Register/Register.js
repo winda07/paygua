@@ -31,7 +31,6 @@ const Register = ({ submitForm }) => {
           if (result) {
             if (result.data) {
               if (result.data.status !== "200") {
-                alert("test")
               }
             }
           }
