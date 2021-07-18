@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from "./Register.module.css"
 
 const RegisterCheck = () =>{
     return(
-        <div className="container">
-            <div className="app-wrapper">
-                <h1>Please check your email to verify your Account</h1>
-            </div>
+        <div className={styles.App}>
+             <div className={styles['text-check']}>
+             <p className={styles.textCheck}>Please check your email to verify your Account</p>
+             </div>
         </div>
     )
 }

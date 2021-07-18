@@ -1,10 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import styles from "./Lupas.module.css";
+import logo from "../../img/logo.svg";
+import { Link, Redirect, useHistory } from "react-router-dom";
+import axios from "axios";
+import { AirlineSeatIndividualSuiteSharp, Message } from "@material-ui/icons";
+import validation from "./validation.js";
 
-import styles from './Lupas.module.css'
-import logo from "../../img/logo.svg"
-import { Link } from "react-router-dom"
+const Lupas = ({submitForm}) => {
+  const [dataIsCorrect, setDataIsCorrect] = useState(false)
+  const [errors, setErros] = useState({});
 
-const Lupas = () => {
+    const history = useHistory();
+ 
+    const [data,setValues] = useState({
+      email: "",
+    });
+
+    useEffect(() => {
+      if (Object.keys(errors).length===0 && dataIsCorrect){
+        axios
+        .post("https://paygua.com/api/auth/recover", data)
+        .then((result) => {
+          if (result) {
+            if (result.data) {
+            }
+          }
+          console.log(result.data);
+        })
+        .catch((e) => {
+        });
+        submitForm()
+        
+      }
+    }, [errors]);
+
+      const handleChange = (e) => {
+        setValues({
+          ...data,
+          [e.target.name]: e.target.value,
+        });
+      };
+
+    const handleFormSubmit = (e) =>{
+      e.preventDefault();
+      setErros(validation(data));
+      setDataIsCorrect(true)
+    }
     return (
         <div className={styles.App}>
         <div className={styles['form-signin']}>
@@ -13,9 +54,10 @@ const Lupas = () => {
               <div className="datang">
                   <h2 className="judul">Atur Ulang Kata Sandi</h2>
                   <p className="text-ketentuan"> Masukkan e-mail yang terdaftar. Kami akan mengirimkan kode verifikasi untuk atur ulang kata sandi.</p>
-                  <input type="email" className={styles['form-control']} id="floatingInput" placeholder="Email" ></input>
-                  <div className={styles.btnSubmit}>
-                  <Link style={{textDecoration:'none'}} to="/verivlupas"><p class={styles.text} >Lanjut</p></Link>
+                  <input type="email" className={styles['form-control']} id="floatingInput" placeholder="Email" name="email" value={data.email} onChange={handleChange} ></input>
+                  {errors.email && <p className="error">{errors.email}</p>}
+                  <div className={styles.btnSubmit} onClick={handleFormSubmit}>
+                  <p class={styles.text} >Lanjut</p>
                   </div>
               </div>
           </header>

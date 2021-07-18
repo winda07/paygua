@@ -68,3 +68,18 @@
   margin-right: 200px;
   right: -160px;
 }
+.text-check {
+  background-color: white;
+  width: 100%;
+  position: relative;
+  max-width: 350px;
+  padding: 15px;
+  margin: 0px auto;
+  margin-top: 250px;
+}
+.textCheck {
+  font-size: 15px;
+}
+.errors {
+  color: red;
+}

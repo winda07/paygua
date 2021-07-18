@@ -1,23 +1,30 @@
 import React from "react"
 import "./App.css"
 import Form from "./componets/Register/Form"
+import Login from './componets/Login/Login';
+import LupaPassword from "./componets/LupaPassword/Form"
+import ResetPassword from "./componets/ResetPassword/Form";
+import VerifyEmail from "./componets/VerifyEmail/Form";
+import Success from "./componets/Success/Succes"
+import Expired from "./componets/LinkExpired/LinkExpired"
+import { Route, Switch } from 'react-router-dom';
 
-const App =() =>{
+const App = () => {
   return (<div>
-    <Form></Form>
+    <Switch>
+      <Route exact path="/" component={Login} />
+      <Route path="/register" component={Form} />
+      <Route path="/lupaPassword" component={LupaPassword} />
+      <Route path="/ResetPassword:id" component={ResetPassword} />
+      <Route path="/auth/recover/:tokenid" component={VerifyEmail}></Route>
+      <Route path="/Success" component={Success}></Route>
+      <Route path="/Expired" component={Expired}></Route>
+    </Switch>
+
   </div>
   )
 };
 export default App
-
-
-
-
-
-
-
-
-
 
 // import React from 'react'
 // import Login  from './componets/Login/Login';
@@ -84,7 +91,7 @@ export default App
 //         <Route path="/settings" component={Settings}/>
 //       </Switch>
 //       {/* <Login /> */}
-     
+
 //     </div>
 //   );
 // }

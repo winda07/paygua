@@ -7,84 +7,56 @@ import hidePwdImg from "../../img/hidePassword.svg";
 import axios from "axios";
 import { AirlineSeatIndividualSuiteSharp, Message } from "@material-ui/icons";
 import validation from "./validation.js";
-import values from "postcss-modules-values";
-import RegisterCheck from "./RegisterCheck";
 
-const Register = () => {
-  
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const Register = ({ submitForm }) => {
+
   const [isRevealPwd, setIsRevealPwd] = useState(false);
-  const [alert, setAlert] = useState("");
-
+  const [dataIsCorrect, setDataIsCorrect] = useState(false)
   const [errors, setErros] = useState({});
-    const history = useHistory();
- 
-    const [data,setValues] = useState({
-      username: "",
-      email: "",
-      password: "",
-    });
 
-    useEffect(() => {
-      if (localStorage.getItem("user-info")){
-        history.pushState({RegisterCheck})
-      }
-    }, []);
+  const history = useHistory();
 
-    async function register(){
-      console.warn(email,username,password)
-      let item={email,username,password};
-      let result= await fetch("https://paygua.com/api/auth/login",{
-        method: 'POST',
-        headers: {
-          "Content-Type": 'application/json',
-          "Accept": 'application/json'
-        },
-        body: JSON.stringify(item)
-      });
-      result = await result.json();
-      localStorage.setItem("yser-info",JSON.stringify(result))
-      history.push({RegisterCheck})
-    }
-        
+  const [data, setValues] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
 
-
-    axios
-      .post("https://paygua.com/api/auth/register", data)
-      .then((result) => {
-        if (result) {
-          if (result.data) {
-            // setUsername('')
-            // setEmail('')
-            // setPassword('')
-            // setAlert(result.data.errors);
-            // setTimeout(()=>{
-            //   setAlert('')
-            // },3000)
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && dataIsCorrect) {
+      axios
+        .post("https://paygua.com/api/auth/register", data)
+        .then((result) => {
+          if (result) {
+            if (result.data) {
+              if (result.data.status !== "200") {
+                alert("test")
+              }
+            }
           }
-        }
-        console.log(result.data);
-      })
+          console.log(result.data);
+        })
+        .catch((e) => {
 
-      .catch((e) => {
-        // console.log('error', e.response.data.errors.errorMessage)
-      });
-  
-      const handleChange = (e) => {
-        setValues({
-          ...data,
-          [e.target.name]: e.target.value,
         });
-      };
-
-  
-
-    const handleFormSubmit = (e) =>{
-      e.preventDefault();
-      setErros(validation(data));
+      submitForm()
     }
+  }, [errors]);
+
+  const handleChange = (e) => {
+    setValues({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setErros(validation(data));
+    setDataIsCorrect(true)
+  }
+
+  console.log("submitForm on Register: ", submitForm)
   return (
     <div className={styles.App}>
       <div className={styles["form-signin"]}>
@@ -121,14 +93,14 @@ const Register = () => {
               value={data.password}
               onChange={handleChange}
             />
-            
+
             <img
               className={styles["img"]}
               title={isRevealPwd ? "Hide password" : "Show Password"}
               src={isRevealPwd ? hidePwdImg : showPdwImg}
               onClick={() => setIsRevealPwd((prevState) => !prevState)}
             />
-{errors.password && <p className="error">{errors.password}</p>}
+            {errors.password && <p className="error">{errors.password}</p>}
             <div className="sandi">
               <p className={styles["text-ketentuan"]}>
                 Dengan mendaftar, kamu setuju dengan{" "}
@@ -136,12 +108,12 @@ const Register = () => {
                 berlaku
               </p>
             </div>
-            
+
             <div className={styles.btnSubmit12} onClick={handleFormSubmit}>
               <p class={styles.text1}>Daftar</p>
             </div>
             <div class="form-group">
-              <p  class={styles["text-center1"]}>
+              <p class={styles["text-center1"]}>
                 Sudah Punya Akun?{" "}
                 <Link class={styles["u"]} to="/">
                   Masuk disini!
