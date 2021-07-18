@@ -15,7 +15,7 @@ const App = () => {
       <Route exact path="/" component={Login} />
       <Route path="/register" component={Form} />
       <Route path="/lupaPassword" component={LupaPassword} />
-      <Route path="/ResetPassword:id" component={ResetPassword} />
+      <Route path="/auth/reset/:tokenid" component={ResetPassword} />
       <Route path="/auth/recover/:tokenid" component={VerifyEmail}></Route>
       <Route path="/Success" component={Success}></Route>
       <Route path="/Expired" component={Expired}></Route>

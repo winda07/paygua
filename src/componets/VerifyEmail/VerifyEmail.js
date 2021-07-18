@@ -26,11 +26,14 @@ const VerifyEmail = ({ submitForm }) => {
             if (result.data) {
               if (result.data.status === 200) {
                 submitForm(true)
+                history.push("/")
               } else if (result.data.status == 400) {
                 submitForm(false)
+                history.push("/")
               }
             }
           }
+          // history.push("/")
           console.log(result.data);
         })
         .catch((e) => {
