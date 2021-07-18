@@ -15,6 +15,7 @@ const Register = ({ submitForm }) => {
   const [errors, setErros] = useState({});
 
   const history = useHistory();
+  const urlPayGua = "Paygua.com/"
 
   const [data, setValues] = useState({
     username: "",
@@ -44,10 +45,25 @@ const Register = ({ submitForm }) => {
   }, [errors]);
 
   const handleChange = (e) => {
-    setValues({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
+    // paygua.com/
+    if (e.target.name === "username") {
+      let currentUsername = e.target.value;
+      let username = currentUsername.split('/')[1]
+
+      if (username == undefined) {
+        username = ""
+      }
+
+      setValues({
+        ...data,
+        [e.target.name]: username,
+      });
+    } else {
+      setValues({
+        ...data,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const handleFormSubmit = (e) => {
@@ -79,8 +95,7 @@ const Register = ({ submitForm }) => {
               name="username"
               class={styles["form-control"]}
               id="=floatingUsername"
-              placeholder="paygua.com/Username"
-              value={data.username}
+              value={urlPayGua.concat(data.username)}
               onChange={handleChange}
             ></input>
             {errors.username && <p className="error">{errors.username}</p>}

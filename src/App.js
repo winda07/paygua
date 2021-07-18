@@ -1,7 +1,7 @@
 import React from "react"
 import "./App.css"
 import Form from "./componets/Register/Form"
-import Login from './componets/Login/Login';
+import Login from './componets/Login/Form';
 import LupaPassword from "./componets/LupaPassword/Form"
 import ResetPassword from "./componets/ResetPassword/Form";
 import VerifyEmail from "./componets/VerifyEmail/Form";
