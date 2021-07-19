@@ -6,9 +6,16 @@ import { Link, Redirect, useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { AirlineSeatIndividualSuiteSharp, Message } from "@material-ui/icons";
 import validation from "./validation.js";
+import showPdwImg from "../../img/showPassword.svg"
+import hidePwdImg from "../../img/hidePassword.svg"
+import showPdwImg2 from "../../img/showPassword.svg"
+import hidePwdImg2 from "../../img/hidePassword.svg"
+
 
 const ResetPassword = ({ submitForm }) => {
   const [dataIsCorrect, setDataIsCorrect] = useState(false)
+  const [isRevealPwd, setIsRevealPwd] = useState(false);
+  const [isRevealPwd2, setIsRevealPwd2] = useState(false);
   const [errors, setErros] = useState({});
 
   let { tokenid } = useParams();
@@ -57,8 +64,22 @@ const ResetPassword = ({ submitForm }) => {
         <div className={styles.gbrarow}>
           <p className={styles.kun}>Reset Password</p>
         </div>
-        <input type="password" className={styles['form-control']} id="floatingInput" placeholder="Password Baru" name="password" value={data.password} onChange={handleChange} ></input>
-        <input type="password" className={styles['form-control']} id="floatingInput" placeholder="Konfirmasi Password Baru" name="confirmPassword" value={data.confirmPassword} onChange={handleChange} ></input>
+        <input type={isRevealPwd2 ? "text" : "password"} className={styles['form-control']} id="floatingInput" placeholder="Password Baru" name="password" value={data.password} onChange={handleChange} ></input>
+        <img
+          className={styles["img"]}
+          title={isRevealPwd2 ? "Hide password" : "Show Password"}
+          src={isRevealPwd2 ? hidePwdImg : showPdwImg}
+          onClick={() => setIsRevealPwd2((prevState) => !prevState)}
+        />
+        {errors.password && <p className="error">{errors.password}</p>}
+        <input type={isRevealPwd ? "text" : "password"} className={styles['form-control']} id="floatingInput" placeholder="Konfirmasi Password Baru" name="confirmPassword" value={data.confirmPassword} onChange={handleChange} ></input>
+        <img
+          className={styles["img"]}
+          title={isRevealPwd ? "Hide password" : "Show Password"}
+          src={isRevealPwd ? hidePwdImg : showPdwImg}
+          onClick={() => setIsRevealPwd((prevState) => !prevState)}
+        />
+        {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
         <div className={styles.btnSubmit} onClick={handleFormSubmit}>
           <p class={styles.text} >Reset Password</p>
         </div>

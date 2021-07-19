@@ -7,6 +7,7 @@ import ResetPassword from "./componets/ResetPassword/Form";
 import VerifyEmail from "./componets/VerifyEmail/Form";
 import Success from "./componets/Success/Succes"
 import Expired from "./componets/LinkExpired/LinkExpired"
+import ChangePassword from "./componets/Password/Password"
 import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
       <Route path="/auth/recover/:tokenid" component={VerifyEmail}></Route>
       <Route path="/Success" component={Success}></Route>
       <Route path="/Expired" component={Expired}></Route>
+      <Route path="/gantiPassword" component={ChangePassword}></Route>
     </Switch>
 
   </div>
