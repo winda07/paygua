@@ -4,44 +4,43 @@
 }
 
 .App {
-    
-    height: 700px;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #dcdcdc; 
-  }
-  .form-signin {
-    background-color: white;
-    width: 100%;
-    max-width: 350px;
-    padding: 15px;
-    margin-bottom: 390px;
-    margin: 0px auto;
-  }
+  height: 700px;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #dcdcdc;
+}
+.form-signin {
+  background-color: white;
+  width: 100%;
+  max-width: 350px;
+  padding: 15px;
+  margin-bottom: 390px;
+  margin: 0px auto;
+}
 
-.gbrarow{
+.gbrarow {
   position: relative;
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
 }
 
-.kun{
+.kun {
   margin-left: 130px;
   margin-top: 2px;
   position: absolute;
   font-size: 18px;
 }
-.check{
+.check {
   margin-left: 330px;
   margin-top: -15px;
 }
-.user{
+.user {
   margin-top: 30px;
   margin-left: 110px;
 }
-.kun1{
+.kun1 {
   margin-left: 110px;
 }
 .form-control {
@@ -62,4 +61,20 @@
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 5px;
+}
+
+.btnSubmit {
+  margin-left: 10px;
+  position: relative;
+  appearance: none;
+  padding: 0.1em 9em;
+  cursor: pointer;
+  outline: none;
+  border-radius: 100px;
+  border: 2px solid white;
+  background: #21242b;
+  margin-top: 30px;
+}
+.check1 {
+  cursor: pointer;
 }

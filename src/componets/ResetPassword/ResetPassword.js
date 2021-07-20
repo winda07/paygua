@@ -8,8 +8,6 @@ import { AirlineSeatIndividualSuiteSharp, Message } from "@material-ui/icons";
 import validation from "./validation.js";
 import showPdwImg from "../../img/showPassword.svg"
 import hidePwdImg from "../../img/hidePassword.svg"
-import showPdwImg2 from "../../img/showPassword.svg"
-import hidePwdImg2 from "../../img/hidePassword.svg"
 
 
 const ResetPassword = ({ submitForm }) => {
@@ -34,14 +32,17 @@ const ResetPassword = ({ submitForm }) => {
         .post("https://paygua.com/api/auth/reset/" + tokenid, data)
         .then((result) => {
           if (result) {
-            if (result.data) {
+            if (result.data.status === 400) {
+              alert("Password reset invalid atau expired")
+            } else if (result.data.status === 200) {
+              submitForm()
             }
           }
           console.log(result.data);
         })
         .catch((e) => {
         });
-      submitForm()
+
 
     }
   }, [errors]);

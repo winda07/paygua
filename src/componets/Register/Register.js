@@ -89,14 +89,29 @@ const Register = ({ submitForm }) => {
               onChange={handleChange}
             ></input>
             {errors.email && <p className="error">{errors.email}</p>}
-            <input
+            {/* <input
               type="text"
               name="username"
               class={styles["form-control"]}
               id="=floatingUsername"
-              value={urlPayGua.concat(data.username)}
+              placeholder="Paygua.com/Username"
+              // value={urlPayGua.concat(data.username)}
+              value={data.username}
               onChange={handleChange}
-            ></input>
+            ></input> */}
+            <div class={styles["inputContainer"]}>
+              <h5 class={styles["usernameLabel"]}>
+                {urlPayGua}
+              </h5>
+              <input
+                type="text"
+                name="username"
+                class={styles["username"]}
+                placeholder="Username"
+                id="=floatingUsername"
+                onChange={handleChange}
+              ></input>
+            </div>
             {errors.username && <p className="error">{errors.username}</p>}
             <input
               type={isRevealPwd ? "text" : "password"}

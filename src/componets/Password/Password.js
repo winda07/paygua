@@ -6,10 +6,16 @@ import check from "../../img/check.svg"
 import { Link, useHistory } from "react-router-dom";
 import axios from 'axios';
 import validation from './validation'
+import showPdwImg from "../../img/showPassword.svg";
+import hidePwdImg from "../../img/hidePassword.svg";
+import jwt from "jwt-decode"
 
 const Password = () => {
 
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
+    const [isRevealPwd, setIsRevealPwd] = useState(false);
+    const [isRevealPwd2, setIsRevealPwd2] = useState(false);
+    const [isRevealPwd3, setIsRevealPwd3] = useState(false);
     const [errors, setErros] = useState({});
     const history = useHistory();
 
@@ -18,24 +24,7 @@ const Password = () => {
         passwordBaru: "",
         confirmPassword: ""
     });
-
-    useEffect(() => {
-        if (Object.keys(errors).length === 0 && dataIsCorrect) {
-            axios
-                .post("https://paygua.com/api/user/changePassword", data)
-                .then((result) => {
-                    if (result) {
-                        if (result.data) {
-                        }
-                    }
-                    console.log(result.data);
-                })
-                .catch((e) => {
-                });
-            // submitForm()
-
-        }
-    }, [errors]);
+    const token = localStorage.getItem('token')
 
     const handleChange = (e) => {
         setValues({
@@ -44,33 +33,81 @@ const Password = () => {
         });
     };
 
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setErros(validation(data));
         setDataIsCorrect(true)
+        if (Object.keys(errors).length === 0 && dataIsCorrect) {
+            const token = localStorage.getItem('token');
+            if (token) {
+                const user = jwt(token);
+                axios
+                    .post("https://paygua.com/api/user/changePassword", {
+                        newPassword: data.passwordBaru,
+                        password: data.passwordLama,
+                    }, {
+                        headers: {
+                            'Authorization': token,
+                        }
+                    })
+                    .then((result) => {
+                        if (result) {
+                            if (result.data.status === 400) {
+                                alert("failed")
+                            } else if (result.data.status === 200) {
+                                history.push('/settings')
+
+                            }
+                        }
+                        console.log(result.data);
+                        console.log(token)
+                    })
+                    .catch((e) => {
+                    });
+                // submitForm()
+            }
+
+
+        }
     }
     return (
         <div className={styles.App}>
             <div className={styles['form-signin']}>
 
                 <div className={styles.gbrarow}>
-                    <img src={arrow} alt="logo" />
+                    <Link to="/settings"><img src={arrow} alt="logo" /></Link>
                     <p className={styles.kun}>Ganti Password</p>
-                    <img src={check} alt="logo" />
+                    <img className={styles.check} onClick={handleFormSubmit} src={check} alt="logo" />
 
                 </div>
 
                 <div className={styles.kun3}>
-                    <input type="password" className={styles['form-control']} id="floatingInput" placeholder="Password Lama" name="passwordLama" value={data.passwordLama} onChange={handleChange} ></input>
+                    <input type={isRevealPwd ? "text" : "password"} className={styles['form-control']} id="floatingInput" placeholder="Password Lama" name="passwordLama" value={data.passwordLama} onChange={handleChange} ></input>
+                    <img
+                        className={styles["img"]}
+                        title={isRevealPwd ? "Hide password" : "Show Password"}
+                        src={isRevealPwd ? hidePwdImg : showPdwImg}
+                        onClick={() => setIsRevealPwd((prevState) => !prevState)}
+                    />
                     {errors.passwordLama && <p className="error">{errors.passwordLama}</p>}
-                    <input type="password" className={styles['form-control']} id="floatingInput" placeholder="Password Baru" name="passwordBaru" value={data.passwordBaru} onChange={handleChange} ></input>
+                    <input type={isRevealPwd2 ? "text" : "password"} className={styles['form-control']} id="floatingInput" placeholder="Password Baru" name="passwordBaru" value={data.passwordBaru} onChange={handleChange} ></input>
+                    <img
+                        className={styles["img"]}
+                        title={isRevealPwd2 ? "Hide password2" : "Show Password2"}
+                        src={isRevealPwd2 ? hidePwdImg : showPdwImg}
+                        onClick={() => setIsRevealPwd2((prevState) => !prevState)}
+                    />
                     {errors.passwordBaru && <p className="error">{errors.passwordBaru}</p>}
-                    <input type="password" className={styles['form-control']} id="floatingInput" placeholder="Konfirmasi Password Baru" name="confirmPassword" value={data.confirmPassword} onChange={handleChange} ></input>
+                    <input type={isRevealPwd3 ? "text" : "password"} className={styles['form-control']} id="floatingInput" placeholder="Konfirmasi Password Baru" name="confirmPassword" value={data.confirmPassword} onChange={handleChange} ></input>
+                    <img
+                        className={styles["img"]}
+                        title={isRevealPwd3 ? "Hide password" : "Show Password"}
+                        src={isRevealPwd3 ? hidePwdImg : showPdwImg}
+                        onClick={() => setIsRevealPwd3((prevState) => !prevState)}
+                    />
                     {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
                 </div>
-                <button onClick={handleFormSubmit}>
-                    masuk
-                </button>
                 <div className={styles.sandi}>
                     <Link to="/Lupas"><a href="#" class={styles['ForgetPwd']}>Lupa Kata Sandi?</a></Link>
                 </div>

@@ -4,47 +4,55 @@
 }
 
 .App {
-    
-    height: 700px;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #dcdcdc; 
-  }
-  .form-signin {
-    background-color: white;
-    width: 100%;
-    max-width: 350px;
-    padding: 15px;
-    margin-bottom: 390px;
-    margin: 0px auto;
-  }
-  .profile{
-      margin-top: 30px;
-      margin-left: 110px;
-  }
-  .form-control {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 5px;
-  }
-  .btnSubmit {
-    margin-left: 10px;
-    position: relative;
-    appearance: none;
-    padding: 0.1em 9em;
-    cursor: pointer;
-    outline: none;
-    border-radius: 100px;
-    border: 2px solid white;
-    background:#21242B;
-    margin-top: 30px;
-  }
-  .text {
-    color: white;
-    text-align: center;
-  }
+  height: 700px;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #dcdcdc;
+}
+.form-control-bio {
+  width: 100%;
+  padding: 50px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.form-signin {
+  background-color: white;
+  width: 100%;
+  max-width: 350px;
+  padding: 15px;
+  margin-bottom: 390px;
+  margin: 0px auto;
+}
+.profile {
+  margin-top: 30px;
+  margin-left: 110px;
+}
+.form-control {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.btnSubmit {
+  margin-left: 10px;
+  position: relative;
+  appearance: none;
+  padding: 0.1em 9em;
+  cursor: pointer;
+  outline: none;
+  border-radius: 100px;
+  border: 2px solid white;
+  background: #21242b;
+  margin-top: 30px;
+}
+.text {
+  color: white;
+  text-align: center;
+}

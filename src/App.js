@@ -8,6 +8,10 @@ import VerifyEmail from "./componets/VerifyEmail/Form";
 import Success from "./componets/Success/Succes"
 import Expired from "./componets/LinkExpired/LinkExpired"
 import ChangePassword from "./componets/Password/Password"
+import Settings from "./componets/Settings/Settings"
+import Editprofile from "./componets/EditProfile/EditProfile"
+import Daftar2 from "./componets/Daftar2/Daftar2"
+import Dashboard from "./componets/Dashboard/Dashboard";
 import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -21,6 +25,10 @@ const App = () => {
       <Route path="/Success" component={Success}></Route>
       <Route path="/Expired" component={Expired}></Route>
       <Route path="/gantiPassword" component={ChangePassword}></Route>
+      <Route path="/settings" component={Settings}></Route>
+      <Route path="/editProfile" component={Editprofile} ></Route>
+      <Route path="/daftar" component={Daftar2}></Route>
+      <Route path="/dashboard" component={Dashboard}></Route>
     </Switch>
 
   </div>
