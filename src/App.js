@@ -12,6 +12,8 @@ import Settings from "./componets/Settings/Settings"
 import Editprofile from "./componets/EditProfile/EditProfile"
 import Daftar2 from "./componets/Daftar2/Daftar2"
 import Dashboard from "./componets/Dashboard/Dashboard";
+import Share from "./componets/Share/Share"
+import notifToast from "./componets/NotifToast/NotifToast"
 import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -29,6 +31,8 @@ const App = () => {
       <Route path="/editProfile" component={Editprofile} ></Route>
       <Route path="/daftar" component={Daftar2}></Route>
       <Route path="/dashboard" component={Dashboard}></Route>
+      <Route path="/share" component={Share}></Route>
+      <Route path="/notifToast" component={notifToast}></Route>
     </Switch>
 
   </div>
