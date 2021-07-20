@@ -11,7 +11,7 @@ import jwt from "jwt-decode"
 
 
 
-const EditProfile = () => {
+const EditProfile = ({ formSubmit }) => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const [errors, setErros] = useState({});
     const history = useHistory();
@@ -31,7 +31,7 @@ const EditProfile = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        console.log("token: ", token)
+        // console.log("token: ", token)
         if (token) {
             const user2 = jwt(token)
             // console.log(user2)
@@ -61,19 +61,24 @@ const EditProfile = () => {
             if (token) {
                 const user = jwt(token);
                 axios
-                    .put("https://paygua.com/api/user/" + user.id, data, {
+                    .put("https://paygua.com/api/user/" + user.id, {
+                        nama: data.nama,
+                        username: data.username,
+                        bio: data.bio
+                    }, {
                         headers: {
                             Authorization: token,
                         }
                     })
                     .then((result) => {
-                        // console.log(result)
+                        console.log(result)
                         if (result) {
                             if (result.data) {
                                 if (result.data.status === 400) {
                                     alert("Edit profil mengalami error");
                                 } else if (result.data.status === 200) {
                                     history.push('/settings')
+                                    // formSubmit()
                                 }
 
                             }
