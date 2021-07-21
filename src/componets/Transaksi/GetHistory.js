@@ -6,6 +6,7 @@ import { Link, Redirect } from "react-router-dom";
 import { DataUsageSharp } from "@material-ui/icons"
 import styles from "./Transaksi.module.css"
 import panahbawah from "../../img/panahbawah.svg"
+import panahatas from "../../img/panahatas.svg"
 import { red } from "@material-ui/core/colors";
 
 const GetHistory = () => {
@@ -42,7 +43,8 @@ const GetHistory = () => {
                         alignItems: "center"
                     }}>
                         <div style={{ width: "50%" }}>
-                            <p><img src={panahbawah} ></img>{trx.title}</p>
+                            <p>{trx.type === "in" ? <img src={panahbawah}></img> : <img src={panahatas}></img>}{trx.title}</p>
+                            {/* <p><img src={panahbawah} ></img>{trx.title}</p> */}
                             <dt className={styles.tanggal}>{new Date(trx.date).toLocaleDateString()}</dt>
                         </div>
                         <div style={{ width: "50%", textAlign: "right" }}>
