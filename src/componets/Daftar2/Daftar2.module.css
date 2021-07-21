@@ -4,7 +4,7 @@
 }
 
 .App {
-  height: 700px;
+  height: 750px;
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -55,4 +55,11 @@
 .text {
   color: white;
   text-align: center;
+}
+.lengkapi {
+  margin-right: 190px;
+  font-size: 24px;
+}
+.App-header {
+  margin-right: 240px;
 }

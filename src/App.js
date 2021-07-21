@@ -14,6 +14,9 @@ import Daftar2 from "./componets/Daftar2/Daftar2"
 import Dashboard from "./componets/Dashboard/Dashboard";
 import Share from "./componets/Share/Share"
 import notifToast from "./componets/NotifToast/NotifToast"
+import Pencairan from "./componets/Pencairan/Pencairan"
+import SuccessPencairan from "./componets/PopupSuksesPencairan/PopupSuksesPencairan"
+import Transaksi from "./componets/Transaksi/Transaksi";
 import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -33,6 +36,9 @@ const App = () => {
       <Route path="/dashboard" component={Dashboard}></Route>
       <Route path="/share" component={Share}></Route>
       <Route path="/notifToast" component={notifToast}></Route>
+      <Route path="/pencairan" component={Pencairan}></Route>
+      <Route path="/successPencairan" component={SuccessPencairan}></Route>
+      <Route path="/transaksi" component={Transaksi}></Route>
     </Switch>
 
   </div>

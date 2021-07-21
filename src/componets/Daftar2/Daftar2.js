@@ -6,11 +6,30 @@ import { Link, useHistory } from "react-router-dom";
 import validation from "./validation";
 import axios from "axios";
 import jwt from "jwt-decode"
+import { BoxUpload, ImagePreview } from "./index";
+import FolderIcon from "../../img/profile.svg"
 
 const Daftar2 = () => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const [errors, setErros] = useState({});
     const history = useHistory();
+    const [image, setImage] = useState("");
+    const [isUploaded, setIsUploaded] = useState(false);
+    const [typeFile, setTypeFile] = useState("");
+
+    function handleImageChange(e) {
+        if (e.target.files && e.target.files[0]) {
+            setTypeFile(e.target.files[0].type);
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                setImage(e.target.result);
+                setIsUploaded(true);
+            };
+
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    }
     const [data, setValues] = useState({
         nama: "",
         bio: "",
@@ -63,10 +82,60 @@ const Daftar2 = () => {
                 <header className={styles['App-header']}>
                     <img src={logo} alt="logo" />
                 </header>
-                <div className={styles.profile}>
-                    <img src={profile} alt="logo" />
-                </div>
                 <h3 class="h3 mb-3 fw-normal">Lengkapi Profile</h3>
+                <BoxUpload>
+                    <div className="image-upload">
+                        {!isUploaded ? (
+                            <>
+                                <label htmlFor="upload-input">
+                                    <img
+                                        src={FolderIcon}
+                                        draggable={"false"}
+                                        alt="placeholder"
+                                        style={{ width: 218, height: 218 }}
+                                    />
+
+                                </label>
+
+                                <input
+                                    id="upload-input"
+                                    type="file"
+                                    accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
+                                    onChange={handleImageChange}
+                                />
+                            </>
+                        ) : (
+                            <ImagePreview>
+                                <img
+                                    className="close-icon"
+
+                                    onClick={() => {
+                                        setIsUploaded(false);
+                                        setImage(null);
+                                    }}
+                                />
+                                {typeFile.includes("video") ? (
+                                    <video
+                                        id="uploaded-image"
+                                        src={image}
+                                        draggable={false}
+                                        controls
+                                        autoPlay
+                                        alt="uploaded-img"
+                                    />
+                                ) : (
+                                    <img
+                                        id="uploaded-image"
+                                        src={image}
+                                        draggable={false}
+                                        alt="uploaded-img"
+                                    />
+                                )}
+                            </ImagePreview>
+                        )}
+                    </div>
+                </BoxUpload>
+                <br></br>
                 <input
                     type="text"
                     class={styles["form-control"]}
@@ -92,6 +161,40 @@ const Daftar2 = () => {
                 </div>
             </div>
         </div>
+        // <div className={styles.App}>
+        //     <div className={styles['form-signin']}>
+        //         <header className={styles['App-header']}>
+        //             <img src={logo} alt="logo" />
+        //         </header>
+        //         <div className={styles.profile}>
+        //             <img src={profile} alt="logo" />
+        //         </div>
+        //         <h3 class="h3 mb-3 fw-normal">Lengkapi Profile</h3>
+        //         <input
+        //             type="text"
+        //             class={styles["form-control"]}
+        //             id="floatingNama"
+        //             placeholder="Nama"
+        //             name="nama"
+        //             value={data.nama}
+        //             onChange={handleChange}
+        //         ></input>
+        //         {errors.nama && <p className="error">{errors.nama}</p>}
+        //         <textarea
+        //             type="text"
+        //             class={styles["form-control-bio"]}
+        //             id="floatingBio"
+        //             placeholder="Bio"
+        //             name="bio"
+        //             value={data.bio}
+        //             onChange={handleChange}
+        //         ></textarea>
+        //         {errors.bio && <p className="error">{errors.bio}</p>}
+        //         <div className={styles.btnSubmit} onClick={handleFormSubmit}>
+        //             <p className={styles.text}  >Selesai</p>
+        //         </div>
+        //     </div>
+        // </div>
     )
 }
 

@@ -4,50 +4,50 @@
 }
 
 .App {
-    
-    height: 700px;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #dcdcdc; 
-  }
-  .form-signin {
-    background-color: white;
-    width: 100%;
-    max-width: 350px;
-    padding: 15px;
-    margin-bottom: 390px;
-    margin: 0px auto;
-  }
-  .button {
-    margin-left: 280px;
-    margin-top:-50px;
-	position: absolute;
-	appearance: none;
-	padding: -2em -1em;
-	color: black;
-	cursor: pointer;
-	outline: none;
-	border-radius: 100px;
-	border: 2px solid black;
-	background: transparent;
+  height: 700px;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #dcdcdc;
 }
-
-.boxdua{
-    width: 300px;
-    height: 370px;
-    left: 25px;
-    top: 50px;
-    border-radius: 5px;
-    background-color:white;
-    z-index: 2;
-    margin-top: 50px;
-    margin-left: 20px;
-    box-shadow: 4px 5px 5px rgb(169, 169, 169);
-  }
-  .arah{
-    margin-top: -60px;
-    margin-left: 1px;
-    position: absolute;
-    cursor: pointer;
-  }
+.form-signin {
+  background-color: white;
+  width: 100%;
+  max-width: 350px;
+  padding: 15px;
+  margin-bottom: 390px;
+  margin: 0px auto;
+}
+.cairkan {
+  margin-left: 250px;
+  margin-top: -50px;
+  position: absolute;
+  appearance: none;
+  padding: 4px 1em;
+  color: #21242b;
+  cursor: pointer;
+  outline: none;
+  border-radius: 100px;
+  border: 2px solid #21242b;
+  background: transparent;
+}
+.box {
+  margin-top: 30px;
+}
+.boxdua {
+  width: 300px;
+  padding: 25px;
+  left: 25px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: white;
+}
+.arah {
+  margin-top: -60px;
+  margin-left: 1px;
+  position: absolute;
+  cursor: pointer;
+}
+.tanggal {
+  margin-left: 25px;
+}
