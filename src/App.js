@@ -17,6 +17,10 @@ import notifToast from "./componets/NotifToast/NotifToast"
 import Pencairan from "./componets/Pencairan/Pencairan"
 import SuccessPencairan from "./componets/PopupSuksesPencairan/PopupSuksesPencairan"
 import Transaksi from "./componets/Transaksi/Transaksi";
+import BuatTagihan from "./componets/BuatTagihan/BuatTagihan"
+import SuksesTagihan from "./componets/PopupSuksesBuatTagihan/PopupSuksesTagihan"
+import Tagihan from "./componets/Tagihan/Tagihan"
+import DetailTagihan from "./componets/DetailTagihan/DetailTagihan"
 import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -39,6 +43,10 @@ const App = () => {
       <Route path="/pencairan" component={Pencairan}></Route>
       <Route path="/successPencairan" component={SuccessPencairan}></Route>
       <Route path="/transaksi" component={Transaksi}></Route>
+      <Route path="/buatTagihan" component={BuatTagihan}></Route>
+      <Route path="/successTagihan" component={SuksesTagihan}></Route>
+      <Route path="/tagihan" component={Tagihan}></Route>
+      <Route path="/detailTagihan" component={DetailTagihan}></Route>
     </Switch>
 
   </div>
