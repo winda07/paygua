@@ -38,44 +38,20 @@ const GetProfile = () => {
                     console.log(result)
                 })
 
-            // console.log(data)
         }
     }, []);
-    const sendData = () => {
-
-
-        console.log("username: " + data.username)
-
-        history.push({
-            pathname: '/share',
-            state: {
-                username: data.username
-            }
-
-        })
-        console.log("username: " + data.username)
-    }
-    // console.log(data.username)
     return (
         <div>
-            <div className={styles.box1}>
-                <p className={styles.usertext}>Foto User</p>
-                <img src={data.profilePicture}></img>
-            </div>
+            <img className={styles.picture} src={data.profilePicture}></img>
+
             <div className={styles.boxdua}>
-                {/* <GetName></GetName> */}
                 <p>{data.name}</p>
                 <p>{data.bio}</p>
-                <Link to="/share" ><img onClick={sendData} className={styles.share} src={share} alt="logo" /></Link>
+                <Link to="/share" ><img className={styles.share} src={share} alt="logo" /></Link>
                 <button className={styles["a"]} onClick={() => { navigator.clipboard.writeText(`paygua.com/${data.username}`) }}>
                     <Link to="/notiftoast"><img className={styles["cop"]} src={copy}></img></Link>
                 </button>
-                {/* <Link to="/notiftoast"> <img className={styles.cop} src={copy} alt="logo" /></Link> */}
                 <div class={styles["inputContainer"]}>
-                    {/* <h5 class={styles["usernameLabel"]}>
-                        {urlPayGua}
-                    </h5> */}
-
                     <input type="text" className={styles.boxdalam} value={`paygua.com/${data.username}`} disabled></input>
                 </div>
             </div>

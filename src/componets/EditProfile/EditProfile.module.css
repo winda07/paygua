@@ -4,7 +4,7 @@
 }
 
 .App {
-  height: 700px;
+  /* height: 700px; */
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -37,6 +37,7 @@
   margin-top: -15px;
 }
 .user {
+  border: 100px;
   margin-top: 30px;
   margin-left: 110px;
 }
@@ -102,4 +103,12 @@
 }
 .set {
   color: red;
+}
+.picture {
+  width: 130px;
+  height: 130px;
+  border-radius: 5px;
+  margin-top: 20px;
+  position: relative;
+  border-radius: 100%;
 }

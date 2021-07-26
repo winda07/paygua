@@ -87,7 +87,6 @@ const DummyCmp = (props) => {
     })
     let paramobj = useParams();
     console.log(paramobj)
-    let Transactiontype = <p>{props.type}</p>
 
     const setBank = (bank) => {
         if (bank === "ovo") {
@@ -145,7 +144,8 @@ const DummyCmp = (props) => {
                 <div>
                     <h1 className={styles.maudy}>Bayar ke {paramobj.username}</h1>
                     <div className={styles.boxdua}>
-                        <div className={styles.boxdalam}></div>
+                        <img className={styles.boxdalam} src={data.profilePicture}></img>
+                        {/* <div className={styles.boxdalam}>{data.profilePicture}</div> */}
                         <p className={styles.info}>{data.bio}</p>
                     </div>
                     <input

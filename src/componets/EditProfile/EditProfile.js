@@ -8,6 +8,7 @@ import { Link, useHistory } from "react-router-dom";
 import validation from "./validation";
 import axios from "axios";
 import jwt from "jwt-decode"
+import { BoxUpload, ImagePreview } from "./index"
 
 
 
@@ -15,11 +16,14 @@ const EditProfile = ({ formSubmit }) => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const [errors, setErros] = useState({});
     const history = useHistory();
+    const [image, setImage] = useState("");
+    const [isUploaded, setIsUploaded] = useState(false);
     const [data, setValues] = useState({
         nama: "",
         username: "",
         bio: "",
-        email: ""
+        email: "",
+        profilePicture: [],
     });
 
     const handleChange = (e) => {
@@ -29,6 +33,22 @@ const EditProfile = ({ formSubmit }) => {
         });
     };
 
+    const handleChange2 = (e) => {
+        setValues({
+            ...data,
+            [e.target.name]: e.target.files[0],
+        });
+        if (e.target.files && e.target.files[0]) {
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                setImage(e.target.result);
+                setIsUploaded(true);
+            };
+
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    };
     useEffect(() => {
         const token = localStorage.getItem("token");
         // console.log("token: ", token)
@@ -44,7 +64,8 @@ const EditProfile = ({ formSubmit }) => {
                     console.log(result.data)
                     setValues({
                         ...data,
-                        email: result.data.data.email
+                        email: result.data.data.email,
+                        profilePicture: result.data.data.profilePicture
                     })
                 })
         }
@@ -58,36 +79,38 @@ const EditProfile = ({ formSubmit }) => {
         // submit
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             const token = localStorage.getItem("token");
-            if (token) {
-                const user = jwt(token);
-                axios
-                    .put("https://paygua.com/api/user/" + user.id, {
-                        nama: data.nama,
-                        username: data.username,
-                        bio: data.bio
-                    }, {
-                        headers: {
-                            Authorization: token,
-                        }
-                    })
-                    .then((result) => {
-                        console.log(result)
-                        if (result) {
-                            if (result.data) {
-                                if (result.data.status === 400) {
-                                    alert("Edit profil mengalami error");
-                                } else if (result.data.status === 200) {
-                                    history.push('/settings')
-                                    // formSubmit()
-                                }
-
-                            }
-                        }
-                    })
-                    .catch((e) => {
-                        alert("error");
-                    });
+            const formData = new FormData();
+            for (var key in data) {
+                formData.append(key, data[key]);
             }
+            // if (token) {
+            const user = jwt(token);
+            axios
+                .put("https://paygua.com/api/user/" + user.id, formData, {
+                    headers: {
+                        Authorization: token
+                    },
+                    'maxContentLength': Infinity,
+                    'maxBodyLength': Infinity
+                })
+                .then((result) => {
+                    console.log(result)
+                    if (result) {
+                        if (result.data) {
+                            if (result.data.status === 400) {
+                                alert("Edit profil mengalami error");
+                            } else if (result.data.status === 200) {
+                                history.push('/settings')
+                                // formSubmit()
+                            }
+
+                        }
+                    }
+                })
+                .catch((e) => {
+                    alert("error");
+                });
+            // }
         }
 
     };
@@ -100,15 +123,58 @@ const EditProfile = ({ formSubmit }) => {
                         <img src={arrow} alt="logo" />
                     </Link>
                     <p className={styles.kun}>General</p>
+                    {/* <BoxUpload> */}
+
+                    {/* </BoxUpload> */}
 
 
                     <img className={styles.check1} onClick={handleFormSubmit} src={check} alt="logo"></img>
 
                 </div>
                 <div className={styles.user}>
-                    <img src={user} alt="logo" />
+                    <img className={styles.picture} src={data.profilePicture}></img>
                 </div>
-                <p className={styles.kun1}>Ganti Foto Profile</p>
+                <div className="image-upload">
+                    {!isUploaded ? (
+                        <>
+                            <label htmlFor="upload-input">
+                                <img
+                                    draggable={"false"}
+                                    alt="Ganti Foto Profile"
+                                    style={{ width: 218, height: 218 }}
+                                />
+
+                            </label>
+
+                            <input
+                                id="upload-input"
+                                name="profilePicture"
+                                type="file"
+                                onChange={handleChange2}
+                                accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
+                            />
+                        </>
+                    ) : (
+                        <ImagePreview>
+                            <img
+                                className="close-icon"
+
+                                onClick={() => {
+                                    setIsUploaded(false);
+                                    setImage(null);
+                                }}
+                            />
+                            <img
+                                id="uploaded-image"
+                                src={image}
+                                draggable={false}
+                                alt="uploaded-img"
+                            />
+
+                        </ImagePreview>
+                    )}
+                </div>
+                {/* <p className={styles.kun1}>Ganti Foto Profile</p> */}
                 <input
                     type="text"
                     class={styles["form-control"]}

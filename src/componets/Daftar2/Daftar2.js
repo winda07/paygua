@@ -19,29 +19,31 @@ const Daftar2 = () => {
     const [typeFile, setTypeFile] = useState("");
     const [isClicked, setIsClicked] = useState(false);
 
-    function handleImageChange(e) {
-
-    }
     const [data, setValues] = useState({
         nama: "",
         bio: "",
-        profilePicture: ""
+        profilePicture: []
     });
     const handleChange = (e) => {
         setValues({
             ...data,
             [e.target.name]: e.target.value,
         });
+    };
+    const handleChange2 = (e) => {
+        setValues({
+            ...data,
+            [e.target.name]: e.target.files[0],
+        });
         if (e.target.files && e.target.files[0]) {
-            setTypeFile(e.target.files[0].type);
             let reader = new FileReader();
 
             reader.onload = function (e) {
-                setImage(e.target.files[0]);
+                setImage(e.target.result);
                 setIsUploaded(true);
             };
 
-            // reader.readAsDataURL(e.target.files[0]);
+            reader.readAsDataURL(e.target.files[0]);
         }
     };
     const handleFormSubmit = (e) => {
@@ -51,47 +53,31 @@ const Daftar2 = () => {
         setIsClicked(true);
         // submit
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
+            const token = localStorage.getItem("token");
+            const user = jwt(token)
             const formData = new FormData();
             for (var key in data) {
                 formData.append(key, data[key]);
             }
 
-            axios.put('https://paygua.com/api/user/', formData, {
+            axios.put('https://paygua.com/api/user/' + user.id, formData, {
                 headers: {
-                    // ...formData.getHeaders(),
-                    Authorization: "Bearer token"
+                    Authorization: token
                 },
                 'maxContentLength': Infinity,
                 'maxBodyLength': Infinity
             })
+                .then((result) => {
+                    if (result.data) {
+                        if (result.data.status === 200) {
+                            history.push('/dashboard')
+                        } else if (result.data.status === 400) {
+                            alert("Edit profile mengalami error")
+                        }
+                    }
+                    console.log(result)
+                })
             console.log(typeof data.profilePicture)
-            // const token = localStorage.getItem("token");
-            // if (token) {
-            //     const user = jwt(token);
-            //     console.log("user");
-            //     axios
-            //         .put("https://paygua.com/api/user/" + user.id, data, {
-            //             headers: {
-            //                 Authorization: token,
-            //             }
-            //         })
-            //         .then((result) => {
-            //             console.log(result)
-            //             if (result) {
-            //                 if (result.data) {
-            //                     if (result.data.status === 200) {
-            //                         history.push('/dashboard')
-            //                     } else if (result.data.status === 400) {
-            //                         alert("Edit profil mengalami error")
-            //                     }
-            //                 }
-            //             }
-            //             console.log(result)
-            //         })
-            //         .catch((e) => {
-            //             alert("error");
-            //         });
-            // }
         }
 
     };
@@ -120,7 +106,7 @@ const Daftar2 = () => {
                                     id="upload-input"
                                     name="profilePicture"
                                     type="file"
-                                    onChange={handleChange}
+                                    onChange={handleChange2}
                                     accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
                                 />
                             </>
@@ -208,3 +194,4 @@ const Daftar2 = () => {
 }
 
 export default Daftar2
+

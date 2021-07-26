@@ -53,7 +53,7 @@
   display: block;
 }
 
-.box1 {
+/* .box1 {
   width: 330px;
   height: 270px;
   background: black;
@@ -61,7 +61,7 @@
   margin-top: 20px;
   margin-left: 10px;
   position: relative;
-}
+} */
 .usertext {
   color: white;
   padding-top: 110px;
@@ -136,5 +136,10 @@
   border: 0px;
 }
 .picture {
-  margin-bottom: 100px;
+  width: 330px;
+  height: 280px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: 10px;
+  position: relative;
 }

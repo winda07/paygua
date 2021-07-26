@@ -4,71 +4,28 @@
 }
 
 .App {
-    
-    height: 700px;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #dcdcdc; 
-  }
-  .form-signin {
-    background-color: white;
-    width: 100%;
-    height: 590px;
-    max-width: 350px;
-    padding: 15px;
-    margin-bottom: 390px;
-    margin: 0px auto;
-  }
-  .boxdua{
-    width: 300px;
-    height: 80px;
-    left: 25px;
-    top: 50px;
-    border-radius: 5px;
-    background-color:white;
-    z-index: 2;
-    position: absolute;
-    margin-top: 120px;
-    margin-left: 470px;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  height: 700px;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #dcdcdc;
 }
-.boxdua2{
-    width: 300px;
-    height: 80px;
-    left: 25px;
-    top: 50px;
-    border-radius: 5px;
-    background-color:white;
-    z-index: 2;
-    position: absolute;
-    margin-top: 230px;
-    margin-left: 470px;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+.form-signin {
+  background-color: white;
+  width: 100%;
+  height: 590px;
+  max-width: 350px;
+  padding: 15px;
+  margin-bottom: 390px;
+  margin: 0px auto;
 }
-.boxdua3{
-    width: 300px;
-    height: 80px;
-    left: 25px;
-    top: 50px;
-    border-radius: 5px;
-    background-color:white;
-    z-index: 2;
-    position: absolute;
-    margin-top: 340px;
-    margin-left: 470px;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
-}
-.boxdua4{
-    width: 300px;
-    height: 80px;
-    left: 25px;
-    top: 50px;
-    border-radius: 5px;
-    background-color:white;
-    z-index: 2;
-    position: absolute;
-    margin-top: 450px;
-    margin-left: 470px;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+.boxdua {
+  width: 350px;
+  height: 100px;
+  top: 50px;
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  margin-top: 120px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
