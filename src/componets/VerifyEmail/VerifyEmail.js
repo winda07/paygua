@@ -62,6 +62,7 @@ const VerifyEmail = ({ submitForm }) => {
           <p className={styles.kun}>Verify Email</p>
         </div>
         <input type="email" className={styles['form-control']} id="floatingInput" placeholder="Password Baru" name="email" value={data.email} onChange={handleChange} ></input>
+        <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
         <div className={styles.btnSubmit} onClick={handleFormSubmit}>
           <p class={styles.text} >Submit</p>
         </div>

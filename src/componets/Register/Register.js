@@ -88,17 +88,7 @@ const Register = ({ submitForm }) => {
               value={data.email}
               onChange={handleChange}
             ></input>
-            {errors.email && <p className="error">{errors.email}</p>}
-            {/* <input
-              type="text"
-              name="username"
-              class={styles["form-control"]}
-              id="=floatingUsername"
-              placeholder="Paygua.com/Username"
-              // value={urlPayGua.concat(data.username)}
-              value={data.username}
-              onChange={handleChange}
-            ></input> */}
+            <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
             <div class={styles["inputContainer"]}>
               <h5 class={styles["usernameLabel"]}>
                 {urlPayGua}
@@ -112,7 +102,7 @@ const Register = ({ submitForm }) => {
                 onChange={handleChange}
               ></input>
             </div>
-            {errors.username && <p className="error">{errors.username}</p>}
+            <div className={styles["set"]}>{errors.username && <p className="error">{errors.username}</p>}</div>
             <input
               type={isRevealPwd ? "text" : "password"}
               class={styles["form-control"]}
@@ -129,7 +119,7 @@ const Register = ({ submitForm }) => {
               src={isRevealPwd ? hidePwdImg : showPdwImg}
               onClick={() => setIsRevealPwd((prevState) => !prevState)}
             />
-            {errors.password && <p className="error">{errors.password}</p>}
+            <div className={styles["set"]}>{errors.password && <p className="error">{errors.password}</p>}</div>
             <div className="sandi">
               <p className={styles["text-ketentuan"]}>
                 Dengan mendaftar, kamu setuju dengan{" "}

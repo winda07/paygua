@@ -70,8 +70,11 @@ h6 {
 .link {
   font-size: 12px;
   color: #838790;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 .a {
-  height: 150px;
+  border-radius: 5px;
+  border: 1px;
+  margin-left: 5px;
+  margin-bottom: 8px;
 }

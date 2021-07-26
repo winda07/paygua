@@ -100,3 +100,6 @@
   box-shadow: none;
   outline: none !important;
 }
+.set {
+  color: red;
+}

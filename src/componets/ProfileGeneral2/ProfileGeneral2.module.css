@@ -4,7 +4,6 @@
 }
 
 .App {
-  height: 1000px;
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -89,8 +88,8 @@
 
 .form-control-bio {
   width: 100%;
-  padding: 23px 20px;
-  margin: 8px 0;
+  padding: 30px 10px;
+  margin: 8px 0px;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -120,7 +119,7 @@
 
 .section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .section2 {
   display: flex;
@@ -128,8 +127,8 @@
 }
 
 .logoovo {
-  padding: 1em 1em;
-  border: 2px solid #bfc2cb;
+  padding: 0.5em 1em;
+  border: 1px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
@@ -139,8 +138,8 @@
 }
 
 .logogopay {
-  padding: 0.8em 0.7em;
-  border: 2px solid #bfc2cb;
+  padding: 0.23em 0.6em;
+  border: 1px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
@@ -172,8 +171,8 @@
 }
 
 .logoshopeepay {
-  padding: 1.2em 1.5em;
-  border: 2px solid #bfc2cb;
+  padding: 0.66em 1.4em;
+  border: 1px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;

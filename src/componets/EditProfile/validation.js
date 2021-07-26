@@ -9,10 +9,6 @@ const validation = (values) => {
     if (!values.username) {
         errors.username = "Username tidak boleh kosong"
     }
-    if (!values.bio) {
-        errors.bio = "Bio tidak boleh kosong"
-    }
-
     return errors;
 }
 export default validation

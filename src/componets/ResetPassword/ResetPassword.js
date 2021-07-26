@@ -72,7 +72,7 @@ const ResetPassword = ({ submitForm }) => {
           src={isRevealPwd2 ? hidePwdImg : showPdwImg}
           onClick={() => setIsRevealPwd2((prevState) => !prevState)}
         />
-        {errors.password && <p className="error">{errors.password}</p>}
+        <div className={styles["set"]}>{errors.password && <p className="error">{errors.password}</p>}</div>
         <input type={isRevealPwd ? "text" : "password"} className={styles['form-control']} id="floatingInput" placeholder="Konfirmasi Password Baru" name="confirmPassword" value={data.confirmPassword} onChange={handleChange} ></input>
         <img
           className={styles["img"]}
@@ -80,7 +80,7 @@ const ResetPassword = ({ submitForm }) => {
           src={isRevealPwd ? hidePwdImg : showPdwImg}
           onClick={() => setIsRevealPwd((prevState) => !prevState)}
         />
-        {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
+        <div className={styles["set"]}>{errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}</div>
         <div className={styles.btnSubmit} onClick={handleFormSubmit}>
           <p class={styles.text} >Reset Password</p>
         </div>

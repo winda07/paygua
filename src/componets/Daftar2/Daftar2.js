@@ -12,67 +12,86 @@ import FolderIcon from "../../img/profile.svg"
 const Daftar2 = () => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const [errors, setErros] = useState({});
+    const FormData = require('form-data');
     const history = useHistory();
     const [image, setImage] = useState("");
     const [isUploaded, setIsUploaded] = useState(false);
     const [typeFile, setTypeFile] = useState("");
+    const [isClicked, setIsClicked] = useState(false);
 
     function handleImageChange(e) {
-        if (e.target.files && e.target.files[0]) {
-            setTypeFile(e.target.files[0].type);
-            let reader = new FileReader();
 
-            reader.onload = function (e) {
-                setImage(e.target.result);
-                setIsUploaded(true);
-            };
-
-            reader.readAsDataURL(e.target.files[0]);
-        }
     }
     const [data, setValues] = useState({
         nama: "",
         bio: "",
+        profilePicture: ""
     });
     const handleChange = (e) => {
         setValues({
             ...data,
             [e.target.name]: e.target.value,
         });
+        if (e.target.files && e.target.files[0]) {
+            setTypeFile(e.target.files[0].type);
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                setImage(e.target.files[0]);
+                setIsUploaded(true);
+            };
+
+            // reader.readAsDataURL(e.target.files[0]);
+        }
     };
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setErros(validation(data));
         setDataIsCorrect(true);
-
+        setIsClicked(true);
         // submit
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
-            const token = localStorage.getItem("token");
-            if (token) {
-                const user = jwt(token);
-                console.log("user");
-                axios
-                    .put("https://paygua.com/api/user/" + user.id, data, {
-                        headers: {
-                            Authorization: token,
-                        }
-                    })
-                    .then((result) => {
-                        console.log(result)
-                        if (result) {
-                            if (result.data) {
-                                if (result.data.status === 200) {
-                                    history.push('/dashboard')
-                                } else if (result.data.status === 400) {
-                                    alert("Edit profil mengalami error")
-                                }
-                            }
-                        }
-                    })
-                    .catch((e) => {
-                        alert("error");
-                    });
+            const formData = new FormData();
+            for (var key in data) {
+                formData.append(key, data[key]);
             }
+
+            axios.put('https://paygua.com/api/user/', formData, {
+                headers: {
+                    // ...formData.getHeaders(),
+                    Authorization: "Bearer token"
+                },
+                'maxContentLength': Infinity,
+                'maxBodyLength': Infinity
+            })
+            console.log(typeof data.profilePicture)
+            // const token = localStorage.getItem("token");
+            // if (token) {
+            //     const user = jwt(token);
+            //     console.log("user");
+            //     axios
+            //         .put("https://paygua.com/api/user/" + user.id, data, {
+            //             headers: {
+            //                 Authorization: token,
+            //             }
+            //         })
+            //         .then((result) => {
+            //             console.log(result)
+            //             if (result) {
+            //                 if (result.data) {
+            //                     if (result.data.status === 200) {
+            //                         history.push('/dashboard')
+            //                     } else if (result.data.status === 400) {
+            //                         alert("Edit profil mengalami error")
+            //                     }
+            //                 }
+            //             }
+            //             console.log(result)
+            //         })
+            //         .catch((e) => {
+            //             alert("error");
+            //         });
+            // }
         }
 
     };
@@ -99,9 +118,10 @@ const Daftar2 = () => {
 
                                 <input
                                     id="upload-input"
+                                    name="profilePicture"
                                     type="file"
+                                    onChange={handleChange}
                                     accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
-                                    onChange={handleImageChange}
                                 />
                             </>
                         ) : (
@@ -114,23 +134,13 @@ const Daftar2 = () => {
                                         setImage(null);
                                     }}
                                 />
-                                {typeFile.includes("video") ? (
-                                    <video
-                                        id="uploaded-image"
-                                        src={image}
-                                        draggable={false}
-                                        controls
-                                        autoPlay
-                                        alt="uploaded-img"
-                                    />
-                                ) : (
-                                    <img
-                                        id="uploaded-image"
-                                        src={image}
-                                        draggable={false}
-                                        alt="uploaded-img"
-                                    />
-                                )}
+                                <img
+                                    id="uploaded-image"
+                                    src={image}
+                                    draggable={false}
+                                    alt="uploaded-img"
+                                />
+
                             </ImagePreview>
                         )}
                     </div>
@@ -145,7 +155,7 @@ const Daftar2 = () => {
                     value={data.nama}
                     onChange={handleChange}
                 ></input>
-                {errors.nama && <p className="error">{errors.nama}</p>}
+                <div className={styles["set"]}>{errors.nama && <p className="error">{errors.nama}</p>}</div>
                 <textarea
                     type="text"
                     class={styles["form-control-bio"]}
@@ -155,7 +165,6 @@ const Daftar2 = () => {
                     value={data.bio}
                     onChange={handleChange}
                 ></textarea>
-                {errors.bio && <p className="error">{errors.bio}</p>}
                 <div className={styles.btnSubmit} onClick={handleFormSubmit}>
                     <p className={styles.text}  >Selesai</p>
                 </div>

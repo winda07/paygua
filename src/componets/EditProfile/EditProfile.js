@@ -118,7 +118,7 @@ const EditProfile = ({ formSubmit }) => {
                     value={data.nama}
                     onChange={handleChange}
                 ></input>
-                {errors.nama && <p className="error">{errors.nama}</p>}
+                <div className={styles["set"]}>{errors.nama && <p className="error">{errors.nama}</p>}</div>
                 <input
                     type="text"
                     class={styles["form-control"]}
@@ -128,8 +128,7 @@ const EditProfile = ({ formSubmit }) => {
                     value={data.username}
                     onChange={handleChange}
                 ></input>
-                {errors.username && <p className="error">{errors.username}</p>}
-
+                <div className={styles["set"]}>{errors.username && <p className="error">{errors.username}</p>}</div>
                 <textarea
                     type="text"
                     class={styles["form-control-bio"]}
@@ -139,7 +138,6 @@ const EditProfile = ({ formSubmit }) => {
                     value={data.bio}
                     onChange={handleChange}
                 ></textarea>
-                {errors.bio && <p className="error">{errors.bio}</p>}
                 <input
                     type="email"
                     class={styles["form-control"]}

@@ -1,4 +1,5 @@
-import React, {useState} from "react"
+import React, { useState, useEffect } from "react"
+import { Link, useHistory } from "react-router-dom";
 import styles from "./ProfileGeneral2.module.css"
 import logo from "../../img/logo.svg"
 import ovo from "../../img/OVO.svg"
@@ -8,51 +9,87 @@ import linkaja from "../../img/LINKAJA.svg"
 import shopeepay from "../../img/SHOPEEPAY.svg"
 import qris from "../../img/QRIS.svg"
 import transfer from "../../img/Bank Transfer.svg"
+import axios from 'axios';
+import jwt from "jwt-decode"
+import validation from "./validation";
+import Popup from "../PopupSuksesPembayaran/PopupSukses"
+import DummyCmp from "../DummyCmp/DummyCmp";
 const ProfileGeneral2 = () => {
+    const [dataIsCorrect, setDataIsCorrect] = useState(false)
+    const [errors, setErros] = useState({});
+    const [isClicked, setIsClicked] = useState(false);
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const history = useHistory();
     const [showResults, setShowResults] = useState('');
     const [show, setShow] = useState('');
-    return (
-        <div className={styles.App}>
-            <div className={styles["form-signin"]}>
-                    <h1 className={styles.maudy}>Bayar ke ...</h1>
-                    
-        <div className={styles.boxdua}>
-            <div className={styles.boxdalam}></div>
-            <p className={styles.info}>Pulvinar elementum fermentum ied facilisis amet in nunc. Sed tellus facilisis ornare ultricies ultricies nullam euismod.</p>
-        </div>
-        <input type="text" className={styles['form-control-nama']} id="floatingNama" placeholder="Nama"></input>
-             <input type="email" className={styles['form-control-email']} id="floatingEmail" placeholder="Email"></input>
-             <input type="number" className={styles['form-control-nominal']} id="floatingNominal" placeholder="Nominal"></input>
-             <input type="text" className={styles['form-control-bio']} id="floatingBio" placeholder="Pesan"></input>
-             <br></br>
-             <br></br>
-            <section className={styles['section']}>
-            <button className={styles.logoovo} onClick={()=> setShowResults(true) || setShow(false)}><img src={ovo}></img></button>
-             <button className={styles.logogopay} onClick={()=> setShowResults(false) || setShow(false)}><img src={gopay}></img></button>
-             <button className={styles.logodana} onClick={()=> setShowResults(false)|| setShow(false) }><img src={dana}></img></button>
-             <button className={styles.logolinkaja} onClick={()=> setShowResults(false) || setShow(false)}><img src={linkaja}></img></button>
-            </section>
-             <br></br>
-           <section className={styles['section2']}>
-           <button className={styles.logoshopeepay} onClick={()=> setShowResults(false) || setShow(false)}><img src={shopeepay}></img></button>
-           <button className={styles.logoqris} onClick={()=> setShowResults(false) || setShow(false)}><img src={qris}></img></button>
-           <button className={styles.logotransfer} onClick={()=> setShow(true) || setShowResults(false)}><img src={transfer}></img></button>
-           </section>
-           {
-                showResults? <input type="text" className={styles['validateOvo']} placeholder="Masukkan nomor Ovo"></input>: null
-            }
-            <br></br>
+    const [data, setValues] = useState({
+        name: "",
+        nominal: "",
+        email: "",
+        pesan: "",
+        bank: ""
+    })
+    const handleChange = (e) => {
 
-            {
-                show ? <p className={styles['total']} >Nominal + 5.000(Biaya Bank) = Total</p> : null
+        setValues({
+            ...data,
+            [e.target.name]: e.target.value
+        });
+        console.log(e.target.value)
+    };
+
+    useEffect(() => {
+
+
+        console.log("handleFormSubmit Object keys: ", Object.keys(errors).length)
+        console.log("handleFormSubmit isDataCorrect: ", dataIsCorrect)
+
+        if (Object.keys(errors).length === 0 && dataIsCorrect) {
+            const token = localStorage.getItem('token');
+            console.log(token)
+            if (token) {
+                const user = jwt(token);
+                axios
+                    .post("https://paygua.com/api/transaction/create", {
+                        name: data.name,
+                        nominal: data.nominal,
+                        email: data.email,
+                        pesan: data.pesan,
+                        bank: data.bank
+                    }, {
+                        headers: {
+                            'Authorization': token,
+                        }
+                    })
+                    .then((result) => {
+                        if (result) {
+                            if (result.data.status == 200) {
+                                setButtonPopup(true);
+                            }
+                        }
+
+                        console.log(result.data);
+                        console.log(token)
+                    })
+                    .catch((e) => {
+                    });
+                // submitForm()
             }
-             <div className={styles.btnSubmit}>
-                <p className={styles.text2}  >Bayar</p>
-                </div>
-           
-                <img className={styles.logo1} src={logo}  alt="logo" />
-            </div>
-        </div>
+
+
+        }
+
+    }, [errors, dataIsCorrect]);
+
+    const handleFormSubmit = (e) => {
+        console.log(data)
+        setErros(validation(data));
+        setDataIsCorrect(true)
+        setIsClicked(true);
+
+    }
+    return (
+        <div></div>
     )
 }
 

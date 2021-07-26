@@ -87,7 +87,8 @@ const Login = ({ submitForm }) => {
               value={data.email}
               onChange={handleChange}
             ></input>
-            {errors.email && <p className="error">{errors.email}</p>}
+            <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
+
             <input
               type={isRevealPwd ? "text" : "password"}
               class={styles["form-control"]}
@@ -104,7 +105,8 @@ const Login = ({ submitForm }) => {
               src={isRevealPwd ? hidePwdImg : showPdwImg}
               onClick={() => setIsRevealPwd((prevState) => !prevState)}
             />
-            {errors.password && <p className="error">{errors.password}</p>}
+            <div className={styles["set"]}>{errors.password && <p className="error">{errors.password}</p>}</div>
+
 
             <div className={styles.sandi}>
               <Link style={{ textDecoration: 'none' }} to="/lupas"> <a class={styles['ForgetPwd']}>Lupa Kata Sandi?</a></Link>

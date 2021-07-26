@@ -96,7 +96,7 @@ const Pencairan = () => {
                     value={data.nominal}
                     onChange={handleChange}
                 ></input>
-                {errors.nominal && <p className="error">{errors.nominal}</p>}
+                <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
                 <input
                     type="text"
                     class={styles["form-control-nama"]}
@@ -106,7 +106,7 @@ const Pencairan = () => {
                     value={data.name}
                     onChange={handleChange}
                 ></input>
-                {errors.name && <p className="error">{errors.name}</p>}
+                <div className={styles["set"]}>{errors.name && <p className="error">{errors.name}</p>}</div>
                 <input
                     type="number"
                     class={styles["form-control-nominal"]}
@@ -116,8 +116,7 @@ const Pencairan = () => {
                     value={data.accNumber}
                     onChange={handleChange}
                 ></input>
-                {errors.accNumber && <p className="error">{errors.accNumber}</p>}
-
+                <div className={styles["set"]}>{errors.accNumber && <p className="error">{errors.accNumber}</p>}</div>
                 <div className={styles.choose}>
                     <p>Pilihan Bank </p>
                     <br></br>
@@ -127,7 +126,7 @@ const Pencairan = () => {
                     </div>
 
                 </div>
-                {errors.bank && <p className="error">{errors.bank}</p>}
+                <div className={styles["set"]}>{errors.bank && <p className="error">{errors.bank}</p>}</div>
                 <br></br>
                 <br></br>
                 <div className={styles.btnSubmit} onClick={handleFormSubmit}>

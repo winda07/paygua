@@ -90,7 +90,7 @@ const Password = () => {
                         src={isRevealPwd ? hidePwdImg : showPdwImg}
                         onClick={() => setIsRevealPwd((prevState) => !prevState)}
                     />
-                    {errors.passwordLama && <p className="error">{errors.passwordLama}</p>}
+                    <div className={styles["set"]}> {errors.passwordLama && <p className="error">{errors.passwordLama}</p>}</div>
                     <input type={isRevealPwd2 ? "text" : "password"} className={styles['form-control']} id="floatingInput" placeholder="Password Baru" name="passwordBaru" value={data.passwordBaru} onChange={handleChange} ></input>
                     <img
                         className={styles["img"]}
@@ -98,7 +98,7 @@ const Password = () => {
                         src={isRevealPwd2 ? hidePwdImg : showPdwImg}
                         onClick={() => setIsRevealPwd2((prevState) => !prevState)}
                     />
-                    {errors.passwordBaru && <p className="error">{errors.passwordBaru}</p>}
+                    <div className={styles["set"]}> {errors.passwordBaru && <p className="error">{errors.passwordBaru}</p>}</div>
                     <input type={isRevealPwd3 ? "text" : "password"} className={styles['form-control']} id="floatingInput" placeholder="Konfirmasi Password Baru" name="confirmPassword" value={data.confirmPassword} onChange={handleChange} ></input>
                     <img
                         className={styles["img"]}
@@ -106,7 +106,7 @@ const Password = () => {
                         src={isRevealPwd3 ? hidePwdImg : showPdwImg}
                         onClick={() => setIsRevealPwd3((prevState) => !prevState)}
                     />
-                    {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
+                    <div className={styles["set"]}> {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}</div>
                 </div>
                 <div className={styles.sandi}>
                     <Link to="/Lupas"><a href="#" class={styles['ForgetPwd']}>Lupa Kata Sandi?</a></Link>

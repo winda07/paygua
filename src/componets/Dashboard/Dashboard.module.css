@@ -112,7 +112,7 @@
 }
 
 .boxdalam {
-  margin-top: 19px;
+  margin-top: 5px;
   width: 94%;
   height: 12px;
   background-color: black;
@@ -124,9 +124,17 @@
   margin-left: 270px;
   bottom: 1px;
   margin-bottom: 10px;
+  cursor: pointer;
   position: absolute;
 }
 .frame {
   margin-top: 35px;
   width: 300px;
+}
+.a {
+  background-color: transparent;
+  border: 0px;
+}
+.picture {
+  margin-bottom: 100px;
 }

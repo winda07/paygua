@@ -21,13 +21,20 @@ import BuatTagihan from "./componets/BuatTagihan/BuatTagihan"
 import SuksesTagihan from "./componets/PopupSuksesBuatTagihan/PopupSuksesTagihan"
 import Tagihan from "./componets/Tagihan/Tagihan"
 import DetailTagihan from "./componets/DetailTagihan/DetailTagihan"
+import ProfileGeneral2 from "./componets/ProfileGeneral2/ProfileGeneral2"
+import VerivLupas from "./componets/VerivLupas/VerivLupas";
+import DummyCmp from "./componets/DummyCmp/DummyCmp"
+import TentangKami from "./componets/TentangKami/TentangKami"
 import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
   return (<div>
     <Switch>
+
       <Route exact path="/" component={Login} />
+      <Route path="/tentangKami" component={TentangKami}></Route>
       <Route path="/register" component={Form} />
+      <Route path="/verifLupas" component={VerivLupas}></Route>
       <Route path="/lupaPassword" component={LupaPassword} />
       <Route path="/auth/reset/:tokenid" component={ResetPassword} />
       <Route path="/auth/recover/:tokenid" component={VerifyEmail}></Route>
@@ -46,7 +53,14 @@ const App = () => {
       <Route path="/buatTagihan" component={BuatTagihan}></Route>
       <Route path="/successTagihan" component={SuksesTagihan}></Route>
       <Route path="/tagihan" component={Tagihan}></Route>
-      <Route path="/detailTagihan" component={DetailTagihan}></Route>
+      <Route exact path="/detailTagihan" component={DetailTagihan}></Route>
+      <Route path="/profileGeneral" component={ProfileGeneral2}></Route>
+      <Route exact path="/transaction/:username">
+        <DummyCmp type="type1" />
+      </Route>
+      <Route exact path="/transaction/:username/:invoiceId">
+        <DummyCmp type="type2" />
+      </Route>
     </Switch>
 
   </div>
