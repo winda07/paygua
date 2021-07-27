@@ -4,44 +4,42 @@
 }
 
 .App {
-    
-    height: 700px;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #dcdcdc; 
-    
-  }
-  .form-signin {
-    background-color: #F5F5F5;
-    width: 100%;
-    max-width: 350px;
-    padding: 15px;
-    margin-bottom: 390px;
-    margin: 0px auto;
-    border-radius: 10px;
-  }
-
-.lupapw{
-    padding-left: 85px;
+  /* height: 700px; */
+  align-items: center;
+  /* padding-top: 40px; */
+  /* padding-bottom: 40px; */
+  background-color: #dcdcdc;
 }
-.text{
-    color:black;
-    padding-left: 30px;
-    text-align: center;
+.form-signin {
+  background-color: white;
+  width: 100%;
+  height: 900px;
+  max-width: 350px;
+  padding: 15px;
+  margin-bottom: 390px;
+  margin: 0px auto;
+}
+
+.lupapw {
+  padding-left: 85px;
+}
+.text {
+  color: black;
+  padding-left: 30px;
+  text-align: center;
 }
 
 .btnSubmit {
-    margin-left: 125px;
-    position: relative;
-    appearance: none;
-    padding: 1em 2em;
-    color: #21242b;
-    cursor: pointer;
-    outline: none;
-    border-radius: 100px;
-    border: 2px solid #838790;
-    background: transparent;
-    margin-top: 10px;
-    margin-bottom: 30px;
-  }
+  margin-left: 125px;
+  position: relative;
+  appearance: none;
+  padding: 1em 2em;
+  color: #21242b;
+  cursor: pointer;
+  outline: none;
+  border-radius: 100px;
+  border: 2px solid #838790;
+  background: transparent;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}

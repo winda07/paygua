@@ -39,12 +39,10 @@ const TentangKami = () => {
                 <div className={styles.TentangKami}>
                     <img src={latar} alt="latar" />
                     <div className={styles.textBold}>
-                        <h1>Terima dan Atur Pembayaran dari Pelanggan hanya dengan link</h1>
+                        <h1>Terima dan atur pembayaran bisnismu dengan cara paling mudah</h1>
                     </div>
                     <div className={styles.text}>
-                        <p>Paygua membantu kamu menerima
-                            pembayaran dengan mudah dari  pelanggan hanya dengan link. Buat  halaman
-                            pembayaran hanya dengan  beberapa klik, tanpa website, tanpa ribet.</p>
+                        <p>Paygua membantu kamu menerima pembayaran dengan mudah dari pelanggan hanya dengan link. Buat halaman pembayaran hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
                     </div>
                     <button className={styles.button}>
                         <p>Mulai Sekarang &#x279D;</p>

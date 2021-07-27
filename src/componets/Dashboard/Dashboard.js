@@ -15,7 +15,12 @@ const Dashboard = () => {
   socket.on('connection', () => {
     console.log(`I'm connected with the back-end`)
   })
-
+  socket.on('newNotif', function (data) {
+    console.log(data);
+  });
+  socket.on('totalNotif', function (data) {
+    console.log(data);
+  });
 
   return (
     <div className={styles.App}>
