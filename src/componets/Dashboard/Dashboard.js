@@ -8,8 +8,10 @@ import io from "socket.io-client"
 
 
 const Dashboard = () => {
+  const userId = localStorage.getItem("userId")
+  console.log("userId", userId);
   const SERVER = "https://paygua.com"
-  const socket = io.connect(SERVER, { query: "foo=bar" })
+  const socket = io.connect(SERVER, { query: `userId=${userId}` })
   socket.on('connection', () => {
     console.log(`I'm connected with the back-end`)
   })
