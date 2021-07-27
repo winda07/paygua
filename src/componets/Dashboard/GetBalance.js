@@ -4,7 +4,8 @@ import axios from "axios"
 import share from "../../img/share.svg"
 import copy from "../../img/copy.svg"
 import { Link, Redirect } from "react-router-dom";
-import Frame from "../../img/Frame.svg"
+// import Frame from "../../img/Frame.svg"
+import arrow from "../../img/arrow>.svg"
 import styles from "./Dashboard.module.css";
 import { DataUsageSharp } from "@material-ui/icons"
 
@@ -32,9 +33,20 @@ const GetBalance = () => {
     return (
         <div>
             <div>
-                <div className={styles.boxdua2}>
-                    <p >Saldo Kamu saat ini</p>
-                    <p>Rp{data.balance}</p>
+                <div className={styles.boxdua2} style={{
+                    display: "flex",
+                    alignItems: "center"
+                }}>
+                    <div style={{ width: "50%" }}>
+                        <p >Saldo Kamu saat ini</p>
+                        <p>Rp{data.balance}</p>
+
+                    </div>
+                    <div style={{ width: "50%", textAlign: "right" }}>
+                        <Link to="/transaksi"> <img src={arrow}></img></Link>
+                    </div>
+
+
                 </div>
 
             </div>

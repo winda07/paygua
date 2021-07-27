@@ -4,10 +4,15 @@ import logo from "../../img/logo.svg";
 import GetProfile from "./GetProfile"
 import GetBalance from "./GetBalance";
 import GetTotalInvoice from "./GetTotalInvoice"
+import io from "socket.io-client"
 
 
 const Dashboard = () => {
-
+  const SERVER = "https://paygua.com"
+  const socket = io.connect(SERVER, { query: "foo=bar" })
+  socket.on('connection', () => {
+    console.log(`I'm connected with the back-end`)
+  })
 
 
   return (
@@ -27,10 +32,6 @@ const Dashboard = () => {
         <GetProfile></GetProfile>
         <GetBalance></GetBalance>
         <GetTotalInvoice></GetTotalInvoice>
-
-
-
-
       </div>
     </div>
 

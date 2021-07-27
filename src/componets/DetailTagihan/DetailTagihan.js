@@ -44,8 +44,6 @@ const DetailTagihan = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setDataIsCorrect(true);
-        // console.log(data.invoiceId)
-        // console.log(token)
         const token = localStorage.getItem("token");
         if (dataIsCorrect) {
             if (token) {
@@ -54,7 +52,7 @@ const DetailTagihan = () => {
                         "https://paygua.com/api/invoice/" + data.invoiceId, {
                         name: data.nama,
                         email: data.email,
-                        nominal: data.nominal,
+                        nominal: data.nominal.replace(".", ""),
                         message: data.message
                     },
                         {
@@ -63,18 +61,21 @@ const DetailTagihan = () => {
                             },
                         }
                     )
+                    // console.log("nominal", data.nominal)
                     .then((result) => {
                         if (result) {
                             if (result.data.status === 400) {
                                 alert("failed");
                             } else if (result.data.status === 200) {
+
                                 setButtonPopup(true);
                                 setTimeout(() => {
                                     setButtonPopup(false)
                                 }, 5000)
                             }
+                            console.log("nominal: " + result.data.nominal)
                         }
-                        console.log("nominal: " + data.nominal)
+
                         // console.log(result);
                         // console.log(token);
                     })
@@ -106,7 +107,7 @@ const DetailTagihan = () => {
                             history.push('/tagihan')
                         }
                     }
-                    console.log(result);
+                    // console.log(result);
 
                 })
                 .catch((e) => {

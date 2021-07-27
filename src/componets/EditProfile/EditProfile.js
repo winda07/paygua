@@ -76,7 +76,7 @@ const EditProfile = ({ formSubmit }) => {
         setDataIsCorrect(true);
 
         // submit
-        if (Object.keys(errors).length === 0 && dataIsCorrect) {
+        if (dataIsCorrect) {
             const token = localStorage.getItem("token");
             const formData = new FormData();
             for (var key in data) {
@@ -163,7 +163,6 @@ const EditProfile = ({ formSubmit }) => {
                     value={data.nama}
                     onChange={handleChange}
                 ></input>
-                <div className={styles["set"]}>{errors.nama && <p className="error">{errors.nama}</p>}</div>
                 <input
                     type="text"
                     class={styles["form-control"]}
@@ -173,7 +172,6 @@ const EditProfile = ({ formSubmit }) => {
                     value={data.username}
                     onChange={handleChange}
                 ></input>
-                <div className={styles["set"]}>{errors.username && <p className="error">{errors.username}</p>}</div>
                 <textarea
                     type="text"
                     class={styles["form-control-bio"]}

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./Notification.module.css";
 import arrow from "../../img/arrow-left.svg"
 import { Link } from "react-router-dom";
+import GetNotif from './GetNotif';
 
 const Notification = () => {
     return (
@@ -9,7 +10,7 @@ const Notification = () => {
             <div className={styles["form-signin"]}>
                 <Link to="/dashboard"><img src={arrow}></img></Link>
                 <h1 class="h3 mb-3 fw-normal">Notifikasi</h1>
-                <div className={styles.boxdua}></div>
+                <GetNotif></GetNotif>
             </div>
         </div>
     )

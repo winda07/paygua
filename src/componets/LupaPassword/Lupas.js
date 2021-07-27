@@ -16,32 +16,15 @@ const Lupas = ({ submitForm }) => {
     email: "",
   });
 
-  const sendEmail = () => {
-    history.push({
-      pathname: '/verifLupas',
-      state: {
-        email: data.email
-      }
-    })
-  }
+  // const sendEmail = () => {
 
-  useEffect(() => {
-    if (Object.keys(errors).length === 0 && dataIsCorrect) {
-      axios
-        .post("https://paygua.com/api/auth/recover", data)
-        .then((result) => {
-          if (result) {
-            if (result.data) {
-            }
-          }
-          console.log(result.data);
-        })
-        .catch((e) => {
-        });
-      submitForm()
+  //   })
+  // }
 
-    }
-  }, [errors]);
+  // useEffect(() => {
+  //  
+
+  // }, [errors]);
 
   const handleChange = (e) => {
     setValues({
@@ -54,7 +37,23 @@ const Lupas = ({ submitForm }) => {
     e.preventDefault();
     setErros(validation(data));
     setDataIsCorrect(true)
+    if (Object.keys(errors).length === 0 && dataIsCorrect) {
+      axios.post("https://paygua.com/api/auth/recover", data)
+        .then((result) => {
+          if (result.data) {
+            history.push({
+              pathname: '/verifLupas',
+              state: {
+                email: data.email
+              }
+            })
+            submitForm()
+          }
+        })
+
+    }
   }
+
   return (
     <div className={styles.App}>
       <div className={styles['form-signin']}>
@@ -65,7 +64,7 @@ const Lupas = ({ submitForm }) => {
             <p className="text-ketentuan"> Masukkan e-mail yang terdaftar. Kami akan mengirimkan kode verifikasi untuk atur ulang kata sandi.</p>
             <input type="email" className={styles['form-control']} id="floatingInput" placeholder="Email" name="email" value={data.email} onChange={handleChange} ></input>
             <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
-            <div className={styles.btnSubmit} onClick={sendEmail}>
+            <div className={styles.btnSubmit} onClick={handleFormSubmit}>
               <p class={styles.text} >Lanjut</p>
             </div>
           </div>

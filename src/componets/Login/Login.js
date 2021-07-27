@@ -109,7 +109,7 @@ const Login = ({ submitForm }) => {
 
 
             <div className={styles.sandi}>
-              <Link style={{ textDecoration: 'none' }} to="/lupas"> <a class={styles['ForgetPwd']}>Lupa Kata Sandi?</a></Link>
+              <Link style={{ textDecoration: 'none' }} to="/lupaPassword"> <a class={styles['ForgetPwd']}>Lupa Kata Sandi?</a></Link>
             </div>
 
             <div className={styles.btnSubmit} onClick={handleFormSubmit}>

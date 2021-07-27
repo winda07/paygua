@@ -87,7 +87,7 @@ const Daftar2 = () => {
                 <header className={styles['App-header']}>
                     <img src={logo} alt="logo" />
                 </header>
-                <h3 class="h3 mb-3 fw-normal">Lengkapi Profile</h3>
+                <h3 class="h3 mb-3 fw-normal">Lengkapi Profil</h3>
                 <BoxUpload>
                     <div className="image-upload">
                         {!isUploaded ? (
@@ -151,6 +151,7 @@ const Daftar2 = () => {
                     value={data.bio}
                     onChange={handleChange}
                 ></textarea>
+                <div className={styles["set"]}>{errors.bio && <p className="error">{errors.bio}</p>}</div>
                 <div className={styles.btnSubmit} onClick={handleFormSubmit}>
                     <p className={styles.text}  >Selesai</p>
                 </div>
