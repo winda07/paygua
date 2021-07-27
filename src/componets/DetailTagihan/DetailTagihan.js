@@ -6,6 +6,7 @@ import jwt from "jwt-decode";
 import { Link, useLocation, useHistory } from 'react-router-dom'
 import axios from "axios"
 import Popup from "../PopupSuksesUbah/PopupSuksesUbah";
+import CurrencyFormat from "react-currency-format";
 
 const DetailTagihan = () => {
 
@@ -29,7 +30,6 @@ const DetailTagihan = () => {
             nominal: location.state.nominal,
             message: location.state.message,
             invoiceId: location.state.invoiceId
-
         })
     }, [])
 
@@ -44,7 +44,7 @@ const DetailTagihan = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setDataIsCorrect(true);
-        console.log(data.invoiceId)
+        // console.log(data.invoiceId)
         // console.log(token)
         const token = localStorage.getItem("token");
         if (dataIsCorrect) {
@@ -74,8 +74,9 @@ const DetailTagihan = () => {
                                 }, 5000)
                             }
                         }
-                        console.log(result);
-                        console.log(token);
+                        console.log("nominal: " + data.nominal)
+                        // console.log(result);
+                        // console.log(token);
                     })
                     .catch((e) => { });
             }
@@ -86,7 +87,7 @@ const DetailTagihan = () => {
 
     const handlesampah = (e) => {
         const token = localStorage.getItem("token");
-        console.log(token)
+        // console.log(token)
         if (token) {
             axios
                 .delete(
@@ -139,7 +140,7 @@ const DetailTagihan = () => {
                     value={data.email}
                     onChange={handleChange}
                 ></input>
-                <input
+                {/* <input
                     type="number"
                     class={styles["form-control-nominal"]}
                     id="floatingInput"
@@ -147,7 +148,11 @@ const DetailTagihan = () => {
                     placeholder="Nominal"
                     value={data.nominal}
                     onChange={handleChange}
-                ></input>
+                ></input> */}
+                <CurrencyFormat className={styles["form-control-nominal"]} name="nominal"
+                    placeholder="Nominal"
+                    value={data.nominal}
+                    onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
                 <p className={styles["min"]}>*Mininal Rp10.000</p>
                 <textarea
                     type="email"

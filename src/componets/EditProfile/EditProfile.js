@@ -10,13 +10,11 @@ import axios from "axios";
 import jwt from "jwt-decode"
 import { BoxUpload, ImagePreview } from "./index"
 
-
-
 const EditProfile = ({ formSubmit }) => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const [errors, setErros] = useState({});
     const history = useHistory();
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState([]);
     const [isUploaded, setIsUploaded] = useState(false);
     const [data, setValues] = useState({
         nama: "",
@@ -34,21 +32,22 @@ const EditProfile = ({ formSubmit }) => {
     };
 
     const handleChange2 = (e) => {
-        setValues({
-            ...data,
-            [e.target.name]: e.target.files[0],
-        });
         if (e.target.files && e.target.files[0]) {
             let reader = new FileReader();
 
-            reader.onload = function (e) {
-                setImage(e.target.result);
+            reader.onload = function (ee) {
+                setImage(e.target.files[0]);
+                setValues({
+                    ...data,
+                    [e.target.name]: ee.target.result,
+                });
                 setIsUploaded(true);
             };
 
             reader.readAsDataURL(e.target.files[0]);
         }
     };
+
     useEffect(() => {
         const token = localStorage.getItem("token");
         // console.log("token: ", token)
@@ -81,7 +80,13 @@ const EditProfile = ({ formSubmit }) => {
             const token = localStorage.getItem("token");
             const formData = new FormData();
             for (var key in data) {
-                formData.append(key, data[key]);
+                if (key === "profilePicture") {
+                    if (isUploaded) {
+                        formData.append(key, image);
+                    }
+                } else if (key !== "email") {
+                    formData.append(key, data[key]);
+                }
             }
             // if (token) {
             const user = jwt(token);
@@ -135,45 +140,19 @@ const EditProfile = ({ formSubmit }) => {
                     <img className={styles.picture} src={data.profilePicture}></img>
                 </div>
                 <div className="image-upload">
-                    {!isUploaded ? (
-                        <>
-                            <label htmlFor="upload-input">
-                                <img
-                                    draggable={"false"}
-                                    alt="Ganti Foto Profile"
-                                    style={{ width: 218, height: 218 }}
-                                />
+                    <label className={styles.profile} htmlFor="upload-input"> Ganti Foto Profile
+                    </label>
 
-                            </label>
-
-                            <input
-                                id="upload-input"
-                                name="profilePicture"
-                                type="file"
-                                onChange={handleChange2}
-                                accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
-                            />
-                        </>
-                    ) : (
-                        <ImagePreview>
-                            <img
-                                className="close-icon"
-
-                                onClick={() => {
-                                    setIsUploaded(false);
-                                    setImage(null);
-                                }}
-                            />
-                            <img
-                                id="uploaded-image"
-                                src={image}
-                                draggable={false}
-                                alt="uploaded-img"
-                            />
-
-                        </ImagePreview>
-                    )}
+                    <input
+                        id="upload-input"
+                        name="profilePicture"
+                        type="file"
+                        style={{ display: 'none' }}
+                        onChange={handleChange2}
+                        accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
+                    />
                 </div>
+                <br></br>
                 {/* <p className={styles.kun1}>Ganti Foto Profile</p> */}
                 <input
                     type="text"

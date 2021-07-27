@@ -64,14 +64,13 @@ const GetUserInvoice = () => {
                                 <p style={{ color: "#838790", fontSize: "12px", margin: "10px" }}>{tghn.isPaid === false ? <p>belum dibayar</p> : <p>sudah dibayar</p>}</p>
                                 <div style={{ fontSize: "16px", margin: "10px" }}>
                                     <p style={{ marginTop: "10px" }}>{tghn.name}<br></br>Rp{tghn.nominal}</p>
-
                                 </div>
                                 <button className={styles["a"]} onClick={() => { navigator.clipboard.writeText(`Paygua.com/${user.username}/${tghn.invoiceId}`) }}>
                                     <Link style={{ textDecoration: "none" }} to="/notifToast"><p className={styles.link}>Paygua.com/{user.username}/{tghn.invoiceId}</p></Link>
                                 </button>
                             </div>
                             <div style={{ width: "50%", textAlign: "right", marginTop: "70px" }}>
-                                <div onClick={() => tagihanClick(idx)}><img src={arroww}></img></div>
+                                <div onClick={() => tagihanClick(idx)}><img style={{ cursor: "pointer" }} src={arroww}></img></div>
                                 <p style={{ fontSize: "12px" }}><img style={{ float: "left", marginLeft: "115px" }} src={time}></img>{tghn.expireIn} hari</p>
                             </div>
                         </div>
