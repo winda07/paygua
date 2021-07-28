@@ -5,6 +5,7 @@ import withdrawProcess from "../../img/withdrawProcess.svg"
 import withdrawSuccess from "../../img/withdrawSuccess.svg"
 import styles from "./Notification.module.css"
 import axios from "axios"
+import red from "../../img/reddd.svg"
 
 const GetNotif = () => {
     const [data, setValues] = useState({
@@ -25,27 +26,30 @@ const GetNotif = () => {
                         })
 
                     }
-                    console.log(result)
+                    // console.log(result)
 
                 })
 
         }
     }, []);
-    console.log(data.notif)
 
     return (
         < div >
             {
                 data.notif.map(ntif => (
                     <div className={styles.a}>
+                        <p></p>
                         <div className={styles.boxdua}>
+                            {/* {ntif.isSeen === "false" ? <img src={red}></img> : null} */}
                             <div className={styles.img}>
-                                <p>{ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||
-                                    ntif.type === "cashOut" ? <img src={cashOut}></img> : null ||
-                                        ntif.type === "withdrawProcess" ? <img src={withdrawProcess}></img> : null ||
-                                            ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null}
-                                    {ntif.message} </p>
+                                <p>
+                                    {ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||
+                                        ntif.type === "cashOut" ? <img src={cashOut}></img> : null ||
+                                            ntif.type === "withdrawProcess" ? <img src={withdrawProcess}></img> : null ||
+                                                ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null || ntif.isSeen === "false" ? <img src={red}></img> : null}
+                                    {ntif.message}</p>
                             </div>
+
 
 
                         </div>

@@ -46,8 +46,8 @@
   position: relative;
 }
 .dropdown a:hover {
-  background-color: #464646;
-  color: white;
+  /* background-color: #464646; */
+  color: black;
 }
 .menu:hover .dropdown {
   display: block;
@@ -142,4 +142,13 @@
   margin-top: 20px;
   margin-left: 10px;
   position: relative;
+}
+.total {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.b {
+  position: relative;
+  right: 35px;
 }

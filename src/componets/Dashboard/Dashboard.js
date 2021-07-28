@@ -7,6 +7,9 @@ import GetTotalInvoice from "./GetTotalInvoice"
 import io from "socket.io-client"
 import { ToastContainer, toast, Slide } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import red from "../../img/reddd.svg"
+import { Link, useHistory } from "react-router-dom";
+import menu from "../../img/menu.svg"
 
 toast.configure()
 const Dashboard = () => {
@@ -28,29 +31,38 @@ const Dashboard = () => {
   });
   socket.on('totalNotif', function (data) {
     console.log("total notif:", data);
-  });
-
-  const [data, setValues] = useState({
-    totalNotif: ""
-  })
-  const handleChange = (e) => {
     setValues({
-      ...data
+      total: data
     })
-  }
-  console.log(data)
-  // console.log(data)
+  });
+  const [value, setValues] = useState({
+    total: ""
+  })
+  console.log(value.total)
 
   return (
     <div className={styles.App}>
       <div className={styles["form-signin"]}>
         <img src={logo} alt="logo" />
+
         <span className={styles.menu}>
-          <a href="#" ><img src="https://img.icons8.com/android/24/000000/menu.png" /> </a>
+
+          <a href="#" ><img className={styles['b']} src={menu} /> </a>
+          <p className={styles['total']}>{value.total ? <img src={red}></img> : null}</p>
           <div className={styles.dropdown}>
+
             <a href="#">Beranda</a>
 
-            <a href="/notification">Notifikasi</a>
+            <div style={{ display: "flex", alignItems: "center", backgroundColor: "transparent" }}>
+              <div>
+                <Link to="/notification">Notifikasi</Link>
+                {/* <a href="/notification">Notifikasi</a> */}
+              </div>
+              <div style={{ width: "40%", textAlign: "right", color: "red" }}>
+                <p>{value.total}</p>
+              </div>
+            </div>
+
             <a href="/settings">Akun Saya</a>
             <a href="/tentangkami">Tentang Kami</a>
           </div>
