@@ -23,6 +23,7 @@ const EditProfile = ({ formSubmit }) => {
         email: "",
         profilePicture: [],
     });
+    const urlPayGua = "Paygua.com/"
 
     const handleChange = (e) => {
         setValues({
@@ -163,15 +164,20 @@ const EditProfile = ({ formSubmit }) => {
                     value={data.nama}
                     onChange={handleChange}
                 ></input>
-                <input
-                    type="text"
-                    class={styles["form-control"]}
-                    id="=floatingUsername"
-                    placeholder="Username"
-                    name="username"
-                    value={data.username}
-                    onChange={handleChange}
-                ></input>
+                <div class={styles["inputContainer"]}>
+                    <h5 class={styles["usernameLabel"]}>
+                        {urlPayGua}
+                    </h5>
+                    <input
+                        type="text"
+                        name="username"
+                        class={styles["username"]}
+                        placeholder="Username"
+                        id="=floatingUsername"
+                        value={data.username}
+                        onChange={handleChange}
+                    ></input>
+                </div>
                 <textarea
                     type="text"
                     class={styles["form-control-bio"]}

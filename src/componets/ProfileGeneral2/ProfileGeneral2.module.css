@@ -135,6 +135,9 @@
 .logoovo:hover {
   border-color: black;
 }
+.logoovo::selection {
+  border-color: black;
+}
 
 .logogopay {
   padding: 0.23em 0.6em;
@@ -144,6 +147,9 @@
   background: transparent;
 }
 .logogopay:hover {
+  border-color: black;
+}
+.logogopay::selection {
   border-color: black;
 }
 
@@ -177,6 +183,9 @@
   background: transparent;
 }
 .logoshopeepay:hover {
+  border-color: black;
+}
+.logoshopeepay::selection {
   border-color: black;
 }
 .logoqris {

@@ -20,7 +20,7 @@ const Daftar2 = () => {
     const [isClicked, setIsClicked] = useState(false);
 
     const [data, setValues] = useState({
-        nama: "",
+        name: "",
         bio: "",
         profilePicture: []
     });
@@ -31,6 +31,7 @@ const Daftar2 = () => {
         });
     };
     const handleChange2 = (e) => {
+
         setValues({
             ...data,
             [e.target.name]: e.target.files[0],
@@ -46,18 +47,30 @@ const Daftar2 = () => {
             reader.readAsDataURL(e.target.files[0]);
         }
     };
+    const clean = (data) => {
+        for (var propName in data) {
+            if (data[propName] === null || data[propName] === undefined || data[propName] === "") {
+                delete data[propName]
+            }
+        }
+        return data
+    }
+    console.log("clean data: ", clean(data))
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setErros(validation(data));
         setDataIsCorrect(true);
         setIsClicked(true);
+
         // submit
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             const token = localStorage.getItem("token");
             const user = jwt(token)
+            const cleanData = clean(data)
             const formData = new FormData();
-            for (var key in data) {
-                formData.append(key, data[key]);
+            console.log(formData)
+            for (var key in cleanData) {
+                formData.append(key, cleanData[key]);
             }
 
             axios.put('https://paygua.com/api/user/' + user.id, formData, {
@@ -70,6 +83,7 @@ const Daftar2 = () => {
                 .then((result) => {
                     if (result.data) {
                         if (result.data.status === 200) {
+                            // clean(data)
                             history.push('/dashboard')
                         } else if (result.data.status === 400) {
                             alert("Edit profile mengalami error")
@@ -137,11 +151,11 @@ const Daftar2 = () => {
                     class={styles["form-control"]}
                     id="floatingNama"
                     placeholder="Nama"
-                    name="nama"
-                    value={data.nama}
+                    name="name"
+                    value={data.name}
                     onChange={handleChange}
                 ></input>
-                <div className={styles["set"]}>{errors.nama && <p className="error">{errors.nama}</p>}</div>
+                <div className={styles["set"]}>{errors.name && <p className="error">{errors.name}</p>}</div>
                 <textarea
                     type="text"
                     class={styles["form-control-bio"]}
