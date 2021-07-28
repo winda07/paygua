@@ -9,7 +9,7 @@ import red from "../../img/reddd.svg"
 
 const GetNotif = () => {
     const [data, setValues] = useState({
-        notif: []
+        notif: [],
     })
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -21,17 +21,50 @@ const GetNotif = () => {
             })
                 .then((result) => {
                     if (result.data) {
-                        setValues({
-                            ...data, notif: result.data.data
-                        })
-
+                        if (result.data.status === 200) {
+                            if (data.notif.isSeen === false) {
+                                return data.notif.isSeen === true
+                            }
+                            setValues({
+                                ...data, notif: result.data.data
+                            })
+                        }
                     }
-                    // console.log(result)
 
                 })
 
         }
     }, []);
+
+    const setRead = (() => {
+        const token = localStorage.getItem("token");
+        const array = []
+        for (const notif in data.notif) {
+            if (!notif.isSeen) {
+                array.push(notif)
+            }
+        }
+        if (token) {
+            axios.post("https://paygua.com/api/user/notification", array, {
+
+                headers: {
+                    Authorization: token,
+                }
+            })
+                .then((result) => {
+                    if (result.data) {
+                        if (data.notif.isSeen === false) {
+                            return data.notif.isSeen === true
+                        }
+                        setValues({
+                            ...data, setReadNotif: data.notif
+                        })
+
+                    }
+
+                })
+        }
+    })
 
     return (
         < div >
@@ -40,7 +73,7 @@ const GetNotif = () => {
                     <div className={styles.a}>
                         <p></p>
                         <div className={styles.boxdua}>
-                            {/* {ntif.isSeen === "false" ? <img src={red}></img> : null} */}
+                            {ntif.isSeen === false ? <img className={styles['redd']} src={red}></img> : null}
                             <div className={styles.img}>
                                 <p>
                                     {ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||

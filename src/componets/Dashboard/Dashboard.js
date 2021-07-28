@@ -56,10 +56,11 @@ const Dashboard = () => {
             <div style={{ display: "flex", alignItems: "center", backgroundColor: "transparent" }}>
               <div>
                 <Link to="/notification">Notifikasi</Link>
-                {/* <a href="/notification">Notifikasi</a> */}
               </div>
-              <div style={{ width: "40%", textAlign: "right", color: "red" }}>
-                <p>{value.total}</p>
+              <div style={{ width: "40%", textAlign: "right", color: "white" }}>
+                <p className={styles['total2']}>
+                  <p className={styles['total3']}>{value.total}</p>
+                </p>
               </div>
             </div>
 
