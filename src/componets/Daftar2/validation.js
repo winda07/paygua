@@ -9,9 +9,6 @@ const validation = (values) => {
     if (!values.bio) {
         errors.bio = "bio tidak boleh kosong"
     }
-    if (!values.profilePicture) {
-        errors.profilePicture = " foto profile tidak boleh kosong"
-    }
     return errors;
 }
 export default validation

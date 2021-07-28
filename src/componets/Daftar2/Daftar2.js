@@ -49,28 +49,25 @@ const Daftar2 = () => {
     };
     const clean = (data) => {
         for (var propName in data) {
-            if (data[propName] === null || data[propName] === undefined || data[propName] === "") {
+            if (data[propName] === null || data[propName] === undefined || data[propName] === "" || data[propName].length === 0) {
                 delete data[propName]
             }
         }
         return data
     }
-    console.log("clean data: ", clean(data))
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setErros(validation(data));
         setDataIsCorrect(true);
         setIsClicked(true);
-
         // submit
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             const token = localStorage.getItem("token");
             const user = jwt(token)
             const cleanData = clean(data)
             const formData = new FormData();
-            console.log(formData)
             for (var key in cleanData) {
-                formData.append(key, cleanData[key]);
+                formData.append(key, cleanData[key])
             }
 
             axios.put('https://paygua.com/api/user/' + user.id, formData, {
@@ -83,7 +80,6 @@ const Daftar2 = () => {
                 .then((result) => {
                     if (result.data) {
                         if (result.data.status === 200) {
-                            // clean(data)
                             history.push('/dashboard')
                         } else if (result.data.status === 400) {
                             alert("Edit profile mengalami error")
