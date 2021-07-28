@@ -6,6 +6,7 @@ import bca from '../../img/BCA.svg'
 import validation from './validation'
 import axios from 'axios';
 import jwt from "jwt-decode"
+import CurrencyFormat from "react-currency-format";
 
 const Pencairan = () => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
@@ -52,7 +53,7 @@ const Pencairan = () => {
                 axios
                     .post("https://paygua.com/api/user/withdraw", {
                         name: data.name,
-                        nominal: data.nominal,
+                        nominal: data.nominal.replace(".", ""),
                         accNumber: data.accNumber,
                         bank: data.bank,
                         code: data.code
@@ -87,7 +88,7 @@ const Pencairan = () => {
                     <Link to="/transaksi"><img className={styles.silang} src={silang} alt="logo" /></Link>
                     <p className={styles.kun}>Ajukan Pencairan</p>
                 </div>
-                <input
+                {/* <input
                     type="number"
                     class={styles["form-control-nominal"]}
                     id="floatingNama"
@@ -95,7 +96,11 @@ const Pencairan = () => {
                     name="nominal"
                     value={data.nominal}
                     onChange={handleChange}
-                ></input>
+                ></input> */}
+                <CurrencyFormat className={styles["form-control-nominal"]} name="nominal"
+                    placeholder="Nominal"
+                    value={data.nominal}
+                    onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
                 <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
                 <input
                     type="text"

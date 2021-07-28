@@ -44,25 +44,25 @@ const Register = ({ submitForm }) => {
   }, [errors]);
 
   const handleChange = (e) => {
-    // paygua.com/
-    // if (e.target.name === "username") {
-    //   let currentUsername = e.target.value;
-    //   let username = currentUsername.split('/')[1]
+    // paygua.com /
+    if (e.target.name === "username") {
+      let currentUsername = e.target.value;
+      let username = currentUsername.split('/')[1]
 
-    //   if (username == undefined) {
-    //     username = ""
-    //   }
+      if (username == undefined) {
+        username = ""
+      }
 
-    //   setValues({
-    //     ...data,
-    //     [e.target.name]: username,
-    //   });
-    // } else {
-    setValues({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
-    // }
+      setValues({
+        ...data,
+        [e.target.name]: username,
+      });
+    } else {
+      setValues({
+        ...data,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const handleFormSubmit = (e) => {

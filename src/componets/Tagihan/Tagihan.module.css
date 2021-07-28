@@ -4,16 +4,21 @@
 }
 
 .App {
-  margin: 0px auto;
+  height: 0px auto;
+  /* margin: 0px auto; */
   align-items: center;
   /* padding-top: 40px; */
   /* padding-bottom: 40px; */
   background-color: #dcdcdc;
+  /* width: 100%; */
+  /* height: 900px; */
+  /* max-width: 350px; */
+  /* margin-bottom: 390px;
+  margin: 0px auto; */
 }
 .form-signin {
   background-color: white;
   width: 100%;
-  height: 900px;
   max-width: 350px;
   padding: 15px;
   margin-bottom: 390px;

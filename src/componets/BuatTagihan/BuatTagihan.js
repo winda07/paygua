@@ -6,6 +6,7 @@ import silang from "../../img/ion.svg";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import Popup from "../PopupSuksesBuatTagihan/PopupSuksesTagihan";
+import CurrencyFormat from "react-currency-format";
 
 const BuatTagihan = () => {
     const [isRevealPwd, setIsRevealPwd] = useState(false);
@@ -127,7 +128,7 @@ const BuatTagihan = () => {
                     onChange={handleChange}
                 ></input>
                 <div className={styles["set"]}>{errors.email && isClicked && <p className="error">{errors.email}</p>}</div>
-                <input
+                {/* <input
                     type="number"
                     class={styles["form-control-nominal"]}
                     id="floatingInput"
@@ -135,7 +136,11 @@ const BuatTagihan = () => {
                     placeholder="Nominal"
                     value={data.nominal}
                     onChange={handleChange}
-                ></input>
+                ></input> */}
+                <CurrencyFormat className={styles["form-control-nominal"]} name="nominal"
+                    placeholder="Nominal"
+                    value={data.nominal}
+                    onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
                 <p className={styles["min"]}>*Mininal Rp10.000</p>
                 <div className={styles["set"]}>{(errors.nominal && isClicked) && <p className="error">{errors.nominal}</p>}</div>
                 <textarea

@@ -32,8 +32,8 @@ const App = () => {
   return (<div>
     <Switch>
 
-      <Route exact path="/" component={Login} />
-      <Route path="/tentangKami" component={TentangKami}></Route>
+      <Route exact path="/" component={TentangKami} />
+      <Route path="/login" component={Login}></Route>
       <Route path="/register" component={Form} />
       <Route path="/verifLupas" component={VerivLupas}></Route>
       <Route path="/lupaPassword" component={LupaPassword} />
@@ -57,10 +57,10 @@ const App = () => {
       <Route exact path="/detailTagihan" component={DetailTagihan}></Route>
       <Route path="/profileGeneral" component={ProfileGeneral2}></Route>
       <Route path="/notification" component={Notification}></Route>
-      <Route exact path="/transaction/:username">
+      <Route exact path="/:username">
         <DummyCmp type="type1" />
       </Route>
-      <Route exact path="/transaction/:username/:invoiceId">
+      <Route exact path="/:username/:invoiceId">
         <DummyCmp type="type2" />
       </Route>
     </Switch>

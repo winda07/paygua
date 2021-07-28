@@ -31,7 +31,7 @@ const TentangKami = () => {
                         <img src="https://img.icons8.com/android/24/000000/menu.png" />{" "}
                     </a>
                     <div className={styles.dropdown}>
-                        <Link to="/">Masuk</Link>
+                        <Link to="/login">Masuk</Link>
                         <Link to="/register">Daftar</Link>
                         <Link to="/tentangKami">TentangKami</Link>
                     </div>
