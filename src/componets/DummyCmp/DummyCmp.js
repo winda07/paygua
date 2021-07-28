@@ -38,6 +38,7 @@ const DummyCmp = (props) => {
 
             }
             console.log("dataSend: ", dataSend)
+
             axios
                 .post("https://paygua.com/api/transaction/create", dataSend, {
                     headers: {
@@ -106,12 +107,17 @@ const DummyCmp = (props) => {
             axios.get("https://paygua.com/api/transaction/" + paramobj.username, null, {
             })
                 .then((result) => {
-                    setValues({
-                        ...data,
-                        bio: result.data.data.bio,
-                        profilePicture: result.data.data.profilePicture,
+                    if (result.data.status === 200) {
+                        setValues({
+                            ...data,
+                            bio: result.data.data.bio,
+                            profilePicture: result.data.data.profilePicture,
 
-                    })
+                        })
+                    } else if (result.data.status === 400) {
+                        alert("user not found")
+                    }
+
                     // console.log(bio)
                     console.log(result.data);
                 })
@@ -122,15 +128,19 @@ const DummyCmp = (props) => {
             axios.get("https://paygua.com/api/transaction/" + paramobj.username + "/" + paramobj.invoiceId, null, {
             })
                 .then((result) => {
-                    setValues({
-                        ...data,
-                        bio: result.data.data.bio,
-                        nama: result.data.data.invoice.name,
-                        email: result.data.data.invoice.email,
-                        nominal: result.data.data.invoice.nominal,
-                        pesan: result.data.data.invoice.pesan,
-                        profilePicture: result.data.data.profilePicture,
-                    })
+                    if (result.data.status === 200) {
+                        setValues({
+                            ...data,
+                            bio: result.data.data.bio,
+                            nama: result.data.data.invoice.name,
+                            email: result.data.data.invoice.email,
+                            nominal: result.data.data.invoice.nominal,
+                            pesan: result.data.data.invoice.pesan,
+                            profilePicture: result.data.data.profilePicture,
+                        })
+                    } else if (result.data.status === 400) {
+                        alert("user not found")
+                    }
                     console.log(result.data);
                 })
                 .catch((e) => {

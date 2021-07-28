@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import red from "../../img/reddd.svg"
 import { Link, useHistory } from "react-router-dom";
 import menu from "../../img/menu.svg"
+import merah from "../../img/merah.svg"
 
 toast.configure()
 const Dashboard = () => {
@@ -54,13 +55,12 @@ const Dashboard = () => {
             <a href="#">Beranda</a>
 
             <div style={{ display: "flex", alignItems: "center", backgroundColor: "transparent" }}>
-              <div>
-                <Link to="/notification">Notifikasi</Link>
-              </div>
+              {/* <div> */}
+              <Link to="/notification">Notifikasi</Link>
+              {/* </div> */}
               <div style={{ width: "40%", textAlign: "right", color: "white" }}>
-                <p className={styles['total2']}>
-                  <p className={styles['total3']}>{value.total}</p>
-                </p>
+                {/* <p className={styles['merah']}>{value.total ? <img src={merah}></img> : null}</p> */}
+                <p style={{ color: "red" }}>{value.total}</p>
               </div>
             </div>
 

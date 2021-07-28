@@ -22,47 +22,44 @@ const GetNotif = () => {
                 .then((result) => {
                     if (result.data) {
                         if (result.data.status === 200) {
-                            if (data.notif.isSeen === false) {
-                                return data.notif.isSeen === true
-                            }
                             setValues({
                                 ...data, notif: result.data.data
                             })
+                            setRead()
                         }
-                    }
 
+
+                    }
                 })
 
         }
     }, []);
 
     const setRead = (() => {
+
         const token = localStorage.getItem("token");
         const array = []
-        for (const notif in data.notif) {
-            if (!notif.isSeen) {
-                array.push(notif)
+        for (let i = 0; i < data.notif.length; i++) {
+            // console.log()
+            if (!data.notif[i].isSeen) {
+                array.push(data.notif[i]._id)
             }
         }
+        console.log(array)
         if (token) {
-            axios.post("https://paygua.com/api/user/notification", array, {
+            axios.post("https://paygua.com/api/user/notification", { notifId: array }, {
 
                 headers: {
                     Authorization: token,
                 }
             })
                 .then((result) => {
-                    if (result.data) {
-                        if (data.notif.isSeen === false) {
-                            return data.notif.isSeen === true
-                        }
-                        setValues({
-                            ...data, setReadNotif: data.notif
-                        })
-
-                    }
-
+                    console.log("set read started")
                 })
+                .catch(e => {
+                    console.log("errror")
+                })
+
         }
     })
 
