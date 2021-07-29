@@ -128,7 +128,7 @@ const EditProfile = ({ formSubmit }) => {
                     <Link to="/Settings">
                         <img src={arrow} alt="logo" />
                     </Link>
-                    <p className={styles.kun}>General</p>
+                    <h2 className={styles.kun}>Edit Profil</h2>
                     {/* <BoxUpload> */}
 
                     {/* </BoxUpload> */}

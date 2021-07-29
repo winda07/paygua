@@ -19,7 +19,7 @@ const Share = () => {
 
                 <div className={styles.share1}>
                     <button className={styles["a"]} onClick={() => { navigator.clipboard.writeText(`paygua.com/${user.username}`) }}>
-                        <img className={styles["cop"]} src={share1}></img>
+                        <Link to="/notiftoast"><img className={styles["cop"]} src={share1}></img></Link>
                     </button>
                     <a href={`whatsapp://send?text=paygua.com/${user.username}`}> <img src={wa} alt="logo" /></a>
                     <a href={`https://t.me/share/url?url=paygua.com/${user.username}`}> <img src={telegram} alt="logo" /></a>

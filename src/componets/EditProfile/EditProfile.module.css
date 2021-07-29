@@ -12,6 +12,7 @@
 }
 .form-signin {
   background-color: white;
+  height: 790px;
   width: 100%;
   max-width: 350px;
   padding: 15px;
@@ -107,7 +108,7 @@
 .picture {
   width: 130px;
   height: 130px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   margin-top: 20px;
   position: relative;
   border-radius: 100%;

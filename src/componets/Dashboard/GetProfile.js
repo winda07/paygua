@@ -45,8 +45,8 @@ const GetProfile = () => {
             <img className={styles.picture} src={data.profilePicture}></img>
 
             <div className={styles.boxdua}>
-                <p>{data.name}</p>
-                <p>{data.bio}</p>
+                <p style={{ fontSize: "24px", color: "#21242B", marginLeft: "25px", height: "10px" }}>{data.name}</p>
+                <p style={{ fontSize: "12px", color: "#838790", marginLeft: "25px", position: "relative" }}>{data.bio}</p>
                 <Link to="/share" ><img className={styles.share} src={share} alt="logo" /></Link>
                 <button className={styles["a"]} onClick={() => { navigator.clipboard.writeText(`paygua.com/${data.username}`) }}>
                     <Link to="/notiftoast"><img className={styles["cop"]} src={copy}></img></Link>
@@ -54,6 +54,7 @@ const GetProfile = () => {
                 <div class={styles["inputContainer"]}>
                     <input type="text" className={styles.boxdalam} value={`paygua.com/${data.username}`} disabled></input>
                 </div>
+                <br></br>
             </div>
         </div>
     )

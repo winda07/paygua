@@ -11,7 +11,7 @@
   background-color: #dcdcdc;
 }
 .form-signin2 {
-  height: 900px;
+  height: 790px;
   background-color: white;
   width: 100%;
   max-width: 350px;
@@ -26,6 +26,7 @@
 }
 .text2 {
   margin-left: 28px;
+  margin-top: 300px;
 }
 .a {
   border: transparent;

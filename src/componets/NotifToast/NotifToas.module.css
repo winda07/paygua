@@ -11,15 +11,17 @@
   background-color: #dcdcdc;
 }
 .form-signin {
+  height: 790px;
   background-color: white;
   width: 100%;
   max-width: 350px;
   padding: 15px;
-  margin-bottom: 390px;
+  /* margin-bottom: 390px; */
   margin: 0px auto;
 }
 
 .save {
+  margin-top: 300px;
   font-size: 12px;
   margin-left: 10px;
   position: relative;

@@ -37,10 +37,10 @@ const GetTotalInvoice = () => {
                 alignItems: "center"
             }}>
                 <div>
-                    <p >Tagihan</p>
-                    <p>Kamu memiliki <b>{data.Total} Tagihan Aktif</b> </p>
+                    <p style={{ fontSize: "24px", color: "#21242B", marginLeft: "25px", height: "15px" }} >Tagihan</p>
+                    <p style={{ fontSize: "12px", color: "#838790", marginLeft: "25px" }}>Kamu memiliki <b style={{ fontSize: "12px", color: "#21242B" }}>{data.Total} Tagihan Aktif</b> </p>
                 </div>
-                <div style={{ width: "20%", textAlign: "right" }}>
+                <div style={{ width: "30%", textAlign: "right" }}>
                     <Link to="/tagihan"> <img src={arrow}></img></Link>
 
                 </div>

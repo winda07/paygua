@@ -37,12 +37,12 @@ const GetBalance = () => {
                     display: "flex",
                     alignItems: "center"
                 }}>
-                    <div style={{ width: "50%" }}>
-                        <p >Saldo Kamu saat ini</p>
-                        <p>Rp{data.balance}</p>
+                    <div style={{ width: "50%", marginLeft: "25px" }}>
+                        <p style={{ fontSize: "12px", color: "#838790", height: "1px" }} >Saldo Kamu saat ini</p>
+                        <p style={{ fontSize: "24px", color: "#21242B" }}>Rp{data.balance}</p>
 
                     </div>
-                    <div style={{ width: "50%", textAlign: "right" }}>
+                    <div style={{ width: "35%", textAlign: "right" }}>
                         <Link to="/transaksi"> <img src={arrow}></img></Link>
                     </div>
 

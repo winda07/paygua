@@ -19,7 +19,7 @@ const VerivLupas = () => {
             <div className={styles['form-signin']}>
                 <img className={styles.lupapw} src={lupapw} alt="logo" />
                 <p className={styles.text}>Email pemulihan telah terkirim ke {data.email}</p>
-                <Link to="/"><input type="submit" className={styles.btnSubmit} value="Selesai"></input></Link>
+                <Link to="/login"><input type="submit" className={styles.btnSubmit} value="Selesai"></input></Link>
             </div>
 
         </div>

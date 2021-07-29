@@ -134,7 +134,7 @@ const Register = ({ submitForm }) => {
             <div class="form-group">
               <p class={styles["text-center1"]}>
                 Sudah Punya Akun?{" "}
-                <Link class={styles["u"]} to="/">
+                <Link class={styles["u"]} to="/login">
                   Masuk disini!
                 </Link>
               </p>

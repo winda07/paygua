@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import red from "../../img/reddd.svg"
 import { Link, useHistory } from "react-router-dom";
 import menu from "../../img/menu.svg"
-import merah from "../../img/merah.svg"
+import merah from "../../img/merahNotif.svg"
 
 toast.configure()
 const Dashboard = () => {
@@ -44,7 +44,7 @@ const Dashboard = () => {
   return (
     <div className={styles.App}>
       <div className={styles["form-signin"]}>
-        <img src={logo} alt="logo" />
+        <img className={styles['logo']} src={logo} alt="logo" />
 
         <span className={styles.menu}>
 
@@ -55,12 +55,11 @@ const Dashboard = () => {
             <a href="#">Beranda</a>
 
             <div style={{ display: "flex", alignItems: "center", backgroundColor: "transparent" }}>
-              {/* <div> */}
               <Link to="/notification">Notifikasi</Link>
-              {/* </div> */}
-              <div style={{ width: "40%", textAlign: "right", color: "white" }}>
+
+              <div style={{ width: "40%", textAlign: "right", color: "white", border: "10px" }}>
                 {/* <p className={styles['merah']}>{value.total ? <img src={merah}></img> : null}</p> */}
-                <p style={{ color: "red" }}>{value.total}</p>
+                <p className={styles['red']}>{value.total}</p>
               </div>
             </div>
 
@@ -68,8 +67,13 @@ const Dashboard = () => {
             <a href="/tentangkami">Tentang Kami</a>
           </div>
         </span>
-        <GetProfile></GetProfile>
-        <GetBalance></GetBalance>
+        <div style={{ height: "310px" }}>
+          <GetProfile></GetProfile>
+        </div>
+
+        <div style={{ height: "75px" }}>
+          <GetBalance></GetBalance>
+        </div>
         <GetTotalInvoice></GetTotalInvoice>
       </div>
     </div>

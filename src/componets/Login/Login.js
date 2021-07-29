@@ -38,9 +38,11 @@ const Login = ({ submitForm }) => {
                 // console.log("userId", user.id.type)
                 // console.log('jwt: ', user)
                 if (user.isCompleted === false) {
-                  submitForm(false)
+                  // submitForm(false)
+                  history.push("/daftar")
                 } else {
-                  submitForm(true)
+                  history.push("/dashboard")
+                  // submitForm(true)
                 }
                 // submitForm();
 
@@ -115,15 +117,18 @@ const Login = ({ submitForm }) => {
               <Link style={{ textDecoration: 'none' }} to="/lupaPassword"> <a class={styles['ForgetPwd']}>Lupa Kata Sandi?</a></Link>
             </div>
 
-            <div className={styles.btnSubmit} onClick={handleFormSubmit}>
+            {/* <div className={styles.btnSubmit} onClick={handleFormSubmit}>
               <p class={styles.text}>Masuk</p>
-            </div>
+            </div> */}
+            <button className={styles.btnSubmit} onClick={handleFormSubmit}>
+              Masuk
+            </button>
 
             <div class="form-group">
               <p class={styles["text-center1"]}>
                 Belum Punya Akun?{" "}
                 <Link class={styles["text-center2"]} to="/register">
-                  Masuk disini!
+                  Daftar disini!
                 </Link>
               </p>
             </div>

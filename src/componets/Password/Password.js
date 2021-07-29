@@ -83,7 +83,16 @@ const Password = () => {
                 </div>
 
                 <div className={styles.kun3}>
-                    <input type={isRevealPwd ? "text" : "password"} className={styles['form-control']} id="floatingInput" placeholder="Password Lama" name="passwordLama" value={data.passwordLama} onChange={handleChange} ></input>
+                    <input
+                        type={isRevealPwd ? "text" : "password"}
+                        class={styles["form-control"]}
+                        id="floatingPassword"
+                        name="passwordLama"
+                        placeholder="Password Lama"
+                        value={data.password}
+                        onChange={handleChange}
+                    />
+
                     <img
                         className={styles["img"]}
                         title={isRevealPwd ? "Hide password" : "Show Password"}
@@ -109,7 +118,7 @@ const Password = () => {
                     <div className={styles["set"]}> {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}</div>
                 </div>
                 <div className={styles.sandi}>
-                    <Link to="/Lupas"><a href="#" class={styles['ForgetPwd']}>Lupa Kata Sandi?</a></Link>
+                    <Link to="/lupaPassword"><a href="#" class={styles['ForgetPwd']}>Lupa Kata Sandi?</a></Link>
                 </div>
 
 
