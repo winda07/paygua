@@ -7,7 +7,6 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import Frame from "../../img/Frame.svg"
 import styles from "./Dashboard.module.css";
 import { Copyright, DataUsageSharp } from "@material-ui/icons"
-import GetName from "./getName"
 
 const GetProfile = () => {
     const urlPayGua = "Paygua.com/"
@@ -38,6 +37,8 @@ const GetProfile = () => {
                     console.log(result)
                 })
 
+        } else {
+            history.push('/login')
         }
     }, []);
     return (

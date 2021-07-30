@@ -88,6 +88,8 @@ const Daftar2 = () => {
                     console.log(result)
                 })
             console.log(typeof data.profilePicture)
+        } else {
+            history.push('/login')
         }
 
     };

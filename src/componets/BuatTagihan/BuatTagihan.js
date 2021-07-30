@@ -9,6 +9,7 @@ import Popup from "../PopupSuksesBuatTagihan/PopupSuksesTagihan";
 import CurrencyFormat from "react-currency-format";
 
 const BuatTagihan = () => {
+    const history = useHistory()
     const [isRevealPwd, setIsRevealPwd] = useState(false);
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
@@ -87,6 +88,8 @@ const BuatTagihan = () => {
                     })
                     .catch((e) => { });
                 // submitForm()
+            } else {
+                history.push('/login')
             }
         }
 

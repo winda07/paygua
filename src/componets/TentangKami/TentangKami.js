@@ -39,17 +39,17 @@ const TentangKami = () => {
                 <div className={styles.TentangKami}>
                     <img src={latar} alt="latar" />
                     <div className={styles.textBold}>
-                        <h1>Terima dan atur pembayaran bisnismu dengan cara paling mudah</h1>
+                        <h1>Terima dan atur invoice bisnismu dengan cara paling mudah</h1>
                     </div>
                     <div className={styles.text}>
-                        <p>Paygua membantu kamu menerima pembayaran dengan mudah dari pelanggan hanya dengan link. Buat halaman pembayaran hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
+                        <p>Paygua membantu kamu menerima invoice dengan mudah dari pelanggan hanya dengan link. Buat halaman invoice hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
                     </div>
                     <button className={styles.button}>
                         <p>Mulai Sekarang &#x279D;</p>
                     </button>
                 </div>
                 <div class="a">
-                    <p>Terima pembayaran dari:</p>
+                    <p>Terima invoice dari:</p>
                 </div>
 
                 <section className={styles.choose}>
@@ -83,7 +83,7 @@ const TentangKami = () => {
                         hitungan detik di dashboard Paygua.</p>
 
                     <h4>3. &emsp;Bagikan Link dan Terima Pembayaran</h4>
-                    <p className={styles.d}>Salin dan tempel tautanpembayaran
+                    <p className={styles.d}>Salin dan tempel tautaninvoice
                         di aplikasi pesan, email atau media sosial.</p>
 
                     <h4>4. &emsp;Terima Notifikasi</h4>
@@ -113,11 +113,11 @@ const TentangKami = () => {
                 </div>
 
                 <div className={styles.cocok}>
-                    <h3 className={styles.n}>Pay gua cocok untuk</h3>
+                    <h3 className={styles.n}>Paygua cocok untuk</h3>
                     <div className={styles.g1}>
                         <img src={free} alt="logo" />
                         &emsp;
-                        <img src={free} alt="logo" />
+                        <img src={penju} alt="logo" />
                         &emsp;
                         <img src={trainer} alt="logo" />
                         &emsp;

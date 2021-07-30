@@ -117,12 +117,12 @@ const Login = ({ submitForm }) => {
               <Link style={{ textDecoration: 'none' }} to="/lupaPassword"> <a class={styles['ForgetPwd']}>Lupa Kata Sandi?</a></Link>
             </div>
 
-            {/* <div className={styles.btnSubmit} onClick={handleFormSubmit}>
+            <div className={styles.btnSubmit} onClick={handleFormSubmit}>
               <p class={styles.text}>Masuk</p>
-            </div> */}
-            <button className={styles.btnSubmit} onClick={handleFormSubmit}>
+            </div>
+            {/* <button className={styles.btnSubmit} onClick={handleFormSubmit}>
               Masuk
-            </button>
+            </button> */}
 
             <div class="form-group">
               <p class={styles["text-center1"]}>

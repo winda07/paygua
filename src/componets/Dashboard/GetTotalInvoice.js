@@ -3,13 +3,14 @@ import jwt from "jwt-decode"
 import axios from "axios"
 import share from "../../img/share.svg"
 import copy from "../../img/copy.svg"
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import Frame from "../../img/Frame.svg"
 import styles from "./Dashboard.module.css";
 import { DataUsageSharp } from "@material-ui/icons"
 import arrow from "../../img/arrow>.svg"
 
 const GetTotalInvoice = () => {
+    const history = useHistory();
     const [data, setValues] = useState({
         Total: ""
     })
@@ -28,6 +29,8 @@ const GetTotalInvoice = () => {
                     })
                 })
             console.log(data)
+        } else {
+            history.push('/login')
         }
     }, []);
     return (

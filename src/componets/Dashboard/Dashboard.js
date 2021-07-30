@@ -57,9 +57,12 @@ const Dashboard = () => {
             <div style={{ display: "flex", alignItems: "center", backgroundColor: "transparent" }}>
               <Link to="/notification">Notifikasi</Link>
 
-              <div style={{ width: "40%", textAlign: "right", color: "white", border: "10px" }}>
-                {/* <p className={styles['merah']}>{value.total ? <img src={merah}></img> : null}</p> */}
-                <p className={styles['red']}>{value.total}</p>
+              {/* <div style={{ display: "flex", width: "20px", height: "20px", backgroundColor: "red", borderRadius: "50%", marginLeft: "40px" }}> */}
+              {/* <p className={styles['merah']}>{value.total ? <img src={merah}></img> : null}</p> */}
+              {/* <p style={{ margin: "auto" }}>{value.total}</p> */}
+              {/* </div> */}
+              <div>
+                <p style={{ marginLeft: "45px", color: "red" }}>{value.total}</p>
               </div>
             </div>
 
