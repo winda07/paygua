@@ -88,8 +88,6 @@ const BuatTagihan = () => {
                     })
                     .catch((e) => { });
                 // submitForm()
-            } else {
-                history.push('/login')
             }
         }
 

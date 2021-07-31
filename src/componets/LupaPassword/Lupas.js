@@ -16,16 +16,6 @@ const Lupas = ({ submitForm }) => {
     email: "",
   });
 
-  // const sendEmail = () => {
-
-  //   })
-  // }
-
-  // useEffect(() => {
-  //  
-
-  // }, [errors]);
-
   const handleChange = (e) => {
     setValues({
       ...data,
@@ -42,7 +32,7 @@ const Lupas = ({ submitForm }) => {
         .then((result) => {
           if (result.data) {
             history.push({
-              pathname: '/verifLupas',
+              pathname: '/verifLupaPassword',
               state: {
                 email: data.email
               }

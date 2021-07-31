@@ -26,7 +26,10 @@ import VerivLupas from "./componets/VerivLupas/VerivLupas";
 import DummyCmp from "./componets/DummyCmp/DummyCmp"
 import TentangKami from "./componets/TentangKami/TentangKami"
 import Notification from "./componets/Notification/Notification"
+import VerfifResetPasswrod from "./componets/VerfiResetPassword/VerifResetPassword"
+import RegisterCheck from "./componets/Register/RegisterCheck"
 import { Route, Switch } from 'react-router-dom';
+import VerifResetPassword from "./componets/VerfiResetPassword/VerifResetPassword";
 
 const App = () => {
   return (<div>
@@ -35,7 +38,7 @@ const App = () => {
       <Route exact path="/" component={TentangKami} />
       <Route path="/login" component={Login}></Route>
       <Route path="/register" component={Form} />
-      <Route path="/verifLupas" component={VerivLupas}></Route>
+      <Route path="/verifLupaPassword" component={VerivLupas}></Route>
       <Route path="/lupaPassword" component={LupaPassword} />
       <Route path="/auth/reset/:tokenid" component={ResetPassword} />
       <Route path="/auth/verify/:tokenid" component={VerifyEmail}></Route>
@@ -57,6 +60,8 @@ const App = () => {
       <Route exact path="/detailTagihan" component={DetailTagihan}></Route>
       <Route path="/profileGeneral" component={ProfileGeneral2}></Route>
       <Route path="/notification" component={Notification}></Route>
+      <Route path="/verifResetPassword" component={VerfifResetPasswrod}></Route>
+      <Route path="/registerCheck" component={RegisterCheck}></Route>
       <Route exact path="/:username">
         <DummyCmp type="type1" />
       </Route>

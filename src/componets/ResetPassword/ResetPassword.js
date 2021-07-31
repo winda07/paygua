@@ -32,10 +32,9 @@ const ResetPassword = ({ submitForm }) => {
         .post("https://paygua.com/api/auth/reset/" + tokenid, data)
         .then((result) => {
           if (result) {
-            if (result.data.status === 400) {
-              alert("Password reset invalid atau expired")
-            } else if (result.data.status === 200) {
-              submitForm()
+            if (result.data.status === 200) {
+              // submitForm()
+              history.push('/verifResetPassword')
             }
           }
           console.log(result.data);

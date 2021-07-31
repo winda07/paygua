@@ -21,7 +21,7 @@ const Settings = () => {
 
                 <Link style={{ textDecoration: "none", color: "#21242B" }} to="/editprofile"> <p>Edit Profile</p></Link>
                 <Link style={{ textDecoration: "none", color: "#21242B" }} to="/gantiPassword"><p>Ganti Password</p></Link>
-                <Link style={{ textDecoration: "none", color: "#E81A55" }} to="/tentangkami"><p>Sign Out</p></Link>
+                <Link style={{ textDecoration: "none", color: "#E81A55" }} to="/login"><p>Sign Out</p></Link>
             </div>
         </div>
     )

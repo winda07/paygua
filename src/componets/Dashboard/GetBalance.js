@@ -29,8 +29,6 @@ const GetBalance = () => {
                     })
                 })
             console.log(data)
-        } else {
-            history.push('/login')
         }
     }, []);
     return (

@@ -37,8 +37,6 @@ const GetProfile = () => {
                     console.log(result)
                 })
 
-        } else {
-            history.push('/login')
         }
     }, []);
     return (

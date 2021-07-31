@@ -31,6 +31,7 @@ const Register = ({ submitForm }) => {
           if (result) {
             if (result.data) {
               if (result.data.status !== "200") {
+                history.push('/registerCheck')
               }
             }
           }
@@ -39,7 +40,6 @@ const Register = ({ submitForm }) => {
         .catch((e) => {
 
         });
-      submitForm()
     }
   }, [errors]);
 

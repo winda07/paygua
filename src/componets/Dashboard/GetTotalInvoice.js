@@ -29,8 +29,6 @@ const GetTotalInvoice = () => {
                     })
                 })
             console.log(data)
-        } else {
-            history.push('/login')
         }
     }, []);
     return (
