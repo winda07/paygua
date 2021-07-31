@@ -13,7 +13,7 @@
 .form-signin {
   background-color: white;
   width: 100%;
-  height: 2500px;
+  height: 2250px;
   max-width: 350px;
   padding: 15px;
   margin-bottom: 390px;
@@ -25,15 +25,16 @@
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
-  position: relative;
-  margin-left: 310px;
+  position: absolute;
+  top: 15px;
+  margin-left: 120px;
 }
 .dropdown {
   position: absolute;
   flex-direction: column;
-  align-items: space-between;
-  box-shadow: 0 10px 10px gray;
-  margin: 25px 0;
+  /* align-items: space-between; */
+  box-shadow: 0px 10px 10px gray;
+  margin: 30px 80px;
   z-index: 1;
   background-color: white;
   width: 160px;
@@ -101,6 +102,7 @@
 
 .gambar1 {
   position: absolute;
+  margin-left: 12px;
 }
 
 .KK {
@@ -110,7 +112,7 @@
   width: 100px;
   color: white;
   margin-top: 35px;
-  margin-left: 17px;
+  margin-left: 10px;
 }
 .VA {
   position: absolute;
@@ -118,7 +120,7 @@
   height: 100px;
   color: white;
   margin-top: 50px;
-  margin-left: 118px;
+  margin-left: 127px;
 }
 
 .E-Wallet {
@@ -126,13 +128,13 @@
   position: absolute;
   color: white;
   height: 100px;
-  margin-left: 245px;
-  margin-top: 55px;
+  margin-left: 260px;
+  margin-top: 50px;
 }
 
 .TentangKami2 {
   margin-top: 150px;
-
+  margin-left: 12px;
   display: flex;
   align-items: center;
   position: relative;
@@ -145,12 +147,12 @@
   position: absolute;
   color: #ffffff;
   height: 100px;
-  margin-bottom: 40px;
+  /* margin-bottom: 20px; */
 }
 
 .rules {
   margin-left: 20px;
-  height: 200px;
+  height: 150px;
   position: relative;
 }
 
@@ -178,44 +180,44 @@
 
 .f {
   margin-left: 15px;
-  height: 100px;
+  /* height: 100px; */
   position: relative;
 }
 
 .g {
-  height: 70px;
+  height: 30px;
 }
 
 .img1 {
   margin-left: 70px;
-  margin-top: -290px;
+  margin-top: -270px;
   position: absolute;
-  width: 200px;
+  /* width: 200px; */
   color: #ffffff;
-  font-size: 13px;
+  /* font-size: 13px; */
 }
 
 .img2 {
   margin-left: 70px;
-  margin-top: -180px;
+  margin-top: -170px;
   position: absolute;
-  width: 200px;
+  /* width: 200px; */
   color: #ffffff;
-  font-size: 13px;
+  /* font-size: 13px; */
 }
 
 .img3 {
   margin-left: 70px;
-  margin-top: -100px;
+  margin-top: -80px;
   position: absolute;
-  width: 200px;
+  /* width: 200px; */
   color: #ffffff;
-  font-size: 13px;
+  /* font-size: 13px; */
 }
 
 .n {
-  margin-left: 10px;
-  margin-top: 310px;
+  margin-left: 12px;
+  margin-top: 40px;
 }
 
 .cocok {
@@ -224,15 +226,15 @@
 
 .box1 {
   width: 100%;
-  height: 400px;
+  height: 300px;
   background: #21242b;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-left: -15px;
   position: absolute;
 }
 
 .fot1 {
-  margin-top: 150px;
+  margin-top: 50px;
   margin-left: 20px;
 }
 h6 {
@@ -272,4 +274,12 @@ h6 {
 .by {
   text-align: center;
   color: black;
+}
+.menu2 {
+  position: relative;
+  margin-left: 160px;
+}
+.section {
+  display: flex;
+  justify-content: space-evenly;
 }

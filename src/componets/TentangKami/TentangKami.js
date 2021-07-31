@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "../../img/logo.svg";
 import latar from "../../img/Latar.svg";
 import kredit from "../../img/kartukredit.svg"
-import va from "../../img/VA.svg"
+import va from "../../img/va.svg"
 import wallet from "../../img/E-Wallet.svg"
 import black from "../../img/black.svg"
 import frame1 from "../../img/Frame 1.svg"
@@ -18,7 +18,9 @@ import donasi from "../../img/donasi.svg"
 import konten from "../../img/kontenkreator.svg"
 import bisnisjasa from "../../img/bisnisjasa.svg"
 import bawahfot from "../../img/bawahfot.svg"
-import logo1 from "../../img/logobawah.png"
+import logo1 from "../../img/Frame1.svg"
+import menu from "../../img/menu.svg"
+
 
 
 const TentangKami = () => {
@@ -27,9 +29,7 @@ const TentangKami = () => {
             <div className={styles["form-signin"]}>
                 <img src={logo} alt="logo" />
                 <span className={styles.menu}>
-                    <a href="#">
-                        <img src="https://img.icons8.com/android/24/000000/menu.png" />{" "}
-                    </a>
+                    <a href="#" ><img className={styles['menu2']} src={menu} /> </a>
                     <div className={styles.dropdown}>
                         <Link to="/login">Masuk</Link>
                         <Link to="/register">Daftar</Link>
@@ -49,17 +49,17 @@ const TentangKami = () => {
                     </button>
                 </div>
                 <div class="a">
-                    <p>Terima invoice dari:</p>
+                    <p style={{ marginLeft: "12px" }}>Terima invoice dari:</p>
                 </div>
 
-                <section className={styles.choose}>
+                <section className="section">
                     <div className={styles.gambar1}>
                         <img src={kredit} alt="logo" />
-                        <img src={va} alt="logo" />
-                        <img src={wallet} alt="logo" />
+                        <img style={{ marginLeft: "5px" }} src={va} alt="logo" />
+                        <img style={{ marginLeft: "5px" }} src={wallet} alt="logo" />
                     </div>
                     <div className={styles.KK}>
-                        <p>&emsp; Kartu Kredit/Debit</p>
+                        <p>&emsp; Transfer Bank</p>
                     </div>
                     <div className={styles.VA}> Virtual  Account</div>
                     <div className={styles['E-Wallet']}> E-Wallet </div>
@@ -68,62 +68,61 @@ const TentangKami = () => {
                 <div className={styles.TentangKami2}>
                     <img src={black} alt="logo" />
                     <div className={styles.textblack}>
-                        <p>Dana dapat dengan mudah  dicairkan ke semua rekening  Bank dan E-Wallet</p>
+                        <b>Dana dapat dengan mudah  dicairkan ke semua rekening  Bank dan E-Wallet</b>
                     </div>
                 </div>
 
                 <div className={styles.rules}>
-                    <h3>Bagaimana Paygua bekerja?</h3>
-                    <h4>1. &emsp;Daftar dan Buat Halaman</h4>
-                    <p className={styles.b}>Pendaftaran sangat mudah.
+                    <b style={{ fontSize: "18px", color: "#21242B", marginLeft: "12px" }}>Bagaimana Paygua bekerja?</b>
+                    <br></br>
+                    <br></br>
+                    <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>1.&emsp;Daftar dan Buat Halaman</b>
+                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px" }}>Pendaftaran sangat mudah. <br></br>
                         Klik daftar sekarang untuk memulai.</p>
-
-                    <h4>2.&emsp;Buat Tagihan</h4>
-                    <p className={styles.c}>Buat tagihan hanya dengan
+                    <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>2.&emsp;Buat Tagihan</b>
+                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px" }}>Buat tagihan hanya dengan <br></br>
                         hitungan detik di dashboard Paygua.</p>
-
-                    <h4>3. &emsp;Bagikan Link dan Terima Pembayaran</h4>
-                    <p className={styles.d}>Salin dan tempel tautaninvoice
+                    <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>3.&emsp;Bagikan Link dan Terima Pembayaran</b>
+                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px" }}>Salin dan tempel tautan invoice <br></br>
                         di aplikasi pesan, email atau media sosial.</p>
-
-                    <h4>4. &emsp;Terima Notifikasi</h4>
-                    <p className={styles.e}>Terima notifikasi secara real-time
+                    <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>4.&emsp;Terima Notifikasi</b>
+                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px" }}>Terima notifikasi secara real-time <br></br>
                         dengan email.</p>
                 </div>
 
                 <div className={styles.why}>
                     <div className={styles.f}>
-                        <h3 className={styles.g}>Mengapa Menggunakan Paygua?</h3>
-                        <img src={frame1} alt="logo" />
-                        <img src={frame2} alt="logo" />
-                        <img src={frame3} alt="logo" />
+                        <b style={{ fontSize: "18px", color: "#21242B", marginLeft: "12px" }}>Mengapa Menggunakan Paygua?</b>
+                        <img style={{ marginTop: "10px", maxWidth: "300px", marginLeft: "12px", borderRadius: "4px" }} src={frame1} alt="logo" />
+                        <img style={{ marginTop: "10px", maxWidth: "300px", marginLeft: "12px", borderRadius: "4px" }} src={frame2} alt="logo" />
+                        <img style={{ marginTop: "10px", maxWidth: "300px", marginLeft: "12px", borderRadius: "4px" }} src={frame3} alt="logo" />
                         <div className={styles.img1}>
-                            <h5>Dapat Dipersonalisasi</h5>
-                            <p>Gunakan brandmu untuk terlihat  lebih profesional.</p>
+                            <b style={{ fontSize: "14px" }}>Dapat Dipersonalisasi</b>
+                            <p style={{ fontSize: "14px", marginTop: "10px" }}>Gunakan brandmu untuk terlihat  lebih profesional.</p>
                         </div>
                         <div className={styles.img2}>
-                            <h5>Cepat</h5>
-                            <p>Pengiriman dana real-time.</p>
+                            <b style={{ fontSize: "14px" }}>Cepat</b>
+                            <p style={{ fontSize: "14px", marginTop: "10px" }}>Pengiriman dana real-time.</p>
                         </div>
                         <div className={styles.img3}>
-                            <h5>Biaya Terjangkau</h5>
-                            <p>Biaya dan potongan harga yang  terjangkau.</p>
+                            <b style={{ fontSize: "14px" }}>Biaya Terjangkau</b>
+                            <p style={{ fontSize: "14px", marginTop: "10px" }}>Biaya dan potongan harga yang  terjangkau.</p>
                         </div>
                     </div>
                 </div>
 
-                <div className={styles.cocok}>
+                <div style={{ marginLeft: "12px" }}>
                     <h3 className={styles.n}>Paygua cocok untuk</h3>
                     <div className={styles.g1}>
-                        <img src={free} alt="logo" />
+                        <img style={{ marginBottom: "15px" }} src={free} alt="logo" />
                         &emsp;
-                        <img src={penju} alt="logo" />
+                        <img style={{ marginBottom: "15px" }} src={penju} alt="logo" />
                         &emsp;
-                        <img src={trainer} alt="logo" />
+                        <img style={{ marginBottom: "15px" }} src={trainer} alt="logo" />
                         &emsp;
-                        <img src={konsultan} alt="logo" />
+                        <img style={{ marginBottom: "15px" }} src={konsultan} alt="logo" />
                         &emsp;
-                        <img src={donasi} alt="logo" />
+                        <img style={{ marginBottom: "15px" }} src={donasi} alt="logo" />
                         <img src={konten} alt="logo" />
                         &emsp;
                         <img src={bisnisjasa} alt="logo" />
@@ -133,19 +132,19 @@ const TentangKami = () => {
                 <footer>
                     <div className={styles.box1}>
                         <div className={styles.fot1}>
-                            <div className={styles.boxdua}>
+                            {/* <div className={styles.boxdua}>
                                 <h3 className={styles.pay}>Pricing</h3>
                                 <h6 className={styles.by}>Setiap transaksi akan dikenakan Biaya
                                     sebesar 5.000. Pencarian dana menuju rekening bebas biaya.</h6>
-                            </div>
-                            <img src={logo1} alt="logo" />
-                            <h6 className={styles.pt}>PT.Pembayaran Mudah Indonesia</h6>
-
-                            <p className={styles.p1}>TentangKami</p>
-
-                            <p className={styles.p2}>Syarat dan Ketentuan</p>
-
-                            <p className={styles.p3}>Kontak Kami</p>
+                            </div> */}
+                            <img style={{ marginLeft: "12px" }} src={logo1} alt="logo" />
+                            <p style={{ fontSize: "12px", color: "white", marginLeft: "12px" }}>PT.Optimal Teknologi Indonesia</p>
+                            <br></br>
+                            <b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>TentangKami</b>
+                            <br></br>
+                            <b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>Syarat dan ketentuan</b>
+                            <br></br>
+                            <b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>Kontak kami</b>
                         </div>
 
 
