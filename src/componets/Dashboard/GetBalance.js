@@ -10,26 +10,42 @@ import styles from "./Dashboard.module.css";
 import { DataUsageSharp } from "@material-ui/icons"
 
 const GetBalance = () => {
+
     const history = useHistory();
     const [data, setValues] = useState({
         balance: ""
     })
     useEffect(() => {
+
         const token = localStorage.getItem("token");
-        if (token) {
-            axios.get("https://paygua.com/api/user/balance", {
-                headers: {
-                    Authorization: token,
-                }
-            })
-                .then((result) => {
-                    setValues({
-                        ...data,
-                        balance: result.data.data.balance
-                    })
+        const user = jwt(token)
+        const dateNow = new Date();
+        const expToken = new Date(user.exp * 1000);
+        if (dateNow < expToken) {
+            if (token) {
+                axios.get("https://paygua.com/api/user/balance", {
+                    headers: {
+                        Authorization: token,
+                    }
                 })
-            console.log(data)
+                    .then((result) => {
+                        if (result.data.status === 200) {
+                            setValues({
+                                ...data,
+                                balance: result.data.data.balance
+                            })
+                        } else {
+                            history.push('/login')
+                        }
+
+                    })
+                console.log(data)
+            }
+        } else {
+            history.push('/login')
         }
+
+        console.log("jwt", user)
     }, []);
     return (
         <div>
