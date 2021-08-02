@@ -25,6 +25,7 @@ const EditProfile = ({ formSubmit }) => {
     });
     const urlPayGua = "Paygua.com/"
 
+
     const handleChange = (e) => {
         setValues({
             ...data,
@@ -61,12 +62,17 @@ const EditProfile = ({ formSubmit }) => {
                 }
             })
                 .then((result) => {
+                    if (result.data.status === 200) {
+                        setValues({
+                            ...data,
+                            email: result.data.data.email,
+                            profilePicture: result.data.data.profilePicture
+                        })
+                    } else {
+                        history.push('/login')
+                    }
                     console.log(result.data)
-                    setValues({
-                        ...data,
-                        email: result.data.data.email,
-                        profilePicture: result.data.data.profilePicture
-                    })
+
                 })
         }
     }, []);

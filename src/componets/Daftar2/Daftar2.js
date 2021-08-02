@@ -82,7 +82,7 @@ const Daftar2 = () => {
                         if (result.data.status === 200) {
                             history.push('/dashboard')
                         } else if (result.data.status === 400) {
-                            alert("Edit profile mengalami error")
+                            history.push('/login')
                         }
                     }
                     console.log(result)

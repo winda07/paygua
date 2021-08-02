@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react"
 import jwt from "jwt-decode"
 import axios from "axios"
 import arrow from "../../img/arrow-left.svg"
-import { Link, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { DataUsageSharp } from "@material-ui/icons"
 import styles from "./Transaksi.module.css"
 
+
 const GetBalance = () => {
+    const history = useHistory()
     const [data, setValues] = useState({
         Balance: ""
     })
@@ -19,10 +21,15 @@ const GetBalance = () => {
                 }
             })
                 .then((result) => {
-                    setValues({
-                        ...data,
-                        Balance: result.data.data.balance
-                    })
+                    if (result.data.status === 200) {
+                        setValues({
+                            ...data,
+                            Balance: result.data.data.balance
+                        })
+                    } else {
+                        history.push('/login')
+                    }
+
                 })
             console.log(data)
         }

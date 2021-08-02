@@ -18,34 +18,34 @@ const GetBalance = () => {
     useEffect(() => {
 
         const token = localStorage.getItem("token");
-        const user = jwt(token)
-        const dateNow = new Date();
-        const expToken = new Date(user.exp * 1000);
-        if (dateNow < expToken) {
-            if (token) {
-                axios.get("https://paygua.com/api/user/balance", {
-                    headers: {
-                        Authorization: token,
+        // const user = jwt(token)
+        // const dateNow = new Date();
+        // const expToken = new Date(user.exp * 1000);
+        // if (dateNow < expToken) {
+        if (token) {
+            axios.get("https://paygua.com/api/user/balance", {
+                headers: {
+                    Authorization: token,
+                }
+            })
+                .then((result) => {
+                    if (result.data.status === 200) {
+                        setValues({
+                            ...data,
+                            balance: result.data.data.balance
+                        })
+                    } else {
+                        history.push('/login')
                     }
+
                 })
-                    .then((result) => {
-                        if (result.data.status === 200) {
-                            setValues({
-                                ...data,
-                                balance: result.data.data.balance
-                            })
-                        } else {
-                            history.push('/login')
-                        }
-
-                    })
-                console.log(data)
-            }
-        } else {
-            history.push('/login')
+            console.log(data)
         }
+        // } else {
+        //     history.push('/login')
+        // }
 
-        console.log("jwt", user)
+        // console.log("jwt", user)
     }, []);
     return (
         <div>
@@ -56,7 +56,7 @@ const GetBalance = () => {
                             <p style={{ fontSize: "12px", color: "#838790", height: "1px", textAlign: "left", marginLeft: "15px" }} >Saldo Kamu saat ini</p>
                             <p style={{ fontSize: "24px", color: "#21242B", textAlign: "left", marginLeft: "15px" }}>Rp{data.balance}</p>
                         </div>
-                        <div style={{ width: "50%", alignItems: "right", marginLeft: "90px" }}>
+                        <div style={{ alignItems: "right", marginLeft: "110px" }}>
                             <img src={arrow}></img>
                         </div>
                     </Link>

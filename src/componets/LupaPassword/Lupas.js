@@ -9,7 +9,6 @@ import validation from "./validation.js";
 const Lupas = ({ submitForm }) => {
   const [dataIsCorrect, setDataIsCorrect] = useState(false)
   const [errors, setErros] = useState({});
-
   const history = useHistory();
 
   const [data, setValues] = useState({
@@ -22,7 +21,6 @@ const Lupas = ({ submitForm }) => {
       [e.target.name]: e.target.value,
     });
   };
-
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setErros(validation(data));

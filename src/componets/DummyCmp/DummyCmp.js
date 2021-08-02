@@ -52,8 +52,8 @@ const DummyCmp = (props) => {
                             setTimeout(() => {
                                 setButtonPopup(false)
                             }, 3000)
-                        } else if (result.data.status === 400) {
-                            alert("failed")
+                        } else {
+                            history.push('/login')
                         }
                     }
 

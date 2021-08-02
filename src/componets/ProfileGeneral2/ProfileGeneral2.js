@@ -65,6 +65,8 @@ const ProfileGeneral2 = () => {
                         if (result) {
                             if (result.data.status == 200) {
                                 setButtonPopup(true);
+                            } else {
+                                history.push('/login')
                             }
                         }
 

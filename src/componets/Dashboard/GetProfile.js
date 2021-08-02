@@ -27,13 +27,18 @@ const GetProfile = () => {
                 }
             })
                 .then((result) => {
-                    setValues({
-                        ...data,
-                        bio: result.data.data.bio,
-                        name: result.data.data.name,
-                        username: result.data.data.username,
-                        profilePicture: result.data.data.profilePicture
-                    })
+                    if (result.data.status === 200) {
+                        setValues({
+                            ...data,
+                            bio: result.data.data.bio,
+                            name: result.data.data.name,
+                            username: result.data.data.username,
+                            profilePicture: result.data.data.profilePicture
+                        })
+                    }
+                    else {
+                        history.push('/login')
+                    }
                     console.log(result)
                 })
 

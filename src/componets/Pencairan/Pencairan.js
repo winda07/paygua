@@ -64,10 +64,10 @@ const Pencairan = () => {
                     })
                     .then((result) => {
                         if (result) {
-                            if (result.data.status === 400) {
-                                alert("saldo tidak cukup")
-                            } else if (result.data.status === 200) {
+                            if (result.data.status === 200) {
                                 history.push('/successPencairan')
+                            } else {
+                                history.push('/login')
                             }
                         }
                         console.log(result.data);

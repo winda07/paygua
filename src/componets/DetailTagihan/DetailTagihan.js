@@ -7,12 +7,15 @@ import { Link, useLocation, useHistory } from 'react-router-dom'
 import axios from "axios"
 import Popup from "../PopupSuksesUbah/PopupSuksesUbah";
 import CurrencyFormat from "react-currency-format";
+import validation from "../BuatTagihan/validation";
 
 const DetailTagihan = () => {
 
     const history = useHistory();
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const location = useLocation();
+    const [isClicked, setIsClicked] = useState(false);
+    const [errors, setErros] = useState({});
     const [buttonPopup, setButtonPopup] = useState(false);
     const [data, setValues] = useState({
         nama: "",
@@ -32,7 +35,12 @@ const DetailTagihan = () => {
             invoiceId: location.state.invoiceId
         })
     }, [])
-
+    useEffect(() => {
+        console.log("isClicked: ", isClicked)
+        setErros(validation(data));
+        setDataIsCorrect(false);
+        setIsClicked(false);
+    }, [])
 
     const handleChange = (e) => {
         setValues({
@@ -43,7 +51,9 @@ const DetailTagihan = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        setErros(validation(data));
         setDataIsCorrect(true);
+        setIsClicked(true);
         const token = localStorage.getItem("token");
         if (dataIsCorrect) {
             if (token) {
@@ -64,14 +74,14 @@ const DetailTagihan = () => {
                     // console.log("nominal", data.nominal)
                     .then((result) => {
                         if (result) {
-                            if (result.data.status === 400) {
-                                alert("failed");
-                            } else if (result.data.status === 200) {
+                            if (result.data.status === 200) {
 
                                 setButtonPopup(true);
                                 setTimeout(() => {
                                     setButtonPopup(false)
                                 }, 5000)
+                            } else {
+                                history.push('/login')
                             }
                             console.log("nominal: " + result.data.nominal)
                         }
@@ -101,10 +111,10 @@ const DetailTagihan = () => {
                 )
                 .then((result) => {
                     if (result) {
-                        if (result.data.status === 400) {
-                            alert("failed");
-                        } else if (result.data.status === 200) {
+                        if (result.data.status === 200) {
                             history.push('/tagihan')
+                        } else {
+                            history.push('/login')
                         }
                     }
                     // console.log(result);
@@ -155,6 +165,7 @@ const DetailTagihan = () => {
                     value={data.nominal}
                     onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
                 <p className={styles["min"]}>*Mininal Rp10.000</p>
+                <div className={styles["set"]}>{(errors.nominal && isClicked) && <p className="error">{errors.nominal}</p>}</div>
                 <textarea
                     type="email"
                     class={styles["form-control-bio"]}

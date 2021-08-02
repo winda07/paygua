@@ -13,8 +13,8 @@ const validation = (values) => {
     }
     if (!values.nominal) {
         errors.nominal = "Nominal tidak boleh kosong"
-    } else if (values.nominal < 10000) {
-        errors.nominal = "Nominal minimal 10000"
+    } else if (values.nominal < 10.000) {
+        errors.nominal = "Nominal minimal 10.000"
     }
     return errors;
 }

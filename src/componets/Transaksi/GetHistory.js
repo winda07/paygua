@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import jwt from "jwt-decode"
 import axios from "axios"
 import arrow from "../../img/arrow-left.svg"
-import { Link, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { DataUsageSharp } from "@material-ui/icons"
 import styles from "./Transaksi.module.css"
 import panahbawah from "../../img/panahbawah.svg"
@@ -10,6 +10,7 @@ import panahatas from "../../img/panahatas.svg"
 import { red } from "@material-ui/core/colors";
 
 const GetHistory = () => {
+    const history = useHistory()
     const [data, setValues] = useState({
         transaksi: []
     })
@@ -23,10 +24,13 @@ const GetHistory = () => {
             })
                 .then((result) => {
                     if (result.data) {
-                        setValues({
-                            ...data, transaksi: result.data.data
-                        })
-
+                        if (result.data.status === 200) {
+                            setValues({
+                                ...data, transaksi: result.data.data
+                            })
+                        } else {
+                            history.push('/login')
+                        }
                     }
                     console.log(result)
 

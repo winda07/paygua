@@ -53,11 +53,10 @@ const Password = () => {
                     })
                     .then((result) => {
                         if (result) {
-                            if (result.data.status === 400) {
-                                alert("failed")
-                            } else if (result.data.status === 200) {
+                            if (result.data.status === 200) {
                                 history.push('/settings')
-
+                            } else {
+                                history.push('/login')
                             }
                         }
                         console.log(result.data);

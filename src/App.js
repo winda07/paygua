@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "./App.css"
 import Form from "./componets/Register/Form"
 import Login from './componets/Login/Form';
@@ -28,9 +28,19 @@ import TentangKami from "./componets/TentangKami/TentangKami"
 import Notification from "./componets/Notification/Notification"
 import VerfifResetPasswrod from "./componets/VerfiResetPassword/VerifResetPassword"
 import RegisterCheck from "./componets/Register/RegisterCheck"
-import { Route, Switch } from 'react-router-dom';
-
+import { Route, Switch, useHistory } from 'react-router-dom';
+import jwt from "jwt-decode"
 const App = () => {
+  const history = useHistory()
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const user = jwt(token)
+    const dateNow = new Date();
+    const expToken = new Date(user.exp * 1000);
+    if (dateNow > expToken) {
+      history.push('/login')
+    }
+  })
   return (
     <div>
       <Switch>

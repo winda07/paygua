@@ -6,8 +6,10 @@ import withdrawSuccess from "../../img/withdrawSuccess.svg"
 import styles from "./Notification.module.css"
 import axios from "axios"
 import red from "../../img/reddd.svg"
+import { Link, useHistory } from "react-router-dom";
 
 const GetNotif = () => {
+    const history = useHistory()
     const [data, setValues] = useState({
         notif: [],
     })
@@ -26,6 +28,8 @@ const GetNotif = () => {
                                 ...data, notif: result.data.data
                             })
                             setRead()
+                        } else {
+                            history.push('/login')
                         }
 
 

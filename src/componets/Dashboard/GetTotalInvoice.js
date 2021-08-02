@@ -23,10 +23,15 @@ const GetTotalInvoice = () => {
                 }
             })
                 .then((result) => {
-                    setValues({
-                        ...data,
-                        Total: result.data.data.total
-                    })
+                    if (result.data.status === 200) {
+                        setValues({
+                            ...data,
+                            Total: result.data.data.total
+                        })
+                    } else {
+                        history.push('login')
+                    }
+
                 })
             console.log(data)
         }

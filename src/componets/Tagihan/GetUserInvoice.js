@@ -38,10 +38,13 @@ const GetUserInvoice = () => {
             })
                 .then((result) => {
                     if (result.data) {
-                        setValues({
-                            ...data, tagihan: result.data.data
-                        })
-
+                        if (result.data.status === 200) {
+                            setValues({
+                                ...data, tagihan: result.data.data
+                            })
+                        } else {
+                            history.push('/login')
+                        }
 
                     }
                     console.log(result.data)

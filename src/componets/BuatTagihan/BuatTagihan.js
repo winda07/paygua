@@ -65,14 +65,7 @@ const BuatTagihan = () => {
                     )
                     .then((result) => {
                         if (result) {
-                            if (result.data.status === 400) {
-                                alert("failed");
-                            } else if (result.data.status === 200) {
-                                // history.push('/successTagihan')
-                                // history.push({
-                                //   pathname: "/successTagihan",
-                                //   state: { invoiceId: result.data.data.invoiceId },
-                                // });
+                            if (result.data.status === 200) {
                                 setButtonPopup(true);
                                 setValues({
                                     ...data,
@@ -81,6 +74,8 @@ const BuatTagihan = () => {
                                 setTimeout(() => {
                                     setButtonPopup(false)
                                 }, 10000)
+                            } else {
+                                history.push('login')
                             }
                         }
                         console.log(result.data);
