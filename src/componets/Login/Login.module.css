@@ -32,7 +32,7 @@
 }
 
 .sandi {
-  margin-bottom: 35px;
+  /* margin-bottom: 35px; */
   margin-left: 37px;
 }
 
@@ -43,10 +43,11 @@
   margin-left: 180px;
 }
 .btnSubmit {
+  height: 50px;
   margin-left: 10px;
   position: relative;
   appearance: none;
-  padding: 0.1em 9em;
+  padding: 0.1em 11em;
   cursor: pointer;
   outline: none;
   border-radius: 100px;

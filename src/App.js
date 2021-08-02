@@ -29,48 +29,47 @@ import Notification from "./componets/Notification/Notification"
 import VerfifResetPasswrod from "./componets/VerfiResetPassword/VerifResetPassword"
 import RegisterCheck from "./componets/Register/RegisterCheck"
 import { Route, Switch } from 'react-router-dom';
-import VerifResetPassword from "./componets/VerfiResetPassword/VerifResetPassword";
 
 const App = () => {
-  return (<div>
-    <Switch>
+  return (
+    <div>
+      <Switch>
+        <Route exact path="/" component={TentangKami} />
+        <Route path="/login" component={Login}></Route>
+        <Route path="/register" component={Form} />
+        <Route path="/verifLupaPassword" component={VerivLupas}></Route>
+        <Route path="/lupaPassword" component={LupaPassword} />
+        <Route path="/auth/reset/:tokenid" component={ResetPassword} />
+        <Route path="/auth/verify/:tokenid" component={VerifyEmail}></Route>
+        <Route path="/Success" component={Success}></Route>
+        <Route path="/Expired" component={Expired}></Route>
+        <Route path="/gantiPassword" component={ChangePassword}></Route>
+        <Route path="/settings" component={Settings}></Route>
+        <Route path="/editProfile" component={Editprofile} ></Route>
+        <Route path="/daftar" component={Daftar2}></Route>
+        <Route path="/dashboard" component={Dashboard}></Route>
+        <Route path="/share" component={Share}></Route>
+        <Route path="/notifToast" component={notifToast}></Route>
+        <Route path="/pencairan" component={Pencairan}></Route>
+        <Route path="/successPencairan" component={SuccessPencairan}></Route>
+        <Route path="/transaksi" component={Transaksi}></Route>
+        <Route path="/buatTagihan" component={BuatTagihan}></Route>
+        <Route path="/successTagihan" component={SuksesTagihan}></Route>
+        <Route path="/tagihan" component={Tagihan}></Route>
+        <Route exact path="/detailTagihan" component={DetailTagihan}></Route>
+        <Route path="/profileGeneral" component={ProfileGeneral2}></Route>
+        <Route path="/notification" component={Notification}></Route>
+        <Route path="/verifResetPassword" component={VerfifResetPasswrod}></Route>
+        <Route path="/registerCheck" component={RegisterCheck}></Route>
+        <Route exact path="/:username">
+          <DummyCmp type="type1" />
+        </Route>
+        <Route exact path="/:username/:invoiceId">
+          <DummyCmp type="type2" />
+        </Route>
+      </Switch>
 
-      <Route exact path="/" component={TentangKami} />
-      <Route path="/login" component={Login}></Route>
-      <Route path="/register" component={Form} />
-      <Route path="/verifLupaPassword" component={VerivLupas}></Route>
-      <Route path="/lupaPassword" component={LupaPassword} />
-      <Route path="/auth/reset/:tokenid" component={ResetPassword} />
-      <Route path="/auth/verify/:tokenid" component={VerifyEmail}></Route>
-      <Route path="/Success" component={Success}></Route>
-      <Route path="/Expired" component={Expired}></Route>
-      <Route path="/gantiPassword" component={ChangePassword}></Route>
-      <Route path="/settings" component={Settings}></Route>
-      <Route path="/editProfile" component={Editprofile} ></Route>
-      <Route path="/daftar" component={Daftar2}></Route>
-      <Route path="/dashboard" component={Dashboard}></Route>
-      <Route path="/share" component={Share}></Route>
-      <Route path="/notifToast" component={notifToast}></Route>
-      <Route path="/pencairan" component={Pencairan}></Route>
-      <Route path="/successPencairan" component={SuccessPencairan}></Route>
-      <Route path="/transaksi" component={Transaksi}></Route>
-      <Route path="/buatTagihan" component={BuatTagihan}></Route>
-      <Route path="/successTagihan" component={SuksesTagihan}></Route>
-      <Route path="/tagihan" component={Tagihan}></Route>
-      <Route exact path="/detailTagihan" component={DetailTagihan}></Route>
-      <Route path="/profileGeneral" component={ProfileGeneral2}></Route>
-      <Route path="/notification" component={Notification}></Route>
-      <Route path="/verifResetPassword" component={VerfifResetPasswrod}></Route>
-      <Route path="/registerCheck" component={RegisterCheck}></Route>
-      <Route exact path="/:username">
-        <DummyCmp type="type1" />
-      </Route>
-      <Route exact path="/:username/:invoiceId">
-        <DummyCmp type="type2" />
-      </Route>
-    </Switch>
-
-  </div>
+    </div>
   )
 };
 export default App

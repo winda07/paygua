@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./TentangKami.module.css";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.svg";
@@ -24,8 +24,8 @@ import retail from "../../img/Retail.svg"
 import kreator from "../../img/Kreator.svg"
 
 
-
 const TentangKami = () => {
+
     return (
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
@@ -50,11 +50,11 @@ const TentangKami = () => {
                         <p>Mulai Sekarang &#x279D;</p>
                     </button>
                 </div>
-                <div class="a">
+                {/* <div class="a">
                     <p style={{ marginLeft: "12px" }}>Terima invoice dari:</p>
-                </div>
+                </div> */}
 
-                <section className="section">
+                {/* <section className="section">
                     <div className={styles.gambar1}>
                         <img src={kredit} alt="logo" />
                         <img style={{ marginLeft: "5px" }} src={va} alt="logo" />
@@ -72,7 +72,7 @@ const TentangKami = () => {
                     <div className={styles.textblack}>
                         <b>Dana dapat dengan mudah  dicairkan ke semua rekening  Bank dan E-Wallet</b>
                     </div>
-                </div>
+                </div> */}
 
                 <div className={styles.rules}>
                     <b style={{ fontSize: "18px", color: "#21242B", marginLeft: "12px" }}>Bagaimana Paygua bekerja?</b>

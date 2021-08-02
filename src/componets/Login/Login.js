@@ -121,7 +121,7 @@ const Login = ({ submitForm }) => {
               <p class={styles.text}>Masuk</p>
             </div> */}
             <button className={styles.btnSubmit} type="submit">
-              Masuk
+              <p className={styles.text}> Masuk</p>
             </button>
 
             <div class="form-group">
