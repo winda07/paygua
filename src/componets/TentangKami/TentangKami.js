@@ -35,7 +35,7 @@ const TentangKami = () => {
                     <div className={styles.dropdown}>
                         <Link to="/login">Masuk</Link>
                         <Link to="/register">Daftar</Link>
-                        <Link to="/tentangKami">TentangKami</Link>
+                        <Link to="/tentangKami">Tentang Kami</Link>
                     </div>
                 </span>
                 <div className={styles.TentangKami}>
@@ -137,7 +137,7 @@ const TentangKami = () => {
                             <img style={{ marginLeft: "12px" }} src={logo1} alt="logo" />
                             <p style={{ fontSize: "12px", color: "white", marginLeft: "12px" }}>PT.Optimal Teknologi Indonesia</p>
                             <br></br>
-                            <b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>TentangKami</b>
+                            <b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>Tentang Kami</b>
                             <br></br>
                             <b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>Syarat dan ketentuan</b>
                             <br></br>
