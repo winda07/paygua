@@ -74,10 +74,10 @@ const Dashboard = () => {
           <GetProfile></GetProfile>
         </div>
 
-        <div style={{ height: "75px" }}>
+        <div style={{ height: "150px" }}>
           <GetBalance></GetBalance>
         </div>
-        {/* <GetTotalInvoice></GetTotalInvoice> */}
+        <GetTotalInvoice></GetTotalInvoice>
       </div>
     </div>
 

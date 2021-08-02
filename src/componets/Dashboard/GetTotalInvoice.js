@@ -33,20 +33,23 @@ const GetTotalInvoice = () => {
     }, []);
     return (
         <div>
-            <div className={styles.boxdua3} style={{
-                display: "flex",
-                alignItems: "center"
-            }}>
-                <div>
-                    <p style={{ fontSize: "24px", color: "#21242B", marginLeft: "25px", height: "15px" }} >Tagihan</p>
-                    <p style={{ fontSize: "12px", color: "#838790", marginLeft: "25px" }}>Kamu memiliki <b style={{ fontSize: "12px", color: "#21242B" }}>{data.Total} Tagihan Aktif</b> </p>
-                </div>
-                <div style={{ width: "30%", textAlign: "right" }}>
-                    <Link to="/tagihan"> <img src={arrow}></img></Link>
+            <button className={styles.boxdua3} >
+                <Link to="/tagihan" style={{
+                    display: "flex",
+                    alignItems: "center", textDecoration: "none"
+                }}>
+                    <div>
+                        <p style={{ fontSize: "24px", color: "#21242B", marginLeft: "15px", height: "15px", textAlign: "left" }} >Tagihan</p>
+                        <p style={{ fontSize: "12px", color: "#838790", marginLeft: "15px" }}>Kamu memiliki <b style={{ fontSize: "12px", color: "#21242B" }}>{data.Total} Tagihan Aktif</b> </p>
+                    </div>
+                    <div style={{ width: "30%", textAlign: "right" }}>
+                        <img src={arrow}></img>
 
-                </div>
+                    </div>
+                </Link>
 
-            </div>
+
+            </button>
 
         </div>
     )
