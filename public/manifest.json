@@ -5,16 +5,16 @@
     {
       "src": "logoBar.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/png+xml"
+      "type": "image/x-icon"
     },
     {
       "src": "logoBar.png",
-      "type": "image/png+xml",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
       "src": "logoBar.png",
-      "type": "image/png+xml",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
