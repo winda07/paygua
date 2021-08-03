@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "../../img/logo.svg";
 import latar from "../../img/Latar.svg";
 import kredit from "../../img/kartukredit.svg"
-import va from "../../img/va.svg"
+// import va from "../../img/va.svg"
 import wallet from "../../img/E-Wallet.svg"
 import black from "../../img/black.svg"
 import frame1 from "../../img/Frame 1.svg"
