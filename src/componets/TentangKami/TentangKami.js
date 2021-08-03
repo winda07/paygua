@@ -25,22 +25,13 @@ import kreator from "../../img/Kreator.svg"
 
 
 const TentangKami = () => {
-    const [isClicked, setIsClicked] = useState(false);
-
-    useEffect(() => {
-        setIsClicked(false);
-    }, [])
-
-    const handle = (e) => {
-        setIsClicked(true)
-    }
 
     return (
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
                 <img style={{ marginLeft: "15px" }} src={logo} alt="logo" />
                 <span className={styles.menu}>
-                    <a href="#" onClick={handle}> <img className={styles['menu2']} src={menu} /></a>
+                    <img className={styles['menu2']} src={menu} />
                     <div className={styles.dropdown}>
                         <Link to="/login">Masuk</Link>
                         <Link to="/register">Daftar</Link>
