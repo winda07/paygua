@@ -48,7 +48,10 @@ const TentangKami = () => {
                         <p>Paygua membantu kamu menerima invoice dengan mudah dari pelanggan hanya dengan link. Buat halaman invoice hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
                     </div>
                     <button className={styles.button}>
-                        <p>Mulai Sekarang &#x279D;</p>
+                        <Link style={{ textDecoration: "none", color: "white" }} to="/register">
+                            <p>Mulai Sekarang &#x279D;</p>
+                        </Link>
+
                     </button>
                 </div>
                 {/* <div class="a">
@@ -79,17 +82,17 @@ const TentangKami = () => {
                     <b style={{ fontSize: "18px", color: "#21242B", marginLeft: "12px" }}>Bagaimana Paygua bekerja?</b>
                     <br></br>
                     <br></br>
-                    <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>1.&emsp;Daftar dan Buat Halaman</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px", margin: "5px 0px 14px 35px " }}>Pendaftaran sangat mudah. <br></br>
+                    <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>1.&emsp; Daftar dan Buat Halaman</b>
+                    <p style={{ fontSize: "14px", color: "#21242B", margin: "5px 0px 14px 37px " }}>Pendaftaran sangat mudah. <br></br>
                         Klik daftar sekarang untuk memulai.</p>
                     <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>2.&emsp;Buat Tagihan</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px", margin: "5px 0px 14px 35px " }}>Buat tagihan hanya dengan <br></br>
+                    <p style={{ fontSize: "14px", color: "#21242B", margin: "5px 0px 14px 37px " }}>Buat tagihan hanya dengan <br></br>
                         hitungan detik di dashboard Paygua.</p>
                     <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>3.&emsp;Bagikan Link dan Terima Pembayaran</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px", margin: "5px 0px 14px 35px " }}>Salin dan tempel tautan invoice <br></br>
+                    <p style={{ fontSize: "14px", color: "#21242B", margin: "5px 0px 14px 37px " }}>Salin dan tempel tautan invoice <br></br>
                         di aplikasi pesan, email atau media sosial.</p>
                     <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>4.&emsp;Terima Notifikasi</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px", margin: "5px 0px 14px 35px " }}>Terima notifikasi secara real-time <br></br>
+                    <p style={{ fontSize: "14px", color: "#21242B", margin: "5px 0px 14px 39px " }}>Terima notifikasi secara real-time <br></br>
                         dengan email.</p>
                 </div>
 
