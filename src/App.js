@@ -37,9 +37,12 @@ const App = () => {
     const user = jwt(token)
     const dateNow = new Date();
     const expToken = new Date(user.exp * 1000);
-    if (dateNow > expToken) {
-      history.push('/login')
+    if (token) {
+      if (dateNow > expToken) {
+        history.push('/')
+      }
     }
+
   })
   return (
     <div>
