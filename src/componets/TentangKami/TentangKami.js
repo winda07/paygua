@@ -96,9 +96,9 @@ const TentangKami = () => {
                 <div className={styles.why}>
                     <div className={styles.f}>
                         <b style={{ fontSize: "18px", color: "#21242B", marginLeft: "12px" }}>Mengapa Menggunakan Paygua?</b>
-                        <img style={{ marginTop: "10px", maxWidth: "300px", marginLeft: "12px", borderRadius: "4px" }} src={frame1} alt="logo" />
-                        <img style={{ marginTop: "10px", maxWidth: "300px", marginLeft: "12px", borderRadius: "4px" }} src={frame2} alt="logo" />
-                        <img style={{ marginTop: "10px", maxWidth: "300px", marginLeft: "12px", borderRadius: "4px" }} src={frame3} alt="logo" />
+                        <img style={{ marginTop: "20px", maxWidth: "330px", marginLeft: "12px", borderRadius: "4px" }} src={frame1} alt="logo" />
+                        <img style={{ marginTop: "10px", maxWidth: "330px", marginLeft: "12px", borderRadius: "4px" }} src={frame2} alt="logo" />
+                        <img style={{ marginTop: "10px", maxWidth: "330px", marginLeft: "12px", borderRadius: "4px" }} src={frame3} alt="logo" />
                         <div className={styles.img1}>
                             <b style={{ fontSize: "14px" }}>Dapat Dipersonalisasi</b>
                             <p style={{ fontSize: "14px", marginTop: "10px" }}>Gunakan brandmu untuk terlihat  lebih profesional.</p>
