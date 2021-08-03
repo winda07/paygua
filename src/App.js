@@ -34,10 +34,10 @@ const App = () => {
   const history = useHistory()
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const user = jwt(token)
-    const dateNow = new Date();
-    const expToken = new Date(user.exp * 1000);
     if (token) {
+      const user = jwt(token)
+      const dateNow = new Date();
+      const expToken = new Date(user.exp * 1000);
       if (dateNow > expToken) {
         history.push('/')
       }
