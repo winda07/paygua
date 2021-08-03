@@ -30,7 +30,27 @@ import VerfifResetPasswrod from "./componets/VerfiResetPassword/VerifResetPasswo
 import RegisterCheck from "./componets/Register/RegisterCheck"
 import { Route, Switch, useHistory } from 'react-router-dom';
 import jwt from "jwt-decode"
+import { useMediaQuery } from 'react-responsive'
 const App = () => {
+  const isMobileDevice = useMediaQuery({
+    query: "(min-device-width: 480px)",
+  });
+
+  const isTabletDevice = useMediaQuery({
+    query: "(min-device-width: 768px)",
+  });
+
+  const isLaptop = useMediaQuery({
+    query: "(min-device-width: 1024px)",
+  });
+
+  const isDesktop = useMediaQuery({
+    query: "(min-device-width: 1200px)",
+  });
+
+  const isBigScreen = useMediaQuery({
+    query: "(min-device-width: 1201px )",
+  });
   const history = useHistory()
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -47,6 +67,7 @@ const App = () => {
   return (
     <div>
       <Switch>
+        {isMobileDevice && <TentangKami></TentangKami>}
         <Route exact path="/" component={TentangKami} />
         <Route path="/login" component={Login}></Route>
         <Route path="/register" component={Form} />

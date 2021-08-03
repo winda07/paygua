@@ -26,6 +26,7 @@ import kreator from "../../img/Kreator.svg"
 
 const TentangKami = () => {
 
+
     return (
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
@@ -116,13 +117,13 @@ const TentangKami = () => {
                 <div style={{ marginLeft: "12px" }}>
                     <h3 className={styles.n}>Paygua cocok untuk</h3>
                     <div className={styles.g1}>
-                        <img style={{ marginBottom: "15px" }} src={free} alt="logo" />
-                        <img style={{ marginBottom: "15px", marginLeft: "5px" }} src={penju} alt="logo" />
-                        <img style={{ marginBottom: "15px" }} src={trainer} alt="logo" />
-                        <img style={{ marginBottom: "15px", marginLeft: "5px" }} src={konsultan} alt="logo" />
-                        <img style={{ marginBottom: "15px", marginLeft: "5px" }} src={retail} alt="logo" />
-                        <img style={{ marginBottom: "15px", marginLeft: "5px" }} src={kreator} alt="logo" />
-                        <img style={{ marginBottom: "15px", marginLeft: "5px" }} src={bisnisjasa} alt="logo" />
+                        <img style={{ marginBottom: "10px" }} src={free} alt="logo" />
+                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={penju} alt="logo" />
+                        <img style={{ marginBottom: "10px" }} src={trainer} alt="logo" />
+                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={konsultan} alt="logo" />
+                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={retail} alt="logo" />
+                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={kreator} alt="logo" />
+                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={bisnisjasa} alt="logo" />
                     </div>
                 </div>
 
