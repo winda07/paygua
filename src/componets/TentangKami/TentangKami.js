@@ -30,7 +30,7 @@ const TentangKami = () => {
     return (
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
-                <img src={logo} alt="logo" />
+                <img style={{ marginLeft: "15px" }} src={logo} alt="logo" />
                 <span className={styles.menu}>
                     <a href="#" ><img className={styles['menu2']} src={menu} /> </a>
                     <div className={styles.dropdown}>
@@ -80,16 +80,16 @@ const TentangKami = () => {
                     <br></br>
                     <br></br>
                     <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>1.&emsp;Daftar dan Buat Halaman</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px" }}>Pendaftaran sangat mudah. <br></br>
+                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px", margin: "5px 0px 14px 35px " }}>Pendaftaran sangat mudah. <br></br>
                         Klik daftar sekarang untuk memulai.</p>
                     <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>2.&emsp;Buat Tagihan</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px" }}>Buat tagihan hanya dengan <br></br>
+                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px", margin: "5px 0px 14px 35px " }}>Buat tagihan hanya dengan <br></br>
                         hitungan detik di dashboard Paygua.</p>
                     <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>3.&emsp;Bagikan Link dan Terima Pembayaran</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px" }}>Salin dan tempel tautan invoice <br></br>
+                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px", margin: "5px 0px 14px 35px " }}>Salin dan tempel tautan invoice <br></br>
                         di aplikasi pesan, email atau media sosial.</p>
                     <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>4.&emsp;Terima Notifikasi</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px" }}>Terima notifikasi secara real-time <br></br>
+                    <p style={{ fontSize: "14px", color: "#21242B", marginLeft: "35px", margin: "5px 0px 14px 35px " }}>Terima notifikasi secara real-time <br></br>
                         dengan email.</p>
                 </div>
 
@@ -152,7 +152,7 @@ const TentangKami = () => {
                 </footer>
 
             </div>
-        </div>
+        </div >
     );
 };
 
