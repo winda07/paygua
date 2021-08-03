@@ -67,7 +67,7 @@ const App = () => {
   return (
     <div>
       <Switch>
-        {isMobileDevice && <TentangKami></TentangKami>}
+        {/* {isMobileDevice && <TentangKami></TentangKami>} */}
         <Route exact path="/" component={TentangKami} />
         <Route path="/login" component={Login}></Route>
         <Route path="/register" component={Form} />
