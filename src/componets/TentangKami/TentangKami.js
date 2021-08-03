@@ -119,7 +119,7 @@ const TentangKami = () => {
                     <div className={styles.g1}>
                         <img style={{ marginBottom: "10px" }} src={free} alt="logo" />
                         <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={penju} alt="logo" />
-                        <img style={{ marginBottom: "10px" }} src={trainer} alt="logo" />
+                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={trainer} alt="logo" />
                         <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={konsultan} alt="logo" />
                         <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={retail} alt="logo" />
                         <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={kreator} alt="logo" />
