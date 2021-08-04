@@ -201,8 +201,7 @@ const DummyCmp = (props) => {
                         onChange={handleChange}
                     ></textarea>
                 </div>
-                <br></br>
-                <br></br>
+
                 <section className="section">
                     <img name="bank" value={data.bank === "ovo"} className={styles.logoovo} src={ovo} onClick={() => setBank("ovo")} ></img>
                     <img name="bank" value={data.bank === "gopay"} className={styles.logogopay} style={{ marginLeft: "7px" }} src={gopay} onClick={() => setBank("gopay")} ></img>
