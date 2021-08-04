@@ -32,7 +32,7 @@ const TentangKami = () => {
 
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
-                <img style={{ marginLeft: "15px" }} src={logo} alt="logo" />
+                <img className={styles.logo} style={{ marginLeft: "15px" }} src={logo} alt="logo" />
                 <span className={styles.menu}>
                     <a href="#" ><img className={styles['menu2']} src={menu} /> </a>
                     <div className={styles.dropdown}>
@@ -42,7 +42,7 @@ const TentangKami = () => {
                     </div>
                 </span>
                 <div className={styles.TentangKami}>
-                    <img src={latar} alt="latar" />
+                    <img className={styles.latar} src={latar} alt="latar" />
                     <div className={styles.textBold}>
                         <h1>Terima dan atur invoice bisnismu dengan cara paling mudah</h1>
                     </div>
@@ -84,26 +84,26 @@ const TentangKami = () => {
                     <b style={{ fontSize: "18px", color: "#21242B", marginLeft: "12px" }}>Bagaimana Paygua bekerja?</b>
                     <br></br>
                     <br></br>
-                    <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>1.&emsp; Daftar dan Buat Halaman</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", margin: "5px 0px 14px 37px " }}>Pendaftaran sangat mudah. <br></br>
+                    <b className={styles.judul} >1.&emsp; Daftar dan Buat Halaman</b>
+                    <p className={styles.isi1} >Pendaftaran sangat mudah. <br></br>
                         Klik daftar sekarang untuk memulai.</p>
-                    <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>2.&emsp;Buat Tagihan</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", margin: "5px 0px 14px 37px " }}>Buat tagihan hanya dengan <br></br>
+                    <b className={styles.judul} >2.&emsp;Buat Tagihan</b>
+                    <p className={styles.isi2} >Buat tagihan hanya dengan <br></br>
                         hitungan detik di dashboard Paygua.</p>
-                    <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>3.&emsp;Bagikan Link dan Terima Pembayaran</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", margin: "5px 0px 14px 37px " }}>Salin dan tempel tautan invoice <br></br>
+                    <b className={styles.judul} >3.&emsp;Bagikan Link dan Terima Pembayaran</b>
+                    <p className={styles.isi3}>Salin dan tempel tautan invoice <br></br>
                         di aplikasi pesan, email atau media sosial.</p>
-                    <b style={{ fontSize: "14px", color: "#21242B", marginLeft: "12px" }}>4.&emsp;Terima Notifikasi</b>
-                    <p style={{ fontSize: "14px", color: "#21242B", margin: "5px 0px 14px 39px " }}>Terima notifikasi secara real-time <br></br>
+                    <b className={styles.judul} >4.&emsp;Terima Notifikasi</b>
+                    <p className={styles.isi4} >Terima notifikasi secara real-time <br></br>
                         dengan email.</p>
                 </div>
 
                 <div className={styles.why}>
                     <div className={styles.f}>
-                        <b style={{ fontSize: "18px", color: "#21242B", marginLeft: "12px" }}>Mengapa Menggunakan Paygua?</b>
-                        <img style={{ marginTop: "20px", maxWidth: "330px", marginLeft: "12px", borderRadius: "4px" }} src={frame1} alt="logo" />
-                        <img style={{ marginTop: "10px", maxWidth: "330px", marginLeft: "12px", borderRadius: "4px" }} src={frame2} alt="logo" />
-                        <img style={{ marginTop: "10px", maxWidth: "330px", marginLeft: "12px", borderRadius: "4px" }} src={frame3} alt="logo" />
+                        <b className={styles.use} >Mengapa Menggunakan Paygua?</b>
+                        <img className={styles.imgwhy1} src={frame1} alt="logo" />
+                        <img className={styles.imgwhy2} src={frame2} alt="logo" />
+                        <img className={styles.imgwhy3} src={frame3} alt="logo" />
                         <div className={styles.img1}>
                             <b style={{ fontSize: "14px" }}>Dapat Dipersonalisasi</b>
                             <p style={{ fontSize: "14px", marginTop: "10px" }}>Gunakan brandmu untuk terlihat  lebih profesional.</p>
@@ -119,16 +119,16 @@ const TentangKami = () => {
                     </div>
                 </div>
 
-                <div style={{ marginLeft: "12px" }}>
+                <div className={styles.tes}>
                     <h3 className={styles.n}>Paygua cocok untuk</h3>
                     <div className={styles.g1}>
-                        <img style={{ marginBottom: "10px" }} src={free} alt="logo" />
-                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={penju} alt="logo" />
-                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={trainer} alt="logo" />
-                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={konsultan} alt="logo" />
-                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={retail} alt="logo" />
-                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={kreator} alt="logo" />
-                        <img style={{ marginBottom: "10px", marginLeft: "5px" }} src={bisnisjasa} alt="logo" />
+                        <img className={styles.cocok1} src={free} alt="logo" />
+                        <img className={styles.cocok2} src={penju} alt="logo" />
+                        <img className={styles.cocok3} src={trainer} alt="logo" />
+                        <img className={styles.cocok4} src={konsultan} alt="logo" />
+                        <img className={styles.cocok5} src={retail} alt="logo" />
+                        <img className={styles.cocok6} src={kreator} alt="logo" />
+                        <img className={styles.cocok7} src={bisnisjasa} alt="logo" />
                     </div>
                 </div>
 
