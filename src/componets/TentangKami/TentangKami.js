@@ -24,10 +24,12 @@ import retail from "../../img/Retail.svg"
 import kreator from "../../img/Kreator.svg"
 
 
+
 const TentangKami = () => {
 
 
     return (
+
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
                 <img style={{ marginLeft: "15px" }} src={logo} alt="logo" />
@@ -156,6 +158,7 @@ const TentangKami = () => {
 
             </div>
         </div >
+
     );
 };
 

@@ -32,9 +32,9 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import jwt from "jwt-decode"
 import { useMediaQuery } from 'react-responsive'
 const App = () => {
-  const isMobileDevice = useMediaQuery({
-    query: "(min-device-width: 480px)",
-  });
+  // const isMobileDevice = useMediaQuery({
+  //   query: "(min-device-width: 480px)",
+  // });
   const history = useHistory()
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -51,7 +51,8 @@ const App = () => {
   return (
     <div>
       <Switch>
-        {isMobileDevice && <Route exact path="/" component={TentangKami} />}
+        {/* {isMobileDevice && <Route exact path="/" component={TentangKami} />} */}
+        <Route exact path="/" component={TentangKami} />
         <Route path="/login" component={Login}></Route>
         <Route path="/register" component={Form} />
         <Route path="/verifLupaPassword" component={VerivLupas}></Route>
