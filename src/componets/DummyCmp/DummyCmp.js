@@ -14,6 +14,7 @@ import transfer from "../../img/Bank Transfer.svg"
 import validation from "../ProfileGeneral2/validation"
 import Popup from "../PopupSuksesPembayaran/PopupSukses"
 import jwt from "jwt-decode"
+import CurrencyFormat from "react-currency-format";
 
 const DummyCmp = (props) => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
@@ -140,7 +141,7 @@ const DummyCmp = (props) => {
                             bio: result.data.data.bio,
                             nama: result.data.data.invoice.name,
                             email: result.data.data.invoice.email,
-                            nominal: result.data.data.invoice.nominal,
+                            nominal: result.data.data.invoice.nominal.replace(".", ""),
                             pesan: result.data.data.invoice.pesan,
                             profilePicture: result.data.data.profilePicture,
                         })
@@ -183,14 +184,18 @@ const DummyCmp = (props) => {
                         onChange={handleChange}
                     ></input>
                     {/* {errors.email && <p className="error">{errors.email}</p>} */}
-                    <input
+                    {/* <input
                         type="number"
                         class={styles["form-control-nominal"]}
                         placeholder="Masukkan Nominal"
                         name="nominal"
                         value={data.nominal}
                         onChange={handleChange}
-                    ></input>
+                    ></input> */}
+                    <CurrencyFormat className={styles["form-control-nominal"]} name="nominal"
+                        placeholder="Nominal"
+                        value={data.nominal}
+                        onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
                     {/* {errors.nominal && <p className="error">{errors.nominal}</p>} */}
                     <textarea
                         type="text"

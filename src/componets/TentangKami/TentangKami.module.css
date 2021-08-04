@@ -83,11 +83,11 @@
 }
 
 .button {
-  margin-right: 140px;
+  right: 160px;
   margin-top: 180px;
   position: absolute;
   appearance: none;
-  padding: 2px 20px;
+  padding: 2px 30px;
   color: white;
   cursor: pointer;
   outline: none;
