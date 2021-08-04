@@ -5,14 +5,12 @@
 
 .App {
   align-items: center;
-  /* padding-top: 40px; */
-  /* padding-bottom: 40px; */
   background-color: #dcdcdc;
 }
 .form-signin {
   background-color: white;
   width: 100%;
-  height: 788px;
+  /* height: 720px; */
   max-width: 370px;
   padding: 15px;
   margin-bottom: 390px;
@@ -168,6 +166,9 @@
 .logodana:hover {
   border-color: black;
 }
+.logodana::selection {
+  border-color: black;
+}
 
 .logolinkaja {
   padding: 0.23em 0.6em;
@@ -177,6 +178,9 @@
   background: transparent;
 }
 .logolinkaja:hover {
+  border-color: black;
+}
+.logolinkaja::selection {
   border-color: black;
 }
 
@@ -203,6 +207,9 @@
 .logoqris:hover {
   border-color: black;
 }
+.logoqris::selection {
+  border-color: black;
+}
 .logotransfer {
   padding: 0.6em 1.2em;
   border: 1px solid #bfc2cb;
@@ -211,6 +218,9 @@
   background: transparent;
 }
 .logotransfer:hover {
+  border-color: black;
+}
+.logotransfer::selection {
   border-color: black;
 }
 .validateOvo {

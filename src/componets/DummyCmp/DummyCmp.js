@@ -229,7 +229,6 @@ const DummyCmp = (props) => {
                 <Link to="/"><img className={styles.logo1} src={logo} alt="logo" /></Link>
 
             </div>
-
         </div>
 
     )
