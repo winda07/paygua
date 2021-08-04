@@ -50,9 +50,9 @@ const TentangKami = () => {
                         <p>Paygua membantu kamu menerima invoice dengan mudah dari pelanggan hanya dengan link. Buat halaman invoice hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
                     </div>
                     <button className={styles.button}>
-                        <Link style={{ textDecoration: "none", color: "white" }} to="/register">
-                            <p>Mulai Sekarang &#x279D;</p>
-                        </Link>
+                        {/* <Link style={{ textDecoration: "none", color: "white" }} to="/register"> */}
+                        <p>Mulai Sekarang &#x279D;</p>
+                        {/* </Link> */}
 
                     </button>
                 </div>

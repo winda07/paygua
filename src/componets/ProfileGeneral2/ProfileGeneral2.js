@@ -7,7 +7,7 @@ import gopay from "../../img/GOPAY.svg"
 import dana from "../../img/DANA.svg"
 import linkaja from "../../img/LINKAJA.svg"
 import shopeepay from "../../img/SHOPEEPAY.svg"
-import qris from "../../img/QRIS.svg"
+// import qris from "../../img/QRIS.svg"
 import transfer from "../../img/Bank Transfer.svg"
 import axios from 'axios';
 import jwt from "jwt-decode"

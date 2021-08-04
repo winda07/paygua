@@ -9,7 +9,7 @@ import gopay from "../../img/GOPAY.svg"
 import dana from "../../img/DANA.svg"
 import linkaja from "../../img/LINKAJA.svg"
 import shopeepay from "../../img/SHOPEEPAY.svg"
-import qris from "../../img/QRIS.svg"
+import qris from "../../img/qris.svg"
 import transfer from "../../img/Bank Transfer.svg"
 import validation from "../ProfileGeneral2/validation"
 import Popup from "../PopupSuksesPembayaran/PopupSukses"
@@ -22,6 +22,7 @@ const DummyCmp = (props) => {
     const [buttonPopup, setButtonPopup] = useState(false);
     const history = useHistory();
     const [showResults, setShowResults] = useState('');
+    const [showtransfer, setShowTransfer] = useState('')
     const [show, setShow] = useState('');
     const handleFormSubmit = (e) => {
         setErros(validation(data));
@@ -96,6 +97,10 @@ const DummyCmp = (props) => {
             setShowResults(false)
         }
 
+        // if(bank==="bankTransfer"){
+
+        // }
+
         setValues({
             ...data,
             bank: bank,
@@ -112,6 +117,7 @@ const DummyCmp = (props) => {
                             ...data,
                             bio: result.data.data.bio,
                             profilePicture: result.data.data.profilePicture,
+                            username: paramobj.username
 
                         })
                     } else if (result.data.status === 400) {
@@ -153,6 +159,7 @@ const DummyCmp = (props) => {
             <div className={styles["form-signin"]}>
                 <div>
                     <h1 className={styles.maudy}>Bayar ke {paramobj.username}</h1>
+                    <br></br>
                     <div className={styles.boxdua}>
                         <img className={styles.boxdalam} src={data.profilePicture}></img>
                         {/* <div className={styles.boxdalam}>{data.profilePicture}</div> */}
@@ -161,7 +168,7 @@ const DummyCmp = (props) => {
                     <input
                         type="text"
                         class={styles["form-control-nama"]}
-                        placeholder="Nama"
+                        placeholder="Masukkan Nama anda"
                         name="nama"
                         value={data.nama}
                         onChange={handleChange}
@@ -170,7 +177,7 @@ const DummyCmp = (props) => {
                     <input
                         type="email"
                         class={styles["form-control-email"]}
-                        placeholder="Email"
+                        placeholder="Masukkan Email anda"
                         name="email"
                         value={data.email}
                         onChange={handleChange}
@@ -179,7 +186,7 @@ const DummyCmp = (props) => {
                     <input
                         type="number"
                         class={styles["form-control-nominal"]}
-                        placeholder="Nominal"
+                        placeholder="Masukkan Nominal"
                         name="nominal"
                         value={data.nominal}
                         onChange={handleChange}
@@ -188,7 +195,7 @@ const DummyCmp = (props) => {
                     <textarea
                         type="text"
                         class={styles["form-control-bio"]}
-                        placeholder="Pesan"
+                        placeholder="Pesan (Contoh: Pembayaran Jasa Konsultasi)"
                         name="pesan"
                         value={data.pesan}
                         onChange={handleChange}
@@ -197,9 +204,13 @@ const DummyCmp = (props) => {
                 <br></br>
                 <br></br>
                 <section className="section">
-                    <img className={styles.logoovo} src={ovo} onClick={() => setBank("ovo")} ></img>&emsp;
-                    <img name="bank" value={data.bank === "gopay"} className={styles.logogopay} src={gopay} onClick={() => setBank("gopay")} ></img>&emsp;
-                    <img name="bank" value={data.bank === "shopeepay"} className={styles.logoshopeepay} src={shopeepay} onClick={() => setBank("shopeepay")}></img>
+                    <img name="bank" value={data.bank === "ovo"} className={styles.logoovo} src={ovo} onClick={() => setBank("ovo")} ></img>
+                    <img name="bank" value={data.bank === "gopay"} className={styles.logogopay} style={{ marginLeft: "7px" }} src={gopay} onClick={() => setBank("gopay")} ></img>
+                    <img name="bank" value={data.bank === "dana"} className={styles.logodana} style={{ marginLeft: "7px" }} src={dana} onClick={() => setBank("dana")}></img>
+                    <img name="bank" value={data.bank === "linkaja"} className={styles.logolinkaja} style={{ marginLeft: "7px" }} src={linkaja} onClick={() => setBank("linkaja")}></img><br></br>
+                    <img name="bank" value={data.bank === "shopeepay"} className={styles.logoshopeepay} style={{ marginTop: "10px" }} src={shopeepay} onClick={() => setBank("shopeepay")}></img>
+                    <img name="bank" value={data.bank === "qris"} className={styles.logoqris} style={{ marginLeft: "5px" }} src={qris} onClick={() => setBank("qris")} ></img>
+                    <img name="bank" value={data.bank === "bankTransfer"} className={styles.logotransfer} style={{ marginLeft: "5px" }} src={transfer} onClick={() => setBank("bankTransfer")} ></img>
                 </section>
 
                 {
@@ -211,7 +222,8 @@ const DummyCmp = (props) => {
                 </div>
                 <Popup
                     trigger={buttonPopup}></Popup>
-                <img className={styles.logo1} src={logo} alt="logo" />
+                <Link to="/"><img className={styles.logo1} src={logo} alt="logo" /></Link>
+
             </div>
 
         </div>
