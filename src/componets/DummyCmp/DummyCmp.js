@@ -8,8 +8,8 @@ import ovo from "../../img/OVO.svg"
 import gopay from "../../img/GOPAY.svg"
 import dana from "../../img/DANA.svg"
 import linkaja from "../../img/LINKAJA.svg"
-import shopeepay from "../../img/SHOPEEPAY.svg"
-import qris from "../../img/Qris.svg"
+import shopeepay from "../../img/Shopeepay.svg"
+import qris from "../../img/QRIS.svg"
 import transfer from "../../img/Bank Transfer.svg"
 import validation from "../ProfileGeneral2/validation"
 import Popup from "../PopupSuksesPembayaran/PopupSukses"
@@ -98,9 +98,11 @@ const DummyCmp = (props) => {
             setShowResults(false)
         }
 
-        // if(bank==="bankTransfer"){
-
-        // }
+        if (bank === "bankTransfer") {
+            setShowTransfer(true)
+        } else {
+            setShowTransfer(false)
+        }
 
         setValues({
             ...data,
@@ -218,7 +220,10 @@ const DummyCmp = (props) => {
                 </section>
 
                 {
-                    showResults ? <input type="text" className={styles['validateOvo']} placeholder="Masukkan nomor Ovo" onChange={handleChange} name="nomor" value={data.nomor}></input> : null
+                    showResults ? <CurrencyFormat className={styles['validateOvo']} placeholder="Masukkan nomor OVO" onChange={handleChange} name="nomor" value={data.nomor}></CurrencyFormat> : null
+                }
+                {
+                    showtransfer ? <p>{data.nominal} + 5.000(Biaya Bank) =</p> : null
                 }
                 {/* <br></br> */}
                 <div className={styles.btnSubmit} onClick={handleFormSubmit}>

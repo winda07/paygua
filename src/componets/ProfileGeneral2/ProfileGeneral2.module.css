@@ -51,7 +51,7 @@
 }
 @media only screen and (max-width: 600px) {
   .boxdua {
-    height: 100px;
+    height: 90px;
     top: -20px;
     margin-left: 25px;
     padding: 0.5em 1em;
@@ -70,9 +70,9 @@
 }
 @media only screen and (max-width: 600px) {
   .boxdalam {
-    width: 80px;
-    height: 80px;
-    top: 15px;
+    width: 90px;
+    height: 90px;
+    top: 8px;
     /* top: -20px; */
   }
 }
@@ -97,9 +97,8 @@
 }
 @media only screen and (max-width: 600px) {
   .form-control-nama {
-    margin-left: 15px;
-    width: 90%;
-    margin: -10px 20px;
+    width: 95%;
+    margin: -10px 10px;
     /* font-size: 16px; */
   }
 }
@@ -116,9 +115,8 @@
 }
 @media only screen and (max-width: 600px) {
   .form-control-email {
-    margin-left: 15px;
-    width: 90%;
-    margin: 20px 20px;
+    width: 95%;
+    margin: 20px 10px;
   }
 }
 
@@ -134,9 +132,8 @@
 }
 @media only screen and (max-width: 600px) {
   .form-control-nominal {
-    margin-left: 15px;
-    width: 90%;
-    margin: -10px 20px;
+    width: 95%;
+    margin: -10px 10px;
   }
 }
 
@@ -152,9 +149,8 @@
 }
 @media only screen and (max-width: 600px) {
   .form-control-bio {
-    margin-left: 15px;
-    width: 90%;
-    margin: 20px 20px;
+    width: 95%;
+    margin: 20px 10px;
   }
 }
 
@@ -191,11 +187,12 @@
 
 .logo1 {
   margin-left: 130px;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 @media only screen and (max-width: 600px) {
   .logo1 {
-    margin-left: 120px;
+    margin-left: 125px;
+    margin-top: 5px;
   }
 }
 
@@ -210,6 +207,7 @@
 
 .logoovo {
   padding: 0.5em 1em;
+  margin-top: 10px;
   border: 1px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
@@ -224,9 +222,10 @@
 
 @media only screen and (max-width: 600px) {
   .logoovo {
-    width: 30px;
-    margin-left: 25px;
-    margin-right: 10px;
+    margin-top: 0px;
+    width: 40px;
+    margin-left: 10px;
+    margin-right: 5px;
   }
 }
 
@@ -246,8 +245,8 @@
 }
 @media only screen and (max-width: 600px) {
   .logogopay {
-    width: 50px;
-    margin-right: 10px;
+    width: 60px;
+    margin-right: 5px;
   }
 }
 
@@ -267,8 +266,8 @@
 }
 @media only screen and (max-width: 600px) {
   .logodana {
-    width: 49px;
-    margin-right: 10px;
+    width: 59px;
+    margin-right: 5px;
   }
 }
 .logolinkaja {
@@ -286,7 +285,7 @@
 }
 @media only screen and (max-width: 600px) {
   .logolinkaja {
-    width: 50px;
+    width: 60px;
   }
 }
 .logoshopeepay {
@@ -295,7 +294,7 @@
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
-  margin-left: 7px;
+  /* margin-left: 7px; */
   margin-top: 10px;
 }
 .logoshopeepay:hover {
@@ -306,10 +305,10 @@
 }
 @media only screen and (max-width: 600px) {
   .logoshopeepay {
-    width: 20px;
+    width: 30px;
+    margin-left: 10px;
+    margin-right: 5px;
     margin-top: 5px;
-    margin-right: 10px;
-    margin-left: 25px;
   }
 }
 .logoqris {
@@ -328,8 +327,8 @@
 }
 @media only screen and (max-width: 600px) {
   .logoqris {
-    width: 45px;
-    margin-right: 10px;
+    width: 55px;
+    margin-right: 5px;
   }
 }
 .logotransfer {
@@ -348,18 +347,21 @@
 }
 @media only screen and (max-width: 600px) {
   .logotransfer {
-    width: 28px;
-    margin-right: 10px;
+    width: 38px;
   }
 }
 .validateOvo {
-  margin-left: 25px;
-  margin-top: 30px;
   border: 1px solid black;
-  padding: 1em 6em;
-  border-radius: 10px;
+  padding: 12px 30px;
+  margin: 10px 80px;
+  border-radius: 8px;
   background: white;
   border-color: #bfc2cb;
+}
+@media only screen and (max-width: 600px) {
+  .validateOvo {
+    margin-left: 110px;
+  }
 }
 .total {
   display: flex;
