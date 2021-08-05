@@ -197,30 +197,30 @@ const DummyCmp = (props) => {
                         value={data.nominal}
                         onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
                     {/* {errors.nominal && <p className="error">{errors.nominal}</p>} */}
-                    <textarea
+                    <input
                         type="text"
                         class={styles["form-control-bio"]}
                         placeholder="Pesan (Contoh: Pembayaran Jasa Konsultasi)"
                         name="pesan"
                         value={data.pesan}
                         onChange={handleChange}
-                    ></textarea>
+                    ></input>
                 </div>
 
                 <section className="section">
                     <img name="bank" value={data.bank === "ovo"} className={styles.logoovo} src={ovo} onClick={() => setBank("ovo")} ></img>
-                    <img name="bank" value={data.bank === "gopay"} className={styles.logogopay} style={{ marginLeft: "7px" }} src={gopay} onClick={() => setBank("gopay")} ></img>
-                    <img name="bank" value={data.bank === "dana"} className={styles.logodana} style={{ marginLeft: "7px" }} src={dana} onClick={() => setBank("dana")}></img>
+                    <img name="bank" value={data.bank === "gopay"} className={styles.logogopay} src={gopay} onClick={() => setBank("gopay")} ></img>
+                    <img name="bank" value={data.bank === "dana"} className={styles.logodana} src={dana} onClick={() => setBank("dana")}></img>
                     <img name="bank" value={data.bank === "linkaja"} className={styles.logolinkaja} style={{ marginLeft: "7px" }} src={linkaja} onClick={() => setBank("linkaja")}></img><br></br>
-                    <img name="bank" value={data.bank === "shopeepay"} className={styles.logoshopeepay} style={{ marginTop: "10px" }} src={shopeepay} onClick={() => setBank("shopeepay")}></img>
-                    <img name="bank" value={data.bank === "qris"} className={styles.logoqris} style={{ marginLeft: "5px" }} src={qris} onClick={() => setBank("qris")} ></img>
-                    <img name="bank" value={data.bank === "bankTransfer"} className={styles.logotransfer} style={{ marginLeft: "5px" }} src={transfer} onClick={() => setBank("bankTransfer")} ></img>
+                    <img name="bank" value={data.bank === "shopeepay"} className={styles.logoshopeepay} src={shopeepay} onClick={() => setBank("shopeepay")}></img>
+                    <img name="bank" value={data.bank === "qris"} className={styles.logoqris} src={qris} onClick={() => setBank("qris")} ></img>
+                    <img name="bank" value={data.bank === "bankTransfer"} className={styles.logotransfer} src={transfer} onClick={() => setBank("bankTransfer")} ></img>
                 </section>
 
                 {
                     showResults ? <input type="text" className={styles['validateOvo']} placeholder="Masukkan nomor Ovo" onChange={handleChange} name="nomor" value={data.nomor}></input> : null
                 }
-                <br></br>
+                {/* <br></br> */}
                 <div className={styles.btnSubmit} onClick={handleFormSubmit}>
                     <p className={styles.text2}  >Bayar</p>
                 </div>
