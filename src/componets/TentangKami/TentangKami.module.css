@@ -15,8 +15,7 @@
 @media only screen and (max-width: 600px) {
   .App {
     background-color: white;
-    /* width: 100%; */
-    max-width: 290px;
+    width: 290px;
   }
 }
 
@@ -30,6 +29,11 @@
   margin: 0px auto;
   position: relative;
   border-radius: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .form-signin {
+    height: 1800px;
+  }
 }
 .latar {
   text-align: center;
