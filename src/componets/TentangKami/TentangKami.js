@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "../../img/logo.svg";
 import latar from "../../img/Latar.svg";
 import kredit from "../../img/kartukredit.svg"
-// import va from "../../img/va.svg"
+import va from "../../img/VA.svg"
 import wallet from "../../img/E-Wallet.svg"
 import black from "../../img/black.svg"
 import frame1 from "../../img/Frame 1.svg"
@@ -22,6 +22,8 @@ import logo1 from "../../img/Frame1.svg"
 import menu from "../../img/menu.svg"
 import retail from "../../img/Retail.svg"
 import kreator from "../../img/Kreator.svg"
+import group from "../../img/Group 208.svg"
+import blue from "../../img/blue.svg"
 
 
 
@@ -32,7 +34,7 @@ const TentangKami = () => {
 
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
-                <img className={styles.logo} style={{ marginLeft: "15px" }} src={logo} alt="logo" />
+                <img className={styles.logo} src={logo} alt="logo" />
                 <span className={styles.menu}>
                     <a href="#" ><img className={styles['menu2']} src={menu} /> </a>
                     <div className={styles.dropdown}>
@@ -56,15 +58,15 @@ const TentangKami = () => {
 
                     </button>
                 </div>
-                {/* <div class="a">
-                    <p style={{ marginLeft: "12px" }}>Terima invoice dari:</p>
-                </div> */}
+                <div class="a">
+                    <p className={styles.accept}>Terima invoice dari:</p>
+                </div>
 
-                {/* <section className="section">
+                <section className="section">
                     <div className={styles.gambar1}>
-                        <img src={kredit} alt="logo" />
-                        <img style={{ marginLeft: "5px" }} src={va} alt="logo" />
-                        <img style={{ marginLeft: "5px" }} src={wallet} alt="logo" />
+                        <img className={styles.gmb1} src={kredit} alt="logo" />
+                        <img className={styles.gmb2} src={va} alt="logo" />
+                        <img className={styles.gmb3} src={wallet} alt="logo" />
                     </div>
                     <div className={styles.KK}>
                         <p>&emsp; Transfer Bank</p>
@@ -73,7 +75,16 @@ const TentangKami = () => {
                     <div className={styles['E-Wallet']}> E-Wallet </div>
                 </section>
 
-                <div className={styles.TentangKami2}>
+                <img className={styles.group} src={group}></img>
+                <div style={{ marginLeft: "17px", marginTop: "30px" }}>
+                    <b className={styles.text10}>Terima pembayaran dengan mudah
+                        aman dan terpercaya</b>
+                    <p className={styles.text11}>Terima pembayaran dengan mudah. Paygua menggunakan gerbang pembayaran yang aman <br></br> dan terpercaya (memiliki izin BI)</p>
+                    <Link style={{ textDecoration: 'none' }} className={styles.text12} to={'/register'}><p>Mulai daftar Paygua <img src={blue}></img></p>
+                    </Link>
+                </div>
+
+                {/* <div className={styles.TentangKami2}>
                     <img src={black} alt="logo" />
                     <div className={styles.textblack}>
                         <b>Dana dapat dengan mudah  dicairkan ke semua rekening  Bank dan E-Wallet</b>

@@ -15,20 +15,23 @@
 @media only screen and (max-width: 600px) {
   .App {
     background-color: white;
-    width: 290px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 }
 
 .form-signin {
   background-color: white;
   width: 100%;
-  height: 1900px;
-  max-width: 360px;
+  height: 2590px;
+  max-width: 370px;
   padding: 15px;
   margin-bottom: 390px;
   margin: 0px auto;
   position: relative;
-  border-radius: 5px;
 }
 @media only screen and (max-width: 600px) {
   .form-signin {
@@ -37,15 +40,20 @@
 }
 .latar {
   text-align: center;
+  width: 350px;
 }
 @media only screen and (max-width: 600px) {
   .latar {
-    margin-left: 55px;
+    width: 100%;
+    margin-left: 18px;
   }
+}
+.logo {
+  margin-left: 15px;
 }
 @media only screen and (max-width: 600px) {
   .logo {
-    margin-left: 1000px;
+    margin-left: 25px;
   }
 }
 
@@ -95,7 +103,7 @@
 }
 @media only screen and (max-width: 600px) {
   .textBold {
-    margin-left: 55px;
+    margin-left: 10px;
   }
 }
 .TentangKami {
@@ -115,7 +123,7 @@
 }
 @media only screen and (max-width: 600px) {
   .text {
-    margin-left: 55px;
+    margin-left: 10px;
   }
 }
 
@@ -134,9 +142,8 @@
 }
 @media only screen and (max-width: 600px) {
   .button {
-    margin-left: 20px;
-    margin-top: 200px;
-    padding: 2px 10px;
+    margin: 120px -70px;
+    padding: 10px 30px;
   }
 }
 .judul {
@@ -147,7 +154,6 @@
 @media only screen and (max-width: 600px) {
   .judul {
     margin-right: 10px;
-    font-size: 12px;
   }
 }
 .isi1 {
@@ -158,7 +164,7 @@
 @media only screen and (max-width: 600px) {
   .isi1 {
     margin-right: 10px;
-    font-size: 11px;
+    /* font-size: 11px; */
   }
 }
 .isi2 {
@@ -169,7 +175,7 @@
 @media only screen and (max-width: 600px) {
   .isi2 {
     margin-right: 10px;
-    font-size: 11px;
+    /* font-size: 11px; */
   }
 }
 .isi3 {
@@ -180,7 +186,7 @@
 @media only screen and (max-width: 600px) {
   .isi3 {
     margin-right: 10px;
-    font-size: 11px;
+    /* font-size: 11px; */
   }
 }
 .isi4 {
@@ -191,7 +197,7 @@
 @media only screen and (max-width: 600px) {
   .isi4 {
     margin-right: 10px;
-    font-size: 11px;
+    /* font-size: 11px; */
   }
 }
 .use {
@@ -201,7 +207,7 @@
 }
 @media only screen and (max-width: 600px) {
   .use {
-    margin-left: 80px;
+    margin-left: 100px;
   }
 }
 .imgwhy1 {
@@ -212,7 +218,7 @@
 }
 @media only screen and (max-width: 600px) {
   .imgwhy1 {
-    margin-left: 55px;
+    margin-left: 90px;
   }
 }
 .imgwhy2 {
@@ -223,7 +229,7 @@
 }
 @media only screen and (max-width: 600px) {
   .imgwhy2 {
-    margin-left: 55px;
+    margin-left: 90px;
   }
 }
 .imgwhy3 {
@@ -234,7 +240,7 @@
 }
 @media only screen and (max-width: 600px) {
   .imgwhy3 {
-    margin-left: 55px;
+    margin-left: 90px;
   }
 }
 .choose {
@@ -247,6 +253,11 @@
   position: absolute;
   margin-left: 12px;
 }
+@media only screen and (max-width: 600px) {
+  .gambar1 {
+    margin-left: 25px;
+  }
+}
 
 .KK {
   position: absolute;
@@ -257,6 +268,11 @@
   margin-top: 35px;
   margin-left: 10px;
 }
+@media only screen and (max-width: 600px) {
+  .KK {
+    margin-left: 30px;
+  }
+}
 .VA {
   position: absolute;
   font-size: 12px;
@@ -264,6 +280,11 @@
   color: white;
   margin-top: 50px;
   margin-left: 127px;
+}
+@media only screen and (max-width: 600px) {
+  .VA {
+    margin-left: 147px;
+  }
 }
 
 .E-Wallet {
@@ -273,6 +294,11 @@
   height: 100px;
   margin-left: 260px;
   margin-top: 50px;
+}
+@media only screen and (max-width: 600px) {
+  .E-Wallet {
+    margin-left: 280px;
+  }
 }
 
 .TentangKami2 {
@@ -294,11 +320,16 @@
 }
 
 .rules {
+  margin-top: 50px;
   margin-left: 20px;
   height: 100px;
   position: relative;
 }
-
+@media only screen and (max-width: 600px) {
+  .rules {
+    margin-left: 30px;
+  }
+}
 .b {
   margin-left: 30px;
 }
@@ -322,7 +353,8 @@
 }
 @media only screen and (max-width: 600px) {
   .why {
-    margin-top: 240px;
+    margin-right: 80px;
+    /* margin-top: 240px; */
   }
 }
 
@@ -346,7 +378,7 @@
 }
 @media only screen and (max-width: 600px) {
   .img1 {
-    margin-left: 110px;
+    margin-left: 150px;
     margin-top: -285px;
   }
 }
@@ -361,7 +393,7 @@
 }
 @media only screen and (max-width: 600px) {
   .img2 {
-    margin-left: 110px;
+    margin-left: 150px;
     margin-top: -175px;
   }
 }
@@ -376,7 +408,7 @@
 }
 @media only screen and (max-width: 600px) {
   .img3 {
-    margin-left: 110px;
+    margin-left: 150px;
     margin-top: -80px;
   }
 }
@@ -400,7 +432,7 @@
 }
 @media only screen and (max-width: 600px) {
   .box1 {
-    width: 500px;
+    width: 100%;
   }
 }
 
@@ -410,7 +442,7 @@
 }
 @media only screen and (max-width: 600px) {
   .fot1 {
-    margin-left: 35px;
+    margin-left: 50px;
   }
 }
 h6 {
@@ -457,7 +489,7 @@ h6 {
 }
 @media only screen and (max-width: 600px) {
   .menu2 {
-    right: 20px;
+    left: 15px;
   }
 }
 .section {
@@ -532,6 +564,54 @@ h6 {
 
 @media only screen and (max-width: 600px) {
   .tes {
-    margin-left: 5px;
+    margin-left: 35px;
+  }
+}
+.group {
+  margin-top: 150px;
+  margin-left: 17px;
+}
+@media only screen and (max-width: 600px) {
+  .group {
+    margin-left: 20px;
+    width: 350px;
+  }
+}
+.text10 {
+  margin-top: 30px;
+  font-size: 18px;
+  /* margin-left: 17px; */
+}
+
+.text11 {
+  font-size: 14px;
+}
+.text12 {
+  color: #006aff;
+  font-size: 14px;
+}
+.accept {
+  margin-left: 12px;
+}
+@media only screen and (max-width: 600px) {
+  .accept {
+    margin-left: 25px;
+  }
+}
+.gmb2 {
+  margin-left: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .gmb2 {
+    margin-left: 13px;
+  }
+}
+
+.gmb3 {
+  margin-left: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .gmb3 {
+    margin-left: 13px;
   }
 }
