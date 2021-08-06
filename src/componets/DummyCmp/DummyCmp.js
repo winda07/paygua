@@ -15,7 +15,6 @@ import Popup from "../PopupSuksesPembayaran/PopupSukses"
 import jwt from "jwt-decode"
 import CurrencyFormat from "react-currency-format";
 import validation from "./Validation";
-import Barcode from "react-hooks-barcode";
 
 const DummyCmp = (props) => {
     const config = {
@@ -34,17 +33,19 @@ const DummyCmp = (props) => {
     const [show, setShow] = useState('');
     const [barcode, setBarcode] = useState("https://reactjs.org");
     const handleFormSubmit = (e) => {
-
+        console.log(window.innerWidth)
         setErros(validation(data));
         setDataIsCorrect(true)
         setIsClicked(true);
         const token = localStorage.getItem('token');
+        let paymentMethod = window.innerWidth <= 600 ? data.bank : "qris";
+        paymentMethod = data.bank === "bank" ? "bank" : paymentMethod;
         if (token) {
             const dataSend = {
                 name: data.nama,
                 nominal: data.nominal,
                 email: data.email,
-                payment: data.bank,
+                payment: paymentMethod,
                 username: paramobj.username
 
             }
@@ -61,11 +62,15 @@ const DummyCmp = (props) => {
                         if (result.data.status == 200) {
                             if (data.bank === "gopay") {
                                 window.open(`${result.data.data.deeplink}`, `_self`)
+
                             } else if (data.bank === "qris") {
                                 window.open(`${result.data.data.deeplink}`, `_self`)
                             } else if (data.bank === "bank") {
                                 window.open(`${result.data.data.url}`, `_self`)
+                            } else if (window.innerWidth <= 600) {
+                                window.open(`${result.data.data.deeplink}`, `_self`)
                             }
+
                             // setButtonPopup(true);
                             // setTimeout(() => {
                             // }, 3000)
@@ -92,17 +97,18 @@ const DummyCmp = (props) => {
         if (e.target.name === "nominal") {
             let nominal = parseInt(e.target.value.replace(/\./g, ""));
             let biayaBank = data.biayaBank
-            if (!isNaN(e.target.name)) {
+            if (!isNaN(e.target.value)) {
                 setValues({
                     ...data,
                     [e.target.name]: e.target.value
                 });
+            } else {
+                setValues({
+                    ...data,
+                    total: nominal + biayaBank,
+                    [e.target.name]: nominal
+                });
             }
-            setValues({
-                ...data,
-                total: nominal + biayaBank,
-                [e.target.name]: nominal
-            });
         }
         else {
             setValues({
