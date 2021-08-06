@@ -216,10 +216,9 @@
 .logoovo:hover {
   border-color: black;
 }
-.logoovo::selection {
+/* .logoovo::selection {
   border-color: black;
-}
-
+} */
 @media only screen and (max-width: 600px) {
   .logoovo {
     margin-top: 0px;
@@ -236,9 +235,6 @@
   cursor: pointer;
   background: transparent;
   margin-left: 7px;
-}
-.logogopay:hover {
-  border-color: black;
 }
 .logogopay::selection {
   border-color: black;
@@ -366,4 +362,8 @@
 .total {
   display: flex;
   justify-content: center;
+}
+.set {
+  color: red;
+  font-size: 14px;
 }

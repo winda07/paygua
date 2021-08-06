@@ -11,12 +11,19 @@ import linkaja from "../../img/LINKAJA.svg"
 import shopeepay from "../../img/SHOPEEPAY.svg"
 import qris from "../../img/QRIS.svg"
 import transfer from "../../img/Bank Transfer.svg"
-import validation from "../ProfileGeneral2/validation"
 import Popup from "../PopupSuksesPembayaran/PopupSukses"
 import jwt from "jwt-decode"
 import CurrencyFormat from "react-currency-format";
+import validation from "./Validation";
+import Barcode from "react-hooks-barcode";
 
 const DummyCmp = (props) => {
+    const config = {
+        background: "#f5f5f5",
+        marginTop: "20px",
+        marginBottom: "20px",
+        width: 1
+    };
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
     const [errors, setErros] = useState({});
     const [isClicked, setIsClicked] = useState(false);
@@ -25,7 +32,9 @@ const DummyCmp = (props) => {
     const [showResults, setShowResults] = useState('');
     const [showtransfer, setShowTransfer] = useState('')
     const [show, setShow] = useState('');
+    const [barcode, setBarcode] = useState("https://reactjs.org");
     const handleFormSubmit = (e) => {
+
         setErros(validation(data));
         setDataIsCorrect(true)
         setIsClicked(true);
@@ -50,13 +59,21 @@ const DummyCmp = (props) => {
                 .then((result) => {
                     if (result) {
                         if (result.data.status == 200) {
-                            setButtonPopup(true);
-                            setTimeout(() => {
-                                setButtonPopup(false)
-                            }, 3000)
-                        } else {
-                            history.push('/login')
+                            if (data.bank === "gopay") {
+                                window.open(`${result.data.data.deeplink}`, `_self`)
+                            } else if (data.bank === "qris") {
+                                window.open(`${result.data.data.deeplink}`, `_self`)
+                            } else if (data.bank === "bank") {
+                                window.open(`${result.data.data.url}`, `_self`)
+                            }
+                            // setButtonPopup(true);
+                            // setTimeout(() => {
+                            // }, 3000)
+
                         }
+                        // } else {
+                        //     history.push('/login')
+                        // }
                     }
 
                     console.log("result:", result.data);
@@ -71,12 +88,30 @@ const DummyCmp = (props) => {
     }
     const handleChange = (e) => {
 
-        setValues({
-            ...data,
-            [e.target.name]: e.target.value
-        });
         console.log(e.target.value)
+        if (e.target.name === "nominal") {
+            let nominal = parseInt(e.target.value.replace(/\./g, ""));
+            let biayaBank = data.biayaBank
+            if (!isNaN(e.target.name)) {
+                setValues({
+                    ...data,
+                    [e.target.name]: e.target.value
+                });
+            }
+            setValues({
+                ...data,
+                total: nominal + biayaBank,
+                [e.target.name]: nominal
+            });
+        }
+        else {
+            setValues({
+                ...data,
+                [e.target.name]: e.target.value
+            });
+        }
     };
+
     const [data, setValues] = useState({
         bio: "",
         nama: "",
@@ -86,7 +121,9 @@ const DummyCmp = (props) => {
         bank: "",
         nomor: "",
         username: "",
-        profilePicture: ""
+        profilePicture: "",
+        biayaBank: 5000,
+        total: 0
     })
     let paramobj = useParams();
     console.log(paramobj)
@@ -98,7 +135,7 @@ const DummyCmp = (props) => {
             setShowResults(false)
         }
 
-        if (bank === "bankTransfer") {
+        if (bank === "bank") {
             setShowTransfer(true)
         } else {
             setShowTransfer(false)
@@ -138,6 +175,7 @@ const DummyCmp = (props) => {
             })
                 .then((result) => {
                     if (result.data.status === 200) {
+
                         setValues({
                             ...data,
                             bio: result.data.data.bio,
@@ -147,9 +185,11 @@ const DummyCmp = (props) => {
                             pesan: result.data.data.invoice.pesan,
                             profilePicture: result.data.data.profilePicture,
                         })
+
                     } else if (result.data.status === 400) {
                         alert("user not found")
                     }
+
                     console.log(result.data);
                 })
                 .catch((e) => {
@@ -176,7 +216,7 @@ const DummyCmp = (props) => {
                         value={data.nama}
                         onChange={handleChange}
                     ></input>
-                    {/* {errors.name && <p className="error">{errors.name}</p>} */}
+                    <div className={styles["set"]}>{errors.nama && <p className="error">{errors.nama}</p>}</div>
                     <input
                         type="email"
                         class={styles["form-control-email"]}
@@ -185,7 +225,7 @@ const DummyCmp = (props) => {
                         value={data.email}
                         onChange={handleChange}
                     ></input>
-                    {/* {errors.email && <p className="error">{errors.email}</p>} */}
+                    <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
                     {/* <input
                         type="number"
                         class={styles["form-control-nominal"]}
@@ -198,7 +238,7 @@ const DummyCmp = (props) => {
                         placeholder="Nominal"
                         value={data.nominal}
                         onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
-                    {/* {errors.nominal && <p className="error">{errors.nominal}</p>} */}
+                    <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
                     <input
                         type="text"
                         class={styles["form-control-bio"]}
@@ -216,14 +256,14 @@ const DummyCmp = (props) => {
                     <img name="bank" value={data.bank === "linkaja"} className={styles.logolinkaja} style={{ marginLeft: "7px" }} src={linkaja} onClick={() => setBank("linkaja")}></img><br></br>
                     <img name="bank" value={data.bank === "shopeepay"} className={styles.logoshopeepay} src={shopeepay} onClick={() => setBank("shopeepay")}></img>
                     <img name="bank" value={data.bank === "qris"} className={styles.logoqris} src={qris} onClick={() => setBank("qris")} ></img>
-                    <img name="bank" value={data.bank === "bankTransfer"} className={styles.logotransfer} src={transfer} onClick={() => setBank("bankTransfer")} ></img>
+                    <img name="bank" value={data.bank === "bank"} className={styles.logotransfer} src={transfer} onClick={() => setBank("bank")} ></img>
                 </section>
-
+                <div className={styles["set"]}>{errors.bank && <p className="error">{errors.bank}</p>}</div>
                 {
                     showResults ? <CurrencyFormat className={styles['validateOvo']} placeholder="Masukkan nomor OVO" onChange={handleChange} name="nomor" value={data.nomor}></CurrencyFormat> : null
                 }
                 {
-                    showtransfer ? <p>{data.nominal} + 5.000(Biaya Bank) =</p> : null
+                    showtransfer ? <p>{data.nominal} + 5.000(Biaya Bank) = {data.total}</p> : null
                 }
                 {/* <br></br> */}
                 <div className={styles.btnSubmit} onClick={handleFormSubmit}>
