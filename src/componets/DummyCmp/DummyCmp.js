@@ -300,7 +300,7 @@ const DummyCmp = (props) => {
                 {
                     showtransfer ? <p style={{ fontSize: "12px", color: "black", marginLeft: "70px" }}>*Transfer Bank akan ditambah biaya 4.000</p> : null
                 }
-                <div className={data.bank == "" ? styles.btnSubmit : styles.btnBedaWarna} onClick={handleFormSubmit}>
+                <div className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.btnSubmit : styles.btnBedaWarna} onClick={handleFormSubmit}>
                     <p className={styles.text2}  >Bayar</p>
                 </div>
                 {/* <Popup
