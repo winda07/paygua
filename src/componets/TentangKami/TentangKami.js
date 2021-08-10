@@ -50,7 +50,7 @@ const TentangKami = () => {
                         <h1>Terima dan atur invoice bisnismu dengan cara paling mudah</h1>
                     </div>
                     <div className={styles.text}>
-                        <p>Paygua membantu kamu menerima invoice dengan mudah dari pelanggan hanya dengan link. Buat halaman invoice hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
+                        <p>Paygua membantu kamu menerima invoice untuk produk digital dengan mudah dari pelanggan hanya dengan link. Buat halaman invoice untuk produk digital hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
                     </div>
                     <button className={styles.button}>
                         <Link style={{ textDecoration: "none", color: "white" }} to="/register">
@@ -78,9 +78,9 @@ const TentangKami = () => {
 
                 <img className={styles.group} src={group}></img>
                 <div style={{ marginLeft: "17px", marginTop: "30px" }}>
-                    <b className={styles.text10}>Terima pembayaran dengan mudah
+                    <b className={styles.text10}>Terima pembayaran produk digital dengan mudah
                         aman dan terpercaya</b>
-                    <p className={styles.text11}>Terima pembayaran dengan mudah. Paygua menggunakan gerbang pembayaran yang aman <br></br> dan terpercaya (memiliki izin BI)</p>
+                    <p className={styles.text11}>Terima pembayaran produk digital dengan mudah. Paygua menggunakan gerbang pembayaran produk digital yang aman dan terpercaya (memiliki izin BI)</p>
                     <Link style={{ textDecoration: 'none' }} className={styles.text12} to={'/register'}><p>Mulai daftar Paygua <img src={blue}></img></p>
                     </Link>
                 </div>
@@ -105,8 +105,8 @@ const TentangKami = () => {
                     <b className={styles.judul} >3.&emsp;Bagikan Link dan Terima Pembayaran</b>
                     <p className={styles.isi3}>Salin dan tempel tautan invoice <br></br>
                         di aplikasi pesan, email atau media sosial.</p>
-                    <b className={styles.judul} >4.&emsp;Terima Notifikasi</b>
-                    <p className={styles.isi4} >Terima notifikasi secara real-time <br></br>
+                    <b className={styles.judul} >4.&emsp;Terima Produk Digital</b>
+                    <p className={styles.isi4} >Terima produk digital secara real-time <br></br>
                         dengan email.</p>
                 </div>
 

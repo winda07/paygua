@@ -27,6 +27,11 @@
   margin: 0px auto;
   position: relative;
 }
+@media only screen and (max-width: 600px) {
+  .form-signin {
+    height: 100px;
+  }
+}
 
 .maudy {
   margin-bottom: 10px;
