@@ -173,7 +173,7 @@ const DummyCmp = (props) => {
                         })
 
                     } else if (result.data.status === 400) {
-                        alert("user not found")
+                        history.push("/404error")
                     }
 
                     // console.log(bio)
@@ -199,13 +199,13 @@ const DummyCmp = (props) => {
                         })
 
                     } else if (result.data.status === 400) {
-                        alert("user not found")
+                        history.push("/404error")
                     }
 
                     console.log(result.data);
                 })
                 .catch((e) => {
-                    alert("not found")
+
                 });
         }
     }, [])
@@ -220,53 +220,41 @@ const DummyCmp = (props) => {
                         <b className={styles.usernameCard}>@{data.username}</b>
                         <p className={styles.info}>{data.bio}</p>
                     </div>
-                    <div class={styles["inputNama"]}>
-                        <h5 class={styles["namaLabel"]}>
-                            {masukkanNama}
-                            <input
-                                type="text"
-                                class={styles["nama"]}
-                                name="nama"
-                                value={data.nama}
-                                onChange={handleChange}
-                            ></input>
-                        </h5>
-                    </div>
+                    <input
+                        type="text"
+                        class={styles["nama"]}
+                        name="nama"
+                        placeholder="Masukkan Nama Anda"
+                        value={data.nama}
+                        onChange={handleChange}
+                    ></input>
                     <div className={styles["set"]}>{errors.nama && <p className="error">{errors.nama}</p>}</div>
-                    <div class={styles["inputEmail"]}>
-                        <h5 class={styles["emailLabel"]}>
-                            {masukkanEmail}
-                            <input
-                                type="email"
-                                class={styles["email"]}
-                                name="email"
-                                value={data.email}
-                                onChange={handleChange}
-                            ></input>
-                        </h5>
-                    </div>
+                    <input
+                        type="email"
+                        class={styles["email"]}
+                        name="email"
+                        placeholder="Masukkan Email Anda"
+                        value={data.email}
+                        onChange={handleChange}
+                    ></input>
                     <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
-                    <div class={styles["inputNominal"]}>
-                        <h5 class={styles["nominalLabel"]}>
-                            {masukkanNominal}
-                            <CurrencyFormat className={styles["nominal"]} name="nominal"
-                                value={data.nominal}
-                                onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
-                        </h5>
-                    </div>
+
+                    <CurrencyFormat className={styles["nominal"]} name="nominal"
+                        value={data.nominal}
+                        placeholder="Masukkan Nominal"
+                        onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
+
                     <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
-                    <div class={styles["inputPesan"]}>
-                        <h5 class={styles["pesanLabel"]}>
-                            {masukkanPesan}
-                            <input
-                                type="text"
-                                class={styles["pesan"]}
-                                name="pesan"
-                                value={data.pesan}
-                                onChange={handleChange}
-                            ></input>
-                        </h5>
-                    </div>
+
+                    <input
+                        type="text"
+                        class={styles["pesan"]}
+                        name="pesan"
+                        placeholder="Pesan (Contoh: Pembayaran Jasa Konsultasi)"
+                        value={data.pesan}
+                        onChange={handleChange}
+                    ></input>
+
 
                 </div>
 
@@ -301,7 +289,7 @@ const DummyCmp = (props) => {
                     showtransfer ? <p style={{ fontSize: "12px", color: "black", marginLeft: "70px" }}>*Transfer Bank akan ditambah biaya 4.000</p> : null
                 }
                 <div className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.btnSubmit : styles.btnBedaWarna} onClick={handleFormSubmit}>
-                    <p className={styles.text2}  >Bayar</p>
+                    <p className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.text2 : styles.text21}  >Bayar</p>
                 </div>
                 {/* <Popup
                     trigger={buttonPopup}></Popup> */}

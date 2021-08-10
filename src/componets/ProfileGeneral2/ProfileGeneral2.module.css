@@ -34,9 +34,9 @@
 }
 
 .maudy {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   font-size: 21px;
-  margin-left: 20px;
+  margin-left: 8px;
 }
 @media only screen and (max-width: 600px) {
   .maudy {
@@ -55,7 +55,7 @@
   margin-bottom: 10px;
   margin-left: 20px;
   padding: 0.5em 1.6em;
-  box-shadow: 1px 4px 4px rgb(169, 169, 169);
+  box-shadow: 1px 4px 8px rgb(169, 169, 169);
   position: relative;
 }
 @media only screen and (max-width: 600px) {
@@ -67,10 +67,10 @@
   }
 }
 .boxdalam {
-  width: 125px;
-  height: 125px;
-  left: 10px;
-  top: 10px;
+  width: 100px;
+  height: 100px;
+  left: 20px;
+  top: 25px;
   border-radius: 100%;
   color: white;
   background-color: black;
@@ -87,16 +87,16 @@
 }
 
 .info {
-  margin-top: 50px;
-  margin-left: 130px;
+  margin-top: 35px;
+  margin-left: 110px;
   position: absolute;
-  font-size: 14px;
+  font-size: 16px;
   color: #838790;
 }
 
 .btnSubmit {
   margin-top: 30px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   position: relative;
   appearance: none;
   padding: 0.1em 9em;
@@ -108,7 +108,7 @@
 }
 .btnBedaWarna {
   margin-top: 30px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   position: relative;
   appearance: none;
   padding: 0.1em 9em;
@@ -128,7 +128,11 @@
   background: black;
 }
 .text2 {
-  margin-left: 10px;
+  margin-left: 20px;
+  color: white;
+}
+.text21 {
+  margin-left: 20px;
   color: white;
 }
 @media only screen and (max-width: 600px) {
@@ -333,13 +337,14 @@
   color: #838790;
 }
 .nama {
-  padding: 1px;
-  margin-top: 2px;
-  margin-right: 2px;
   width: 100%;
-  border: none;
-  box-shadow: none;
-  outline: none !important;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  position: relative;
 }
 .inputEmail {
   width: 100%;
@@ -360,13 +365,14 @@
   color: #838790;
 }
 .email {
-  padding: 1px;
-  margin-top: 2px;
-  margin-right: 2px;
   width: 100%;
-  border: none;
-  box-shadow: none;
-  outline: none !important;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  position: relative;
 }
 .inputNominal {
   width: 100%;
@@ -387,13 +393,14 @@
   color: #838790;
 }
 .nominal {
-  padding: 1px;
-  margin-top: 2px;
-  margin-right: 2px;
   width: 100%;
-  border: none;
-  box-shadow: none;
-  outline: none !important;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  position: relative;
 }
 .inputPesan {
   width: 100%;
@@ -414,13 +421,14 @@
   color: #838790;
 }
 .pesan {
-  padding: 1px;
-  margin-top: 2px;
-  margin-right: 2px;
   width: 100%;
-  border: none;
-  box-shadow: none;
-  outline: none !important;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  position: relative;
 }
 .inputOVO {
   width: 100%;
@@ -453,71 +461,71 @@
   outline: none !important;
 }
 .usernameCard {
-  margin-left: 130px;
-  font-size: 14px;
+  margin-left: 110px;
+  font-size: 18px;
   color: black;
   position: absolute;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .borderchoose {
   padding: 0.5em 1em;
   margin-top: 10px;
-  border: 1px solid #bfc2cb;
+  border: 2px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
-  border-color: black;
+  border-color: #006aff;
 }
 .borderchoosegopay {
   padding: 0.23em 0.6em;
-  border: 1px solid #bfc2cb;
+  border: 2px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
   margin-left: 7px;
-  border-color: black;
+  border-color: #006aff;
 }
 .borderchoosedana {
   padding: 0.23em 0.6em;
-  border: 1px solid #bfc2cb;
+  border: 2px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
   margin-left: 7px;
-  border-color: black;
+  border-color: #006aff;
 }
 .borderchooselinkaja {
   padding: 0.23em 0.6em;
-  border: 1px solid #bfc2cb;
+  border: 2px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
-  border-color: black;
+  border-color: #006aff;
 }
 .borderchooseshopeepay {
   padding: 0.66em 1.4em;
-  border: 1px solid #bfc2cb;
+  border: 2px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
   margin-top: 10px;
-  border-color: black;
+  border-color: #006aff;
 }
 .borderchooseqris {
   padding: 0em 0.8em;
-  border: 1px solid #bfc2cb;
+  border: 2px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
   margin-left: 5px;
-  border-color: black;
+  border-color: #006aff;
 }
 .borderchoosetransfer {
   padding: 0.6em 1.2em;
-  border: 1px solid #bfc2cb;
+  border: 2px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
   margin-left: 5px;
-  border-color: black;
+  border-color: #006aff;
 }

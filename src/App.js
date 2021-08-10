@@ -30,6 +30,7 @@ import VerfifResetPasswrod from "./componets/VerfiResetPassword/VerifResetPasswo
 import RegisterCheck from "./componets/Register/RegisterCheck"
 import { Route, Switch, useHistory } from 'react-router-dom';
 import jwt from "jwt-decode"
+import UserNotFound from "./componets/404/Notfound"
 import { useMediaQuery } from 'react-responsive'
 const App = () => {
   // const isMobileDevice = useMediaQuery({
@@ -79,6 +80,7 @@ const App = () => {
         <Route path="/notification" component={Notification}></Route>
         <Route path="/verifResetPassword" component={VerfifResetPasswrod}></Route>
         <Route path="/registerCheck" component={RegisterCheck}></Route>
+        <Route path="/404error" component={UserNotFound}></Route>
         <Route exact path="/:username">
           <DummyCmp type="type1" />
         </Route>
