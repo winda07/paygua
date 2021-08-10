@@ -4,11 +4,11 @@ import popup from "../../img/popup-tagihan.svg"
 const PopupSuksesPencairan = () => {
     return (
         <div className={styles.App}>
-             <div className={styles['form-signin']}>
+            <div className={styles['form-signin']}>
 
-             <img className={styles.popup} src={popup}  alt="logo" />
-             <p className={styles.text}>Pencarian telah diajukan dan akan &emsp;&emsp;diproses dalam 2x24jam</p>
-             </div>
+                <img className={styles.popup} src={popup} alt="logo" />
+                <p className={styles.text}>Pencarian telah diajukan dan akan &emsp;&emsp;diproses dalam 2x24jam</p>
+            </div>
         </div>
     )
 }

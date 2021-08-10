@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./TentangKami.module.css";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.svg";
-import latar from "../../img/Latar.svg";
+import latar from "../../img/latar.svg";
 import kredit from "../../img/kartukredit.svg"
 import va from "../../img/VA.svg"
 import wallet from "../../img/E-Wallet.svg"
@@ -22,7 +22,7 @@ import logo1 from "../../img/Frame1.svg"
 import menu from "../../img/menu.svg"
 import retail from "../../img/Retail.svg"
 import kreator from "../../img/Kreator.svg"
-import group from "../../img/Group 208.svg"
+import group from "../../img/Group 211.svg"
 import blue from "../../img/blue.svg"
 
 
@@ -34,15 +34,16 @@ const TentangKami = () => {
 
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
-                <img className={styles.logo} src={logo} alt="logo" />
-                <span className={styles.menu}>
-                    <a href="#" ><img className={styles['menu2']} src={menu} /> </a>
-                    <div className={styles.dropdown}>
-                        <Link to="/login">Masuk</Link>
-                        <Link to="/register">Daftar</Link>
-                        <Link to="/tentangKami">Tentang Kami</Link>
-                    </div>
-                </span>
+                <div className={styles.atas}>
+                    <img className={styles.logo} src={logo} alt="logo" />
+                    <button className={styles.buttonLogin}>
+                        <Link className={styles.textlogin} style={{ textDecoration: "none" }} to="/login">
+                            Masuk
+                        </Link>
+
+                    </button>
+                </div>
+
                 <div className={styles.TentangKami}>
                     <img className={styles.latar} src={latar} alt="latar" />
                     <div className={styles.textBold}>
@@ -92,7 +93,7 @@ const TentangKami = () => {
                 </div> */}
 
                 <div className={styles.rules}>
-                    <b style={{ fontSize: "18px", color: "#21242B", marginLeft: "12px" }}>Bagaimana Paygua bekerja?</b>
+                    <b style={{ fontSize: "18px", color: "#21242B" }}>Bagaimana Paygua bekerja?</b>
                     <br></br>
                     <br></br>
                     <b className={styles.judul} >1.&emsp; Daftar dan Buat Halaman</b>

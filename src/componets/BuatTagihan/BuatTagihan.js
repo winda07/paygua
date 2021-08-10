@@ -73,7 +73,7 @@ const BuatTagihan = () => {
                                 })
                                 setTimeout(() => {
                                     setButtonPopup(false)
-                                }, 10000)
+                                }, 3000)
                             } else {
                                 history.push('login')
                             }
