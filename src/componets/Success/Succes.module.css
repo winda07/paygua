@@ -27,3 +27,19 @@
 .text {
   margin-left: 150px;
 }
+.btnSubmit {
+  margin-left: 80px;
+  position: relative;
+  appearance: none;
+  padding: 1em 6em;
+  cursor: pointer;
+  outline: none;
+  border-radius: 100px;
+  border: 2px solid white;
+  background: black;
+  margin-top: 30px;
+}
+.text1 {
+  color: white;
+  /* text-align: center; */
+}
