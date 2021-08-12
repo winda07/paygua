@@ -60,10 +60,10 @@
 }
 @media only screen and (max-width: 600px) {
   .boxdua {
-    height: 90px;
+    height: 120px;
     top: -20px;
-    margin-left: 25px;
-    padding: 0.5em 1em;
+    margin-left: 20px;
+    padding: 0.5em 1.6em;
   }
 }
 .boxdalam {
@@ -79,10 +79,9 @@
 }
 @media only screen and (max-width: 600px) {
   .boxdalam {
-    width: 90px;
-    height: 90px;
-    top: 8px;
-    /* top: -20px; */
+    width: 100px;
+    height: 100px;
+    top: 18px;
   }
 }
 
@@ -174,10 +173,12 @@
 }
 @media only screen and (max-width: 600px) {
   .logoovo {
-    margin-top: 0px;
-    width: 40px;
-    margin-left: 10px;
-    margin-right: 5px;
+    padding: 0.5em 1em;
+    margin-top: 10px;
+    border: 1px solid #bfc2cb;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
   }
 }
 
@@ -194,8 +195,12 @@
 }
 @media only screen and (max-width: 600px) {
   .logogopay {
-    width: 60px;
-    margin-right: 5px;
+    padding: 0.23em 0.6em;
+    border: 1px solid #bfc2cb;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    margin-left: 7px;
   }
 }
 
@@ -213,8 +218,12 @@
 
 @media only screen and (max-width: 600px) {
   .logodana {
-    width: 59px;
-    margin-right: 5px;
+    padding: 0.23em 0.6em;
+    border: 1px solid #bfc2cb;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    margin-left: 7px;
   }
 }
 .logolinkaja {
@@ -232,7 +241,11 @@
 }
 @media only screen and (max-width: 600px) {
   .logolinkaja {
-    width: 60px;
+    padding: 0.23em 0.6em;
+    border: 1px solid #bfc2cb;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
   }
 }
 .logoshopeepay {
@@ -252,10 +265,13 @@
 }
 @media only screen and (max-width: 600px) {
   .logoshopeepay {
-    width: 30px;
-    margin-left: 10px;
-    margin-right: 5px;
-    margin-top: 5px;
+    padding: 0.75em 1.4em;
+    border: 1px solid #bfc2cb;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    /* margin-left: 7px; */
+    margin-top: 10px;
   }
 }
 .logoqris {
@@ -274,8 +290,12 @@
 }
 @media only screen and (max-width: 600px) {
   .logoqris {
-    width: 55px;
-    margin-right: 5px;
+    padding: 0em 0.8em;
+    border: 1px solid #bfc2cb;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    margin-left: 5px;
   }
 }
 .logotransfer {
@@ -294,7 +314,12 @@
 }
 @media only screen and (max-width: 600px) {
   .logotransfer {
-    width: 38px;
+    padding: 0.6em 1.2em;
+    border: 1px solid #bfc2cb;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    margin-left: 5px;
   }
 }
 .validateOvo {
@@ -476,6 +501,7 @@
   background: transparent;
   border-color: #006aff;
 }
+
 .borderchoosegopay {
   padding: 0.23em 0.6em;
   border: 2px solid #bfc2cb;
@@ -503,13 +529,24 @@
   border-color: #006aff;
 }
 .borderchooseshopeepay {
-  padding: 0.66em 1.4em;
+  padding: 0.75em 1.4em;
   border: 2px solid #bfc2cb;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
   margin-top: 10px;
   border-color: #006aff;
+}
+@media only screen and (max-width: 600px) {
+  .borderchooseshopeepay {
+    padding: 0.75em 1.4em;
+    border: 2px solid #bfc2cb;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    margin-top: 10px;
+    border-color: #006aff;
+  }
 }
 .borderchooseqris {
   padding: 0em 0.8em;

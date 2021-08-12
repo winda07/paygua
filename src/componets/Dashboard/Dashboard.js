@@ -67,7 +67,7 @@ const Dashboard = () => {
             </div>
 
             <a href="/settings">Akun Saya</a>
-            <a href="/tentangkami">Tentang Kami</a>
+            <a href="/">Tentang Kami</a>
           </div>
         </span>
         <div style={{ height: "310px" }}>

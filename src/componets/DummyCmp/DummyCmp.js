@@ -17,10 +17,6 @@ import CurrencyFormat from "react-currency-format";
 import validation from "./Validation";
 
 const DummyCmp = (props) => {
-    const masukkanNama = "Nama"
-    const masukkanEmail = "Email"
-    const masukkanNominal = "Nominal"
-    const masukkanPesan = "Pesan (Contoh: Pembayaran Jasa Konsultasi)"
     const masukkanOVO = "Masukkan nomor OVO"
     const codeNumber = "+62"
     const [dataIsCorrect, setDataIsCorrect] = useState(false)

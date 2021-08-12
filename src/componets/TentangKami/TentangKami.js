@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./TentangKami.module.css";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.svg";
-import latar from "../../img/latar.svg";
+import latar from "../../img/latarr.webp";
 import kredit from "../../img/kartukredit.svg"
 import va from "../../img/VA.svg"
 import wallet from "../../img/E-Wallet.svg"

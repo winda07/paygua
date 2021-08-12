@@ -8,8 +8,6 @@ const validation = (values) => {
     }
     if (!values.nominal) {
         errors.nominal = "Nominal tidak boleh kosong"
-    } else if (values.nominal < 10000) {
-        errors.nominal = "Nominal tidak boleh kurang dari 10000"
     }
     return errors;
 }
