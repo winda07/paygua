@@ -59,7 +59,7 @@ const App = () => {
         <Route path="/verifLupaPassword" component={VerivLupas}></Route>
         <Route path="/lupaPassword" component={LupaPassword} />
         <Route path="/auth/reset/:tokenid" component={ResetPassword} />
-        <Route path="/auth/verify/:tokenid" component={VerifyEmail}></Route>
+        <Route path="/auth/verify/:email/:tokenid" component={VerifyEmail}></Route>
         <Route path="/Success" component={Success}></Route>
         <Route path="/Expired" component={Expired}></Route>
         <Route path="/gantiPassword" component={ChangePassword}></Route>

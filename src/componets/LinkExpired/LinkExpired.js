@@ -12,11 +12,11 @@ const LinkExpired = () => {
             </div>
         </div>
     )
-    const history = useHistory();
+    // const history = useHistory();
 
-    setTimeout(() => {
-        history.push("/")
-    }, 3000);
+    // setTimeout(() => {
+    //     history.push("/")
+    // }, 3000);
 
     return currentRender
 }

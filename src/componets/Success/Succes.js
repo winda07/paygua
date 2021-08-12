@@ -12,10 +12,10 @@ const Success = () => {
             </div>
         </div>
     )
-    const history = useHistory();
-    setTimeout(() => {
-        history.push("/")
-    }, 3000);
+    // const history = useHistory();
+    // setTimeout(() => {
+    //     history.push("/")
+    // }, 3000);
     return currentRender
 
 }

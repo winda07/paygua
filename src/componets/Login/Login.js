@@ -7,14 +7,15 @@ import { Link, useHistory } from "react-router-dom";
 import showPdwImg from "../../img/showPassword.svg"
 import hidePwdImg from "../../img/hidePassword.svg"
 import jwt from "jwt-decode"
+import Popup from "../PopupLogin/PopupLogin"
 
 const Login = ({ submitForm }) => {
   const [isRevealPwd, setIsRevealPwd] = useState(false);
   const [dataIsCorrect, setDataIsCorrect] = useState(false)
   const [errors, setErros] = useState({});
-
+  const [buttonPopup, setButtonPopup] = useState(false);
   const history = useHistory();
-
+  const [message, setMessage] = useState("")
   const [data, setValues] = useState({
     email: "",
     password: "",
@@ -28,7 +29,12 @@ const Login = ({ submitForm }) => {
           if (result) {
             if (result.data) {
               if (result.data.status === 400) {
-                alert("password salah")
+                setButtonPopup(true);
+                setTimeout(() => {
+                  setButtonPopup(false)
+                }, 3000)
+                setMessage(result.data.errors.errorMessage)
+                console.log(result.data.errors.errorMessage)
               } else if (result.data.status === 200) {
                 const token = result.data.data.token;
                 const user = jwt(token)
@@ -51,11 +57,11 @@ const Login = ({ submitForm }) => {
               // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZTg0Mjg0NGViNmMyZTc2MTg2ZmNkZiIsInVzZXJuYW1lIjoiU2FtIiwiaXNDb21wbGV0ZWQiOmZhbHNlLCJpYXQiOjE2MjY2MjA4NjEsImV4cCI6MzI1ODQyNTcyMn0.4w4tArc0MsqFxriJrh8GoOKR9DVmvg5pcYgJjOFxpf4
             }
           }
-          console.log(result.data.data.token);
+          // console.log(result.data.data.token);
 
         })
         .catch((e) => {
-
+          console.log(e)
         });
       // submitForm();
     }
@@ -124,6 +130,9 @@ const Login = ({ submitForm }) => {
               <p className={styles.text}> Masuk</p>
             </button>
 
+            <Popup
+              message={message}
+              trigger={buttonPopup}></Popup>
             <div class="form-group">
               <p class={styles["text-center1"]}>
                 Belum Punya Akun?{" "}
