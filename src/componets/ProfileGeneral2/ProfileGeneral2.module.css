@@ -570,3 +570,21 @@
   margin-left: 10px;
   background-color: red;
 }
+.buttonQr {
+  cursor: pointer;
+  width: 345px;
+  height: 55px;
+  border-color: black;
+  background-color: black;
+  border-radius: 31px;
+}
+.canvas {
+  margin-left: 50px;
+  width: 268px;
+  height: 268px;
+}
+.gambar {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}

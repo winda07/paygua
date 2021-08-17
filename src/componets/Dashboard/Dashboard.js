@@ -83,13 +83,26 @@ const Dashboard = () => {
           <GetBalance></GetBalance>
         </div>
         <GetTotalInvoice></GetTotalInvoice>
-        <div className={styles.footer}>
-          <img className={styles.home} src={home}></img>
-          <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
+        <section className={styles.footer}>
+          <div>
+            <img className={styles.home} src={home}></img>
+            <p className={styles.beranda}>Beranda</p>
+          </div>
+          <div>
+            <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
+            <p className={styles.notifikasi}>Notifikasi</p>
+          </div>
           <img className={styles.addHome} src={addHome}></img>
-          <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
-          <Link to="/"><img className={styles.logout} src={Logout}></img></Link>
-        </div>
+          <div>
+            <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
+            <p className={styles.settings}>Pengaturan</p>
+          </div>
+          <div>
+            <Link to="/"><img className={styles.logout} src={Logout}></img></Link>
+            <p className={styles.log}>Logout</p>
+          </div>
+
+        </section>
       </div>
     </div>
 
