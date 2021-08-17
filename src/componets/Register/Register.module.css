@@ -40,22 +40,21 @@
 }
 
 .btnSubmit12 {
-  margin-top: 30px;
+  height: 50px;
   margin-left: 10px;
   position: relative;
   appearance: none;
-  padding: 1.5em 9em;
+  padding: 0.1em 11em;
   cursor: pointer;
   outline: none;
-  border-radius: 10000px;
+  border-radius: 100px;
   border: 2px solid white;
-  background: black;
+  background: #21242b;
+  margin-top: 30px;
 }
 .text1 {
-  margin-top: -10px;
-  margin-left: 1px;
   color: white;
-  position: absolute;
+  text-align: center;
 }
 .text-center1 {
   color: #838790;

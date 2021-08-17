@@ -17,10 +17,10 @@
 .form-signin {
   /* display: block; */
   background-color: white;
-  height: 790px;
+  height: 820px;
   width: 100%;
   max-width: 350px;
-  padding: 15px;
+  /* padding: 15px; */
   margin-bottom: 390px;
   margin: 0px auto;
   position: relative;
@@ -76,67 +76,106 @@
 }
 
 .boxdua {
-  width: 315px;
-  left: 18px;
-  top: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 300px;
+  height: 110px;
+  /* right: 20px; */
+  /* top: -20px; */
   border-radius: 16px;
   background-color: white;
-  z-index: 2;
-  position: relative;
-  margin-top: -140px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  /* margin-bottom: 10px; */
+  /* margin-left: 20px; */
+  padding: 0.5em 1em;
+  box-shadow: 1px 4px 8px rgb(169, 169, 169);
+  position: absolute;
 }
-
+.boxdalam {
+  width: 100px;
+  height: 100px;
+  left: 10px;
+  top: 15px;
+  border-radius: 100%;
+  color: white;
+  background-color: black;
+  margin-bottom: 210px;
+  position: absolute;
+}
+.usernameCard {
+  margin-left: 110px;
+  font-size: 14px;
+  color: black;
+  position: absolute;
+  margin-top: 5px;
+}
+.info {
+  margin-top: 30px;
+  margin-left: 110px;
+  position: absolute;
+  font-size: 14px;
+  color: #838790;
+}
 .share {
   margin-left: 270px;
   position: absolute;
   bottom: 60px;
+  cursor: pointer;
 }
 
 .boxdua2 {
-  width: 315px;
-  left: 18px;
-  height: 100px;
+  /* margin-top: 10px; */
+  width: 332px;
+  height: 110px;
+  margin-left: 10px;
+  /* right: 20px; */
+  /* top: -20px; */
   border-radius: 16px;
   background-color: white;
-  z-index: 2;
-  position: relative;
-  margin-top: 100px;
-  border-color: white;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  /* margin-bottom: 10px; */
+  /* margin-left: 20px; */
+  border-color: transparent;
+  padding: 0.5em 1em;
+  box-shadow: 1px 4px 8px rgb(169, 169, 169);
+  position: absolute;
 }
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .boxdua2 {
     margin-top: 100px;
   }
-}
+} */
 .boxdua3 {
-  width: 315px;
-  left: 18px;
-  height: 100px;
+  /* margin-top: 10px; */
+  width: 332px;
+  height: 110px;
+  margin-left: 10px;
+  /* right: 20px; */
+  /* top: -20px; */
   border-radius: 16px;
   background-color: white;
-  z-index: 2;
-  position: relative;
-  margin-top: 70px;
-  border-color: white;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  /* margin-bottom: 10px; */
+  /* margin-left: 20px; */
+  border-color: transparent;
+  padding: 0.5em 1em;
+  box-shadow: 1px 4px 8px rgb(169, 169, 169);
+  position: absolute;
 }
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .boxdua3 {
     margin-top: 70px;
   }
-}
-.boxdalam {
-  margin-top: 25px;
-  border: 2px;
-  margin-left: 20px;
-  width: 270px;
+} */
+.boxdalam2 {
+  margin-top: 130px;
+  border: 1px;
+  right: 16px;
+  /* margin-left: 20px; */
+  width: 333px;
   height: 12px;
   background-color: black;
-  padding: 0.8em;
+  padding: 1em 1em;
   border-radius: 100px;
   position: relative;
+  cursor: pointer;
 }
 @media only screen and (max-width: 600px) {
   .boxdalam {
@@ -144,8 +183,8 @@
   }
 }
 .cop {
-  margin-left: 110px;
-  bottom: -6px;
+  margin-left: 145px;
+  bottom: -4px;
   margin-bottom: 10px;
   cursor: pointer;
   position: absolute;
@@ -162,10 +201,10 @@
 }
 .a {
   position: absolute;
-  margin-left: 5px;
+  /* margin-left: 5px; */
   color: white;
   position: absolute;
-  top: -10px;
+  top: -7px;
   font-size: 12px;
 }
 @media only screen and (max-width: 600px) {
@@ -175,6 +214,9 @@
 }
 
 .picture {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
   width: 330px;
   height: 280px;
   border-radius: 16px;
@@ -213,9 +255,48 @@
   margin-bottom: 30px;
 }
 .logo {
+  margin-left: 10px;
   position: relative;
 }
 .red {
   color: red;
   border-radius: 100%;
+}
+.footer {
+  margin-top: 393px;
+  width: 349px;
+  height: 40px;
+  /* margin-right: 10px; */
+  /* right: 20px; */
+  /* top: -20px; */
+  /* border-radius: 16px; */
+  background-color: white;
+  /* margin-bottom: 10px; */
+  /* margin-left: 20px; */
+  border-color: transparent;
+  padding: 0.5em 0em;
+  box-shadow: 1px 4px 15px rgb(169, 169, 169);
+  position: absolute;
+}
+.home {
+  margin-left: 20px;
+  margin-bottom: 7px;
+  /* margin-top: 20px; */
+}
+.notif {
+  margin-left: 50px;
+  margin-bottom: 7px;
+  /* margin-top: 20px; */
+}
+.addHome {
+  margin-left: 50px;
+  /* margin-top: 20px; */
+}
+.pengaturan {
+  margin-bottom: 7px;
+  margin-left: 50px;
+}
+.logout {
+  margin-bottom: 7px;
+  margin-left: 50px;
 }

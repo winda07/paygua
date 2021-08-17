@@ -11,6 +11,11 @@ import red from "../../img/reddd.svg"
 import { Link, useHistory } from "react-router-dom";
 import menu from "../../img/menu.svg"
 import merah from "../../img/merahNotif.svg"
+import home from "../../img/home.svg"
+import notification from "../../img/notification.svg"
+import addHome from "../../img/addHome.svg"
+import pengaturan from "../../img/pengaturan.svg"
+import Logout from "../../img/Logout.svg"
 
 toast.configure()
 const Dashboard = () => {
@@ -46,7 +51,7 @@ const Dashboard = () => {
       <div className={styles["form-signin"]}>
         <img className={styles['logo']} src={logo} alt="logo" />
 
-        <span className={styles.menu}>
+        {/* <span className={styles.menu}>
 
           <a href="#" ><img className={styles['b']} src={menu} /> </a>
           <p className={styles['total']}>{value.total ? <img src={red}></img> : null}</p>
@@ -55,13 +60,13 @@ const Dashboard = () => {
             <a href="#">Beranda</a>
 
             <div style={{ display: "flex", alignItems: "center", backgroundColor: "transparent" }}>
-              <Link to="/notification">Notifikasi</Link>
+              <Link to="/notification">Notifikasi</Link> */}
 
-              {/* <div style={{ display: "flex", width: "20px", height: "20px", backgroundColor: "red", borderRadius: "50%", marginLeft: "40px" }}> */}
-              {/* <p className={styles['merah']}>{value.total ? <img src={merah}></img> : null}</p> */}
-              {/* <p style={{ margin: "auto" }}>{value.total}</p> */}
-              {/* </div> */}
-              <div>
+        {/* <div style={{ display: "flex", width: "20px", height: "20px", backgroundColor: "red", borderRadius: "50%", marginLeft: "40px" }}> */}
+        {/* <p className={styles['merah']}>{value.total ? <img src={merah}></img> : null}</p> */}
+        {/* <p style={{ margin: "auto" }}>{value.total}</p> */}
+        {/* </div> */}
+        {/* <div>
                 <p style={{ marginLeft: "45px", color: "red" }}>{value.total}</p>
               </div>
             </div>
@@ -69,15 +74,22 @@ const Dashboard = () => {
             <a href="/settings">Akun Saya</a>
             <a href="/">Tentang Kami</a>
           </div>
-        </span>
-        <div style={{ height: "310px" }}>
+        </span> */}
+        <div style={{ height: "200px" }}>
           <GetProfile></GetProfile>
         </div>
 
-        <div style={{ height: "150px" }}>
+        <div style={{ height: "130px" }}>
           <GetBalance></GetBalance>
         </div>
         <GetTotalInvoice></GetTotalInvoice>
+        <div className={styles.footer}>
+          <img className={styles.home} src={home}></img>
+          <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
+          <img className={styles.addHome} src={addHome}></img>
+          <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
+          <Link to="/"><img className={styles.logout} src={Logout}></img></Link>
+        </div>
       </div>
     </div>
 

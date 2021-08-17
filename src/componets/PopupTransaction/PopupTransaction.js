@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import styles from "./PopupLogin.module.css"
+import styles from "./PopupTransaction.module.css"
 
-function PopupLogin(props) {
+function PopupTransaction(props) {
     return (props.trigger) ? (
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
-                <p style={{ marginLeft: "110px" }}>{props.message}</p>
+                {/* <p style={{ marginLeft: "40px" }}>Berhasil disalin ke Clipboard!</p> */}
                 {props.children}
             </div>
         </div>
     ) : ""
 }
-export default PopupLogin
+export default PopupTransaction

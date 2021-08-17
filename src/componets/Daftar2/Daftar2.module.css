@@ -12,12 +12,17 @@
 }
 .form-control-bio {
   width: 100%;
-  padding: 12px 10px 60px;
+  padding: 12px 20px 80px;
   margin: 8px 0px;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 5px;
+}
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .form-signin {
   background-color: white;

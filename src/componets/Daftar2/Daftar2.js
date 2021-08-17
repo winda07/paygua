@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Daftar2.module.css"
 import logo from "../../img/logo.svg"
 import profile from "../../img/profile.svg"
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, withRouter } from "react-router-dom";
 import validation from "./validation";
 import axios from "axios";
 import jwt from "jwt-decode"
@@ -19,16 +19,27 @@ const Daftar2 = () => {
     const [typeFile, setTypeFile] = useState("");
     const [isClicked, setIsClicked] = useState(false);
 
+
     const [data, setValues] = useState({
         name: "",
         bio: "",
         profilePicture: []
     });
     const handleChange = (e) => {
-        setValues({
-            ...data,
-            [e.target.name]: e.target.value,
-        });
+        if (e.target.name === "bio" && e.target.value.length > 100) {
+            setValues({
+                ...data
+            })
+        } else if (e.target.name === "name" && e.target.value.length > 20) {
+            setValues({
+                ...data
+            })
+        } else {
+            setValues({
+                ...data,
+                [e.target.name]: e.target.value,
+            });
+        }
     };
     const handleChange2 = (e) => {
 

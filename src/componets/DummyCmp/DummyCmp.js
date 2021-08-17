@@ -11,15 +11,19 @@ import linkaja from "../../img/LINKAJA.svg"
 import shopeepay from "../../img/SHOPEEPAY.svg"
 import qris from "../../img/QRIS.svg"
 import transfer from "../../img/Bank Transfer.svg"
-import Popup from "../PopupSuksesPembayaran/PopupSukses"
+// import Popup from "../PopupSuksesPembayaran/PopupSukses"
 import jwt from "jwt-decode"
 import CurrencyFormat from "react-currency-format";
 import validation from "./Validation";
+import Popup from "../PopupTransaction/PopupTransaction"
+import QrCode from "qrcode"
+
 
 const DummyCmp = (props) => {
     const masukkanOVO = "Masukkan nomor OVO"
     const codeNumber = "+62"
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
+    // const [buttonPopup, setButtonPopup] = useState(false);
     const [errors, setErros] = useState({});
     const [isClicked, setIsClicked] = useState(false);
     const [buttonPopup, setButtonPopup] = useState(false);
@@ -28,6 +32,20 @@ const DummyCmp = (props) => {
     const [showtransfer, setShowTransfer] = useState('')
     const [show, setShow] = useState('');
     const [barcode, setBarcode] = useState("https://reactjs.org");
+    const [qrImage, setQrImage] = useState('');
+    const creatQrCode = (text) => {
+        console.log(text)
+        QrCode.toCanvas(document.getElementById("canvas"), text, function (err) {
+            if (err) {
+                console.log(err)
+            }
+        })
+        // QrCode.toDataURL(text).then(url => {
+        //     console.log(url)
+        // }).catch(err => {
+        //     console.log(err)
+        // })
+    }
     const handleFormSubmit = (e) => {
         console.log(window.innerWidth)
         setErros(validation(data));
@@ -54,23 +72,61 @@ const DummyCmp = (props) => {
                 if (result) {
                     if (result.data.status == 200) {
                         if (data.bank === "gopay") {
-                            window.open(`${result.data.data.deeplink}`, `_self`)
+                            console.log(paymentMethod)
+                            if (window.innerWidth > 600) {
+                                setButtonPopup(true)
+
+                                creatQrCode(result.data.data.url)
+                            } else {
+                                window.open(`${result.data.data.deeplink}`, `_self`)
+                            }
                         } else if (data.bank === "qris") {
-                            window.open(`${result.data.data.deeplink}`, `_self`)
+                            setButtonPopup(true)
+
+                            creatQrCode(result.data.data.url)
+                            // window.open(`${result.data.data.deeplink}`, `_self`)
                         } else if (data.bank === "bank") {
                             window.open(`${result.data.data.url}`, `_self`)
                         } else if (data.bank === "ovo") {
-                            window.open(`${result.data.data.deeplink}`, `_self`)
+                            if (window.innerWidth > 600) {
+                                setButtonPopup(true)
+
+                                creatQrCode(result.data.data.url)
+                            } else {
+                                window.open(`${result.data.data.deeplink}`, `_self`)
+                            }
+                            // window.open(`${result.data.data.deeplink}`, `_self`)
                         } else if (data.bank === "shopeepay") {
-                            window.open(`${result.data.data.deeplink}`, `_self`)
+                            if (window.innerWidth > 600) {
+                                setButtonPopup(true)
+
+                                creatQrCode(result.data.data.url)
+                            } else {
+                                window.open(`${result.data.data.deeplink}`, `_self`)
+                            }
+                            // window.open(`${result.data.data.deeplink}`, `_self`)
                         } else if (data.bank === "dana") {
-                            window.open(`${result.data.data.deeplink}`, `_self`)
+                            if (window.innerWidth > 600) {
+                                setButtonPopup(true)
+
+                                creatQrCode(result.data.data.url)
+                            } else {
+                                window.open(`${result.data.data.deeplink}`, `_self`)
+                            }
+                            // window.open(`${result.data.data.deeplink}`, `_self`)
                         } else if (data.bank === "linkaja") {
-                            window.open(`${result.data.data.deeplink}`, `_self`)
+                            if (window.innerWidth > 600) {
+                                setButtonPopup(true)
+
+                                creatQrCode(result.data.data.url)
+                            } else {
+                                window.open(`${result.data.data.deeplink}`, `_self`)
+                            }
+                            // window.open(`${result.data.data.deeplink}`, `_self`)
                         }
-                        else if (window.innerWidth <= 600) {
-                            window.open(`${result.data.data.deeplink}`, `_self`)
-                        }
+                        // else if (window.innerWidth <= 600) {
+                        //     window.open(`${result.data.data.deeplink}`, `_self`)
+                        // }
                         console.log(result.data)
                     }
                     console.log("if result", result)
@@ -287,8 +343,14 @@ const DummyCmp = (props) => {
                 <div className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.btnSubmit : styles.btnBedaWarna} onClick={handleFormSubmit}>
                     <p className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.text2 : styles.text21}  >Bayar</p>
                 </div>
-                {/* <Popup
-                    trigger={buttonPopup}></Popup> */}
+                <Popup
+                    trigger={buttonPopup}>
+                    {/* <div className={styles.customPopup}> */}
+                    <text onClick={() => { setButtonPopup(false) }}>X</text>
+                    <canvas id="canvas"></canvas>
+                    {/* </div> */}
+                    {/* <img src={URL.createObjectURL({ qrImage })} /> */}
+                </Popup>
                 <Link to="/"><img className={styles.logo1} src={logo} alt="logo" /></Link>
 
             </div>

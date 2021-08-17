@@ -15,18 +15,18 @@
   align-items: center;
 }
 .form-signin {
-  background-color: white;
+  /* background-color: white;
   width: 100%;
-  max-width: 350px;
+  max-width: 300px;
   padding: 15px;
-  margin-bottom: 390px;
-  margin: 0px auto;
+  margin: 180px auto;
   border-radius: 10px;
-  margin-bottom: 100px;
-  /* margin-top: 100px; */
-}
-
-.popup {
-  width: 171px;
-  margin-left: 95px;
+  margin-top: 10px; */
+  width: 100%;
+  display: flex;
+  flex: column;
+  margin: 180px auto;
+  max-width: 300px;
+  padding: 15px;
+  background-color: white;
 }

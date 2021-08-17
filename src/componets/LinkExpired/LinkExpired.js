@@ -4,6 +4,7 @@ import thanks from "../../img/popup-tagihan.svg"
 import success from "../../img/ion.svg"
 import { Link, useHistory } from "react-router-dom";
 const LinkExpired = () => {
+    const history = useHistory();
     let currentRender = (
         <div className={styles.App}>
             <div className={styles['form-signin']}>
@@ -16,11 +17,11 @@ const LinkExpired = () => {
             </div>
         </div>
     )
-    // const history = useHistory();
 
-    // setTimeout(() => {
-    //     history.push("/")
-    // }, 3000);
+
+    setTimeout(() => {
+        history.push("/login")
+    }, 3000);
 
     return currentRender
 }

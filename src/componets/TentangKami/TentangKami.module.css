@@ -167,6 +167,7 @@
 }
 .textBold {
   /* margin-left: 50px; */
+  margin-right: 10px;
   position: absolute;
   width: 279px;
   height: 480px;
@@ -188,6 +189,9 @@
   align-items: center;
   position: relative;
 }
+/* .text {
+  margin-left: 10px;
+} */
 /* @media only screen and (max-width: 320px) {
   .TentangKami {
     margin-left: 10px;
@@ -226,7 +230,7 @@
 } */
 
 .button {
-  margin-right: 130px;
+  margin-right: 135px;
   margin-top: 300px;
   position: absolute;
   appearance: none;

@@ -29,6 +29,8 @@ import Notification from "./componets/Notification/Notification"
 import VerfifResetPasswrod from "./componets/VerfiResetPassword/VerifResetPassword"
 import RegisterCheck from "./componets/Register/RegisterCheck"
 import { Route, Switch, useHistory } from 'react-router-dom';
+// import { createMemoryHistory } from "history";
+// import { Router } from "react-router";
 import jwt from "jwt-decode"
 import UserNotFound from "./componets/404/Notfound"
 import { useMediaQuery } from 'react-responsive'
@@ -37,6 +39,8 @@ const App = () => {
   //   query: "(min-device-width: 480px)",
   // });
   const history = useHistory()
+  // const { location } = props;
+  // const CMHistory = createMemoryHistory(location)
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -52,6 +56,7 @@ const App = () => {
   return (
     <div>
       <Switch>
+
         {/* {isMobileDevice && <Route exact path="/" component={TentangKami} />} */}
         <Route exact path="/" component={TentangKami} />
         <Route path="/login" component={Login}></Route>
@@ -65,6 +70,7 @@ const App = () => {
         <Route path="/gantiPassword" component={ChangePassword}></Route>
         <Route path="/settings" component={Settings}></Route>
         <Route path="/editProfile" component={Editprofile} ></Route>
+        {/* <Route history={CMHistory} path="/daftar" component={Daftar2}></Route> */}
         <Route path="/daftar" component={Daftar2}></Route>
         <Route path="/dashboard" component={Dashboard}></Route>
         <Route path="/share" component={Share}></Route>
@@ -88,6 +94,7 @@ const App = () => {
           <DummyCmp type="type2" />
         </Route>
       </Switch>
+
 
     </div>
   )

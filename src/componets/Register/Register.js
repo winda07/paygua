@@ -7,13 +7,17 @@ import hidePwdImg from "../../img/hidePassword.svg";
 import axios from "axios";
 import { AirlineSeatIndividualSuiteSharp, Message } from "@material-ui/icons";
 import validation from "./validation.js";
+import Loading from "../Loading/Loading"
+import Popup from "../PopupLogin/PopupLogin"
 
 const Register = ({ submitForm }) => {
 
   const [isRevealPwd, setIsRevealPwd] = useState(false);
   const [dataIsCorrect, setDataIsCorrect] = useState(false)
   const [errors, setErros] = useState({});
-
+  const [loadingPopup, setButtonLoading] = useState(false);
+  const [message, setMessage] = useState("")
+  const [buttonPopup, setButtonPopup] = useState(false);
   const history = useHistory();
   const urlPayGua = "Paygua.com/"
 
@@ -30,8 +34,18 @@ const Register = ({ submitForm }) => {
         .then((result) => {
           if (result) {
             if (result.data) {
-              if (result.data.status !== "200") {
-                history.push('/registerCheck')
+              if (result.data.status === 200) {
+                setButtonLoading(true)
+                setTimeout(() => {
+                  setButtonLoading(false)
+                  history.push('/registerCheck')
+                }, 3000)
+              } else if (result.data.status === 400) {
+                setButtonPopup(true);
+                setTimeout(() => {
+                  setButtonPopup(false)
+                }, 3000)
+                setMessage(result.data.errors.errorMessage)
               }
             }
           }
@@ -74,7 +88,7 @@ const Register = ({ submitForm }) => {
   console.log("submitForm on Register: ", submitForm)
   return (
     <div className={styles.App}>
-      <div className={styles["form-signin"]}>
+      <form onSubmit={handleFormSubmit} className={styles["form-signin"]}>
         <header className={styles["App-header"]}>
           <img src={logo} alt="logo" />
           <div className="datang">
@@ -128,9 +142,12 @@ const Register = ({ submitForm }) => {
               </p>
             </div>
 
-            <div className={styles.btnSubmit12} onClick={handleFormSubmit}>
+            <button className={styles.btnSubmit12} type="submit">
               <p class={styles.text1}>Daftar</p>
-            </div>
+            </button>
+            <Popup
+              message={message}
+              trigger={buttonPopup}></Popup>
             <div class="form-group">
               <p class={styles["text-center1"]}>
                 Sudah Punya Akun?{" "}
@@ -141,7 +158,8 @@ const Register = ({ submitForm }) => {
             </div>
           </div>
         </header>
-      </div>
+        <Loading trigger={loadingPopup}></Loading>
+      </form>
     </div>
   );
 };

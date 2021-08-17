@@ -7,8 +7,12 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import Frame from "../../img/Frame.svg"
 import styles from "./Dashboard.module.css";
 import { Copyright, DataUsageSharp } from "@material-ui/icons"
+import Popup from "../PopupCopy/PopupCopy"
+import SharePopup from "../Share/Share"
 
 const GetProfile = () => {
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const [sharePopup, setSharePopup] = useState(false)
     const urlPayGua = "Paygua.com/"
     const history = useHistory()
     const [data, setValues] = useState({
@@ -17,6 +21,19 @@ const GetProfile = () => {
         profilePicture: "",
         name: ""
     })
+    const setcopy = () => {
+        setButtonPopup(true)
+        setTimeout(() => {
+            setButtonPopup(false)
+        }, 1000)
+        navigator.clipboard.writeText(`paygua.com/${data.username}`)
+    }
+    const setshare = () => {
+        setSharePopup(true);
+        setTimeout(() => {
+            setSharePopup(false)
+        }, 3000)
+    }
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -46,16 +63,21 @@ const GetProfile = () => {
     }, []);
     return (
         <div>
-            <img className={styles.picture} src={data.profilePicture}></img>
 
             <div className={styles.boxdua}>
-                <p style={{ fontSize: "24px", color: "#21242B", marginLeft: "25px", height: "10px" }}>{data.name}</p>
-                <p style={{ fontSize: "12px", color: "#838790", marginLeft: "25px", position: "relative" }}>{data.bio}</p>
-                <Link to="/share" ><img className={styles.share} src={share} alt="logo" /></Link>
-                <button className={styles.boxdalam} onClick={() => { navigator.clipboard.writeText(`paygua.com/${data.username}`) }}>
+                <img className={styles.boxdalam} src={data.profilePicture}></img>
+                <b className={styles.usernameCard}>@{data.username}</b>
+                <p className={styles.info}>{data.bio}</p>
+                {/* <p style={{ fontSize: "24px", color: "#21242B", marginLeft: "21px", height: "10px", paddingTop: "10px" }}>{data.name}</p>
+                <p style={{ fontSize: "12px", color: "#838790", marginLeft: "23px", position: "relative" }}>{data.bio}</p>
+                <img onClick={setshare} className={styles.share} src={share} alt="logo" />
+                <SharePopup trigger={sharePopup}></SharePopup> */}
+                <button className={styles.boxdalam2} onClick={setcopy}>
                     <p className={styles.a}>{`paygua.com/${data.username}`}</p>
-                    <Link to="/notiftoast"><img className={styles["cop"]} src={copy}></img></Link>
+                    <img className={styles["cop"]} src={copy}></img>
                 </button>
+                <Popup
+                    trigger={buttonPopup}></Popup>
                 {/* <p className={styles.a}>{`paygua.com/${data.username}`}</p> */}
                 {/* <button className={styles["a"]} onClick={() => { navigator.clipboard.writeText(`paygua.com/${data.username}`) }}>
                     <Link to="/notiftoast"><img className={styles["cop"]} src={copy}></img></Link>
@@ -64,7 +86,7 @@ const GetProfile = () => {
                 <div >
 
                 </div>
-                <br></br>
+                {/* <br></br> */}
             </div>
         </div>
     )

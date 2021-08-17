@@ -4,6 +4,7 @@ import thanks from "../../img/popup-tagihan.svg"
 import success from "../../img/Logo_LupPW.svg"
 import { Link, useHistory } from "react-router-dom";
 const Success = () => {
+    const history = useHistory();
     let currentRender = (
         <div className={styles.App}>
             <div className={styles['form-signin']}>
@@ -16,10 +17,10 @@ const Success = () => {
             </div>
         </div>
     )
-    // const history = useHistory();
-    // setTimeout(() => {
-    //     history.push("/")
-    // }, 3000);
+
+    setTimeout(() => {
+        history.push("/login")
+    }, 3000);
     return currentRender
 
 }

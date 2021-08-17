@@ -8,6 +8,7 @@ import showPdwImg from "../../img/showPassword.svg"
 import hidePwdImg from "../../img/hidePassword.svg"
 import jwt from "jwt-decode"
 import Popup from "../PopupLogin/PopupLogin"
+import Loading from "../Loading/Loading"
 
 const Login = ({ submitForm }) => {
   const [isRevealPwd, setIsRevealPwd] = useState(false);
@@ -16,6 +17,7 @@ const Login = ({ submitForm }) => {
   const [buttonPopup, setButtonPopup] = useState(false);
   const history = useHistory();
   const [message, setMessage] = useState("")
+  const [loadingPopup, setButtonLoading] = useState(false);
   const [data, setValues] = useState({
     email: "",
     password: "",
@@ -45,10 +47,17 @@ const Login = ({ submitForm }) => {
                 // console.log('jwt: ', user)
                 if (user.isCompleted === false) {
                   // submitForm(false)
-                  history.push("/daftar")
+                  setButtonLoading(true)
+                  setTimeout(() => {
+                    setButtonLoading(false)
+                    history.push("/daftar")
+                  }, 3000)
                 } else {
-                  history.push("/dashboard")
-                  // submitForm(true)
+                  setButtonLoading(true)
+                  setTimeout(() => {
+                    setButtonLoading(false)
+                    history.push("/dashboard")
+                  }, 3000)
                 }
                 // submitForm();
 
@@ -143,6 +152,9 @@ const Login = ({ submitForm }) => {
             </div>
           </div>
         </header>
+        <div>
+          <Loading trigger={loadingPopup}></Loading>
+        </div>
       </form>
     </div>
   );
