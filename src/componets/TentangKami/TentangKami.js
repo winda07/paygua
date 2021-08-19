@@ -50,7 +50,7 @@ const TentangKami = () => {
                 <div className={styles.TentangKami}>
                     <img className={styles.latar} src={latar} alt="latar" />
                     <div className={styles.textBold}>
-                        <h1>untuk menjual produk digital dengan cara paling mudah</h1>
+                        <h1>Jual produk digitalmu dengan cara paling mudah</h1>
                     </div>
                     <div className={styles.text}>
                         <p>Paygua membantu kamu menerima invoice untuk produk digital dengan mudah dari pelanggan hanya dengan link. Buat halaman untuk produk digital hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
