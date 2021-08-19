@@ -50,10 +50,10 @@ const TentangKami = () => {
                 <div className={styles.TentangKami}>
                     <img className={styles.latar} src={latar} alt="latar" />
                     <div className={styles.textBold}>
-                        <h1>Terima dan atur invoice bisnismu dengan cara paling mudah</h1>
+                        <h1>untuk menjual produk digital dengan cara paling mudah</h1>
                     </div>
                     <div className={styles.text}>
-                        <p>Paygua membantu kamu menerima invoice untuk produk digital dengan mudah dari pelanggan hanya dengan link. Buat halaman invoice untuk produk digital hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
+                        <p>Paygua membantu kamu menerima invoice untuk produk digital dengan mudah dari pelanggan hanya dengan link. Buat halaman untuk produk digital hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
                     </div>
                     <button className={styles.button}>
                         <Link style={{ textDecoration: "none", color: "white" }} to="/register">
@@ -63,7 +63,7 @@ const TentangKami = () => {
                     </button>
                 </div>
                 <div class="a">
-                    <p className={styles.accept}>Terima invoice dari:</p>
+                    <p className={styles.accept}>Terima pembayaran dengan:</p>
                 </div>
 
                 <section className="section">
@@ -106,7 +106,7 @@ const TentangKami = () => {
                     <p className={styles.isi2} >Buat tagihan hanya dengan <br></br>
                         hitungan detik di dashboard Paygua.</p>
                     <b className={styles.judul} >3.&emsp;Bagikan Link dan Terima Pembayaran</b>
-                    <p className={styles.isi3}>Salin dan tempel tautan invoice <br></br>
+                    <p className={styles.isi3}>Salin dan tempel tautan <br></br>
                         di aplikasi pesan, email atau media sosial.</p>
                     <b className={styles.judul} >4.&emsp;Terima Produk Digital</b>
                     <p className={styles.isi4} >Terima produk digital secara real-time <br></br>
