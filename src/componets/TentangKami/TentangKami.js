@@ -53,7 +53,7 @@ const TentangKami = () => {
                         <h1>Jual produk digitalmu dengan cara paling mudah</h1>
                     </div>
                     <div className={styles.text}>
-                        <p>Paygua membantu kamu menerima invoice untuk produk digital dengan mudah dari pelanggan hanya dengan link. Buat halaman untuk produk digital hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
+                        <p>Paygua membantu kamu menjual produk digital dengan mudah dari pelanggan hanya dengan link. Buat halaman untuk produk digital hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
                     </div>
                     <button className={styles.button}>
                         <Link style={{ textDecoration: "none", color: "white" }} to="/register">
