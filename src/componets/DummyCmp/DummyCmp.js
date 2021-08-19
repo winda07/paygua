@@ -318,7 +318,7 @@ const DummyCmp = (props) => {
                         type="text"
                         class={styles["pesan"]}
                         name="pesan"
-                        placeholder="Pesan (Contoh: Pembayaran Jasa Konsultasi)"
+                        placeholder="Pesan (Contoh: Pembayaran Produk Digital)"
                         value={data.pesan}
                         onChange={handleChange}
                     ></input>

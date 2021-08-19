@@ -53,7 +53,7 @@ const GetBalance = () => {
                 <button className={styles.boxdua2} >
                     <Link style={{ textDecoration: "none", display: "flex", alignItems: "center" }} to="/transaksi">
                         <div style={{ width: "50%" }}>
-                            <p style={{ fontSize: "12px", color: "#838790", height: "1px", textAlign: "left", marginLeft: "14px" }} >Saldo Kamu saat ini</p>
+                            <p style={{ fontSize: "12px", color: "#838790", height: "1px", textAlign: "left", marginLeft: "14px" }} >Saldo kamu saat ini</p>
                             <p style={{ fontSize: "24px", color: "#21242B", textAlign: "left", marginLeft: "13px" }}>Rp{data.balance}</p>
                         </div>
                         <div style={{ width: "50%", alignItems: "right", marginLeft: "110px" }}>

@@ -106,10 +106,12 @@ const Daftar2 = () => {
         <div className={styles.App}>
             <div className={styles['form-signin']}>
                 <header className={styles['App-header']}>
-                    <img src={logo} alt="logo" />
+                    <img className={styles.logo} src={logo} alt="logo" />
                 </header>
-                <h3 class="h3 mb-3 fw-normal">Lengkapi Profil</h3>
-                <BoxUpload>
+                <br></br>
+                {/* <br></br> */}
+                <b className={styles.judul}>Lengkapi Profil</b>
+                <BoxUpload >
                     <div className="image-upload">
                         {!isUploaded ? (
                             <>
@@ -129,6 +131,7 @@ const Daftar2 = () => {
                                     type="file"
                                     onChange={handleChange2}
                                     accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
+                                // accept=".webp"
                                 />
                             </>
                         ) : (

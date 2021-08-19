@@ -92,7 +92,8 @@ const Dashboard = () => {
             <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
             <p className={styles.notifikasi}>Notifikasi</p>
           </div>
-          <img className={styles.addHome} src={addHome}></img>
+          <Link to='/buatTagihan'><img className={styles.addHome} src={addHome}></img></Link>
+
           <div>
             <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
             <p className={styles.settings}>Pengaturan</p>

@@ -10,6 +10,18 @@
   padding-bottom: 40px; */
   background-color: #dcdcdc;
 }
+
+.logo {
+  width: 114px;
+  height: 36px;
+}
+.judul {
+  color: black;
+  font-size: 24px;
+  width: 209px;
+  height: 32px;
+  margin-left: 10px;
+}
 .form-control-bio {
   width: 100%;
   padding: 12px 20px 80px;
@@ -41,18 +53,18 @@
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  display: inline-block;
+  /* display: inline-block; */
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 5px;
 }
 .btnSubmit {
   margin-left: 10px;
-  position: relative;
-  appearance: none;
+  /* position: relative; */
+  /* appearance: none; */
   padding: 0.1em 9em;
   cursor: pointer;
-  outline: none;
+  /* outline: none; */
   border-radius: 100px;
   border: 2px solid white;
   background: #21242b;
@@ -71,4 +83,75 @@
 }
 .set {
   color: red;
+}
+@media only screen and (max-width: 320px) {
+  .App {
+    background-color: white;
+  }
+  .form-signin {
+    position: fixed;
+  }
+  .logo {
+    width: 100px;
+  }
+  .form-control {
+    width: 90%;
+    margin-left: 5px;
+  }
+  .form-control-bio {
+    width: 90%;
+    margin-left: 5px;
+  }
+  .btnSubmit {
+    padding: 0.1em 8.5em;
+    margin-left: 10px;
+    width: 5px;
+    border: 1px;
+  }
+  .text {
+    margin-left: -20px;
+  }
+  .ukuranPP {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+  }
+  .set {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .App {
+    background-color: white;
+  }
+  .form-signin {
+    position: fixed;
+  }
+  .logo {
+    width: 100px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .App {
+    background-color: white;
+  }
+  .form-signin {
+    position: fixed;
+  }
+  .form-control {
+    width: 100%;
+    margin-left: 15px;
+  }
+  .form-control-bio {
+    width: 100%;
+    margin-left: 15px;
+    padding: 12px 20px 60px;
+  }
+  .btnSubmit {
+    padding: 0.1em 11.2em;
+    margin-top: 10px;
+  }
+  .text {
+    margin-left: -23px;
+  }
 }
