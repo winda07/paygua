@@ -234,28 +234,38 @@
   border-radius: 100%;
 }
 .footer {
+  position: fixed;
+  left: 10;
+  right: 10;
+  bottom: 0;
+  width: 58.5%;
+  background-color: white;
+  text-align: center;
+  box-shadow: 1px 4px 8px rgb(169, 169, 169);
+}
+/* .footer {
   display: flex;
   justify-content: space-evenly;
   margin-top: 350px;
   width: 375px;
   height: 50px;
-  /* margin-right: 10px; */
-  /* right: 20px; */
-  /* top: -20px; */
-  /* border-radius: 16px; */
+  margin-right: 10px;
+  right: 20px;
+  top: -20px;
+  border-radius: 16px;
   background-color: white;
-  /* margin-bottom: 10px; */
-  /* margin-left: 20px; */
+  margin-bottom: 10px;
+  margin-left: 20px;
   border-color: transparent;
   padding: 0.5em 0em;
   box-shadow: 1px 4px 15px rgb(169, 169, 169);
   position: absolute;
-}
+} */
 .home {
   margin-top: 10px;
   width: 20px;
   height: 22.74px;
-  margin-left: 20px;
+  margin-left: 40px;
   cursor: pointer;
   /* margin-bottom: 7px; */
   /* text-align: right; */
@@ -264,7 +274,7 @@
 .beranda {
   cursor: pointer;
   /* margin-bottom: 10px; */
-  margin-left: 10px;
+  margin-left: 40px;
   margin-top: 0px;
   font-size: 10px;
   color: #21242b;
@@ -280,7 +290,7 @@
 }
 .notifikasi {
   cursor: pointer;
-  margin-left: 15px;
+  margin-left: 30px;
   margin-top: 0px;
   font-size: 10px;
   color: #838790;
@@ -290,7 +300,7 @@
   width: 35px;
   height: 35px;
   cursor: pointer;
-  margin-left: 15px;
+  margin-left: 30px;
   /* margin-top: 20px; */
 }
 .pengaturan {
@@ -303,7 +313,7 @@
 }
 .settings {
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 30px;
   margin-top: 0px;
   font-size: 10px;
   color: #838790;
@@ -314,11 +324,11 @@
   margin-top: 10px;
   cursor: pointer;
   /* margin-bottom: 7px; */
-  margin-left: 18px;
+  margin-left: 20px;
 }
 .log {
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 0px;
   font-size: 10px;
   color: #838790;
@@ -391,40 +401,43 @@
     text-align: right;
   }
   .footer {
-    margin-top: 230px;
-    width: 320px;
+    width: 100%;
   }
   .home {
     width: 20px;
     height: 22.74px;
+    margin-left: 20px;
   }
   .beranda {
-    margin-left: 10px;
+    margin-left: 20px;
   }
   .notif {
     width: 20px;
     height: 22px;
+    margin-left: 30px;
   }
   .notifikasi {
-    margin-left: 15px;
+    margin-left: 25px;
   }
   .addHome {
     width: 35px;
     height: 35px;
+    margin-left: 20px;
   }
   .pengaturan {
     width: 21px;
     height: 21px;
+    margin-left: 20px;
   }
   .settings {
-    margin-left: 10px;
+    margin-left: 20px;
   }
   .logout {
     width: 22px;
     height: 22px;
   }
   .log {
-    margin-left: 10px;
+    margin-left: 20px;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px) {
@@ -442,21 +455,21 @@
     margin-top: -10px;
   }
   .footer {
-    margin-top: 230px;
+    width: 100%;
   }
   .home {
     width: 20px;
     height: 22.74px;
   }
   .beranda {
-    margin-left: 10px;
+    margin-left: 40px;
   }
   .notif {
     width: 20px;
     height: 22px;
   }
   .notifikasi {
-    margin-left: 15px;
+    margin-left: 30px;
   }
   .addHome {
     width: 35px;
@@ -467,14 +480,15 @@
     height: 21px;
   }
   .settings {
-    margin-left: 10px;
+    margin-left: 25px;
   }
   .logout {
     width: 22px;
     height: 22px;
+    margin-left: 25px;
   }
   .log {
-    margin-left: 10px;
+    margin-left: 25px;
   }
 }
 @media only screen and (min-width: 376px) and (max-width: 425px) {
@@ -482,32 +496,43 @@
     position: fixed;
     height: 100%;
   }
+  .a {
+    margin-top: 9px;
+  }
+  .cop {
+    margin-left: 160px;
+  }
+  .boxdua {
+    width: 350px;
+  }
   .boxdalam2 {
-    width: 340px;
+    width: 380px;
   }
   .boxdua2 {
+    width: 380px;
     margin-top: -10px;
   }
   .boxdua3 {
+    width: 380px;
     margin-top: -10px;
   }
   .footer {
-    margin-top: 255px;
-    width: 430px;
+    width: 100%;
   }
   .home {
     width: 20px;
     height: 22.74px;
   }
   .beranda {
-    margin-left: 10px;
+    margin-left: 40px;
   }
   .notif {
     width: 20px;
     height: 22px;
+    margin-left: 40px;
   }
   .notifikasi {
-    margin-left: 15px;
+    margin-left: 40px;
   }
   .addHome {
     width: 35px;
@@ -516,15 +541,17 @@
   .pengaturan {
     width: 21px;
     height: 21px;
+    margin-left: 40px;
   }
   .settings {
-    margin-left: 10px;
+    margin-left: 40px;
   }
   .logout {
     width: 22px;
     height: 22px;
+    margin-left: 40px;
   }
   .log {
-    margin-left: 10px;
+    margin-left: 40px;
   }
 }

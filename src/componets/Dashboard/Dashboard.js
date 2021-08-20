@@ -59,7 +59,28 @@ const Dashboard = () => {
         </div>
         <GetTotalInvoice></GetTotalInvoice>
         <br></br>
-        {/* <footer style={{ textAlign: "center", height: "50px", backgroundColor: "black" }}>
+        <footer className={styles.footer}>
+          <div style={{ float: "left" }}>
+            <img className={styles.home} src={home}></img>
+            <p className={styles.beranda}>Beranda</p>
+          </div>
+          <div style={{ float: "left" }}>
+            <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
+            <p className={styles.notifikasi}>Notifikasi</p>
+          </div>
+          <div style={{ float: "left" }}>
+            <Link to='/buatTagihan'><img className={styles.addHome} src={addHome}></img></Link>
+          </div>
+          <div style={{ float: "left" }}>
+            <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
+            <p className={styles.settings}>Pengaturan</p>
+          </div>
+          <div style={{ float: "left" }}>
+            <Link to="/login"><img className={styles.logout} src={Logout}></img></Link>
+            <p className={styles.log}>Logout</p>
+          </div>
+        </footer>
+        {/* <section className={styles.footer}>
           <div>
             <img className={styles.home} src={home}></img>
             <p className={styles.beranda}>Beranda</p>
@@ -78,28 +99,8 @@ const Dashboard = () => {
             <Link to="/login"><img className={styles.logout} src={Logout}></img></Link>
             <p className={styles.log}>Logout</p>
           </div>
-        </footer> */}
-        <section className={styles.footer}>
-          <div>
-            <img className={styles.home} src={home}></img>
-            <p className={styles.beranda}>Beranda</p>
-          </div>
-          <div>
-            <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
-            <p className={styles.notifikasi}>Notifikasi</p>
-          </div>
-          <Link to='/buatTagihan'><img className={styles.addHome} src={addHome}></img></Link>
 
-          <div>
-            <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
-            <p className={styles.settings}>Pengaturan</p>
-          </div>
-          <div>
-            <Link to="/login"><img className={styles.logout} src={Logout}></img></Link>
-            <p className={styles.log}>Logout</p>
-          </div>
-
-        </section>
+        </section> */}
       </div>
     </div>
 
