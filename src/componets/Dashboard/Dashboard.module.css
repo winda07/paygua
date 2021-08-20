@@ -9,11 +9,6 @@
     padding-bottom: 40px; */
   background-color: #dcdcdc;
 }
-@media only screen and (max-width: 600px) {
-  .App {
-    background-color: white;
-  }
-}
 .form-signin {
   /* display: block; */
   background-color: white;
@@ -97,7 +92,7 @@
   top: 15px;
   border-radius: 100%;
   color: white;
-  background-color: black;
+  /* background-color: black; */
   margin-bottom: 210px;
   position: absolute;
 }
@@ -138,11 +133,6 @@
   box-shadow: 1px 4px 8px rgb(169, 169, 169);
   position: absolute;
 }
-/* @media only screen and (max-width: 600px) {
-  .boxdua2 {
-    margin-top: 100px;
-  }
-} */
 .boxdua3 {
   /* margin-top: 10px; */
   width: 342px;
@@ -159,11 +149,7 @@
   box-shadow: 1px 4px 8px rgb(169, 169, 169);
   position: absolute;
 }
-/* @media only screen and (max-width: 600px) {
-  .boxdua3 {
-    margin-top: 70px;
-  }
-} */
+
 .boxdalam2 {
   margin-top: 130px;
   border: 1px;
@@ -177,11 +163,6 @@
   position: relative;
   cursor: pointer;
 }
-@media only screen and (max-width: 600px) {
-  .boxdalam {
-    background-color: black;
-  }
-}
 .cop {
   margin-left: 145px;
   bottom: -4px;
@@ -189,11 +170,6 @@
   cursor: pointer;
   position: absolute;
   color: red;
-}
-@media only screen and (max-width: 600px) {
-  .cop {
-    bottom: -8px;
-  }
 }
 .frame {
   margin-top: 35px;
@@ -207,12 +183,6 @@
   top: -7px;
   font-size: 12px;
 }
-@media only screen and (max-width: 600px) {
-  .a {
-    top: -11px;
-  }
-}
-
 .picture {
   /* display: flex;
   justify-content: center;
@@ -266,9 +236,9 @@
 .footer {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 370px;
+  margin-top: 350px;
   width: 375px;
-  height: 62px;
+  height: 50px;
   /* margin-right: 10px; */
   /* right: 20px; */
   /* top: -20px; */
@@ -352,4 +322,209 @@
   margin-top: 0px;
   font-size: 10px;
   color: #838790;
+}
+.saldotext {
+  font-size: 12px;
+  color: #838790;
+  height: 1px;
+  text-align: left;
+  margin-left: 14px;
+}
+.saldo {
+  font-size: 24px;
+  color: #21242b;
+  text-align: left;
+  margin-left: 13px;
+}
+.div1 {
+  width: 60%;
+}
+.div2 {
+  width: 40%;
+  text-align: right;
+}
+@media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+  }
+  .logo {
+    width: 100px;
+  }
+  .boxdua {
+    width: 80%;
+    height: 16%;
+  }
+  .boxdalam {
+    margin-top: -3px;
+    width: 100px;
+    height: 100px;
+  }
+  .usernameCard {
+    margin-top: 1px;
+  }
+  .info {
+    margin-top: 20px;
+  }
+  .boxdalam2 {
+    width: 285px;
+    height: 12px;
+  }
+  .cop {
+    margin-left: 120px;
+  }
+  .boxdua2 {
+    width: 90%;
+    height: 14%;
+    margin-top: -10px;
+  }
+  .boxdua3 {
+    margin-top: -30px;
+    width: 90%;
+    height: 14%;
+  }
+  .div1 {
+    width: 90%;
+  }
+  .div2 {
+    width: 10%;
+    text-align: right;
+  }
+  .footer {
+    margin-top: 230px;
+    width: 320px;
+  }
+  .home {
+    width: 20px;
+    height: 22.74px;
+  }
+  .beranda {
+    margin-left: 10px;
+  }
+  .notif {
+    width: 20px;
+    height: 22px;
+  }
+  .notifikasi {
+    margin-left: 15px;
+  }
+  .addHome {
+    width: 35px;
+    height: 35px;
+  }
+  .pengaturan {
+    width: 21px;
+    height: 21px;
+  }
+  .settings {
+    margin-left: 10px;
+  }
+  .logout {
+    width: 22px;
+    height: 22px;
+  }
+  .log {
+    margin-left: 10px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+  }
+  .boxdalam2 {
+    width: 340px;
+  }
+  .boxdua2 {
+    margin-top: -10px;
+  }
+  .boxdua3 {
+    margin-top: -10px;
+  }
+  .footer {
+    margin-top: 230px;
+  }
+  .home {
+    width: 20px;
+    height: 22.74px;
+  }
+  .beranda {
+    margin-left: 10px;
+  }
+  .notif {
+    width: 20px;
+    height: 22px;
+  }
+  .notifikasi {
+    margin-left: 15px;
+  }
+  .addHome {
+    width: 35px;
+    height: 35px;
+  }
+  .pengaturan {
+    width: 21px;
+    height: 21px;
+  }
+  .settings {
+    margin-left: 10px;
+  }
+  .logout {
+    width: 22px;
+    height: 22px;
+  }
+  .log {
+    margin-left: 10px;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+  }
+  .boxdalam2 {
+    width: 340px;
+  }
+  .boxdua2 {
+    margin-top: -10px;
+  }
+  .boxdua3 {
+    margin-top: -10px;
+  }
+  .footer {
+    margin-top: 255px;
+    width: 430px;
+  }
+  .home {
+    width: 20px;
+    height: 22.74px;
+  }
+  .beranda {
+    margin-left: 10px;
+  }
+  .notif {
+    width: 20px;
+    height: 22px;
+  }
+  .notifikasi {
+    margin-left: 15px;
+  }
+  .addHome {
+    width: 35px;
+    height: 35px;
+  }
+  .pengaturan {
+    width: 21px;
+    height: 21px;
+  }
+  .settings {
+    margin-left: 10px;
+  }
+  .logout {
+    width: 22px;
+    height: 22px;
+  }
+  .log {
+    margin-left: 10px;
+  }
 }

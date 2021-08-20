@@ -9,6 +9,14 @@
   padding-bottom: 40px; */
   background-color: #dcdcdc;
 }
+html,
+body,
+:root,
+.App {
+  height: 100%;
+  /* position: fixed; */
+  overflow: auto;
+}
 .form-signin {
   background-color: white;
   height: 790px;
@@ -75,4 +83,95 @@
 }
 .set {
   color: red;
+}
+.datang {
+  width: 209px;
+  height: 62px;
+  font-size: 24px;
+}
+.datang2 {
+  width: 209px;
+  height: 62px;
+  font-size: 24px;
+}
+@media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+  }
+  .logo {
+    width: 100px;
+  }
+  .form-control {
+    width: 90%;
+  }
+  .img {
+    width: 20px;
+    margin-right: 30px;
+  }
+  .sandi {
+    margin-left: -25px;
+  }
+  .btnSubmit {
+    padding: 0.1em 9.5em;
+    margin-left: -5px;
+  }
+  .text {
+    color: white;
+    text-align: center;
+  }
+  .text-center1 {
+    margin-right: 30px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+  }
+  .btnSubmit {
+    padding: 0.1em 11em;
+    margin-left: 5px;
+  }
+  .text {
+    color: white;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+  }
+  .logo {
+    width: 150px;
+    margin-left: 25px;
+  }
+  .datang {
+    margin-left: 25px;
+  }
+  .datang2 {
+    margin-left: 25px;
+  }
+  .form-control {
+    width: 100%;
+    margin-left: 25px;
+  }
+  .img {
+    width: 20px;
+    top: 230px;
+    right: 20px;
+  }
+  .sandi {
+    margin-left: 40px;
+  }
+  .btnSubmit {
+    padding: 0.1em 14em;
+    margin-left: 27px;
+  }
+  .text {
+    color: white;
+    text-align: center;
+  }
+  .text-center1 {
+    margin-left: 50px;
+    /* margin-right: 30px; */
+  }
 }

@@ -39,31 +39,16 @@ const GetTotalInvoice = () => {
     return (
         <div>
             <button className={styles.boxdua3} >
-                <Link style={{ textDecoration: "none", display: "flex", alignItems: "center" }} to="/transaksi">
-                    <div>
+                <Link style={{ textDecoration: "none", display: "flex", alignItems: "center" }} to="/tagihan">
+                    <div className={styles.div1}>
                         <p style={{ fontSize: "18px", color: "#21242B", height: "15px", textAlign: "left", marginLeft: "14px" }} >Tagihan</p>
                         <p style={{ fontSize: "11.8px", color: "#838790", textAlign: "left", marginLeft: "15px" }}>Kamu memiliki  <b style={{ fontSize: "11.8px", color: "#21242B" }}>{data.Total} Tagihan Aktif</b></p>
                     </div>
-                    <div style={{ marginLeft: "97px" }}>
+                    <div className={styles.div2}>
                         <img src={arrow}></img>
                     </div>
                 </Link>
-                {/* <Link to="/tagihan" style={{
-                    display: "flex",
-                    alignItems: "center", textDecoration: "none"
-                }}>
-                    <div style={{ width: "50%" }}>
-                        <p style={{ fontSize: "24px", color: "#21242B", height: "1px", textAlign: "left", marginLeft: "15px", marginBottom: "50px" }} >Tagihan</p>
-                        <p style={{ fontSize: "12px", color: "#838790", textAlign: "left", marginLeft: "15px" }}>Kamu memiliki <b style={{ fontSize: "12px", color: "#21242B" }}>{data.Total} Tagihan Aktif</b> </p>
-                    </div>
-                    <div style={{ width: "50%", textAlign: "right", marginLeft: "110px" }}>
-                        <img src={arrow}></img>
-                    </div>
-                </Link> */}
-
-
             </button>
-
         </div>
     )
 }

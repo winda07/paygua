@@ -4,13 +4,20 @@
 }
 
 .App {
-  /* height: 750px; */
+  /* height: 100%; */
   align-items: center;
   /* padding-top: 40px;
   padding-bottom: 40px; */
   background-color: #dcdcdc;
 }
-
+html,
+body,
+:root,
+.App {
+  height: 100%;
+  /* position: fixed; */
+  overflow: auto;
+}
 .logo {
   width: 114px;
   height: 36px;
@@ -38,11 +45,11 @@
 }
 .form-signin {
   background-color: white;
-  height: 900px;
+  height: 790px;
   width: 100%;
-  max-width: 350px;
+  max-width: 370px;
   padding: 15px;
-  margin-bottom: 390px;
+  /* margin-bottom: 390px; */
   margin: 0px auto;
 }
 .profile {
@@ -84,10 +91,41 @@
 .set {
   color: red;
 }
+.ukuranPP {
+  width: 218px;
+  height: 218px;
+}
+.boxupload {
+  display: grid;
+  margin-left: 70px;
+  margin-top: 20px;
+  place-items: center;
+  border: 1px dashed #799cd9;
+  /* padding: 36px 48px; */
+  position: relative;
+
+  height: 220px;
+  width: 220px;
+
+  background: #fbfbff;
+  border-radius: 200px;
+}
+.imageupload {
+  display: flex;
+  flex-wrap: wrap;
+}
+.imageupload label {
+  cursor: pointer;
+}
+.imageupload :hover {
+  opacity: 0.8;
+}
+
+.imageupload > input {
+  display: none;
+}
+
 @media only screen and (max-width: 320px) {
-  .App {
-    background-color: white;
-  }
   .form-signin {
     position: fixed;
   }
@@ -101,6 +139,7 @@
   .form-control-bio {
     width: 90%;
     margin-left: 5px;
+    padding: 12px 20px 40px;
   }
   .btnSubmit {
     padding: 0.1em 8.5em;
@@ -119,22 +158,50 @@
   .set {
     font-size: 12px;
   }
-}
-@media only screen and (max-width: 375px) {
-  .App {
-    background-color: white;
+  .boxupload {
+    height: 150px;
+    width: 150px;
   }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
   .form-signin {
     position: fixed;
   }
   .logo {
     width: 100px;
   }
-}
-@media only screen and (max-width: 425px) {
-  .App {
-    background-color: white;
+  .form-control {
+    margin-left: 10px;
+    width: 90%;
   }
+  .form-control-bio {
+    margin-left: 10px;
+    width: 90%;
+    padding: 12px 20px 40px;
+  }
+  .ukuranPP {
+    width: 150px;
+    height: 150px;
+  }
+  .set {
+    font-size: 12px;
+  }
+  .boxupload {
+    height: 150px;
+    width: 150px;
+    margin-left: 100px;
+  }
+  .btnSubmit {
+    padding: 0.1em 10.2em;
+    margin-left: 10px;
+    width: 5px;
+    border: 1px;
+  }
+  .text {
+    margin-left: -20px;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
   .form-signin {
     position: fixed;
   }
@@ -145,10 +212,22 @@
   .form-control-bio {
     width: 100%;
     margin-left: 15px;
-    padding: 12px 20px 60px;
+    padding: 12px 20px 40px;
+  }
+  .ukuranPP {
+    width: 160px;
+    height: 160px;
+  }
+  .set {
+    font-size: 12px;
+  }
+  .boxupload {
+    height: 160px;
+    width: 160px;
+    margin-left: 110px;
   }
   .btnSubmit {
-    padding: 0.1em 11.2em;
+    padding: 0.1em 11.6em;
     margin-top: 10px;
   }
   .text {

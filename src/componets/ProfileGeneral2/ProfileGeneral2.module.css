@@ -7,15 +7,13 @@
   align-items: center;
   background-color: #dcdcdc;
 }
-@media only screen and (max-width: 600px) {
-  .App {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    overflow: hidden;
-    overflow-y: scroll;
-  }
+html,
+body,
+:root,
+.App {
+  height: 100%;
+  /* position: fixed; */
+  overflow: auto;
 }
 .form-signin {
   background-color: white;
@@ -27,22 +25,11 @@
   margin: 0px auto;
   position: relative;
 }
-@media only screen and (max-width: 600px) {
-  .form-signin {
-    height: 100px;
-  }
-}
 
 .maudy {
   /* margin-bottom: 10px; */
   font-size: 21px;
   margin-left: 8px;
-}
-@media only screen and (max-width: 600px) {
-  .maudy {
-    margin-bottom: 10px;
-    margin-left: 15px;
-  }
 }
 
 .boxdua {
@@ -58,14 +45,7 @@
   box-shadow: 1px 4px 8px rgb(169, 169, 169);
   position: relative;
 }
-@media only screen and (max-width: 600px) {
-  .boxdua {
-    height: 120px;
-    top: -20px;
-    margin-left: 20px;
-    padding: 0.5em 1.6em;
-  }
-}
+
 .boxdalam {
   width: 100px;
   height: 100px;
@@ -77,20 +57,21 @@
   margin-bottom: 210px;
   position: absolute;
 }
-@media only screen and (max-width: 600px) {
-  .boxdalam {
-    width: 100px;
-    height: 100px;
-    top: 18px;
-  }
-}
 
 .info {
-  margin-top: 35px;
+  /* margin-top: 50px; */
   margin-left: 110px;
-  position: absolute;
+  /* position: absolute; */
   font-size: 16px;
   color: #838790;
+  text-overflow: ellipsis;
+}
+
+.bioContainer {
+  margin-top: 35px;
+  /* margin-left: 20px; */
+  /* display: flex;
+  flex: column; */
 }
 
 .btnSubmit {
@@ -117,12 +98,7 @@
   border: 2px solid white;
   background: black;
 }
-@media only screen and (max-width: 600px) {
-  .btnSubmit {
-    /* margin-right: 25px; */
-    padding: 0em 9em;
-  }
-}
+
 .btnSubmit ::selection {
   background: black;
 }
@@ -134,21 +110,10 @@
   margin-left: 20px;
   color: white;
 }
-@media only screen and (max-width: 600px) {
-  .text2 {
-    margin-left: 10px;
-  }
-}
 
 .logo1 {
   margin-left: 130px;
   margin-top: 15px;
-}
-@media only screen and (max-width: 600px) {
-  .logo1 {
-    margin-left: 125px;
-    margin-top: 5px;
-  }
 }
 
 .section {
@@ -171,16 +136,6 @@
 .logoovo:hover {
   border-color: black;
 }
-@media only screen and (max-width: 600px) {
-  .logoovo {
-    padding: 0.5em 1em;
-    margin-top: 10px;
-    border: 1px solid #bfc2cb;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-  }
-}
 
 .logogopay {
   padding: 0.23em 0.6em;
@@ -193,16 +148,6 @@
 .logogopay:hover {
   border-color: black;
 }
-@media only screen and (max-width: 600px) {
-  .logogopay {
-    padding: 0.23em 0.6em;
-    border: 1px solid #bfc2cb;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-    margin-left: 7px;
-  }
-}
 
 .logodana {
   padding: 0.23em 0.6em;
@@ -214,17 +159,6 @@
 }
 .logodana:hover {
   border-color: black;
-}
-
-@media only screen and (max-width: 600px) {
-  .logodana {
-    padding: 0.23em 0.6em;
-    border: 1px solid #bfc2cb;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-    margin-left: 7px;
-  }
 }
 .logolinkaja {
   padding: 0.23em 0.6em;
@@ -239,15 +173,7 @@
 .logolinkaja::selection {
   border-color: black;
 }
-@media only screen and (max-width: 600px) {
-  .logolinkaja {
-    padding: 0.23em 0.6em;
-    border: 1px solid #bfc2cb;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-  }
-}
+
 .logoshopeepay {
   padding: 0.75em 1.4em;
   border: 1px solid #bfc2cb;
@@ -263,17 +189,7 @@
 .logoshopeepay::selection {
   border-color: black;
 }
-@media only screen and (max-width: 600px) {
-  .logoshopeepay {
-    padding: 0.75em 1.4em;
-    border: 1px solid #bfc2cb;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-    /* margin-left: 7px; */
-    margin-top: 10px;
-  }
-}
+
 .logoqris {
   padding: 0em 0.7em;
   border: 1px solid #bfc2cb;
@@ -288,16 +204,7 @@
 .logoqris::selection {
   border-color: black;
 }
-@media only screen and (max-width: 600px) {
-  .logoqris {
-    padding: 0em 0.8em;
-    border: 1px solid #bfc2cb;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-    margin-left: 5px;
-  }
-}
+
 .logotransfer {
   padding: 0.6em 1.3em;
   border: 1px solid #bfc2cb;
@@ -312,16 +219,7 @@
 .logotransfer::selection {
   border-color: black;
 }
-@media only screen and (max-width: 600px) {
-  .logotransfer {
-    padding: 0.6em 1.2em;
-    border: 1px solid #bfc2cb;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-    margin-left: 5px;
-  }
-}
+
 .validateOvo {
   border: 1px solid black;
   padding: 12px 30px;
@@ -330,11 +228,7 @@
   background: white;
   border-color: #bfc2cb;
 }
-@media only screen and (max-width: 600px) {
-  .validateOvo {
-    margin-left: 110px;
-  }
-}
+
 .total {
   display: flex;
   justify-content: center;
@@ -370,6 +264,9 @@
   box-sizing: border-box;
   border-radius: 5px;
   position: relative;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 .inputEmail {
   width: 100%;
@@ -398,6 +295,9 @@
   box-sizing: border-box;
   border-radius: 5px;
   position: relative;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 .inputNominal {
   width: 100%;
@@ -426,6 +326,9 @@
   box-sizing: border-box;
   border-radius: 5px;
   position: relative;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 .inputPesan {
   width: 100%;
@@ -454,6 +357,9 @@
   box-sizing: border-box;
   border-radius: 5px;
   position: relative;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 .inputOVO {
   width: 100%;
@@ -537,17 +443,7 @@
   margin-top: 10px;
   border-color: #006aff;
 }
-@media only screen and (max-width: 600px) {
-  .borderchooseshopeepay {
-    padding: 0.75em 1.4em;
-    border: 2px solid #bfc2cb;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-    margin-top: 10px;
-    border-color: #006aff;
-  }
-}
+
 .borderchooseqris {
   padding: 0em 0.8em;
   border: 2px solid #bfc2cb;
@@ -583,8 +479,341 @@
   width: 268px;
   height: 268px;
 }
+.canvas2 {
+  margin-left: 50px;
+  width: 268px;
+  height: 268px;
+}
 .gambar {
   display: flex;
   justify-content: space-evenly;
   margin-top: 10px;
+}
+.admin {
+  font-size: 12px;
+  color: black;
+  margin-left: 70px;
+}
+@media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .maudy {
+    font-size: 18px;
+  }
+  .boxdua {
+    width: 240px;
+    height: 110px;
+  }
+  .boxdalam {
+    margin-top: -10px;
+    width: 95px;
+    height: 95px;
+  }
+  .usernameCard {
+    margin-top: -5px;
+    font-size: 14px;
+  }
+  .info {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  .nama {
+    width: 90%;
+  }
+  .email {
+    width: 90%;
+  }
+  .nominal {
+    width: 90%;
+  }
+  .pesan {
+    width: 90%;
+  }
+
+  .logoovo {
+    padding: 0.4em 0.5em;
+  }
+  .borderchoose {
+    padding: 0.4em 0.5em;
+  }
+  .logogopay {
+    padding: 0.15em 0.15em;
+  }
+  .borderchoosegopay {
+    padding: 0.15em 0.15em;
+  }
+  .logodana {
+    padding: 0.15em 0.15em;
+  }
+  .borderchoosedana {
+    padding: 0.15em 0.15em;
+  }
+  .logolinkaja {
+    padding: 0.2em 0.15em;
+  }
+  .borderchooselinkaja {
+    padding: 0.2em 0.15em;
+  }
+  .logoshopeepay {
+    padding: 0.7em 0.9em;
+  }
+  .borderchooseshopeepay {
+    padding: 0.7em 0.9em;
+  }
+  .logoqris {
+    padding: 0em 0.35em;
+  }
+  .borderchooseqris {
+    padding: 0em 0.35em;
+  }
+  .logotransfer {
+    padding: 0.6em 0.75em;
+  }
+  .borderchoosetransfer {
+    padding: 0.6em 0.75em;
+  }
+  .admin {
+    margin-left: 25px;
+  }
+  .btnSubmit {
+    margin-top: 10px;
+    width: 250px;
+    padding: 0px 18px;
+  }
+  .text2 {
+    margin-left: 105px;
+  }
+  .btnBedaWarna {
+    margin-top: 10px;
+    width: 250px;
+    padding: 0px 18px;
+  }
+  .text21 {
+    margin-left: 105px;
+  }
+  .logo1 {
+    margin-left: 90px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .maudy {
+    font-size: 18px;
+  }
+  .boxdua {
+    width: 290px;
+    height: 110px;
+  }
+  .boxdalam {
+    margin-top: -10px;
+    width: 95px;
+    height: 95px;
+  }
+  .usernameCard {
+    margin-top: -5px;
+    font-size: 14px;
+  }
+  .info {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  .nama {
+    width: 90%;
+  }
+  .email {
+    width: 90%;
+  }
+  .nominal {
+    width: 90%;
+  }
+  .pesan {
+    width: 90%;
+  }
+
+  .logoovo {
+    padding: 0.4em 0.8em;
+  }
+  .borderchoose {
+    padding: 0.4em 0.8em;
+  }
+  .logogopay {
+    padding: 0.15em 0.35em;
+  }
+  .borderchoosegopay {
+    padding: 0.15em 0.35em;
+  }
+  .logodana {
+    padding: 0.15em 0.35em;
+  }
+  .borderchoosedana {
+    padding: 0.15em 0.35em;
+  }
+  .logolinkaja {
+    padding: 0.2em 0.35em;
+  }
+  .borderchooselinkaja {
+    padding: 0.2em 0.35em;
+  }
+  .logoshopeepay {
+    padding: 0.7em 1.2em;
+  }
+  .borderchooseshopeepay {
+    padding: 0.7em 1.2em;
+  }
+  .logoqris {
+    padding: 0em 0.5em;
+  }
+  .borderchooseqris {
+    padding: 0em 0.5em;
+  }
+  .logotransfer {
+    padding: 0.6em 1em;
+  }
+  .borderchoosetransfer {
+    padding: 0.6em 1em;
+  }
+  .admin {
+    margin-left: 50px;
+  }
+  .btnSubmit {
+    margin-top: 10px;
+    width: 300px;
+    padding: 0px 18px;
+  }
+  .text2 {
+    margin-left: 130px;
+  }
+  .btnBedaWarna {
+    margin-top: 10px;
+    width: 300px;
+    padding: 0px 18px;
+  }
+  .text21 {
+    margin-left: 130px;
+  }
+  .logo1 {
+    margin-left: 110px;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+    top: 0%;
+    left: 10px;
+    bottom: 0%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .maudy {
+    font-size: 18px;
+  }
+  .boxdua {
+    width: 320px;
+    height: 110px;
+  }
+  .boxdalam {
+    margin-top: -10px;
+    width: 95px;
+    height: 95px;
+  }
+  .usernameCard {
+    /* margin-top: -5px */
+    font-size: 14px;
+  }
+  .info {
+    /* margin-top: 5px; */
+    font-size: 14px;
+  }
+  .nama {
+    width: 100%;
+  }
+  .email {
+    width: 100%;
+  }
+  .nominal {
+    width: 100%;
+  }
+  .pesan {
+    width: 100%;
+  }
+
+  .logoovo {
+    padding: 0.4em 1.1em;
+  }
+  .borderchoose {
+    padding: 0.4em 1em;
+  }
+  .logogopay {
+    padding: 0.15em 0.65em;
+  }
+  .borderchoosegopay {
+    padding: 0.15em 0.55em;
+  }
+  .logodana {
+    padding: 0.15em 0.65em;
+  }
+  .borderchoosedana {
+    padding: 0.15em 0.55em;
+  }
+  .logolinkaja {
+    padding: 0.2em 0.65em;
+  }
+  .borderchooselinkaja {
+    padding: 0.2em 0.55em;
+  }
+  .logoshopeepay {
+    padding: 0.7em 1.5em;
+  }
+  .borderchooseshopeepay {
+    padding: 0.7em 1.4em;
+  }
+  .logoqris {
+    padding: 0em 0.8em;
+  }
+  .borderchooseqris {
+    padding: 0em 0.7em;
+  }
+  .logotransfer {
+    padding: 0.6em 1.3em;
+  }
+  .borderchoosetransfer {
+    padding: 0.6em 1.2em;
+  }
+  .admin {
+    margin-left: 50px;
+  }
+  .btnSubmit {
+    margin-top: 10px;
+    width: 330px;
+    padding: 0px 18px;
+  }
+  .text2 {
+    margin-left: 140px;
+  }
+  .btnBedaWarna {
+    margin-top: 10px;
+    width: 330px;
+    padding: 0px 18px;
+  }
+  .text21 {
+    margin-left: 140px;
+  }
+  .logo1 {
+    margin-left: 120px;
+  }
 }

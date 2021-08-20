@@ -50,31 +50,6 @@ const Dashboard = () => {
     <div className={styles.App}>
       <div className={styles["form-signin"]}>
         <img className={styles['logo']} src={logo} alt="logo" />
-
-        {/* <span className={styles.menu}>
-
-          <a href="#" ><img className={styles['b']} src={menu} /> </a>
-          <p className={styles['total']}>{value.total ? <img src={red}></img> : null}</p>
-          <div className={styles.dropdown}>
-
-            <a href="#">Beranda</a>
-
-            <div style={{ display: "flex", alignItems: "center", backgroundColor: "transparent" }}>
-              <Link to="/notification">Notifikasi</Link> */}
-
-        {/* <div style={{ display: "flex", width: "20px", height: "20px", backgroundColor: "red", borderRadius: "50%", marginLeft: "40px" }}> */}
-        {/* <p className={styles['merah']}>{value.total ? <img src={merah}></img> : null}</p> */}
-        {/* <p style={{ margin: "auto" }}>{value.total}</p> */}
-        {/* </div> */}
-        {/* <div>
-                <p style={{ marginLeft: "45px", color: "red" }}>{value.total}</p>
-              </div>
-            </div>
-
-            <a href="/settings">Akun Saya</a>
-            <a href="/">Tentang Kami</a>
-          </div>
-        </span> */}
         <div style={{ height: "200px" }}>
           <GetProfile></GetProfile>
         </div>
@@ -83,6 +58,27 @@ const Dashboard = () => {
           <GetBalance></GetBalance>
         </div>
         <GetTotalInvoice></GetTotalInvoice>
+        <br></br>
+        {/* <footer style={{ textAlign: "center", height: "50px", backgroundColor: "black" }}>
+          <div>
+            <img className={styles.home} src={home}></img>
+            <p className={styles.beranda}>Beranda</p>
+          </div>
+          <div>
+            <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
+            <p className={styles.notifikasi}>Notifikasi</p>
+          </div>
+          <Link to='/buatTagihan'><img className={styles.addHome} src={addHome}></img></Link>
+
+          <div>
+            <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
+            <p className={styles.settings}>Pengaturan</p>
+          </div>
+          <div>
+            <Link to="/login"><img className={styles.logout} src={Logout}></img></Link>
+            <p className={styles.log}>Logout</p>
+          </div>
+        </footer> */}
         <section className={styles.footer}>
           <div>
             <img className={styles.home} src={home}></img>
@@ -99,7 +95,7 @@ const Dashboard = () => {
             <p className={styles.settings}>Pengaturan</p>
           </div>
           <div>
-            <Link to="/"><img className={styles.logout} src={Logout}></img></Link>
+            <Link to="/login"><img className={styles.logout} src={Logout}></img></Link>
             <p className={styles.log}>Logout</p>
           </div>
 

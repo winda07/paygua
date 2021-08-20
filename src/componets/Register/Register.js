@@ -29,22 +29,21 @@ const Register = ({ submitForm }) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && dataIsCorrect) {
+      setButtonLoading(true)
       axios
         .post("https://paygua.com/api/auth/register", data)
         .then((result) => {
           if (result) {
             if (result.data) {
               if (result.data.status === 200) {
-                setButtonLoading(true)
-                setTimeout(() => {
-                  setButtonLoading(false)
-                  history.push('/registerCheck')
-                }, 3000)
+                setButtonLoading(false)
+                history.push('/registerCheck')
               } else if (result.data.status === 400) {
                 setButtonPopup(true);
+                setButtonLoading(false)
                 setTimeout(() => {
                   setButtonPopup(false)
-                }, 3000)
+                }, 1000)
                 setMessage(result.data.errors.errorMessage)
               }
             }
@@ -146,8 +145,13 @@ const Register = ({ submitForm }) => {
               <p class={styles.text1}>Daftar</p>
             </button>
             <Popup
-              message={message}
-              trigger={buttonPopup}></Popup>
+              trigger={buttonPopup}>
+              <div onClick={() => {
+                setButtonPopup(false)
+              }}><p style={{ marginLeft: "330px", marginBottom: "10px", cursor: "pointer" }}>X</p>
+                <div style={{ marginLeft: "100px", marginBottom: "20px" }}>{message}</div>
+              </div>
+            </Popup>
             <div class="form-group">
               <p class={styles["text-center1"]}>
                 Sudah Punya Akun?{" "}

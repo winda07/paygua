@@ -260,7 +260,7 @@
 .judul {
   font-size: 14px;
   color: #21242b;
-  margin-left: 12px;
+  margin: 2px 4px 8px 16px;
 }
 /* @media only screen and (max-width: 320px) {
   .judul {
@@ -271,7 +271,7 @@
 .isi1 {
   font-size: 14px;
   color: #21242b;
-  margin: 5px 0px 14px 37px;
+  margin: 4px 8px 16px 32px;
 }
 /* @media only screen and (max-width: 320px) {
   .isi1 {
@@ -283,7 +283,7 @@
 .isi2 {
   font-size: 14px;
   color: #21242b;
-  margin: 5px 0px 14px 37px;
+  margin: 2px 4px 8px 16px;
 }
 /* @media only screen and (max-width: 320px) {
   .isi2 {
@@ -295,7 +295,7 @@
 .isi3 {
   font-size: 14px;
   color: #21242b;
-  margin: 5px 0px 14px 37px;
+  margin: 2px 4px 8px 16px;
 }
 /* @media only screen and (max-width: 320px) {
   .isi3 {
@@ -307,7 +307,7 @@
 .isi4 {
   font-size: 14px;
   color: #21242b;
-  margin: 5px 0px 14px 38px;
+  margin: 2px 4px 8px 16px;
 }
 /* @media only screen and (max-width: 320px) {
   .isi4 {

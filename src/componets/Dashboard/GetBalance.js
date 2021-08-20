@@ -53,30 +53,14 @@ const GetBalance = () => {
                 <button className={styles.boxdua2} >
                     <Link style={{ textDecoration: "none", display: "flex", alignItems: "center" }} to="/transaksi">
                         <div style={{ width: "50%" }}>
-                            <p style={{ fontSize: "12px", color: "#838790", height: "1px", textAlign: "left", marginLeft: "14px" }} >Saldo kamu saat ini</p>
-                            <p style={{ fontSize: "24px", color: "#21242B", textAlign: "left", marginLeft: "13px" }}>Rp{data.balance}</p>
+                            <p className={styles.saldotext} >Saldo kamu saat ini</p>
+                            <p className={styles.saldo}>Rp{data.balance}</p>
                         </div>
-                        <div style={{ width: "50%", alignItems: "right", marginLeft: "110px" }}>
+                        <div style={{ width: "50%", textAlign: "right" }}>
                             <img src={arrow}></img>
                         </div>
                     </Link>
                 </button>
-                {/* <div className={styles.boxdua2} style={{
-                    display: "flex",
-                    alignItems: "center"
-                }}>
-                    <div style={{ width: "50%", marginLeft: "25px" }}>
-                        <p style={{ fontSize: "12px", color: "#838790", height: "1px" }} >Saldo Kamu saat ini</p>
-                        <p style={{ fontSize: "24px", color: "#21242B" }}>Rp{data.balance}</p>
-
-                    </div>
-                    <div style={{ width: "35%", textAlign: "right" }}>
-                        <Link to="/transaksi"> <img src={arrow}></img></Link>
-                    </div>
-
-
-                </div> */}
-
             </div>
 
         </div>

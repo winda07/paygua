@@ -25,6 +25,7 @@ const Login = ({ submitForm }) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && dataIsCorrect) {
+      setButtonLoading(true)
       axios
         .post("https://paygua.com/api/auth/login", data)
         .then((result) => {
@@ -32,9 +33,10 @@ const Login = ({ submitForm }) => {
             if (result.data) {
               if (result.data.status === 400) {
                 setButtonPopup(true);
+                setButtonLoading(false)
                 setTimeout(() => {
                   setButtonPopup(false)
-                }, 3000)
+                }, 1000)
                 setMessage(result.data.errors.errorMessage)
                 console.log(result.data.errors.errorMessage)
               } else if (result.data.status === 200) {
@@ -47,17 +49,17 @@ const Login = ({ submitForm }) => {
                 // console.log('jwt: ', user)
                 if (user.isCompleted === false) {
                   // submitForm(false)
-                  setButtonLoading(true)
-                  setTimeout(() => {
-                    setButtonLoading(false)
-                    history.push("/daftar")
-                  }, 3000)
+
+                  // setTimeout(() => {
+                  setButtonLoading(false)
+                  history.push("/daftar")
+                  // }, 3000)
                 } else {
-                  setButtonLoading(true)
-                  setTimeout(() => {
-                    setButtonLoading(false)
-                    history.push("/dashboard")
-                  }, 3000)
+                  // setButtonLoading(true)
+                  // setTimeout(() => {
+                  setButtonLoading(false)
+                  history.push("/dashboard")
+                  // }, 3000)
                 }
                 // submitForm();
 
@@ -95,9 +97,15 @@ const Login = ({ submitForm }) => {
     <div className={styles.App}>
       <form onSubmit={handleFormSubmit} className={styles['form-signin']}>
         <header className={styles['App-header']}>
-          <img src={logo} alt="logo" />
+          <img className={styles.logo} src={logo} alt="logo" />
+          <br></br>
+          <br></br>
           <div className="datang">
-            <h1 class="h3 mb-3 fw-normal">Selamat Datang kembali</h1>
+            <b className={styles.datang}>Selamat Datang</b>
+            <br></br>
+            <b className={styles.datang2}>kembali</b>
+            <br></br>
+            <br></br>
             <input
               type="email"
               class={styles["form-control"]}
@@ -140,8 +148,14 @@ const Login = ({ submitForm }) => {
             </button>
 
             <Popup
-              message={message}
-              trigger={buttonPopup}></Popup>
+              trigger={buttonPopup}>
+              <div onClick={() => {
+                setButtonPopup(false)
+              }}><p style={{ marginLeft: "330px", marginBottom: "10px", cursor: "pointer" }}>X</p>
+                <div style={{ marginLeft: "100px", marginBottom: "20px" }}>{message}</div>
+              </div>
+            </Popup>
+
             <div class="form-group">
               <p class={styles["text-center1"]}>
                 Belum Punya Akun?{" "}

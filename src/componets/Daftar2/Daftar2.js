@@ -8,6 +8,7 @@ import axios from "axios";
 import jwt from "jwt-decode"
 import { BoxUpload, ImagePreview } from "./index";
 import FolderIcon from "../../img/profile.svg"
+import Loading from "../Loading/Loading"
 
 const Daftar2 = () => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
@@ -18,7 +19,7 @@ const Daftar2 = () => {
     const [isUploaded, setIsUploaded] = useState(false);
     const [typeFile, setTypeFile] = useState("");
     const [isClicked, setIsClicked] = useState(false);
-
+    const [loadingPopup, setButtonLoading] = useState(false);
 
     const [data, setValues] = useState({
         name: "",
@@ -73,6 +74,7 @@ const Daftar2 = () => {
         setIsClicked(true);
         // submit
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
+            setButtonLoading(true)
             const token = localStorage.getItem("token");
             const user = jwt(token)
             const cleanData = clean(data)
@@ -91,9 +93,8 @@ const Daftar2 = () => {
                 .then((result) => {
                     if (result.data) {
                         if (result.data.status === 200) {
+                            setButtonLoading(false)
                             history.push('/dashboard')
-                        } else if (result.data.status === 400) {
-                            history.push('/login')
                         }
                     }
                     console.log(result)
@@ -111,16 +112,17 @@ const Daftar2 = () => {
                 <br></br>
                 {/* <br></br> */}
                 <b className={styles.judul}>Lengkapi Profil</b>
-                <BoxUpload >
-                    <div className="image-upload">
+                {/* <BoxUpload > */}
+                <div className={styles.boxupload}>
+                    <div className={styles.imageupload}>
                         {!isUploaded ? (
                             <>
                                 <label htmlFor="upload-input">
-                                    <img
+                                    <img className={styles.ukuranPP}
                                         src={FolderIcon}
                                         draggable={"false"}
                                         alt="placeholder"
-                                        style={{ width: 218, height: 218 }}
+                                    // style={{ width: 218, height: 218 }}
                                     />
 
                                 </label>
@@ -154,7 +156,8 @@ const Daftar2 = () => {
                             </ImagePreview>
                         )}
                     </div>
-                </BoxUpload>
+                </div>
+                {/* </BoxUpload> */}
                 <br></br>
                 <input
                     type="text"
@@ -179,8 +182,13 @@ const Daftar2 = () => {
                 <div className={styles.btnSubmit} onClick={handleFormSubmit}>
                     <p className={styles.text}  >Selesai</p>
                 </div>
+                <div>
+                    <Loading
+                        trigger={loadingPopup}></Loading>
+                </div>
             </div>
         </div>
+
         // <div className={styles.App}>
         //     <div className={styles['form-signin']}>
         //         <header className={styles['App-header']}>
