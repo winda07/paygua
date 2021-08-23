@@ -12,12 +12,13 @@ const Tagihan = () => {
     return (
         <div className={styles.App}>
             <div className={styles['form-signin']}>
-
-                <div className={styles.gbrarow}>
-                    <Link to="/dashboard"><img src={arrow} alt="logo" /></Link>
+                <div style={{ width: "0%" }}>
+                    <Link to="/dashboard"><img className={styles.arrow} src={arrow}></img></Link>
+                    <p className={styles.tagihan}>Tagihan</p>
                 </div>
-                <p className={styles.kun}>Tagihan</p>
-                <Link style={{ textDecoration: 'none' }} to="/buattagihan"><p className={styles.button} >Buat Tagihan <img src={plus}></img></p></Link>
+                <div style={{ width: "100%", textAlign: "right" }}>
+                    <Link style={{ textDecoration: 'none' }} to="/buattagihan"><p className={styles.button}>Buat</p></Link>
+                </div>
                 <br></br>
                 <GetUserInvoice></GetUserInvoice>
                 {/* <h6>&emsp;Belum dibayar</h6>

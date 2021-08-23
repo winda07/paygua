@@ -125,7 +125,7 @@ const DummyCmp = (props) => {
                                     setButtonLoading(false)
                                     creatQrCode(result.data.data.url)
                                 } else {
-                                    window.open(`${result.data.data.deeplink}`, `_self`)
+                                    window.open(`${result.data.data.url}`, `_self`)
                                 }
                             } else if (data.bank === "linkaja") {
                                 if (window.innerWidth > 600) {
@@ -133,7 +133,7 @@ const DummyCmp = (props) => {
                                     setButtonLoading(false)
                                     creatQrCode(result.data.data.url)
                                 } else {
-                                    window.open(`${result.data.data.deeplink}`, `_self`)
+                                    window.open(`${result.data.data.url}`, `_self`)
                                 }
                             }
                             console.log(result.data)
@@ -249,7 +249,6 @@ const DummyCmp = (props) => {
                             profilePicture: result.data.data.profilePicture,
                             name: result.data.data.name,
                             username: paramobj.username
-
                         })
 
                     } else if (result.data.status === 400) {
@@ -293,12 +292,14 @@ const DummyCmp = (props) => {
     return (
         <>
             {
+
                 data.bio === [] ?
                     null :
 
                     <div className={styles.App}>
                         <div className={styles["form-signin"]}>
                             <div>
+
                                 <h1 className={styles.maudy}>Bayar ke {data.name}</h1>
                                 <br></br>
                                 <div className={styles.boxdua}>

@@ -45,6 +45,7 @@ const Login = ({ submitForm }) => {
                 localStorage.setItem('token', token);
                 localStorage.setItem('userId', user.id)
                 console.log("iscompleted", user.isCompleted)
+                console.log(token)
                 // console.log("userId", user.id.type)
                 // console.log('jwt: ', user)
                 if (user.isCompleted === false) {

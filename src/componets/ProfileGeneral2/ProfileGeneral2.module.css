@@ -62,7 +62,7 @@ body,
   /* margin-top: 50px; */
   margin-left: 110px;
   /* position: absolute; */
-  font-size: 16px;
+  font-size: 14px;
   color: #838790;
   text-overflow: ellipsis;
 }
@@ -516,12 +516,12 @@ body,
     height: 95px;
   }
   .usernameCard {
-    margin-top: -5px;
+    margin-top: -1px;
     font-size: 14px;
   }
   .info {
-    margin-top: 15px;
-    font-size: 14px;
+    margin-top: -10px;
+    font-size: 12px;
   }
   .nama {
     width: 90%;
@@ -627,7 +627,7 @@ body,
     font-size: 14px;
   }
   .info {
-    margin-top: 15px;
+    margin-top: -15px;
     font-size: 14px;
   }
   .nama {

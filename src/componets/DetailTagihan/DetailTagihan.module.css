@@ -4,10 +4,7 @@
 }
 
 .App {
-  /* height: 750px; */
   align-items: center;
-  /* padding-top: 40px; */
-  /* padding-bottom: 40px; */
   background-color: #dcdcdc;
 }
 .form-signin {
@@ -112,4 +109,106 @@
 }
 .set {
   color: red;
+}
+@media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+  }
+  .kun {
+    font-size: 16px;
+  }
+  .silang {
+    margin-left: 250px;
+  }
+  .form-control-nama {
+    width: 90%;
+  }
+  .form-control-email {
+    width: 90%;
+  }
+  .form-control-nominal {
+    width: 90%;
+  }
+  .form-control-bio {
+    width: 90%;
+  }
+  .a {
+    margin-left: -30px;
+  }
+  .sampah {
+    width: 90px;
+  }
+  .change {
+    padding: 1em 5em;
+    margin-left: -5px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+    padding: 20px;
+  }
+  .kun {
+    font-size: 18px;
+  }
+  .silang {
+    margin-left: 300px;
+  }
+  .form-control-nama {
+    width: 95%;
+  }
+  .form-control-email {
+    width: 95%;
+  }
+  .form-control-nominal {
+    width: 95%;
+  }
+  .form-control-bio {
+    width: 95%;
+  }
+  .a {
+    margin-left: -20px;
+  }
+  .sampah {
+    width: 90px;
+    margin-left: 5px;
+  }
+  .change {
+    padding: 1em 7em;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+    padding: 40px;
+  }
+  .kun {
+    font-size: 18px;
+    margin-left: 1px;
+  }
+  .silang {
+    margin-left: 320px;
+  }
+  .form-control-nama {
+    width: 100%;
+  }
+  .form-control-email {
+    width: 100%;
+  }
+  .form-control-nominal {
+    width: 100%;
+  }
+  .form-control-bio {
+    width: 100%;
+  }
+  .a {
+    margin-left: -5px;
+  }
+  .sampah {
+    width: 90px;
+    margin-left: 5px;
+  }
+  .change {
+    padding: 1em 8em;
+  }
 }

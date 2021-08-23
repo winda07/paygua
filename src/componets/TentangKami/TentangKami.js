@@ -29,10 +29,9 @@ import blue from "../../img/blue.svg"
 
 const TentangKami = () => {
     const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" })
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
-
-
+    console.log(scrollToTop)
     return (
 
         <div className={styles.App}>
@@ -43,10 +42,8 @@ const TentangKami = () => {
                         <Link className={styles.textlogin} style={{ textDecoration: "none" }} to="/login">
                             Masuk
                         </Link>
-
                     </button>
                 </div>
-
                 <div className={styles.TentangKami}>
                     <img className={styles.latar} src={latar} alt="latar" />
                     <div className={styles.textBold}>
@@ -164,11 +161,7 @@ const TentangKami = () => {
                             <br></br>
                             <b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>Kontak kami</b>
                         </div>
-
-
                     </div>
-
-
                 </footer>
 
             </div>

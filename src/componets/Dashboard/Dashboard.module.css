@@ -75,12 +75,8 @@
   margin-left: 19px;
   width: 310px;
   height: 110px;
-  /* right: 20px; */
-  /* top: -20px; */
   border-radius: 16px;
   background-color: white;
-  /* margin-bottom: 10px; */
-  /* margin-left: 20px; */
   padding: 0.5em 1em;
   box-shadow: 1px 4px 8px rgb(169, 169, 169);
   position: absolute;
@@ -118,16 +114,11 @@
 }
 
 .boxdua2 {
-  /* margin-top: 10px; */
   width: 342px;
   height: 110px;
   margin-left: 19px;
-  /* right: 20px; */
-  /* top: -20px; */
   border-radius: 16px;
   background-color: white;
-  /* margin-bottom: 10px; */
-  /* margin-left: 20px; */
   border-color: transparent;
   padding: 0.5em 1em;
   box-shadow: 1px 4px 8px rgb(169, 169, 169);
@@ -151,14 +142,14 @@
 }
 
 .boxdalam2 {
-  margin-top: 130px;
+  margin-top: 150px;
   border: 1px;
   right: 16px;
-  /* margin-left: 20px; */
+  margin-left: 33px;
   width: 343px;
   height: 12px;
   background-color: black;
-  padding: 1em 1em;
+  padding: 1em 0.8em;
   border-radius: 100px;
   position: relative;
   cursor: pointer;
@@ -225,7 +216,7 @@
   margin-bottom: 30px;
 }
 .logo {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 25px;
   position: relative;
 }
@@ -238,7 +229,9 @@
   left: 10;
   right: 10;
   bottom: 0;
-  width: 58.5%;
+  /* width: 26.1%; */
+  /* width: 100%; */
+  width: 376px;
   background-color: white;
   text-align: center;
   box-shadow: 1px 4px 8px rgb(169, 169, 169);
@@ -265,7 +258,7 @@
   margin-top: 10px;
   width: 20px;
   height: 22.74px;
-  margin-left: 40px;
+  margin-left: 30px;
   cursor: pointer;
   /* margin-bottom: 7px; */
   /* text-align: right; */
@@ -274,7 +267,7 @@
 .beranda {
   cursor: pointer;
   /* margin-bottom: 10px; */
-  margin-left: 40px;
+  margin-left: 30px;
   margin-top: 0px;
   font-size: 10px;
   color: #21242b;
@@ -284,13 +277,13 @@
   height: 22px;
   margin-top: 10px;
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 100px;
   /* margin-bottom: 7px; */
   /* margin-top: 20px; */
 }
 .notifikasi {
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 100px;
   margin-top: 0px;
   font-size: 10px;
   color: #838790;
@@ -300,16 +293,15 @@
   width: 35px;
   height: 35px;
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 100px;
   /* margin-top: 20px; */
 }
 .pengaturan {
   width: 21px;
   height: 21px;
-  margin-top: 10px;
   cursor: pointer;
-  /* margin-bottom: 7px; */
-  margin-left: 25px;
+  margin-bottom: 7px;
+  margin-left: 195px;
 }
 .settings {
   cursor: pointer;
@@ -414,20 +406,20 @@
   .notif {
     width: 20px;
     height: 22px;
-    margin-left: 30px;
+    margin-left: 80px;
   }
   .notifikasi {
-    margin-left: 25px;
+    margin-left: 80px;
   }
   .addHome {
     width: 35px;
     height: 35px;
-    margin-left: 20px;
+    margin-left: 80px;
   }
   .pengaturan {
     width: 21px;
     height: 21px;
-    margin-left: 20px;
+    margin-left: 150px;
   }
   .settings {
     margin-left: 20px;
@@ -462,18 +454,20 @@
     height: 22.74px;
   }
   .beranda {
-    margin-left: 40px;
+    margin-left: 30px;
   }
   .notif {
     width: 20px;
     height: 22px;
+    margin-left: 100px;
   }
   .notifikasi {
-    margin-left: 30px;
+    margin-left: 100px;
   }
   .addHome {
     width: 35px;
     height: 35px;
+    margin-left: 100px;
   }
   .pengaturan {
     width: 21px;
@@ -524,24 +518,25 @@
     height: 22.74px;
   }
   .beranda {
-    margin-left: 40px;
+    margin-left: 30px;
   }
   .notif {
     width: 20px;
     height: 22px;
-    margin-left: 40px;
+    margin-left: 120px;
   }
   .notifikasi {
-    margin-left: 40px;
+    margin-left: 120px;
   }
   .addHome {
     width: 35px;
     height: 35px;
+    margin-left: 120px;
   }
   .pengaturan {
     width: 21px;
     height: 21px;
-    margin-left: 40px;
+    margin-left: 216px;
   }
   .settings {
     margin-left: 40px;

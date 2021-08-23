@@ -8,7 +8,10 @@ import { Link, useHistory } from "react-router-dom";
 import validation from "./validation";
 import axios from "axios";
 import jwt from "jwt-decode"
-import { BoxUpload, ImagePreview } from "./index"
+import Popup from "../PopupLogin/PopupLogin";
+import silang from "../../img/ion.svg"
+
+
 
 const EditProfile = ({ formSubmit }) => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
@@ -16,6 +19,8 @@ const EditProfile = ({ formSubmit }) => {
     const history = useHistory();
     const [image, setImage] = useState([]);
     const [isUploaded, setIsUploaded] = useState(false);
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const [message, setMessage] = useState("")
     const [data, setValues] = useState({
         nama: "",
         username: "",
@@ -66,6 +71,9 @@ const EditProfile = ({ formSubmit }) => {
                         setValues({
                             ...data,
                             email: result.data.data.email,
+                            nama: result.data.data.name,
+                            username: result.data.data.username,
+                            bio: result.data.data.bio,
                             profilePicture: result.data.data.profilePicture
                         })
                     } else {
@@ -109,10 +117,15 @@ const EditProfile = ({ formSubmit }) => {
                     console.log(result)
                     if (result) {
                         if (result.data) {
-                            if (result.data.status === 400) {
-                                alert("Edit profil mengalami error");
-                            } else if (result.data.status === 200) {
+                            if (result.data.status === 200) {
                                 history.push('/settings')
+
+                            } else {
+                                setButtonPopup(true);
+                                // setTimeout(() => {
+                                //     setButtonPopup(false)
+                                // }, 1000)
+                                setMessage(result.data.errors.errorMessage)
                                 // formSubmit()
                             }
 
@@ -135,10 +148,6 @@ const EditProfile = ({ formSubmit }) => {
                         <img src={arrow} alt="logo" />
                     </Link>
                     <h2 className={styles.kun}>Edit Profil</h2>
-                    {/* <BoxUpload> */}
-
-                    {/* </BoxUpload> */}
-
 
                     <img className={styles.check1} onClick={handleFormSubmit} src={check} alt="logo"></img>
 
@@ -204,7 +213,14 @@ const EditProfile = ({ formSubmit }) => {
                     onChange={handleChange}
                 ></input>
             </div>
-        </div>
+            <Popup
+                trigger={buttonPopup}>
+                <img style={{ marginLeft: "320px", display: "flex", cursor: "pointer" }} onClick={() => {
+                    setButtonPopup(false)
+                }} src={silang}></img>
+                <div style={{ marginLeft: "80px", marginBottom: "20px" }}>{message}</div>
+            </Popup>
+        </div >
     );
 };
 

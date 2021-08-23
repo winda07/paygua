@@ -98,3 +98,114 @@
 .set {
   color: red;
 }
+.a {
+  margin-left: 80px;
+  border-radius: 5px;
+  cursor: pointer;
+  border-color: transparent;
+}
+.popup {
+  width: 171px;
+  display: flex;
+  margin-left: 90px;
+}
+.text {
+  margin-left: 90px;
+}
+.link {
+  color: #838790;
+}
+
+@media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+  }
+  .kun {
+    font-size: 16px;
+  }
+  .silang {
+    margin-left: 250px;
+  }
+  .form-control-nama {
+    width: 90%;
+  }
+  .form-control-email {
+    width: 90%;
+  }
+  .form-control-nominal {
+    width: 90%;
+  }
+  .form-control-bio {
+    width: 90%;
+  }
+  .btnSubmit {
+    width: 5px;
+    padding: 0.1em 9em;
+    margin-left: -5px;
+  }
+  .text2 {
+    margin-left: -22px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+    padding: 20px;
+  }
+  .kun {
+    font-size: 18px;
+  }
+  .silang {
+    margin-left: 300px;
+  }
+  .form-control-nama {
+    width: 95%;
+  }
+  .form-control-email {
+    width: 95%;
+  }
+  .form-control-nominal {
+    width: 95%;
+  }
+  .form-control-bio {
+    width: 95%;
+  }
+  .btnSubmit {
+    width: 45px;
+    padding: 0.1em 9em;
+    margin-left: -2px;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+    padding: 40px;
+  }
+  .kun {
+    font-size: 18px;
+    margin-left: 1px;
+  }
+  .silang {
+    margin-left: 320px;
+  }
+  .form-control-nama {
+    width: 100%;
+  }
+  .form-control-email {
+    width: 100%;
+  }
+  .form-control-nominal {
+    width: 100%;
+  }
+  .form-control-bio {
+    width: 100%;
+  }
+  .btnSubmit {
+    width: 45px;
+    padding: 0.1em 9.5em;
+    margin-left: -2px;
+  }
+  .text2 {
+    margin-left: 5px;
+  }
+}

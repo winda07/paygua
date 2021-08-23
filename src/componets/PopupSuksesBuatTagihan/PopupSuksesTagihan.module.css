@@ -27,22 +27,23 @@
 
 .popup {
   width: 171px;
-  margin-left: 95px;
+  display: flex;
+  margin-left: 90px;
 }
 .text {
-  margin-left: 100px;
+  margin-left: 90px;
 }
 .text2 {
-  margin-left: 90px;
+  /* margin-left: 100px; */
   font-size: 13px;
-  color: #838790;
+  color: red;
 }
 .link {
   font-size: 14px;
   color: #838790;
 }
 .a {
-  margin-left: 95px;
+  margin-left: 80px;
   border-radius: 5px;
   cursor: pointer;
   border-color: transparent;

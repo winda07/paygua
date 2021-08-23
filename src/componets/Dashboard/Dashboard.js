@@ -16,10 +16,14 @@ import notification from "../../img/notification.svg"
 import addHome from "../../img/addHome.svg"
 import pengaturan from "../../img/pengaturan.svg"
 import Logout from "../../img/Logout.svg"
-
+import Popup from "../PopupCopy/PopupCopy"
+import copy from "../../img/copy.svg"
+import jwt from "jwt-decode"
 toast.configure()
 const Dashboard = () => {
-
+  const token = localStorage.getItem("token");
+  const user = jwt(token)
+  const [buttonPopup, setButtonPopup] = useState(false);
   const userId = localStorage.getItem("userId")
   console.log("userId", userId);
   const SERVER = "https://paygua.com"
@@ -45,14 +49,28 @@ const Dashboard = () => {
     total: ""
   })
   console.log(value.total)
-
+  const setcopy = () => {
+    setButtonPopup(true)
+    setTimeout(() => {
+      setButtonPopup(false)
+    }, 1000)
+    navigator.clipboard.writeText(`paygua.com/${user.username}`)
+  }
   return (
     <div className={styles.App}>
       <div className={styles["form-signin"]}>
-        <img className={styles['logo']} src={logo} alt="logo" />
+        <img className={styles['logo']} src={logo} />
+        <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
+
         <div style={{ height: "200px" }}>
           <GetProfile></GetProfile>
+          <button className={styles.boxdalam2} onClick={setcopy}>
+            <p className={styles.a}>{`paygua.com/${user.username}`}</p>
+            <img className={styles["cop"]} src={copy}></img>
+          </button>
         </div>
+
+
 
         <div style={{ height: "130px" }}>
           <GetBalance></GetBalance>
@@ -65,20 +83,23 @@ const Dashboard = () => {
             <p className={styles.beranda}>Beranda</p>
           </div>
           <div style={{ float: "left" }}>
-            <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
-            <p className={styles.notifikasi}>Notifikasi</p>
-          </div>
-          <div style={{ float: "left" }}>
             <Link to='/buatTagihan'><img className={styles.addHome} src={addHome}></img></Link>
           </div>
           <div style={{ float: "left" }}>
+            <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
+            <p className={styles.notifikasi}>Notifikasi</p>
+          </div>
+          <Popup
+            trigger={buttonPopup}>
+          </Popup>
+          {/* <div style={{ float: "left" }}>
             <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
             <p className={styles.settings}>Pengaturan</p>
           </div>
           <div style={{ float: "left" }}>
             <Link to="/login"><img className={styles.logout} src={Logout}></img></Link>
             <p className={styles.log}>Logout</p>
-          </div>
+          </div> */}
         </footer>
         {/* <section className={styles.footer}>
           <div>

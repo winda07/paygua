@@ -167,23 +167,23 @@ const DetailTagihan = () => {
                 <p className={styles["min"]}>*Mininal Rp10.000</p>
                 <div className={styles["set"]}>{(errors.nominal && isClicked) && <p className="error">{errors.nominal}</p>}</div>
                 <textarea
-                    type="email"
+                    type="text"
                     class={styles["form-control-bio"]}
                     id="floatingInput"
-                    name="pesan"
+                    name="message"
                     placeholder="Pesan"
                     value={data.message}
                     onChange={handleChange}
                 ></textarea>
                 <div className={styles.a}>
-                    <img src={trash} alt="logo" onClick={handlesampah} />
+                    <img className={styles.sampah} src={trash} onClick={handlesampah} />
                     <p className={styles.change} onClick={handleFormSubmit}>Ubah</p>
                 </div>
-                <br></br>
+                {/* <br></br>
                 <p className={styles.nama}>Nama Penerima</p>
                 <br></br>
                 <p style={{ marginLeft: "80px" }}>{data.nama}</p>
-                <hr></hr>
+                <hr></hr> */}
             </div>
             <Popup
                 trigger={buttonPopup}></Popup>

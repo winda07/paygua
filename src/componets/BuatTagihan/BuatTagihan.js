@@ -7,6 +7,9 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import Popup from "../PopupSuksesBuatTagihan/PopupSuksesTagihan";
 import CurrencyFormat from "react-currency-format";
+import logo from "../../img/popup-tagihan.svg"
+import copy from "../../img/copyblack.svg"
+import PopupCopy from "../PopupCopy2/PopupCopy2";
 
 const BuatTagihan = () => {
     const history = useHistory()
@@ -15,14 +18,23 @@ const BuatTagihan = () => {
     const [isClicked, setIsClicked] = useState(false);
     const [errors, setErros] = useState({});
     const [buttonPopup, setButtonPopup] = useState(false);
-
+    const [buttoncopy, setButtonCopy] = useState(false)
+    const token = localStorage.getItem("token");
+    const user = jwt(token);
     const [data, setValues] = useState({
         name: "",
         email: "",
         nominal: "",
-        pesan: "",
+        message: "",
         invoiceId: ""
     });
+    const setcopy = () => {
+        setButtonCopy(true)
+        setTimeout(() => {
+            setButtonCopy(false)
+        }, 1000)
+        navigator.clipboard.writeText(`paygua.com/${user.username}/${data.invoiceId}`)
+    }
 
     const handleChange = (e) => {
         setValues({
@@ -45,17 +57,18 @@ const BuatTagihan = () => {
         console.log("handleFormSubmit isDataCorrect: ", dataIsCorrect)
 
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
-            const token = localStorage.getItem("token");
+
             if (token) {
-                const user = jwt(token);
+
+                // console.log(user)
                 axios
                     .post(
                         "https://paygua.com/api/invoice/create",
                         {
                             name: data.name,
                             email: data.email,
-                            nominal: data.nominal,
-                            pesan: data.pesan,
+                            nominal: data.nominal.replace(".", ""),
+                            message: data.message,
                         },
                         {
                             headers: {
@@ -71,9 +84,7 @@ const BuatTagihan = () => {
                                     ...data,
                                     invoiceId: result.data.data.invoiceId
                                 })
-                                setTimeout(() => {
-                                    setButtonPopup(false)
-                                }, 3000)
+                                // setButtonPopup(false)
                             } else {
                                 history.push('login')
                             }
@@ -99,7 +110,7 @@ const BuatTagihan = () => {
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
                 <div className={styles.gbrarow}>
-                    <Link to="/tagihan">
+                    <Link to="/dashboard">
                         <img className={styles.silang} src={silang} alt="logo" />
                     </Link>
                     <p className={styles.kun}>Buat Tagihan</p>
@@ -143,9 +154,9 @@ const BuatTagihan = () => {
                     type="email"
                     class={styles["form-control-bio"]}
                     id="floatingInput"
-                    name="pesan"
+                    name="message"
                     placeholder="Pesan"
-                    value={data.pesan}
+                    value={data.message}
                     onChange={handleChange}
                 ></textarea>
 
@@ -154,9 +165,21 @@ const BuatTagihan = () => {
                 </div>
             </div>
             <Popup
-                user={data.name}
-                id={data.invoiceId}
-                trigger={buttonPopup}></Popup>
+                trigger={buttonPopup}>
+                <div>
+                    <img style={{ marginLeft: "310px", cursor: "pointer" }} onClick={() => { setButtonPopup(false) }} src={silang}></img>
+                    <img className={styles.popup} src={logo}></img>
+                    <p className={styles.text}>Tagihan Berhasil Dibuat</p>
+                    <button className={styles["a"]} onClick={setcopy}>
+                        <div>
+                            <p className={styles.link}>Paygua.com/{user.username}/{data.invoiceId} <img src={copy}></img></p>
+                        </div>
+                    </button>
+                    <PopupCopy trigger={buttoncopy}>
+                        <p style={{ marginLeft: "40px" }}>Berhasil disalin ke Clipboard!</p>
+                    </PopupCopy>
+                </div>
+            </Popup>
         </div>
     );
 };

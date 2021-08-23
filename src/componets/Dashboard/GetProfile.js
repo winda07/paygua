@@ -63,18 +63,18 @@ const GetProfile = () => {
     }, []);
     return (
         <div>
-
             <div className={styles.boxdua}>
                 <img className={styles.boxdalam} src={data.profilePicture}></img>
                 <b className={styles.usernameCard}>@{data.username}</b>
                 <p className={styles.info}>{data.bio}</p>
-                <button className={styles.boxdalam2} onClick={setcopy}>
+                {/* <button className={styles.boxdalam2} onClick={setcopy}>
                     <p className={styles.a}>{`paygua.com/${data.username}`}</p>
                     <img className={styles["cop"]} src={copy}></img>
                 </button>
                 <Popup
-                    trigger={buttonPopup}></Popup>
-                <div >
+                    trigger={buttonPopup}>
+                </Popup> */}
+                <div>
 
                 </div>
             </div>
