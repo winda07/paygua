@@ -30,8 +30,9 @@ import blue from "../../img/blue.svg"
 const TentangKami = () => {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
+        console.log("test")
     }
-    console.log(scrollToTop)
+    // console.log(scrollToTop)
     return (
 
         <div className={styles.App}>
@@ -155,7 +156,7 @@ const TentangKami = () => {
                             <img style={{ marginLeft: "12px" }} src={logo1} alt="logo" />
                             <p style={{ fontSize: "12px", color: "white", marginLeft: "12px" }}>PT.Optimal Teknologi Indonesia</p>
                             <br></br>
-                            <b style={{ fontSize: "13px", color: "white", marginLeft: "12px", cursor: "pointer" }} onClick={scrollToTop}>Tentang Kami</b>
+                            <b style={{ fontSize: "13px", color: "white", marginLeft: "12px", cursor: "pointer" }} onClick={window.scrollTo({ top: 0, behavior: "smooth" })}>Tentang Kami</b>
                             <br></br>
                             <b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>Syarat dan ketentuan</b>
                             <br></br>

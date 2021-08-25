@@ -109,7 +109,7 @@ const DummyCmp = (props) => {
                                     setButtonLoading(false)
                                     creatQrCode(result.data.data.url)
                                 } else {
-                                    window.open(`${result.data.data.deeplink}`, `_self`)
+                                    window.open(`${result.data.data.url}`, `_self`)
                                 }
                             } else if (data.bank === "shopeepay") {
                                 if (window.innerWidth > 600) {
@@ -117,7 +117,7 @@ const DummyCmp = (props) => {
                                     setButtonLoading(false)
                                     creatQrCode(result.data.data.url)
                                 } else {
-                                    window.open(`${result.data.data.deeplink}`, `_self`)
+                                    window.open(`${result.data.data.url}`, `_self`)
                                 }
                             } else if (data.bank === "dana") {
                                 if (window.innerWidth > 600) {
