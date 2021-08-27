@@ -10,7 +10,7 @@ const Transaksi = () => {
             <div className={styles['form-signin']}>
                 <GetBalance></GetBalance>
 
-                <Link to="/pencairan"> <p className={styles['cairkan']} >Cairkan</p></Link>
+                <Link style={{ textDecoration: "none" }} to="/pencairan"> <p className={styles['cairkan']} >Cairkan</p></Link>
 
                 <p className={styles.box}>Riwayat Transaksi</p>
 

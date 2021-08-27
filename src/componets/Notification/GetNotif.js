@@ -76,7 +76,7 @@ const GetNotif = () => {
                         <div className={styles.boxdua}>
                             {ntif.isSeen === false ? <img className={styles['redd']} src={red}></img> : null}
                             <div className={styles.img}>
-                                <p>
+                                <p className={styles.message}>
                                     {ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||
                                         ntif.type === "cashOut" ? <img src={cashOut}></img> : null ||
                                             ntif.type === "withdrawProcess" ? <img src={withdrawProcess}></img> : null ||

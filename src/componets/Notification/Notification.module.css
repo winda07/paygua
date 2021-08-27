@@ -20,7 +20,8 @@
 .boxdua {
   cursor: pointer;
   width: 100%;
-  padding: 10px 3px;
+  padding: 8px;
+  margin-left: -10px;
   border-radius: 10px;
   background-color: white;
   box-shadow: 4px 5px 10px rgb(169, 169, 169);
@@ -36,4 +37,65 @@
 }
 .redd {
   margin-left: 330px;
+}
+.notifikasi {
+  font-size: 24px;
+}
+.message {
+  font-size: 16px;
+}
+@media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .boxdua {
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    left: 0%;
+    padding: 15px;
+  }
+  .notifikasi {
+    margin-left: 5px;
+  }
+  .arrow {
+    margin-left: 5px;
+  }
+  .boxdua {
+    width: 95%;
+    margin-left: -5px;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    left: 0%;
+    padding: 25px;
+  }
+  .notifikasi {
+    margin-left: 10px;
+  }
+  .arrow {
+    margin-left: 10px;
+  }
+  .boxdua {
+    width: 100%;
+    margin-left: 0px;
+  }
 }

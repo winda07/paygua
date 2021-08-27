@@ -524,7 +524,7 @@
     height: 100%;
   }
   .a {
-    margin-top: 9px;
+    margin-top: 12px;
   }
   .cop {
     margin-left: 160px;
@@ -549,10 +549,10 @@
   .home {
     width: 20px;
     height: 22.74px;
-    margin-left: 90px;
+    margin-left: 70px;
   }
   .beranda {
-    margin-left: 90px;
+    margin-left: 70px;
   }
   .notif {
     width: 20px;
@@ -582,5 +582,14 @@
   }
   .log {
     margin-left: 40px;
+  }
+  .divfooter1 {
+    margin-left: 0px;
+  }
+  .divfooter2 {
+    margin-left: 10px;
+  }
+  .divfooter3 {
+    margin-left: 10px;
   }
 }

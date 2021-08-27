@@ -81,8 +81,110 @@
 }
 
 .text2 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
   color: white;
 }
 .set {
   color: red;
+}
+@media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+    padding: 15px;
+  }
+  .silang {
+    margin-left: 260px;
+  }
+  .kun {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+  .form-control-nama {
+    width: 90%;
+  }
+  .form-control-nominal {
+    width: 90%;
+  }
+  .choose {
+    width: 90%;
+  }
+  .btnSubmit {
+    margin-left: 5px;
+    width: 55px;
+    padding: 0.1em 7em;
+  }
+  .text2 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+    padding: 30px;
+  }
+  .kun {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+  .silang {
+    margin-left: 300px;
+  }
+  .form-control-nama {
+    width: 95%;
+  }
+  .form-control-nominal {
+    width: 95%;
+  }
+  .choose {
+    width: 95%;
+  }
+  .btnSubmit {
+    margin-left: 5px;
+    width: 95px;
+    padding: 0.1em 7em;
+  }
+  .text2 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+    padding: 30px;
+  }
+  .kun {
+    font-size: 18px;
+    margin-left: 5px;
+  }
+  .silang {
+    margin-left: 320px;
+  }
+  .form-control-nama {
+    width: 100%;
+  }
+  .form-control-nominal {
+    width: 100%;
+  }
+  .choose {
+    width: 100%;
+  }
+  .btnSubmit {
+    margin-left: 5px;
+    width: 110px;
+    padding: 0.1em 7em;
+  }
+  .text2 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
 }

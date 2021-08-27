@@ -10,6 +10,7 @@ import axios from "axios";
 import jwt from "jwt-decode"
 import Popup from "../PopupLogin/PopupLogin";
 import silang from "../../img/ion.svg"
+import FolderIcon from "../../img/profile.svg"
 
 
 
@@ -39,15 +40,15 @@ const EditProfile = ({ formSubmit }) => {
     };
 
     const handleChange2 = (e) => {
+        setValues({
+            ...data,
+            [e.target.name]: e.target.files[0],
+        });
         if (e.target.files && e.target.files[0]) {
             let reader = new FileReader();
 
-            reader.onload = function (ee) {
-                setImage(e.target.files[0]);
-                setValues({
-                    ...data,
-                    [e.target.name]: ee.target.result,
-                });
+            reader.onload = function (e) {
+                setImage(e.target.result);
                 setIsUploaded(true);
             };
 
@@ -148,18 +149,62 @@ const EditProfile = ({ formSubmit }) => {
                     <Link to="/Settings">
                         <img src={arrow} alt="logo" />
                     </Link>
-                    <h2 className={styles.kun}>Edit Profil</h2>
+                    <b className={styles.kun}>Edit Profil</b>
 
                     <img className={styles.check1} onClick={handleFormSubmit} src={check} alt="logo"></img>
 
                 </div>
-                <div className={styles.user}>
+                {/* <div className={styles.user}>
                     <img className={styles.picture} src={data.profilePicture}></img>
+                </div> */}
+                <div className={styles.boxupload}>
+                    <div className={styles.imageupload}>
+                        {!isUploaded ? (
+                            <>
+                                <label htmlFor="upload-input">
+                                    <img className={styles.ukuranPP}
+                                        src={data.profilePicture}
+                                        draggable={"false"}
+                                        alt="placeholder"
+                                    // style={{ width: 218, height: 218 }}
+                                    />
+                                </label>
+                                <input
+                                    id="upload-input"
+                                    name="profilePicture"
+                                    type="file"
+                                    onChange={handleChange2}
+                                    accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
+                                // accept=".webp"
+                                />
+                            </>
+                        ) : (
+                            // <ImagePreview>
+                            <div>
+                                <img
+                                    className="close-icon"
+
+                                    onClick={() => {
+                                        setIsUploaded(false);
+                                        setImage(null);
+                                    }}
+                                />
+                                <img className={styles.uploadImage}
+                                    id="uploaded-image"
+                                    src={image}
+                                    draggable={false}
+                                    alt="uploaded-img"
+                                />
+
+                            </div>
+
+                            // </ImagePreview>
+                        )}
+                    </div>
                 </div>
-                <div className="image-upload">
+                {/* <div className="image-upload">
                     <label className={styles.profile} htmlFor="upload-input"> Ganti Foto Profile
                     </label>
-
                     <input
                         id="upload-input"
                         name="profilePicture"
@@ -168,9 +213,9 @@ const EditProfile = ({ formSubmit }) => {
                         onChange={handleChange2}
                         accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
                     />
-                </div>
+                </div> */}
                 <br></br>
-                {/* <p className={styles.kun1}>Ganti Foto Profile</p> */}
+                <p className={styles.kun1}>Ganti Foto Profile</p>
                 <input
                     type="text"
                     class={styles["form-control"]}

@@ -26,14 +26,16 @@
   position: relative;
   margin-top: 10px;
   display: flex;
-  justify-content: space-between;
+  text-align: center;
+  justify-content: center;
 }
-
 .kun {
-  margin-left: 130px;
+  /* margin-left: 0px; */
   margin-top: 2px;
   position: absolute;
   font-size: 18px;
+  /* margin-bottom: 7px; */
+  /* margin-left: 195px; */
 }
 .check {
   margin-left: 330px;
@@ -45,6 +47,9 @@
 }
 .kun1 {
   margin-left: 110px;
+}
+.arrow {
+  margin-right: 330px;
 }
 .form-control {
   width: 100%;
@@ -64,4 +69,34 @@
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 5px;
+}
+@media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+    padding: 25px;
+  }
+  .kun {
+    margin-right: 50px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+    padding: 25px;
+  }
+  .kun {
+    margin-right: 10px;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+    padding: 25px;
+  }
+  .kun {
+    margin-right: 10px;
+  }
 }

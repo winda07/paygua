@@ -13,9 +13,8 @@ const Settings = () => {
             <div className={styles['form-signin']}>
 
                 <div className={styles.gbrarow}>
-                    <Link to="/dashboard"><img src={arrow} alt="logo" /></Link>
+                    <Link to="/dashboard"><img className={styles.arrow} src={arrow} alt="logo" /></Link>
                     <p className={styles.kun}>Akun saya</p>
-
 
                 </div>
 

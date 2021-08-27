@@ -19,7 +19,7 @@ const validation = (values) => {
     if (!values.bank) {
         errors.bank = "Metoda pembayaran tidak boleh kosong"
     }
-    if (!values.nomor) {
+    if (values.bank === "ovo" && !values.nomor) {
         errors.nomor = "Nomor tidak boleh kosong"
     }
     return errors;

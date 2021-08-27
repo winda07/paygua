@@ -40,7 +40,7 @@ const GetBalance = () => {
                 <div className={styles.gbrarow}>
                     <Link to="/dashboard"><img src={arrow} alt="logo" /></Link>
                 </div>
-                <p style={{ color: "#838790" }} >Saldo kamu saat ini</p>
+                <p className={styles.saldo} >Saldo kamu saat ini</p>
                 <p className={styles.kun}>Rp{data.Balance}</p>
 
 

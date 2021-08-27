@@ -51,7 +51,7 @@ const GetHistory = () => {
                             {/* <p><img src={panahbawah} ></img>{trx.title}</p> */}
                             <dt className={styles.tanggal}>{new Date(trx.date).toLocaleDateString()}</dt>
                         </div>
-                        <div style={{ width: "50%", textAlign: "right" }}>
+                        <div className={styles.total} style={{ width: "50%", textAlign: "right" }}>
                             <p style={{ color: trx.type != "in" ? "#E81A55" : "#34A898" }}>{trx.type === "in" ? "+" : "-"} Rp{trx.nominal}</p>
                         </div>
                     </div>

@@ -8,8 +8,10 @@ const Notification = () => {
     return (
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
-                <Link to="/dashboard"><img src={arrow}></img></Link>
-                <h1 class="h3 mb-3 fw-normal">Notifikasi</h1>
+                <Link to="/dashboard"><img className={styles.arrow} src={arrow}></img></Link>
+                <br></br>
+                <br></br>
+                <b className={styles.notifikasi}>Notifikasi</b>
                 <GetNotif></GetNotif>
             </div>
         </div>
