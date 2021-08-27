@@ -8,7 +8,7 @@
   align-items: center;
   /* padding-top: 40px; */
   /* padding-bottom: 40px; */
-  background-color: #dcdcdc;
+  /* background-color: #dcdcdc; */
 }
 .form-signin {
   background-color: white;
@@ -119,15 +119,15 @@
 }
 .boxupload {
   display: grid;
-  margin-left: 70px;
+  margin-left: 95px;
   margin-top: 20px;
   place-items: center;
   border: 1px dashed #799cd9;
   /* padding: 36px 48px; */
   position: relative;
 
-  height: 220px;
-  width: 220px;
+  height: 150px;
+  width: 150px;
 
   background: #fbfbff;
   border-radius: 200px;
@@ -167,10 +167,13 @@
   opacity: 1;
 }
 .ukuranPP {
-  width: 218px;
-  height: 218px;
+  width: 150px;
+  height: 150px;
   border-radius: 100%;
   cursor: pointer;
+}
+.kun1 {
+  margin-left: 110px;
 }
 @media only screen and (max-width: 320px) {
   .form-signin {

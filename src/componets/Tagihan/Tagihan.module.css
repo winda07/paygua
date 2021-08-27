@@ -6,7 +6,7 @@
 .App {
   height: 0px auto;
   align-items: center;
-  background-color: #dcdcdc;
+  /* background-color: #dcdcdc; */
 }
 .form-signin {
   background-color: white;
@@ -40,6 +40,7 @@
 }
 
 .boxdua {
+  /* position: relative; */
   width: 100%;
   /* padding: 0px 3px; */
   border-radius: 10px;
@@ -77,6 +78,7 @@ h6 {
   /* margin-left: 20px; */
 }
 .a {
+  /* position: absolute; */
   border-radius: 5px;
   border: 1px;
   margin-left: 5px;
@@ -85,7 +87,7 @@ h6 {
 }
 .time {
   float: left;
-  margin-left: 110px;
+  margin-left: 100px;
 }
 @media only screen and (max-width: 320px) {
   .form-signin {
@@ -102,7 +104,12 @@ h6 {
     width: 90%;
   }
   .time {
-    margin-left: 80px;
+    margin-left: 70px;
+  }
+  .button {
+    width: 30px;
+    height: 20px;
+    padding: 0.1em 0.9em;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px) {
@@ -121,7 +128,12 @@ h6 {
     width: 95%;
   }
   .time {
-    margin-left: 100px;
+    margin-left: 80px;
+  }
+  .button {
+    width: 30px;
+    height: 20px;
+    padding: 0.1em 0.9em;
   }
 }
 @media only screen and (min-width: 376px) and (max-width: 425px) {
@@ -140,6 +152,6 @@ h6 {
     width: 100%;
   }
   .time {
-    margin-left: 110px;
+    margin-left: 90px;
   }
 }

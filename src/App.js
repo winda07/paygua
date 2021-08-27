@@ -19,7 +19,7 @@ import SuccessPencairan from "./componets/PopupSuksesPencairan/PopupSuksesPencai
 import Transaksi from "./componets/Transaksi/Transaksi";
 import BuatTagihan from "./componets/BuatTagihan/BuatTagihan"
 import SuksesTagihan from "./componets/PopupSuksesBuatTagihan/PopupSuksesTagihan"
-import Tagihan from "./componets/Tagihan/Tagihan"
+import Tagihan from "./componets/Tagihan/GetUserInvoice"
 import DetailTagihan from "./componets/DetailTagihan/DetailTagihan"
 import ProfileGeneral2 from "./componets/ProfileGeneral2/ProfileGeneral2"
 import VerivLupas from "./componets/VerivLupas/VerivLupas";

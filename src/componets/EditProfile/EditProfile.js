@@ -11,6 +11,7 @@ import jwt from "jwt-decode"
 import Popup from "../PopupLogin/PopupLogin";
 import silang from "../../img/ion.svg"
 import FolderIcon from "../../img/profile.svg"
+import Loading from "../Loading/Loading";
 
 
 
@@ -22,6 +23,7 @@ const EditProfile = ({ formSubmit }) => {
     const [isUploaded, setIsUploaded] = useState(false);
     const [buttonPopup, setButtonPopup] = useState(false);
     const [message, setMessage] = useState("")
+    const [loadingPopup, setButtonLoading] = useState(false);
     const [data, setValues] = useState({
         name: "",
         username: "",
@@ -93,6 +95,7 @@ const EditProfile = ({ formSubmit }) => {
 
         // submit
         if (dataIsCorrect) {
+            setButtonLoading(true)
             const token = localStorage.getItem("token");
 
             const formData = new FormData();
@@ -124,11 +127,11 @@ const EditProfile = ({ formSubmit }) => {
                         if (result.data) {
                             if (result.data.status === 200) {
                                 history.push('/settings')
-
+                                setButtonLoading(false)
                             } else {
                                 setButtonPopup(true);
                                 setMessage(result.data.errors.errorMessage)
-
+                                setButtonLoading(false)
                             }
 
                         }
@@ -154,9 +157,6 @@ const EditProfile = ({ formSubmit }) => {
                     <img className={styles.check1} onClick={handleFormSubmit} src={check} alt="logo"></img>
 
                 </div>
-                {/* <div className={styles.user}>
-                    <img className={styles.picture} src={data.profilePicture}></img>
-                </div> */}
                 <div className={styles.boxupload}>
                     <div className={styles.imageupload}>
                         {!isUploaded ? (
@@ -166,7 +166,7 @@ const EditProfile = ({ formSubmit }) => {
                                         src={data.profilePicture}
                                         draggable={"false"}
                                         alt="placeholder"
-                                    // style={{ width: 218, height: 218 }}
+
                                     />
                                 </label>
                                 <input
@@ -175,11 +175,11 @@ const EditProfile = ({ formSubmit }) => {
                                     type="file"
                                     onChange={handleChange2}
                                     accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
-                                // accept=".webp"
+
                                 />
                             </>
                         ) : (
-                            // <ImagePreview>
+
                             <div>
                                 <img
                                     className="close-icon"
@@ -198,22 +198,10 @@ const EditProfile = ({ formSubmit }) => {
 
                             </div>
 
-                            // </ImagePreview>
+
                         )}
                     </div>
                 </div>
-                {/* <div className="image-upload">
-                    <label className={styles.profile} htmlFor="upload-input"> Ganti Foto Profile
-                    </label>
-                    <input
-                        id="upload-input"
-                        name="profilePicture"
-                        type="file"
-                        style={{ display: 'none' }}
-                        onChange={handleChange2}
-                        accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
-                    />
-                </div> */}
                 <br></br>
                 <p className={styles.kun1}>Ganti Foto Profile</p>
                 <input
@@ -267,6 +255,7 @@ const EditProfile = ({ formSubmit }) => {
                 }} src={silang}></img>
                 <div style={{ marginLeft: "80px", marginBottom: "20px" }}>{message}</div>
             </Popup>
+            <Loading trigger={loadingPopup}></Loading>
         </div >
     );
 };

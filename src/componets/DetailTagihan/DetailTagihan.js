@@ -32,7 +32,8 @@ const DetailTagihan = () => {
             email: location.state.email,
             nominal: location.state.nominal,
             message: location.state.message,
-            invoiceId: location.state.invoiceId
+            invoiceId: location.state.invoiceId,
+            isExpired: location.state.isExpired
         })
     }, [])
     useEffect(() => {
@@ -176,8 +177,13 @@ const DetailTagihan = () => {
                     onChange={handleChange}
                 ></textarea>
                 <div className={styles.a}>
-                    <img className={styles.sampah} src={trash} onClick={handlesampah} />
-                    <p className={styles.change} onClick={handleFormSubmit}>Ubah</p>
+                    <p>{location.state.isExpired === false ? <div className={styles.div1}>
+                        <img className={styles.sampah} src={trash} onClick={handlesampah} />
+                        <p className={styles.change} onClick={handleFormSubmit}>Ubah</p>
+                    </div>
+                        : <img className={styles.sampah2} src={trash} onClick={handlesampah} />}</p>
+
+
                 </div>
                 {/* <br></br>
                 <p className={styles.nama}>Nama Penerima</p>

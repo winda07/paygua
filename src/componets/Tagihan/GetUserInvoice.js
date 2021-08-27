@@ -10,6 +10,7 @@ import time from "../../img/time.svg"
 import { red } from "@material-ui/core/colors";
 import PopupCopy from "../PopupCopy2/PopupCopy2";
 
+
 const GetUserInvoice = () => {
     const [buttoncopy, setButtonCopy] = useState(false)
     const [data, setValues] = useState({
@@ -24,18 +25,17 @@ const GetUserInvoice = () => {
                 email: data.tagihan[idx].email,
                 nominal: data.tagihan[idx].nominal,
                 message: data.tagihan[idx].message,
-                invoiceId: data.tagihan[idx].invoiceId
+                invoiceId: data.tagihan[idx].invoiceId,
+                isExpired: data.tagihan[idx].isExpired
             }
         });
     }
-    console.log(data.tagihan.invoiceId)
+    // console.log(data.tagihan.invoiceId)
     const setcopy = () => {
         setButtonCopy(true)
         setTimeout(() => {
             setButtonCopy(false)
         }, 1000)
-
-
     }
 
     const token = localStorage.getItem("token");
@@ -59,42 +59,71 @@ const GetUserInvoice = () => {
                         }
 
                     }
-                    console.log(result.data)
+                    // console.log(result.data)
 
                 })
-            console.log(data)
+            console.log(data.tagihan.length)
         }
     }, []);
     return (
         <div>
-            {
-                data.tagihan.map((tghn, idx) => (
-                    <div className={styles.a}>
 
-                        <div className={styles.boxdua} style={{
-                            display: "flex",
-                            alignItems: "center"
-                        }}>
-                            <div style={{ width: "50%" }}>
-                                <p style={{ color: "#838790", fontSize: "12px", margin: "10px" }}>{tghn.isPaid === false ? <p>belum dibayar</p> : <p>sudah dibayar</p>}</p>
-                                <div style={{ fontSize: "16px", margin: "10px" }}>
-                                    <p style={{ marginTop: "10px" }}>{tghn.name}<br></br>Rp{tghn.nominal}</p>
-                                </div>
-                                <button className={styles["a"]} onClick={() => navigator.clipboard.writeText(`paygua.com/${user.username}/${tghn.invoiceId}`)}>
-                                    <p onClick={setcopy} className={styles.link}>Paygua.com/{user.username}/{tghn.invoiceId}</p>
-                                </button>
-                            </div>
-                            <div style={{ width: "50%", textAlign: "right", marginTop: "70px" }}>
-                                <div onClick={() => tagihanClick(idx)}><img style={{ cursor: "pointer" }} src={arroww}></img></div>
-                                <p style={{ fontSize: "12px" }}><img className={styles.time} src={time}></img>{tghn.expireIn} hari</p>
-                            </div>
-                            <PopupCopy trigger={buttoncopy}>
-                                <p style={{ marginLeft: "40px" }}>Berhasil disalin ke Clipboard!</p>
-                            </PopupCopy>
-                        </div>
+            <div className={styles.App}>
+                <div className={styles['form-signin']}>
+                    <div style={{ width: "0%" }}>
+                        <Link to="/dashboard"><img className={styles.arrow} src={arrow}></img></Link>
+                        <p className={styles.tagihan}>Tagihan</p>
                     </div>
-                ))
-            }
+                    <div style={{ width: "100%", textAlign: "right" }}>
+                        <Link style={{ textDecoration: 'none' }} to="/buattagihan"><p className={styles.button}>Buat</p></Link>
+                    </div>
+                    <br></br>
+                    {/* {data.tagihan===""? } */}
+                    {data.tagihan.map((tghn, idx) => (
+                        <div className={styles.a}>
+                            {console.log(tghn)}
+                            {data.tagihan.length === 0 ? <p>test</p> : <div className={styles.boxdua} style={{
+                                display: "flex",
+                                alignItems: "center"
+                            }} >
+
+
+                                <div style={{ width: "50%" }}>
+                                    <p onClick={() => tagihanClick(idx)} style={{ color: "#838790", fontSize: "12px", margin: "10px" }}>{tghn.isPaid === false ? <p>belum dibayar</p> : <p>sudah dibayar</p>}</p>
+                                    <div style={{ fontSize: "16px", margin: "10px" }}>
+                                        <p onClick={() => tagihanClick(idx)} style={{ marginTop: "10px" }}>{tghn.name}<br></br>Rp{tghn.nominal}</p>
+                                    </div>
+                                    <button className={styles["a"]} onClick={() => navigator.clipboard.writeText(`paygua.com/${user.username}/${tghn.invoiceId}`)}>
+                                        <p onClick={setcopy} className={styles.link}>Paygua.com/{user.username}/{tghn.invoiceId}</p>
+                                    </button>
+                                </div>
+                                <div onClick={() => tagihanClick(idx)} style={{ width: "50%", textAlign: "right", marginTop: "70px" }}>
+                                    <div ><img onClick={() => tagihanClick(idx)} style={{ cursor: "pointer" }} src={arroww}></img></div>
+
+                                    <p style={{ fontSize: "12px", marginRight: "12px" }}><img className={styles.time} src={time}></img>{tghn.isExpired === false ? <p>{tghn.expireIn}Hari</p> : <p>{tghn.expireIn}</p>}</p>
+
+
+                                </div>
+
+
+                            </div>}
+                        </div>
+                    ))}
+                    {/* <GetUserInvoice></GetUserInvoice>
+                     */}
+                    {/* <h6>&emsp;Belum dibayar</h6>
+                    <h4>&emsp;Irfan Aziz <br></br>&emsp;Rp.100.000</h4> */}
+                    {/* <Link className={styles['arrow']} to="/detailtagihan"><img src={arrow2}></img> </Link>
+                        <Link to="share"><p style={{ color: "black" }} className={styles['share']}></p></Link>
+                        <img className={styles['time']} src={time}></img> */}
+                </div>
+                <PopupCopy trigger={buttoncopy}>
+                    <p style={{ marginLeft: "40px" }}>Berhasil disalin ke Clipboard!</p>
+                </PopupCopy>
+
+            </div>
+
+
         </div>
     )
 }

@@ -7,11 +7,13 @@
   align-items: center;
   /* padding-top: 40px;
   padding-bottom: 40px; */
-  background-color: #dcdcdc;
+  /* background-color: #dcdcdc; */
+  background-color: white;
 }
 .form-signin {
   background-color: white;
   width: 100%;
+  /* height: 790px; */
   max-width: 350px;
   padding: 15px;
   margin-bottom: 390px;

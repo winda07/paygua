@@ -5,7 +5,7 @@
 
 .App {
   align-items: center;
-  background-color: #dcdcdc;
+  /* background-color: #dcdcdc; */
 }
 .form-signin {
   height: 900px;
@@ -74,6 +74,11 @@
   box-sizing: border-box;
   border-radius: 5px;
 }
+.div1 {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
 
 .change {
   font-size: 12px;
@@ -140,7 +145,7 @@
   }
   .change {
     padding: 1em 5em;
-    margin-left: -5px;
+    /* margin-left: -5px; */
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px) {
