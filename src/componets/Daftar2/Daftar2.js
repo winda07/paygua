@@ -137,7 +137,8 @@ const Daftar2 = () => {
                                 />
                             </>
                         ) : (
-                            <ImagePreview>
+                            // <ImagePreview>
+                            <div>
                                 <img
                                     className="close-icon"
 
@@ -146,14 +147,15 @@ const Daftar2 = () => {
                                         setImage(null);
                                     }}
                                 />
-                                <img
+                                <img className={styles.uploadImage}
                                     id="uploaded-image"
                                     src={image}
                                     draggable={false}
                                     alt="uploaded-img"
                                 />
+                            </div>
 
-                            </ImagePreview>
+                            // </ImagePreview>
                         )}
                     </div>
                 </div>

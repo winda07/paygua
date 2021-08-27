@@ -69,26 +69,28 @@ const Dashboard = () => {
             <img className={styles["cop"]} src={copy}></img>
           </button>
         </div>
-
-
-
         <div style={{ height: "130px" }}>
           <GetBalance></GetBalance>
         </div>
         <GetTotalInvoice></GetTotalInvoice>
         <br></br>
         <footer className={styles.footer}>
-          <div style={{ float: "left" }}>
-            <img className={styles.home} src={home}></img>
-            <p className={styles.beranda}>Beranda</p>
+          <div style={{ display: "flex", textAlign: "center", justifyContent: "center" }}>
+            <div className={styles.divfooter1}>
+              <img className={styles.home} src={home}></img>
+              <figcaption className={styles.beranda}>Beranda</figcaption>
+              {/* <p className={styles.beranda}>Beranda</p> */}
+            </div>
+            <div className={styles.divfooter2}>
+              <Link to='/buatTagihan'><img className={styles.addHome} src={addHome}></img></Link>
+            </div>
+            <div className={styles.divfooter3}>
+              <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
+              <figcaption className={styles.notifikasi}>Notifikasi</figcaption>
+              {/* <p className={styles.notifikasi}>Notifikasi</p> */}
+            </div>
           </div>
-          <div style={{ float: "left" }}>
-            <Link to='/buatTagihan'><img className={styles.addHome} src={addHome}></img></Link>
-          </div>
-          <div style={{ float: "left" }}>
-            <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
-            <p className={styles.notifikasi}>Notifikasi</p>
-          </div>
+
           <Popup
             trigger={buttonPopup}>
           </Popup>

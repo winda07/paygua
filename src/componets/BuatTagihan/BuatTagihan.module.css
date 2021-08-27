@@ -100,10 +100,14 @@
   color: red;
 }
 .a {
-  margin-left: 80px;
+  /* margin-left: 80px; */
   border-radius: 5px;
   cursor: pointer;
   border-color: transparent;
+  display: inline-block;
+  /* position: absolute; */
+  /* top: 50%; */
+  left: 50%;
 }
 .popup {
   width: 171px;

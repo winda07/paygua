@@ -28,6 +28,7 @@ import TentangKami from "./componets/TentangKami/TentangKami"
 import Notification from "./componets/Notification/Notification"
 import VerfifResetPasswrod from "./componets/VerfiResetPassword/VerifResetPassword"
 import RegisterCheck from "./componets/Register/RegisterCheck"
+import SuksesPembayaran from "./componets/SuksesPembayaran/SuksesPembayaran"
 import { Route, Switch, useHistory } from 'react-router-dom';
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router";
@@ -70,6 +71,7 @@ const App = () => {
         <Route path="/gantiPassword" component={ChangePassword}></Route>
         <Route path="/settings" component={Settings}></Route>
         <Route path="/editProfile" component={Editprofile} ></Route>
+        <Route path="/successPayment" component={SuksesPembayaran}></Route>
         {/* <Route history={CMHistory} path="/daftar" component={Daftar2}></Route> */}
         <Route path="/daftar" component={Daftar2}></Route>
         <Route path="/dashboard" component={Dashboard}></Route>

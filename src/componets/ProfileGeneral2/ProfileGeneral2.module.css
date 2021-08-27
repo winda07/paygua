@@ -494,6 +494,13 @@ body,
   color: black;
   margin-left: 70px;
 }
+.powered {
+  font-size: 11px;
+  color: #838790;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
 @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
@@ -599,6 +606,12 @@ body,
   }
   .logo1 {
     margin-left: 90px;
+  }
+  .inputOVO {
+    width: 90%;
+  }
+  .powered {
+    margin-right: 20px;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px) {
@@ -706,6 +719,12 @@ body,
   }
   .logo1 {
     margin-left: 110px;
+  }
+  .inputOVO {
+    width: 90%;
+  }
+  .powered {
+    margin-right: 20px;
   }
 }
 @media only screen and (min-width: 376px) and (max-width: 425px) {

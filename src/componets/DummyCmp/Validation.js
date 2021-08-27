@@ -19,6 +19,9 @@ const validation = (values) => {
     if (!values.bank) {
         errors.bank = "Metoda pembayaran tidak boleh kosong"
     }
+    if (!values.nomor) {
+        errors.nomor = "Nomor tidak boleh kosong"
+    }
     return errors;
 }
 export default validation

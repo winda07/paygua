@@ -18,7 +18,7 @@
 }
 .tagihan {
   margin-left: 40px;
-  margin-top: 20px;
+  margin-top: -25px;
   font-size: 18px;
 }
 .buat {
@@ -30,7 +30,7 @@
 .button {
   margin-left: 280px;
   margin-top: -40px;
-  position: absolute;
+  position: relative;
   padding: 0.1em 0.9em;
   color: white;
   cursor: pointer;
@@ -57,7 +57,7 @@ h6 {
 }
 .arrow {
   /* margin-left: 270px; */
-  position: absolute;
+  position: relative;
 }
 .share {
   position: absolute;

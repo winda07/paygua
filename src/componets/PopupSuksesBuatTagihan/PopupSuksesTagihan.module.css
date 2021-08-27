@@ -29,6 +29,7 @@
   width: 171px;
   display: flex;
   margin-left: 90px;
+  /* position: relative; */
 }
 .text {
   margin-left: 90px;

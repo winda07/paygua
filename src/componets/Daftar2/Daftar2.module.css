@@ -124,6 +124,26 @@ body,
 .imageupload > input {
   display: none;
 }
+.uploadImage {
+  height: 220px;
+  width: 220px;
+  object-fit: cover;
+  border-radius: 200px;
+}
+.close-icon {
+  background: #000;
+  border-radius: 5px;
+  opacity: 0.8;
+
+  position: absolute;
+  z-index: 10;
+  right: 15px;
+  top: 20px;
+  cursor: pointer;
+}
+.close-icon :hover {
+  opacity: 1;
+}
 
 @media only screen and (max-width: 320px) {
   .form-signin {
@@ -162,6 +182,10 @@ body,
     height: 150px;
     width: 150px;
   }
+  .uploadImage {
+    width: 150px;
+    height: 150px;
+  }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px) {
   .form-signin {
@@ -190,6 +214,10 @@ body,
     height: 150px;
     width: 150px;
     margin-left: 100px;
+  }
+  .uploadImage {
+    width: 150px;
+    height: 150px;
   }
   .btnSubmit {
     padding: 0.1em 10.2em;
@@ -225,6 +253,10 @@ body,
     height: 160px;
     width: 160px;
     margin-left: 110px;
+  }
+  .uploadImage {
+    width: 160px;
+    height: 160px;
   }
   .btnSubmit {
     padding: 0.1em 11.6em;

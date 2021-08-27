@@ -11,7 +11,7 @@ import linkaja from "../../img/LINKAJA.svg"
 import shopeepay from "../../img/SHOPEEPAY.svg"
 import qris from "../../img/QRIS.svg"
 import transfer from "../../img/Bank Transfer.svg"
-// import Popup from "../PopupSuksesPembayaran/PopupSukses"
+import durianpay from "../../img/durianpay.svg"
 import jwt from "jwt-decode"
 import CurrencyFormat from "react-currency-format";
 import validation from "./Validation";
@@ -35,21 +35,29 @@ import qrisQR from "../../img/qrisQR.svg"
 import Loading from "../Loading/Loading";
 import PopupGopay from "../PopupGopay/PopupGopay"
 import gopayinQr from "../../img/gopayinQR.svg"
+import PopupCopy from "../PopupCopy2/PopupCopy2";
+import silang from "../../img/ion.svg"
+// import PopupLogin from "../PopupLogin/PopupLogin";
 
 
 
 const DummyCmp = (props) => {
     const masukkanOVO = "Masukkan nomor OVO"
+    const masukkanShopeepay = "Masukkan nomor Shopeepay"
     const codeNumber = "+62"
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
     const [loadingPopup, setButtonLoading] = useState(false);
     const [errors, setErros] = useState({});
+    const [Message, setMessage] = useState("")
+    const [errorPopup, setErrorPopup] = useState(false)
     const [isClicked, setIsClicked] = useState(false);
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupgopay, setpopupGopay] = useState(false)
     const history = useHistory();
     const [showResults, setShowResults] = useState('');
-    const [showtransfer, setShowTransfer] = useState('')
+    const [showtransfer, setShowTransfer] = useState('');
+    const [showShopeepay, setShowShopeepay] = useState('');
+    const [popupovo, setPopupOvo] = useState(false)
     const creatQrCode = (text) => {
         console.log(text)
         QrCode.toCanvas(document.getElementById("canvas"), text, function (err) {
@@ -66,23 +74,20 @@ const DummyCmp = (props) => {
             }
         })
     }
-    const handleFormSubmit = (e) => {
-        console.log(window.innerWidth)
-        setErros(validation(data));
-        setDataIsCorrect(true)
-        setIsClicked(true);
+
+    useEffect(() => {
         const token = localStorage.getItem('token');
         let paymentMethod = window.innerWidth <= 600 ? data.bank : "qris";
         paymentMethod = data.bank === "bank" ? "bank" : paymentMethod;
         paymentMethod = paymentMethod === "gopay" ? "qris" : paymentMethod;
-        // if (token) {
+
         const dataSend = {
             name: data.nama,
-            nominal: data.nominal.replace(".", ""),
+            nominal: data.nominal.replace(/\./g, ''),
             email: data.email,
             payment: paymentMethod,
-            username: paramobj.username
-
+            username: paramobj.username,
+            number: "0" + data.nomor
         }
         console.log("dataSend: ", dataSend)
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
@@ -102,6 +107,7 @@ const DummyCmp = (props) => {
                                 setButtonLoading(false)
                                 creatQrCode(result.data.data.url)
                             } else if (data.bank === "bank") {
+                                setButtonLoading(false)
                                 window.open(`${result.data.data.url}`, `_self`)
                             } else if (data.bank === "ovo") {
                                 if (window.innerWidth > 600) {
@@ -109,7 +115,11 @@ const DummyCmp = (props) => {
                                     setButtonLoading(false)
                                     creatQrCode(result.data.data.url)
                                 } else {
-                                    window.open(`${result.data.data.url}`, `_self`)
+                                    setPopupOvo(true)
+                                    setTimeout(() => {
+                                        setPopupOvo(false);
+                                    }, 3000);
+                                    setButtonLoading(false)
                                 }
                             } else if (data.bank === "shopeepay") {
                                 if (window.innerWidth > 600) {
@@ -117,6 +127,7 @@ const DummyCmp = (props) => {
                                     setButtonLoading(false)
                                     creatQrCode(result.data.data.url)
                                 } else {
+                                    setButtonLoading(false)
                                     window.open(`${result.data.data.url}`, `_self`)
                                 }
                             } else if (data.bank === "dana") {
@@ -125,6 +136,7 @@ const DummyCmp = (props) => {
                                     setButtonLoading(false)
                                     creatQrCode(result.data.data.url)
                                 } else {
+                                    setButtonLoading(false)
                                     window.open(`${result.data.data.url}`, `_self`)
                                 }
                             } else if (data.bank === "linkaja") {
@@ -133,10 +145,13 @@ const DummyCmp = (props) => {
                                     setButtonLoading(false)
                                     creatQrCode(result.data.data.url)
                                 } else {
+                                    setButtonLoading(false)
                                     window.open(`${result.data.data.url}`, `_self`)
                                 }
                             }
                             console.log(result.data)
+                        } else {
+
                         }
                         console.log("if result", result)
                     }
@@ -151,37 +166,46 @@ const DummyCmp = (props) => {
         };
         // submitForm()
         // }
-
+    }, [errors, dataIsCorrect])
+    const handleFormSubmit = (e) => {
+        console.log(window.innerWidth)
+        setErros(validation(data));
+        setDataIsCorrect(true)
+        setIsClicked(true);
     }
     const handleChange = (e) => {
-        setValues({
-            ...data,
-            [e.target.name]: e.target.value
-        });
+        if (e.target.name === "nomor") {
+            setValues({
+                ...data,
+                [e.target.name]: e.target.value.replace(/^[0]+/g, "")
+            });
+        } else {
+            setValues({
+                ...data,
+                [e.target.name]: e.target.value
+            });
+        }
 
-        // console.log(e.target.value)
         // if (e.target.name === "nominal") {
-        //     let nominal = parseInt(e.target.value.replace(/\./g, ""));
-        //     let biayaBank = data.biayaBank
-        //     if (!isNaN(e.target.value)) {
+        //     var value = e.target.value
+        //     if (value != "0") {
+        //         const number = parseInt(value, 10)
         //         setValues({
         //             ...data,
-        //             [e.target.name]: e.target.value
-        //         });
-        //     } else {
-        //         setValues({
-        //             ...data,
-        //             total: nominal + biayaBank,
-        //             [e.target.name]: nominal
-        //         });
+        //             [e.target.name]: number
+        //         })
         //     }
-        // }
-        // else {
+
+        // } else {
         //     setValues({
         //         ...data,
         //         [e.target.name]: e.target.value
         //     });
         // }
+
+
+        // var nomor = "+62" + substring(nomor, 1)
+
     };
 
     const generateBioLines = (text) => {
@@ -225,18 +249,24 @@ const DummyCmp = (props) => {
             setShowResults(false)
         }
 
+        if (bank === "shopeepay") {
+            setShowShopeepay(true)
+        } else {
+            setShowShopeepay(false)
+        }
+
         if (bank === "bank") {
             setShowTransfer(true)
         } else {
             setShowTransfer(false)
         }
-
         setValues({
             ...data,
             bank: bank,
 
         })
     }
+
     useEffect(() => {
         if (props.type === "type1") {
             axios.get("https://paygua.com/api/transaction/" + paramobj.username, null, {
@@ -270,11 +300,13 @@ const DummyCmp = (props) => {
                         setValues({
                             ...data,
                             bio: generateBioLines(result.data.data.bio),
+                            name: result.data.data.name,
                             nama: result.data.data.invoice.name,
                             email: result.data.data.invoice.email,
                             nominal: result.data.data.invoice.nominal.replace(".", ""),
-                            pesan: result.data.data.invoice.pesan,
+                            pesan: result.data.data.invoice.message,
                             profilePicture: result.data.data.profilePicture,
+                            username: paramobj.username
                         })
 
                     } else if (result.data.status === 400) {
@@ -296,10 +328,9 @@ const DummyCmp = (props) => {
                 data.bio === [] ?
                     null :
 
-                    <div className={styles.App}>
-                        <div className={styles["form-signin"]}>
+                    <div className={styles.App} onClick={() => { setpopupGopay(false) }}>
+                        <div className={styles["form-signin"]} onClick={() => { setButtonPopup(false) }}>
                             <div>
-
                                 <h1 className={styles.maudy}>Bayar ke {data.name}</h1>
                                 <br></br>
                                 <div className={styles.boxdua}>
@@ -344,10 +375,18 @@ const DummyCmp = (props) => {
                                 ></input>
                                 <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
 
-                                <CurrencyFormat className={styles["nominal"]} name="nominal"
+                                <CurrencyFormat className={styles["nominal"]} name="nominal" id="price"
                                     value={data.nominal}
                                     placeholder="Masukkan Nominal"
-                                    onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
+                                    onValueChange={(values) => {
+                                        const { formattedValue, value } = values;
+                                        // formattedValue = $2,223
+                                        // value ie, 2223
+                                        setValues({
+                                            ...data,
+                                            ["nominal"]: formattedValue
+                                        });
+                                    }} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
 
                                 <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
 
@@ -374,22 +413,40 @@ const DummyCmp = (props) => {
                             </section>
                             <div className={styles["set"]}>{errors.bank && <p className="error">{errors.bank}</p>}</div>
                             {
-                                showResults ? <div class={styles["inputOVO"]}>
+                                showResults ? <div> <div class={styles["inputOVO"]}>
                                     <h5 class={styles["OVOLabel"]}>
                                         {masukkanOVO}
                                         <h5 class={styles["number"]}>
                                             {codeNumber}
-                                            <CurrencyFormat className={styles["ovo"]} name="nomor"
+                                            <input className={styles["ovo"]} name="nomor" maxLength="12" type="number"
                                                 value={data.nomor}
-                                                onChange={handleChange}></CurrencyFormat>
+                                                onChange={handleChange}></input>
                                         </h5>
 
                                     </h5>
 
                                 </div>
+                                    <p className={styles.powered}>powered by <img src={durianpay}></img></p>
+                                </div>
                                     : null
                             }
-                            {/* <div className={styles["set"]}>{errors.nomor && <p className="error">{errors.nomor}</p>}</div> */}
+                            {/* {
+                                showShopeepay ? <div> <div class={styles["inputOVO"]}>
+                                    <h5 class={styles["OVOLabel"]}>
+                                        {masukkanShopeepay}
+                                        <h5 class={styles["number"]}>
+                                            {codeNumber}
+                                            <CurrencyFormat className={styles["ovo"]} name="nomor" maxLength="12"
+                                                value={data.nomor}
+                                                onChange={handleChange}></CurrencyFormat>
+                                        </h5>
+                                    </h5>
+                                </div>
+                                    <p style={{ fontSize: "11px", color: "#838790", display: "flex", textAlign: "center", justifyContent: "center" }}>powered by <img src={durianpay}></img></p>
+                                </div>
+
+                                    : null
+                            } */}
                             {
                                 showtransfer ? <p className={styles.admin}>*Transfer Bank akan ditambah biaya 4.000</p> : null
                             }
@@ -432,8 +489,22 @@ const DummyCmp = (props) => {
                                 <div>
                                     <canvas className={styles.canvas2} id="canvasGopay"></canvas>
                                     <img style={{ width: "151px", height: "71px", marginLeft: "90px" }} src={gopayinQr}></img>
-                                    <p style={{ fontSize: "16px", display: "flex", textAlign: "center", marginLeft: "10px" }}>Scan melalui aplikasi GoPay atau Screenshot dan upload QR di menu PAY aplikasi GoPay</p>
+                                    <p style={{ fontSize: "16px", display: "flex", textAlign: "center" }}>Scan melalui aplikasi Gojek atau Screenshot dan upload QR di menu PAY aplikasi Gojek</p>
                                     <button className={styles.buttonQr} onClick={() => { setpopupGopay(false) }}><p style={{ color: "white", fontSize: "18px", marginTop: "10px" }}>Selesai Bayar</p></button>
+                                </div>
+                            </Popup>
+                            <PopupCopy trigger={popupovo}>
+                                <div>
+                                    <img style={{ display: "flex", marginLeft: "270px", cursor: "pointer" }} src={silang} onClick={() => { setPopupOvo(false) }}></img>
+                                    <p style={{ display: "flex", textAlign: "center", justifyContent: "center" }}>silahkan cek notifikasi ovo anda</p>
+                                </div>
+                            </PopupCopy>
+                            <Popup
+                                trigger={errorPopup}>
+                                <div onClick={() => {
+                                    setErrorPopup(false)
+                                }}><p style={{ marginLeft: "330px", marginBottom: "10px", cursor: "pointer" }}>X</p>
+                                    <div style={{ marginLeft: "100px", marginBottom: "20px" }}>{Message}</div>
                                 </div>
                             </Popup>
                             {/* </div> */}

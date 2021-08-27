@@ -22,7 +22,7 @@ const EditProfile = ({ formSubmit }) => {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [message, setMessage] = useState("")
     const [data, setValues] = useState({
-        nama: "",
+        name: "",
         username: "",
         bio: "",
         email: "",
@@ -71,7 +71,7 @@ const EditProfile = ({ formSubmit }) => {
                         setValues({
                             ...data,
                             email: result.data.data.email,
-                            nama: result.data.data.name,
+                            name: result.data.data.name,
                             username: result.data.data.username,
                             bio: result.data.data.bio,
                             profilePicture: result.data.data.profilePicture
@@ -93,18 +93,22 @@ const EditProfile = ({ formSubmit }) => {
         // submit
         if (dataIsCorrect) {
             const token = localStorage.getItem("token");
+
             const formData = new FormData();
             for (var key in data) {
+                console.log(key)
                 if (key === "profilePicture") {
                     if (isUploaded) {
                         formData.append(key, image);
                     }
-                } else if (key !== "email") {
+                } else if (key != "email" && key != "username") {
                     formData.append(key, data[key]);
                 }
             }
             // if (token) {
             const user = jwt(token);
+            // for (var pair of formData.entries()) { console.log(pair[0] + ', ' + pair[1]); }
+            // console.log(formData)
             axios
                 .put("https://paygua.com/api/user/" + user.id, formData, {
                     headers: {
@@ -122,11 +126,8 @@ const EditProfile = ({ formSubmit }) => {
 
                             } else {
                                 setButtonPopup(true);
-                                // setTimeout(() => {
-                                //     setButtonPopup(false)
-                                // }, 1000)
                                 setMessage(result.data.errors.errorMessage)
-                                // formSubmit()
+
                             }
 
                         }
@@ -175,8 +176,8 @@ const EditProfile = ({ formSubmit }) => {
                     class={styles["form-control"]}
                     id="floatingNama"
                     placeholder="Nama"
-                    name="nama"
-                    value={data.nama}
+                    name="name"
+                    value={data.name}
                     onChange={handleChange}
                 ></input>
                 <div class={styles["inputContainer"]}>
@@ -186,6 +187,7 @@ const EditProfile = ({ formSubmit }) => {
                     <input
                         type="text"
                         name="username"
+                        disabled
                         class={styles["username"]}
                         placeholder="Username"
                         id="=floatingUsername"

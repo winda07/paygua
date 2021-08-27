@@ -169,14 +169,14 @@ const BuatTagihan = () => {
             </div>
             <Popup
                 trigger={buttonPopup}>
-                <div>
-                    <img style={{ marginLeft: "310px", cursor: "pointer" }} onClick={() => { setButtonPopup(false) }} src={silang}></img>
-                    <img className={styles.popup} src={logo}></img>
-                    <p className={styles.text}>Tagihan Berhasil Dibuat</p>
+
+                <img style={{ marginLeft: "310px", cursor: "pointer" }} onClick={() => { setButtonPopup(false) }} src={silang}></img>
+                <div style={{ textAlign: "center", justifyContent: "center" }}>
+                    <img src={logo}></img>
+                    <br></br>
+                    <p >Tagihan Berhasil Dibuat</p>
                     <button className={styles["a"]} onClick={setcopy}>
-                        <div>
-                            <p className={styles.link}>Paygua.com/{user.username}/{data.invoiceId} <img src={copy}></img></p>
-                        </div>
+                        <p className={styles.link}>Paygua.com/{user.username}/{data.invoiceId} <img src={copy}></img></p>
                     </button>
                     <PopupCopy trigger={buttoncopy}>
                         <p style={{ marginLeft: "40px" }}>Berhasil disalin ke Clipboard!</p>
