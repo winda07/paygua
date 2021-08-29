@@ -22,7 +22,6 @@ const Login = ({ submitForm }) => {
     email: "",
     password: "",
   });
-
   useEffect(() => {
     if (Object.keys(errors).length === 0 && dataIsCorrect) {
       setButtonLoading(true)
@@ -60,7 +59,7 @@ const Login = ({ submitForm }) => {
                   // setTimeout(() => {
                   setButtonLoading(false)
                   history.push("/dashboard")
-                  // }, 3000)
+                  // }, 100000)
                 }
                 // submitForm();
 

@@ -72,16 +72,22 @@ const Dashboard = () => {
   }
   console.log(value.name)
   const setPush = () => {
+    const payload = {
+      name: value.name,
+      qr: value.qr
+    }
+
     history.push({
       pathname: "/Qr",
-      state: {
-        name: value.name,
-        qr: value.qr
-      }
+      state:
+        payload
     })
+    // history.push("/Qr", payload);
     console.log(value.name)
     console.log(value.qr)
+    console.log(payload)
   }
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -129,7 +135,9 @@ const Dashboard = () => {
               <figcaption style={{ fontSize: "9px", color: "white" }}>Tagih</figcaption>
             </div>
             <div style={{ width: "38px", height: "38px", borderRadius: "100%", backgroundColor: "white", cursor: "pointer" }}>
+              {/* <Link to="/Qr">  */}
               <img onClick={setPush} style={{ marginTop: "10px" }} src={qrstatis}></img>
+              {/* </Link> */}
               <figcaption style={{ fontSize: "9px", color: "white", marginTop: "10px" }}>Show QR</figcaption>
             </div>
             <div style={{ cursor: "pointer" }}>

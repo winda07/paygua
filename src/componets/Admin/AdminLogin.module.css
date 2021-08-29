@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500;0,700;1,400&display=swap");
+* {
+  font-family: "DM Sans";
+}
+.form-signin {
+  background-color: white;
+  height: 281px;
+  width: 343px;
+  padding: 15px;
+  margin: 0px auto;
+  position: relative;
+}

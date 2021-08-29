@@ -35,6 +35,7 @@ const DetailTagihan = () => {
             invoiceId: location.state.invoiceId,
             isExpired: location.state.isExpired
         })
+        console.log(location)
     }, [])
     useEffect(() => {
         console.log("isClicked: ", isClicked)

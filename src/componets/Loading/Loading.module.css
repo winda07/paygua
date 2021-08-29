@@ -12,3 +12,18 @@
   z-index: 1000;
   position: absolute;
 }
+@media only screen and (max-width: 320px) {
+  .loader {
+    left: 35%;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .loader {
+    left: 38%;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .loader {
+    left: 39%;
+  }
+}

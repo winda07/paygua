@@ -31,6 +31,8 @@ import RegisterCheck from "./componets/Register/RegisterCheck"
 import SuksesPembayaran from "./componets/SuksesPembayaran/SuksesPembayaran"
 import KirimDana from "./componets/KirimDana/KirimDana";
 import QrStatis from "./componets/QrStatis/QrStatis";
+import LandingPage from "./componets/LandingPage/LandingPage";
+import AdminLogin from "./componets/Admin/AdminLogin";
 import { Route, Switch, useHistory } from 'react-router-dom';
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router";
@@ -92,7 +94,9 @@ const App = () => {
         <Route path="/registerCheck" component={RegisterCheck}></Route>
         <Route path="/404error" component={UserNotFound}></Route>
         <Route path="/kirimDana" component={KirimDana}></Route>
-        <Route path="/Qr" component={QrStatis}></Route>
+        <Route exact path="/Qr" component={QrStatis}></Route>
+        <Route path="/landingPage" component={LandingPage}></Route>
+        <Route path="/AdminLogin" component={AdminLogin}></Route>
         <Route exact path="/:username">
           <DummyCmp type="type1" />
         </Route>
