@@ -7,9 +7,14 @@ import validation from './validation'
 import axios from 'axios';
 import jwt from "jwt-decode"
 import CurrencyFormat from "react-currency-format";
+import Popup from "../PopupSuksesBuatTagihan/PopupSuksesTagihan"
+import animation from "../../img/animation3.svg"
+import Loading from "../Loading/Loading";
 
 const Pencairan = () => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const [loadingPopup, setButtonLoading] = useState(false);
     const [errors, setErros] = useState({});
     const history = useHistory();
 
@@ -46,6 +51,7 @@ const Pencairan = () => {
         setErros(validation(data));
         setDataIsCorrect(true)
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
+            setButtonLoading(true)
             const token = localStorage.getItem('token');
             console.log(token)
             if (token) {
@@ -65,9 +71,15 @@ const Pencairan = () => {
                     .then((result) => {
                         if (result) {
                             if (result.data.status === 200) {
-                                history.push('/successPencairan')
+                                // history.push('/successPencairan')
+                                setButtonPopup(true);
+                                setTimeout(() => {
+                                    setButtonPopup(false)
+                                }, 3000)
+                                setButtonLoading(false)
                             } else {
                                 history.push('/login')
+                                setButtonLoading(false)
                             }
                         }
                         console.log(result.data);
@@ -138,6 +150,17 @@ const Pencairan = () => {
                     <p className={styles.text2} >Ajukan</p>
                 </div>
             </div>
+            <Popup
+                trigger={buttonPopup}>
+
+                <img style={{ marginLeft: "310px", cursor: "pointer" }} onClick={() => { setButtonPopup(false) }} src={silang}></img>
+                <div style={{ textAlign: "center", justifyContent: "center" }}>
+                    <img src={animation}></img>
+                    <br></br>
+                    <p style={{ display: "flex", textAlign: "center", justifyContent: "center" }}>Pencairan telah diajukan dan akan diproses dalam 2x24jam</p>
+                </div>
+            </Popup>
+            <Loading trigger={loadingPopup}></Loading>
         </div>
     )
 }

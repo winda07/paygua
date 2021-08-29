@@ -8,7 +8,7 @@ import io from "socket.io-client"
 import { ToastContainer, toast, Slide } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import red from "../../img/reddd.svg"
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import menu from "../../img/menu.svg"
 import merah from "../../img/merahNotif.svg"
 import home from "../../img/home.svg"
@@ -19,9 +19,18 @@ import Logout from "../../img/Logout.svg"
 import Popup from "../PopupCopy/PopupCopy"
 import copy from "../../img/copy.svg"
 import jwt from "jwt-decode"
+import addHome2 from "../../img/addHome2.svg"
+import PopupHome from "../PopupHome/PopupHome"
+import tagih from "../../img/tagih.svg"
+import qrstatis from "../../img/qrcode.svg"
+import kirim from "../../img/kirim.svg"
+import axios from "axios"
 toast.configure()
 const Dashboard = () => {
   const token = localStorage.getItem("token");
+  const history = useHistory()
+  const location = useLocation()
+  const [HomePopup, setHome] = useState(false)
   const user = jwt(token)
   const [buttonPopup, setButtonPopup] = useState(false);
   const userId = localStorage.getItem("userId")
@@ -46,7 +55,9 @@ const Dashboard = () => {
     })
   });
   const [value, setValues] = useState({
-    total: ""
+    total: "",
+    name: "",
+    qr: ""
   })
   console.log(value.total)
   const setcopy = () => {
@@ -56,6 +67,43 @@ const Dashboard = () => {
     }, 1000)
     navigator.clipboard.writeText(`paygua.com/${user.username}`)
   }
+  const plusHandleClick = () => {
+    setHome(!HomePopup)
+  }
+  console.log(value.name)
+  const setPush = () => {
+    history.push({
+      pathname: "/Qr",
+      state: {
+        name: value.name,
+        qr: value.qr
+      }
+    })
+    console.log(value.name)
+    console.log(value.qr)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      axios.get("https://paygua.com/api/user/profile", {
+        headers: {
+          Authorization: token,
+        }
+      })
+        .then((result) => {
+          if (result.data.status === 200) {
+            setValues({
+              name: result.data.data.name,
+              qr: result.data.data.qr
+            })
+          }
+          console.log(result.data.data.name)
+        })
+
+    }
+  }, []);
+
   return (
     <div className={styles.App}>
       <div className={styles["form-signin"]}>
@@ -74,6 +122,23 @@ const Dashboard = () => {
         </div>
         <GetTotalInvoice></GetTotalInvoice>
         <br></br>
+        <PopupHome trigger={HomePopup}>
+          <div style={{ display: "flex", textAlign: "center", justifyContent: "space-evenly" }}>
+            <div style={{ cursor: "pointer" }}>
+              <Link to="/buatTagihan"><img src={tagih}></img></Link>
+              <figcaption style={{ fontSize: "9px", color: "white" }}>Tagih</figcaption>
+            </div>
+            <div style={{ width: "38px", height: "38px", borderRadius: "100%", backgroundColor: "white", cursor: "pointer" }}>
+              <Link to="/Qr"> <img onClick={setPush} style={{ marginTop: "10px" }} src={qrstatis}></img></Link>
+              <figcaption style={{ fontSize: "9px", color: "white", marginTop: "10px" }}>Show QR</figcaption>
+            </div>
+            <div style={{ cursor: "pointer" }}>
+              <Link to="/kirimDana"><img src={kirim}></img></Link>
+              <figcaption style={{ fontSize: "9px", color: "white" }}>Kirim</figcaption>
+            </div>
+
+          </div>
+        </PopupHome>
         <footer className={styles.footer}>
           <div style={{ display: "flex", textAlign: "center", justifyContent: "center" }}>
             <div className={styles.divfooter1}>
@@ -82,7 +147,11 @@ const Dashboard = () => {
               {/* <p className={styles.beranda}>Beranda</p> */}
             </div>
             <div className={styles.divfooter2}>
-              <Link to='/buatTagihan'><img className={styles.addHome} src={addHome}></img></Link>
+              {/* <img className={styles.addHome} src={addHome}></img> */}
+              {HomePopup ?
+                <img className={styles.addHome} src={addHome2} onClick={plusHandleClick}></img> :
+                <img className={styles.addHome} src={addHome} onClick={plusHandleClick}></img>
+              }
             </div>
             <div className={styles.divfooter3}>
               <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>

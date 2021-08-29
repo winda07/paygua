@@ -19,8 +19,18 @@ const GetProfile = () => {
         bio: "",
         username: "",
         profilePicture: "",
-        name: ""
+        name: "",
+        qr: ""
     })
+    const setPush = () => {
+        history.push({
+            pathname: '/Qr',
+            state: {
+                name: data.name,
+                qr: data.qr
+            }
+        });
+    }
     const setcopy = () => {
         setButtonPopup(true)
         setTimeout(() => {
@@ -45,12 +55,20 @@ const GetProfile = () => {
             })
                 .then((result) => {
                     if (result.data.status === 200) {
+                        history.push({
+                            pathname: "/dashboard",
+                            state: {
+                                name: result.data.data.name,
+                                qr: result.data.data.qr
+                            }
+                        })
                         setValues({
                             ...data,
                             bio: result.data.data.bio,
                             name: result.data.data.name,
                             username: result.data.data.username,
-                            profilePicture: result.data.data.profilePicture
+                            profilePicture: result.data.data.profilePicture,
+                            qr: result.data.data.qr
                         })
                     }
                     else {

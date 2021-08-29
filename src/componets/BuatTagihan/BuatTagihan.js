@@ -10,7 +10,8 @@ import CurrencyFormat from "react-currency-format";
 import logo from "../../img/popup-tagihan.svg"
 import copy from "../../img/copyblack.svg"
 import PopupCopy from "../PopupCopy2/PopupCopy2";
-
+import animation from "../../img/animation2.svg"
+import Loading from "../Loading/Loading";
 const BuatTagihan = () => {
     const history = useHistory()
     const [isRevealPwd, setIsRevealPwd] = useState(false);
@@ -19,6 +20,7 @@ const BuatTagihan = () => {
     const [errors, setErros] = useState({});
     const [buttonPopup, setButtonPopup] = useState(false);
     const [buttoncopy, setButtonCopy] = useState(false)
+    const [loadingPopup, setButtonLoading] = useState(false);
     const token = localStorage.getItem("token");
     const user = jwt(token);
     const [data, setValues] = useState({
@@ -57,7 +59,7 @@ const BuatTagihan = () => {
         console.log("handleFormSubmit isDataCorrect: ", dataIsCorrect)
 
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
-
+            setButtonLoading(true)
             if (token) {
 
                 // console.log(user)
@@ -80,6 +82,7 @@ const BuatTagihan = () => {
                         if (result) {
                             if (result.data.status === 200) {
                                 setButtonPopup(true);
+                                setButtonLoading(false)
                                 setValues({
                                     ...data,
                                     invoiceId: result.data.data.invoiceId
@@ -87,6 +90,7 @@ const BuatTagihan = () => {
                                 // setButtonPopup(false)
                             } else {
                                 history.push('login')
+                                setButtonLoading(false)
                             }
                         }
                         console.log(result.data);
@@ -172,7 +176,7 @@ const BuatTagihan = () => {
 
                 <img style={{ marginLeft: "310px", cursor: "pointer" }} onClick={() => { setButtonPopup(false) }} src={silang}></img>
                 <div style={{ textAlign: "center", justifyContent: "center" }}>
-                    <img src={logo}></img>
+                    <img src={animation}></img>
                     <br></br>
                     <p >Tagihan Berhasil Dibuat</p>
                     <button className={styles["a"]} onClick={setcopy}>
@@ -183,6 +187,7 @@ const BuatTagihan = () => {
                     </PopupCopy>
                 </div>
             </Popup>
+            <Loading trigger={loadingPopup}></Loading>
         </div>
     );
 };

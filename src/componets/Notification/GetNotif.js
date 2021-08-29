@@ -7,6 +7,7 @@ import styles from "./Notification.module.css"
 import axios from "axios"
 import red from "../../img/reddd.svg"
 import { Link, useHistory } from "react-router-dom";
+import animation from "../../img/animation5.svg"
 
 const GetNotif = () => {
     const history = useHistory()
@@ -69,7 +70,10 @@ const GetNotif = () => {
 
     return (
         < div >
-            {
+            {data.notif.length === 0 ? <div className={styles.animation1} style={{ marginLeft: "70px", marginTop: "70px" }}>
+                <img className={styles.animation2} style={{ width: "246px", height: "246px" }} src={animation}></img>
+                <figcaption className={styles.animation3} style={{ fontSize: "20px", color: "black" }}>Belum ada tagihan, bos..</figcaption>
+                <button style={{ width: "115px", height: "36px", border: "1px solid #21242B", borderRadius: "100px", background: "transparent", marginTop: "20px", marginLeft: "50px", cursor: "pointer" }} onClick={() => { window.location.reload() }}>Refresh</button></div> :
                 data.notif.map(ntif => (
                     <div className={styles.a}>
                         <p></p>

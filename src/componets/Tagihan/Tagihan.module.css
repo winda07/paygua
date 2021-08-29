@@ -111,6 +111,12 @@ h6 {
     height: 20px;
     padding: 0.1em 0.9em;
   }
+  .animation2 {
+    margin-left: -30px;
+  }
+  .animation3 {
+    margin-left: -30px;
+  }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px) {
   .form-signin {
@@ -135,6 +141,12 @@ h6 {
     height: 20px;
     padding: 0.1em 0.9em;
   }
+  .animation2 {
+    margin-left: 0px;
+  }
+  .animation3 {
+    margin-left: 0px;
+  }
 }
 @media only screen and (min-width: 376px) and (max-width: 425px) {
   .form-signin {
@@ -153,5 +165,11 @@ h6 {
   }
   .time {
     margin-left: 90px;
+  }
+  .animation2 {
+    margin-left: 0px;
+  }
+  .animation3 {
+    margin-left: 0px;
   }
 }
