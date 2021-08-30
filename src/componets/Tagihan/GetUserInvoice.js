@@ -60,7 +60,6 @@ const GetUserInvoice = () => {
                         }
 
                     }
-                    // console.log(result.data)
 
                 })
             console.log(data.tagihan.length)
@@ -79,7 +78,6 @@ const GetUserInvoice = () => {
                         <Link style={{ textDecoration: 'none' }} to="/buattagihan"><p className={styles.button}>Buat</p></Link>
                     </div>
                     <br></br>
-                    {/* {data.tagihan===""? } */}
                     {data.tagihan.length === 0 ? <div className={styles.animation1} style={{ marginLeft: "70px", marginTop: "70px" }}>
                         <img className={styles.animation2} style={{ width: "246px", height: "246px" }} src={animation}></img>
                         <figcaption className={styles.animation3} style={{ fontSize: "20px", color: "black" }}>Belum ada tagihan, bos..</figcaption>
@@ -112,14 +110,6 @@ const GetUserInvoice = () => {
                                 </div>
                             </div>
                         ))}
-
-                    {/* <GetUserInvoice></GetUserInvoice>
-                     */}
-                    {/* <h6>&emsp;Belum dibayar</h6>
-                    <h4>&emsp;Irfan Aziz <br></br>&emsp;Rp.100.000</h4> */}
-                    {/* <Link className={styles['arrow']} to="/detailtagihan"><img src={arrow2}></img> </Link>
-                        <Link to="share"><p style={{ color: "black" }} className={styles['share']}></p></Link>
-                        <img className={styles['time']} src={time}></img> */}
                 </div>
                 <PopupCopy trigger={buttoncopy}>
                     <p style={{ marginLeft: "40px" }}>Berhasil disalin ke Clipboard!</p>

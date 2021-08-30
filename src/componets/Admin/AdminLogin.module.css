@@ -2,11 +2,58 @@
 * {
   font-family: "DM Sans";
 }
+.App {
+  align-items: center;
+  background-color: #dcdcdc;
+}
+html,
+body,
+:root,
+.App {
+  height: 100%;
+  overflow: auto;
+  background-color: #dcdcdc;
+}
 .form-signin {
   background-color: white;
   height: 281px;
   width: 343px;
   padding: 15px;
-  margin: 0px auto;
+  margin: 250px auto;
   position: relative;
+}
+.form-control {
+  width: 282px;
+  height: 38px;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 15px;
+  background-color: #f5f5f5;
+}
+.img {
+  position: absolute;
+  cursor: pointer;
+  width: 20px;
+  margin-top: 10px;
+  right: 60px;
+}
+.btnSubmit {
+  width: 282px;
+  height: 38px;
+  border-radius: 15px;
+  margin-left: 30px;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: black;
+  margin-top: 30px;
+}
+.text {
+  margin-top: 10px;
+  color: white;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }

@@ -33,6 +33,7 @@ import KirimDana from "./componets/KirimDana/KirimDana";
 import QrStatis from "./componets/QrStatis/QrStatis";
 import LandingPage from "./componets/LandingPage/LandingPage";
 import AdminLogin from "./componets/Admin/AdminLogin";
+import AdminHome from "./componets/AdminHome/AdminHome";
 import { Route, Switch, useHistory } from 'react-router-dom';
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router";
@@ -97,6 +98,7 @@ const App = () => {
         <Route exact path="/Qr" component={QrStatis}></Route>
         <Route path="/landingPage" component={LandingPage}></Route>
         <Route path="/AdminLogin" component={AdminLogin}></Route>
+        <Route path="/AdminHome" component={AdminHome}></Route>
         <Route exact path="/:username">
           <DummyCmp type="type1" />
         </Route>

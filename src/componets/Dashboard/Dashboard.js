@@ -135,9 +135,7 @@ const Dashboard = () => {
               <figcaption style={{ fontSize: "9px", color: "white" }}>Tagih</figcaption>
             </div>
             <div style={{ width: "38px", height: "38px", borderRadius: "100%", backgroundColor: "white", cursor: "pointer" }}>
-              {/* <Link to="/Qr">  */}
               <img onClick={setPush} style={{ marginTop: "10px" }} src={qrstatis}></img>
-              {/* </Link> */}
               <figcaption style={{ fontSize: "9px", color: "white", marginTop: "10px" }}>Show QR</figcaption>
             </div>
             <div style={{ cursor: "pointer" }}>
@@ -152,10 +150,8 @@ const Dashboard = () => {
             <div className={styles.divfooter1}>
               <img className={styles.home} src={home}></img>
               <figcaption className={styles.beranda}>Beranda</figcaption>
-              {/* <p className={styles.beranda}>Beranda</p> */}
             </div>
             <div className={styles.divfooter2}>
-              {/* <img className={styles.addHome} src={addHome}></img> */}
               {HomePopup ?
                 <img className={styles.addHome} src={addHome2} onClick={plusHandleClick}></img> :
                 <img className={styles.addHome} src={addHome} onClick={plusHandleClick}></img>
@@ -164,43 +160,13 @@ const Dashboard = () => {
             <div className={styles.divfooter3}>
               <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
               <figcaption className={styles.notifikasi}>Notifikasi</figcaption>
-              {/* <p className={styles.notifikasi}>Notifikasi</p> */}
             </div>
           </div>
 
           <Popup
             trigger={buttonPopup}>
           </Popup>
-          {/* <div style={{ float: "left" }}>
-            <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
-            <p className={styles.settings}>Pengaturan</p>
-          </div>
-          <div style={{ float: "left" }}>
-            <Link to="/login"><img className={styles.logout} src={Logout}></img></Link>
-            <p className={styles.log}>Logout</p>
-          </div> */}
         </footer>
-        {/* <section className={styles.footer}>
-          <div>
-            <img className={styles.home} src={home}></img>
-            <p className={styles.beranda}>Beranda</p>
-          </div>
-          <div>
-            <Link to="/notification"><img className={styles.notif} src={notification}></img></Link>
-            <p className={styles.notifikasi}>Notifikasi</p>
-          </div>
-          <Link to='/buatTagihan'><img className={styles.addHome} src={addHome}></img></Link>
-
-          <div>
-            <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
-            <p className={styles.settings}>Pengaturan</p>
-          </div>
-          <div>
-            <Link to="/login"><img className={styles.logout} src={Logout}></img></Link>
-            <p className={styles.log}>Logout</p>
-          </div>
-
-        </section> */}
       </div>
     </div>
 
