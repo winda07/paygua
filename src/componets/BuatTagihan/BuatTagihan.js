@@ -102,7 +102,7 @@ const BuatTagihan = () => {
                         {
                             name: data.name,
                             email: data.email,
-                            nominal: data.nominal.replace(".", ""),
+                            nominal: data.nominal.replace(/\./g, ''),
                             message: data.message,
                         },
                         {
@@ -111,6 +111,7 @@ const BuatTagihan = () => {
                             },
                         }
                     )
+
                     .then((result) => {
                         if (result) {
                             if (result.data.status === 200) {
@@ -136,7 +137,7 @@ const BuatTagihan = () => {
                                                 history.push('/login')
                                             }
 
-
+                                            console.log(data.nominal)
                                         }
                                     })
                                 axios.get("https://paygua.com/api/invoice/getMyInvoice", {
@@ -158,6 +159,7 @@ const BuatTagihan = () => {
 
                                     })
                                 console.log(data.tagihan.length)
+                                console.log(data.nominal)
 
                             } else {
                                 history.push('login')
