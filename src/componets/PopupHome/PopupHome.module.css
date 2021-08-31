@@ -9,6 +9,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  /* height: 100px auto; */
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.1);
   display: flex;
@@ -20,9 +21,12 @@
   width: 100%;
   max-width: 318px;
   padding: 15px;
-  margin: 180px auto;
+  /* margin: 180px auto; */
   border-radius: 16px;
-  margin-top: 770px;
+  bottom: 0;
+  position: fixed;
+  margin-bottom: 80px;
+  /* margin-top: 770px; */
 }
 @media only screen and (max-width: 320px) {
   .form-signin {

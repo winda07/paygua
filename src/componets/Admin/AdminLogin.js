@@ -49,7 +49,7 @@ const AdminLogin = () => {
                                 localStorage.setItem('tokenAdmin', tokenAdmin);
                                 console.log(tokenAdmin)
                                 setButtonLoading(false)
-                                history.push("/AdminHome")
+                                history.replace("/AdminHome")
                             }
                         }
                         console.log(result.data.status)

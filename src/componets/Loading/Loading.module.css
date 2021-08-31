@@ -7,23 +7,28 @@
   background-color: #f8f8f8ad;
 }
 .loader {
-  left: 46%;
-  top: 30%;
-  z-index: 1000;
-  position: absolute;
+  display: block;
+  margin: auto;
+  margin-top: 25%;
 }
 @media only screen and (max-width: 320px) {
   .loader {
-    left: 35%;
+    display: block;
+    margin: auto;
+    margin-top: 50%;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px) {
   .loader {
-    left: 38%;
+    display: block;
+    margin: auto;
+    margin-top: 50%;
   }
 }
 @media only screen and (min-width: 376px) and (max-width: 425px) {
   .loader {
-    left: 39%;
+    display: block;
+    margin: auto;
+    margin-top: 50%;
   }
 }

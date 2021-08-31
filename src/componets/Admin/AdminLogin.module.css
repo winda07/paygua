@@ -4,18 +4,18 @@
 }
 .App {
   align-items: center;
-  background-color: #dcdcdc;
+  background-color: white;
 }
-html,
+/* html,
 body,
 :root,
 .App {
   height: 100%;
   overflow: auto;
   background-color: #dcdcdc;
-}
+} */
 .form-signin {
-  background-color: white;
+  background-color: #dcdcdc;
   height: 281px;
   width: 343px;
   padding: 15px;

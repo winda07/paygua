@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./TentangKami.module.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import logo from "../../img/logo.svg";
 import latar from "../../img/latarr.webp";
 import kredit from "../../img/kartukredit.svg"
@@ -24,26 +24,58 @@ import retail from "../../img/Retail.svg"
 import kreator from "../../img/Kreator.svg"
 import group from "../../img/Group 211.svg"
 import blue from "../../img/blue.svg"
-
+import axios from "axios"
 
 
 const TentangKami = () => {
+    const [data, setValues] = useState({
+        name: "",
+    })
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            axios.get("https://paygua.com/api/user/profile", {
+                headers: {
+                    Authorization: token,
+                }
+            })
+                .then((result) => {
+                    if (result.data.status === 200) {
+                        setValues({
+                            ...data,
+                            name: result.data.data.name,
+                        })
+                    }
+
+                    console.log(result)
+                })
+
+        }
+    }, []);
     const scrollToTop = () => {
         document.querySelector("body").scrollTo({ top: 0, behavior: "smooth" })
         // window.scrollTo({ top: 0, behavior: "smooth" });
         console.log("test")
     }
     // console.log(scrollToTop)
+    const token = localStorage.getItem("token");
+    console.log(token)
     return (
-
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
                 <div className={styles.atas}>
                     <img className={styles.logo} src={logo} alt="logo" />
                     <button className={styles.buttonLogin}>
-                        <Link className={styles.textlogin} style={{ textDecoration: "none" }} to="/login">
-                            Masuk
-                        </Link>
+                        {
+                            token ?
+                                <Link className={styles.textlogin} style={{ textDecoration: "none" }} to="/dashboard">
+                                    Hi, {data.name}
+                                </Link>
+                                :
+                                <Link className={styles.textlogin} style={{ textDecoration: "none" }} to="/login">
+                                    Masuk
+                                </Link>
+                        }
                     </button>
                 </div>
                 <div className={styles.TentangKami}>
@@ -159,7 +191,7 @@ const TentangKami = () => {
                             <br></br>
                             <b style={{ fontSize: "13px", color: "white", marginLeft: "12px", cursor: "pointer" }} onClick={scrollToTop}>Tentang Kami</b>
                             <br></br>
-                            <b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>Syarat dan ketentuan</b>
+                            <Link style={{ textDecoration: "none" }} to="/SyaratdanKetentuan"><b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>Syarat dan ketentuan</b></Link>
                             <br></br>
                             <b style={{ fontSize: "13px", color: "white", marginLeft: "12px" }}>Kontak kami</b>
                         </div>

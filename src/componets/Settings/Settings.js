@@ -7,7 +7,10 @@ import user from "../../img/profile.svg"
 import { Link } from "react-router-dom";
 
 const Settings = () => {
-
+    const removetoken = () => {
+        localStorage.removeItem("token")
+        console.log("test")
+    }
     return (
         <div className={styles.App}>
             <div className={styles['form-signin']}>
@@ -20,7 +23,7 @@ const Settings = () => {
 
                 <Link style={{ textDecoration: "none", color: "#21242B" }} to="/editprofile"> <p>Edit Profile</p></Link>
                 <Link style={{ textDecoration: "none", color: "#21242B" }} to="/gantiPassword"><p>Ganti Password</p></Link>
-                <Link style={{ textDecoration: "none", color: "#E81A55" }} to="/login"><p>Sign Out</p></Link>
+                <Link style={{ textDecoration: "none", color: "#E81A55" }} to="/login"><p onClick={removetoken}>Sign Out</p></Link>
             </div>
         </div>
     )

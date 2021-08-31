@@ -30,6 +30,36 @@ const GetTransaction = () => {
             // console.log(data.getuser)
         }
     }, []);
+    useEffect(() => {
+        var input = document.getElementById("searchEmail2");
+        input.addEventListener("keyup", function (e) {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                document.getElementById("hiddenSubmit").click();
+            }
+        });
+    })
+    const handleSearchSubmit = (e) => {
+        const token = localStorage.getItem("tokenAdmin");
+        e.preventDefault();
+        const value = document.getElementById("searchEmail2").value
+        console.log(value)
+        axios.get("https://paygua.com/api/admin/transaction/" + value, {
+            headers: {
+                Authorization: token,
+            }
+        })
+            .then((result) => {
+                if (result.data.status === 200) {
+                    setValues({
+                        getuserinTransaction: result.data.data.transactions,
+                        totalTransaction: result.data.data.total
+                    })
+                }
+                console.log(result)
+            })
+        console.log("submited", value);
+    }
     return (
 
         <div>
@@ -37,11 +67,13 @@ const GetTransaction = () => {
             <div style={{ marginTop: "100px" }}>
                 <div style={{ display: "flex", justifyContent: "space-around" }}>
                     <b style={{ fontSize: "18px", marginRight: "340px" }}>Total Transaksi : Rp. {data.totalTransaction}</b>
-                    <input style={{ width: "227px", height: "38px", border: "1px solid white", backgroundColor: "#E5E5E5", borderRadius: "15px" }}
+                    <input style={{ width: "227px", height: "38px", border: "1px solid white", backgroundColor: "#E5E5E5", borderRadius: "15px", padding: "12px 20px", boxSizing: "border-box" }}
                         type="text"
                         class={styles["form-control"]}
-                        name="search"
+                        name="searchEmail2"
+                        id="searchEmail2"
                     ></input>
+                    <button onClick={handleSearchSubmit} hidden id="hiddenSubmit" />
                 </div>
                 {
                     data.getuserinTransaction.map(userinTransaction => (

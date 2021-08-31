@@ -30,6 +30,12 @@ const BuatTagihan = () => {
         message: "",
         invoiceId: ""
     });
+    const [data2, setValues2] = useState({
+        notif: [],
+    })
+    const [data3, setValues3] = useState({
+        tagihan: []
+    })
     const setcopy = () => {
         setButtonCopy(true)
         setTimeout(() => {
@@ -44,6 +50,33 @@ const BuatTagihan = () => {
             [e.target.name]: e.target.value,
         });
     };
+    const setRead = (() => {
+
+        const token = localStorage.getItem("token");
+        const array = []
+        for (let i = 0; i < data2.notif.length; i++) {
+            // console.log()
+            if (!data2.notif[i].isSeen) {
+                array.push(data2.notif[i]._id)
+            }
+        }
+        console.log(array)
+        if (token) {
+            axios.post("https://paygua.com/api/user/notification", { notifId: array }, {
+
+                headers: {
+                    Authorization: token,
+                }
+            })
+                .then((result) => {
+                    console.log("set read started")
+                })
+                .catch(e => {
+                    console.log("errror")
+                })
+
+        }
+    })
 
     useEffect(() => {
         console.log("isClicked: ", isClicked)
@@ -87,7 +120,45 @@ const BuatTagihan = () => {
                                     ...data,
                                     invoiceId: result.data.data.invoiceId
                                 })
-                                // setButtonPopup(false)
+                                axios.get("https://paygua.com/api/user/notification", {
+                                    headers: {
+                                        Authorization: token,
+                                    }
+                                })
+                                    .then((result) => {
+                                        if (result.data) {
+                                            if (result.data.status === 200) {
+                                                setValues2({
+                                                    ...data2, notif: result.data.data
+                                                })
+                                                setRead()
+                                            } else {
+                                                history.push('/login')
+                                            }
+
+
+                                        }
+                                    })
+                                axios.get("https://paygua.com/api/invoice/getMyInvoice", {
+                                    headers: {
+                                        Authorization: token,
+                                    }
+                                })
+                                    .then((result) => {
+                                        if (result.data) {
+                                            if (result.data.status === 200) {
+                                                setValues3({
+                                                    ...data3, tagihan: result.data.data
+                                                })
+                                            } else {
+                                                history.push('/login')
+                                            }
+
+                                        }
+
+                                    })
+                                console.log(data.tagihan.length)
+
                             } else {
                                 history.push('login')
                                 setButtonLoading(false)

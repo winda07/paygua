@@ -37,9 +37,6 @@ import PopupGopay from "../PopupGopay/PopupGopay"
 import gopayinQr from "../../img/gopayinQR.svg"
 import PopupCopy from "../PopupCopy2/PopupCopy2";
 import silang from "../../img/ion.svg"
-// import PopupLogin from "../PopupLogin/PopupLogin";
-
-
 
 const DummyCmp = (props) => {
     const masukkanOVO = "Masukkan nomor OVO"
@@ -164,8 +161,6 @@ const DummyCmp = (props) => {
                     alert("Error")
                 })
         };
-        // submitForm()
-        // }
     }, [errors, dataIsCorrect])
     const handleFormSubmit = (e) => {
         console.log(window.innerWidth)
@@ -185,26 +180,6 @@ const DummyCmp = (props) => {
                 [e.target.name]: e.target.value
             });
         }
-
-        // if (e.target.name === "nominal") {
-        //     var value = e.target.value
-        //     if (value != "0") {
-        //         const number = parseInt(value, 10)
-        //         setValues({
-        //             ...data,
-        //             [e.target.name]: number
-        //         })
-        //     }
-
-        // } else {
-        //     setValues({
-        //         ...data,
-        //         [e.target.name]: e.target.value
-        //     });
-        // }
-
-
-        // var nomor = "+62" + substring(nomor, 1)
 
     };
 
@@ -380,8 +355,6 @@ const DummyCmp = (props) => {
                                     placeholder="Masukkan Nominal"
                                     onValueChange={(values) => {
                                         const { formattedValue, value } = values;
-                                        // formattedValue = $2,223
-                                        // value ie, 2223
                                         setValues({
                                             ...data,
                                             ["nominal"]: formattedValue
@@ -422,7 +395,6 @@ const DummyCmp = (props) => {
                                                 value={data.nomor}
                                                 onChange={handleChange}></input>
                                         </h5>
-
                                     </h5>
 
                                 </div>

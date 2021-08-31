@@ -8,16 +8,16 @@
   align-items: center;
   /* padding-top: 40px;
   padding-bottom: 40px; */
-  background-color: #dcdcdc;
+  background-color: white;
 }
-html,
+/* html,
 body,
 :root,
 .App {
   height: 100%;
-  /* position: fixed; */
+  position: fixed;
   overflow: auto;
-}
+} */
 .logo {
   width: 114px;
   height: 36px;

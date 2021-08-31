@@ -9,6 +9,7 @@ import hidePwdImg from "../../img/hidePassword.svg"
 import jwt from "jwt-decode"
 import Popup from "../PopupLogin/PopupLogin"
 import Loading from "../Loading/Loading"
+import silang from "../../img/ion.svg"
 
 const Login = ({ submitForm }) => {
   const [isRevealPwd, setIsRevealPwd] = useState(false);
@@ -151,8 +152,8 @@ const Login = ({ submitForm }) => {
               trigger={buttonPopup}>
               <div onClick={() => {
                 setButtonPopup(false)
-              }}><p style={{ marginLeft: "330px", marginBottom: "10px", cursor: "pointer" }}>X</p>
-                <div style={{ marginLeft: "100px", marginBottom: "20px" }}>{message}</div>
+              }}><img style={{ marginLeft: "320px", cursor: "pointer" }} src={silang}></img>
+                <div style={{ marginLeft: "80px", marginBottom: "20px" }}>{message}</div>
               </div>
             </Popup>
 

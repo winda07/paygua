@@ -5,18 +5,19 @@
 
 .App {
   align-items: center;
+  background-color: white;
   /* padding-top: 40px;
   padding-bottom: 40px; */
   /* background-color: #dcdcdc; */
 }
-html,
+/* html,
 body,
 :root,
 .App {
   height: 100%;
-  /* position: fixed; */
+  position: fixed;
   overflow: auto;
-}
+} */
 .form-signin {
   background-color: white;
   height: 790px;
@@ -137,8 +138,12 @@ body,
   }
 }
 @media only screen and (min-width: 376px) and (max-width: 425px) {
+  .App {
+    background-color: white;
+  }
   .form-signin {
     position: fixed;
+    background-color: white;
   }
   .logo {
     width: 150px;

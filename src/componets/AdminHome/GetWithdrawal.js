@@ -32,6 +32,35 @@ const GetWithdrawal = () => {
                 })
         }
     }, []);
+    useEffect(() => {
+        var input = document.getElementById("search");
+        input.addEventListener("keyup", function (e) {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                document.getElementById("hiddenSubmit").click();
+            }
+        });
+    })
+    const handleSearchSubmit = (e) => {
+        const token = localStorage.getItem("tokenAdmin");
+        e.preventDefault();
+        const value = document.getElementById("search").value
+        axios.get("https://paygua.com/api/admin/withdraw/" + value, {
+            headers: {
+                Authorization: token,
+            }
+        })
+            .then((result) => {
+                if (result.data.status === 200) {
+                    setValues({
+                        getuserinWithdrawal: result.data.data.withdraws,
+                        totalWithdrawal: result.data.data.total
+                    })
+                }
+                console.log(result)
+            })
+        console.log("submited", value);
+    }
     const handleFinish = (userId) => {
         const token = localStorage.getItem("tokenAdmin");
         axios.post("https://paygua.com/api/admin/finishWithdraw", {
@@ -67,11 +96,13 @@ const GetWithdrawal = () => {
             <div style={{ marginTop: "100px" }}>
                 <div style={{ display: "flex", justifyContent: "space-around" }}>
                     <b style={{ fontSize: "18px", marginRight: "300px" }}>Total Disbursement : Rp. {data.totalWithdrawal}</b>
-                    <input style={{ width: "227px", height: "38px", border: "1px solid white", backgroundColor: "#E5E5E5", borderRadius: "15px" }}
+                    <input style={{ width: "227px", height: "38px", border: "1px solid white", backgroundColor: "#E5E5E5", borderRadius: "15px", padding: "12px 20px", boxSizing: "border-box" }}
                         type="text"
                         class={styles["form-control"]}
                         name="search"
+                        id="search"
                     ></input>
+                    <button onClick={handleSearchSubmit} hidden id="hiddenSubmit" />
                 </div>
                 {
                     data.getuserinWithdrawal.map(userinWithdrawal => (

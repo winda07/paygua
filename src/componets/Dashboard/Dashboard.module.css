@@ -5,6 +5,7 @@
 .App {
   /* height: 737px; */
   align-items: center;
+  background-color: white;
   /* padding-top: 40px;
     padding-bottom: 40px; */
   /* background-color: #dcdcdc; */
@@ -524,10 +525,11 @@
     height: 100%;
   }
   .a {
-    margin-top: 12px;
+    margin-top: 10px;
   }
   .cop {
     margin-left: 160px;
+    margin-bottom: 7px;
   }
   .boxdua {
     width: 350px;

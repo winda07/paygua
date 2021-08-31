@@ -6,7 +6,7 @@ function Loading(props) {
     return (props.trigger) ? (
         <div className={styles.App}>
             <div className={styles.loader}>
-                <img className={styles.popup} src={LoadingGif} alt="logo" />
+                <img className={styles.loader} src={LoadingGif} />
                 {props.children}
             </div>
         </div>

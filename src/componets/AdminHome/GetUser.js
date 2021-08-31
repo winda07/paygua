@@ -4,9 +4,15 @@ import axios from "axios"
 import { Link, Redirect, useHistory } from "react-router-dom";
 import styles from "./AdminHome.module.css";
 import AdminPopupEdit from "../AdminPopupEdit/AdminPopupEdit"
-
+import silang from "../../img/ion.svg"
+import AdminPopupSuccess from "../AdminPopupEdit/AdminPopupSuccess";
+import AdminPopupAfterUpdate from "../AdminPopupEdit/AdminPopupAfterUpdate";
 const GetUser = () => {
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [popupError, setpopupError] = useState(false);
+    const [message, setMessage] = useState("")
+    const [popupAfterUpdate, setpopupAfterUpdate] = useState(false)
+    const [messageAfterUpdate, setmessageAfterUpdate] = useState("")
     const [data, setValues] = useState({
         getuserinAdmin: [],
         totaluser: ""
@@ -14,6 +20,7 @@ const GetUser = () => {
     const [setbalance, getnewbalance] = useState({
         balance: "",
     })
+    const [selectedPopUp, setSelectedPopUp] = useState("");
     useEffect(() => {
         const token = localStorage.getItem("tokenAdmin");
         console.log(token)
@@ -35,14 +42,15 @@ const GetUser = () => {
             // console.log(data.getuser)
         }
     }, []);
-    const handlePopup = (userId) => {
+    const handlePopup = (userId, idx) => {
+        setSelectedPopUp("popUp" + idx);
         getBalance(userId)
-        // setTimeout(() => {
-        //     setButtonPopup(true)
-        // }, 1000);
+        setTimeout(() => {
+            setButtonPopup(true)
+        }, 1000);
     }
     useEffect(() => {
-        var input = document.getElementById("search");
+        var input = document.getElementById("searchEmail");
         input.addEventListener("keyup", function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -53,7 +61,7 @@ const GetUser = () => {
     const handleSearchSubmit = (e) => {
         const token = localStorage.getItem("tokenAdmin");
         e.preventDefault();
-        const value = document.getElementById("search").value
+        const value = document.getElementById("searchEmail").value
         axios.get("https://paygua.com/api/admin/user/" + value, {
             headers: {
                 Authorization: token,
@@ -114,11 +122,15 @@ const GetUser = () => {
                         getnewbalance({
                             balance: result.data.data.balance.replace(/\./g, '')
                         })
-                        setTimeout(() => {
-                            setButtonPopup(true)
-                        }, 1000);
+                        setButtonPopup(true)
                     } catch (error) {
-                        alert(result.data.errors.errorMessage);
+                        setButtonPopup(false)
+                        setpopupError(true)
+                        setTimeout(() => {
+                            setpopupError(false)
+                        }, 1000);
+                        setMessage(result.data.errors.errorMessage)
+                        // alert(result.data.errors.errorMessage);
                     }
                 }
                 console.log(result)
@@ -143,7 +155,18 @@ const GetUser = () => {
         })
             .then((result) => {
                 if (result.data.status === 200) {
-                    alert("success")
+                    // alert("success")
+                    setpopupAfterUpdate(true)
+                    setTimeout(() => {
+                        setpopupAfterUpdate(false)
+                    }, 1000);
+                    setmessageAfterUpdate("Success")
+                } else if (result.data.status === 400) {
+                    setpopupError(true)
+                    setTimeout(() => {
+                        setpopupError(false)
+                    }, 1000);
+                    setMessage(result.data.errors.errorMessage)
                 }
                 console.log(result)
             })
@@ -164,13 +187,16 @@ const GetUser = () => {
             <div style={{ marginTop: "100px" }}>
                 <div style={{ display: "flex", justifyContent: "space-around" }}>
                     <b style={{ fontSize: "18px", marginRight: "280px" }}>Total User : {data.totaluser}</b>
-                    <input style={{ width: "227px", height: "38px", border: "1px solid white", backgroundColor: "#E5E5E5", borderRadius: "15px" }}
-                        type="text"
-                        class={styles["form-control"]}
-                        name="search"
-                        id="search"
-                    ></input>
-                    <button onClick={handleSearchSubmit} hidden id="hiddenSubmit" />
+                    <form autocomplete="off">
+                        <input style={{ width: "227px", height: "38px", border: "1px solid white", backgroundColor: "#E5E5E5", borderRadius: "15px", padding: "12px 20px", boxSizing: "border-box" }}
+                            type="text"
+                            class={styles["form-control"]}
+                            name="searchEmail"
+                            id="searchEmail"
+                            autocomplete="no"
+                        />
+                        <button onClick={handleSearchSubmit} hidden id="hiddenSubmit" />
+                    </form>
                 </div>
                 {
 
@@ -192,35 +218,53 @@ const GetUser = () => {
                                 <div style={{ width: "10%" }}>
                                     <b>Action</b>
                                     <div style={{ display: "flex", justifyContent: "space-between", cursor: "pointer" }}>
-                                        <p onClick={() => handlePopup(userinAdmin._id)} >Edit</p>
+                                        <p onClick={() => handlePopup(userinAdmin._id, idx)} >Edit</p>
                                         {userinAdmin.isBlocked ? <p style={{ color: "red" }}>Block</p> : <p onClick={() => handleBlock(userinAdmin._id)}>Block</p>}
                                     </div>
                                 </div>
-                                <AdminPopupEdit
-                                    trigger={buttonPopup}
-                                >
-                                    <div>
-                                        <div>
-                                            <input type="password"
-                                                class={styles["form-control"]}
-                                                name="password" placeholder="password" id={"password" + idx} />
-                                        </div>
-                                        <div>
-                                            <input type="number"
-                                                class={styles["form-control"]} id={"nominal" + idx}
-                                                name="nominal" value={setbalance.balance} onChange={handleChange}
-                                            />
-                                        </div>
-                                        <button onClick={() => updateUser(userinAdmin._id, idx)}>Edit</button>
-                                        {console.log(userinAdmin._id)}
-                                    </div>
-
-                                </AdminPopupEdit>
                             </div>
+                            <AdminPopupEdit
+                                showPopUp={selectedPopUp}
+                                trigger={buttonPopup}
+                                name={"popUp" + idx}
+                            >
+                                <div >
+                                    <img style={{ marginLeft: "320px", cursor: "pointer" }} onClick={() => { setButtonPopup(false) }} src={silang}></img>
+                                    <div style={{ marginTop: "20px", marginLeft: "30px" }}>
+                                        <input type="password"
+                                            class={styles["form-control"]}
+                                            name="password" placeholder="password" id={"password" + idx} />
+                                    </div>
+                                    <div style={{ marginTop: "20px", marginLeft: "30px" }}>
+                                        <input type="number"
+                                            class={styles["form-control"]} id={"nominal" + idx}
+                                            name="nominal" value={setbalance.balance} onChange={handleChange}
+                                        />
+                                    </div>
+                                    <button className={styles.btnSubmit} onClick={() => updateUser(userinAdmin._id, idx)}>
+                                        <p className={styles.text}> Edit</p>
+                                    </button>
+                                    {/* {console.log(userinAdmin._id)} */}
+                                </div>
+
+                            </AdminPopupEdit>
+
                         </div>
                     ))
                 }
+                <AdminPopupSuccess trigger={popupError}><div onClick={() => {
+                    setpopupError(false)
+                }}><img style={{ marginLeft: "320px", cursor: "pointer" }} src={silang}></img>
+                    <div style={{ marginLeft: "100px", marginBottom: "20px" }}>{message}</div>
+                </div>
 
+                </AdminPopupSuccess>
+                <AdminPopupAfterUpdate trigger={popupAfterUpdate}><div onClick={() => {
+                    setpopupError(false)
+                }}>
+                    <div style={{ textAlign: "center", justifyContent: "center" }}>{messageAfterUpdate}</div>
+                </div>
+                </AdminPopupAfterUpdate>
             </div>
         </div>
     )

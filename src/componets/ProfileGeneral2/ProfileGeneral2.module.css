@@ -7,14 +7,14 @@
   align-items: center;
   background-color: #dcdcdc;
 }
-html,
+/* html,
 body,
 :root,
 .App {
   height: 100%;
-  /* position: fixed; */
+  position: fixed;
   overflow: auto;
-}
+} */
 .form-signin {
   background-color: white;
   width: 100%;
