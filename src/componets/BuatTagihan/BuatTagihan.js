@@ -10,7 +10,7 @@ import CurrencyFormat from "react-currency-format";
 import logo from "../../img/popup-tagihan.svg"
 import copy from "../../img/copyblack.svg"
 import PopupCopy from "../PopupCopy2/PopupCopy2";
-import animation from "../../img/animation2.svg"
+import animation from "../../img/animation2.webp"
 import Loading from "../Loading/Loading";
 const BuatTagihan = () => {
     const history = useHistory()

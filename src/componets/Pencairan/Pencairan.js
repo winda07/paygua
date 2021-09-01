@@ -8,7 +8,7 @@ import axios from 'axios';
 import jwt from "jwt-decode"
 import CurrencyFormat from "react-currency-format";
 import Popup from "../PopupSuksesBuatTagihan/PopupSuksesTagihan"
-import animation from "../../img/animation3.svg"
+import animation from "../../img/animation3.webp"
 import Loading from "../Loading/Loading";
 
 const Pencairan = () => {

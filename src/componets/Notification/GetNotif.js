@@ -7,7 +7,7 @@ import styles from "./Notification.module.css"
 import axios from "axios"
 import red from "../../img/reddd.svg"
 import { Link, useHistory } from "react-router-dom";
-import animation from "../../img/animation5.svg"
+import animation from "../../img/animation5.webp"
 
 const GetNotif = () => {
     const history = useHistory()

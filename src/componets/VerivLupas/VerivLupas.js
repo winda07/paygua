@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./VerivLupas.module.css"
 import lupapw from "../../img/Logo_LupPW.svg"
 import { Link, useLocation } from "react-router-dom";
-import animation from "../../img/animation1.svg"
+import animation from "../../img/animation1.webp"
 const VerivLupas = () => {
     const location = useLocation()
     const [data, setValues] = useState({

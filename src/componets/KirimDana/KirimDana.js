@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./KirimDana.module.css";
 import arrow from "../../img/arrow-left.svg"
 import { Link } from "react-router-dom";
-import animation from "../../img/animation4.svg"
+import animation from "../../img/animation4.webp"
 
 
 const KirimDana = () => {

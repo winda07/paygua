@@ -22,7 +22,7 @@ import logo1 from "../../img/Frame1.svg"
 import menu from "../../img/menu.svg"
 import retail from "../../img/Retail.svg"
 import kreator from "../../img/Kreator.svg"
-import group from "../../img/Group 211.svg"
+import group from "../../img/Group 211.webp"
 import blue from "../../img/blue.svg"
 import axios from "axios"
 

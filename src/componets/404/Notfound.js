@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Notfound.module.css";
 import { Link, useHistory } from "react-router-dom";
 import logo from "../../img/logo.svg"
-import animation from "../../img/animation4.svg"
+import animation from "../../img/animation4.webp"
 
 const Notfound = () => {
     return (

@@ -19,7 +19,7 @@
   width: 100%;
   /* height: 790px; */
   max-width: 350px;
-  padding: 15px;
+  padding: 25px;
   margin-bottom: 390px;
   margin: 0px auto;
 }
@@ -48,7 +48,7 @@
 .top {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 .text {
   font-size: 16px;
@@ -119,7 +119,7 @@
   .form-signin {
     position: fixed;
     height: 100%;
-    padding: 30px;
+    padding: 20px;
   }
   .image {
     width: 300px;

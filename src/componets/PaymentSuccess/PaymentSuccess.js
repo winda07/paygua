@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './PaymentSuccess.module.css'
-import animation from "../../img/animation3.svg"
+import animation from "../../img/animation3.webp"
 
 const PaymentSuccess = () => {
 

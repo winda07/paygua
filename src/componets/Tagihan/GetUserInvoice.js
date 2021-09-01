@@ -9,7 +9,7 @@ import arroww from "../../img/arrow>.svg"
 import time from "../../img/time.svg"
 import { red } from "@material-ui/core/colors";
 import PopupCopy from "../PopupCopy2/PopupCopy2";
-import animation from "../../img/animation5.svg"
+import animation from "../../img/animation5.webp"
 
 
 const GetUserInvoice = () => {

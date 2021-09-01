@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from "./QrStatis.module.css";
 import arrow from "../../img/arrow-left.svg"
 import { Link, useLocation, useHistory } from "react-router-dom";
-import animation from "../../img/animation4.svg"
+import animation from "../../img/animation4.webp"
 import gopayQR from "../../img/gopayQR.svg"
 import ovoQR from "../../img/ovoQR.svg"
 import danaQR from "../../img/danaQR.svg"
