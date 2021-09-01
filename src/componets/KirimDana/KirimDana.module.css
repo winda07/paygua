@@ -36,7 +36,6 @@
 .div1 {
   display: flex;
   text-align: center;
-  /* justify-content: space-evenly; */
 }
 .caption {
   font-size: 16px;
@@ -44,4 +43,45 @@
   display: flex;
   text-align: center;
   justify-content: center;
+}
+@media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+  }
+  .judul {
+    font-size: 24px;
+  }
+  .image {
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+  }
+  .judul {
+    font-size: 24px;
+    margin-left: 10px;
+  }
+  .image {
+    margin-left: 50px;
+  }
+  .caption {
+    margin-left: 40px;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+  }
+  .judul {
+    font-size: 24px;
+    margin-left: 20px;
+  }
+  .image {
+    margin-left: 60px;
+  }
+  .caption {
+    margin-left: 50px;
+  }
 }

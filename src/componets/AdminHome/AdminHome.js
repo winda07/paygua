@@ -40,15 +40,12 @@ const AdminHome = () => {
                         <p className={selectedSidebar == "GetUser" ? styles.selected : null} style={{ marginTop: "30px", cursor: "pointer" }} onClick={() => { handleSidebarChange("GetUser") }}>User</p>
                         <p className={selectedSidebar == "GetTransaction" ? styles.selected : null} style={{ marginTop: "30px", cursor: "pointer" }} onClick={() => { handleSidebarChange("GetTransaction") }}>Daftar Pembayaran</p>
                         <p className={selectedSidebar == "GetWithdrawal" ? styles.selected : null} style={{ marginTop: "30px", cursor: "pointer" }} onClick={() => { handleSidebarChange("GetWithdrawal") }}>Withdrawal</p>
-                        <Link style={{ textDecoration: "none" }} to="/AdminLogin"><p style={{ marginTop: "450px", cursor: "pointer", color: "black" }}>Sign Out</p></Link>
+                        <Link style={{ textDecoration: "none" }} to="/AdminLogin"><p style={{ marginTop: "350px", cursor: "pointer", color: "black" }}>Sign Out</p></Link>
                     </div>
 
                 </div>
                 <div className={styles.kanan}>
                     {showSelected(selectedSidebar)}
-                    {/* <GetUser></GetUser> */}
-                    {/* <GetTransaction></GetTransaction> */}
-                    {/* <GetWithdrawal></GetWithdrawal> */}
                 </div>
 
             </div>

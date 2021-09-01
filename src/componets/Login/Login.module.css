@@ -51,16 +51,13 @@ body,
   margin-left: 180px;
 }
 .btnSubmit {
-  height: 50px;
-  margin-left: 10px;
-  position: relative;
-  appearance: none;
-  padding: 0.1em 11em;
   cursor: pointer;
-  outline: none;
+  width: 343px;
+  height: 46px;
+  border: 1px solid;
+  border-color: white;
+  background-color: #21242b;
   border-radius: 100px;
-  border: 2px solid white;
-  background: #21242b;
   margin-top: 30px;
 }
 .text {
@@ -113,8 +110,8 @@ body,
     margin-left: -25px;
   }
   .btnSubmit {
-    padding: 0.1em 9.5em;
-    margin-left: -5px;
+    width: 290px;
+    height: 55px;
   }
   .text {
     color: white;
@@ -129,8 +126,9 @@ body,
     position: fixed;
   }
   .btnSubmit {
-    padding: 0.1em 11em;
-    margin-left: 5px;
+    margin-left: 10px;
+    width: 330px;
+    height: 55px;
   }
   .text {
     color: white;
@@ -168,8 +166,9 @@ body,
     margin-left: 40px;
   }
   .btnSubmit {
-    padding: 0.1em 14em;
-    margin-left: 27px;
+    margin-left: 25px;
+    width: 350px;
+    height: 55px;
   }
   .text {
     color: white;

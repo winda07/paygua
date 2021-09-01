@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500;0,700;1,400&display=swap");
+* {
+  font-family: "DM Sans";
+}
+
+.App {
+  align-items: center;
+  background-color: white;
+}
+.form-signin {
+  background-color: white;
+  width: 100%;
+  height: 900px;
+  max-width: 250px;
+  padding: 15px;
+  margin: 150px auto;
+}

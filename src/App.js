@@ -35,6 +35,7 @@ import LandingPage from "./componets/LandingPage/LandingPage";
 import AdminLogin from "./componets/Admin/AdminLogin";
 import AdminHome from "./componets/AdminHome/AdminHome";
 import SyaratdanKetentuan from "./componets/SyaratdanKetentuan/SyaratdanKetentuan";
+import PaymentSuccess from "./componets/PaymentSuccess/PaymentSuccess"
 import { Route, Switch, useHistory } from 'react-router-dom';
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router";
@@ -65,7 +66,8 @@ const App = () => {
       <Switch>
 
         {/* {isMobileDevice && <Route exact path="/" component={TentangKami} />} */}
-        <Route exact path="/" component={TentangKami} />
+        <Route exact path="/" component={LandingPage}></Route>
+        <Route path="/TentangKami" component={TentangKami} />
         <Route path="/login" component={Login}></Route>
         <Route path="/register" component={Form} />
         <Route path="/verifLupaPassword" component={VerivLupas}></Route>
@@ -97,10 +99,10 @@ const App = () => {
         <Route path="/404error" component={UserNotFound}></Route>
         <Route path="/kirimDana" component={KirimDana}></Route>
         <Route exact path="/Qr" component={QrStatis}></Route>
-        <Route path="/landingPage" component={LandingPage}></Route>
         <Route path="/AdminLogin" component={AdminLogin}></Route>
         <Route path="/AdminHome" component={AdminHome}></Route>
         <Route path="/SyaratdanKetentuan" component={SyaratdanKetentuan}></Route>
+        <Route path="/paymentSuccess" component={PaymentSuccess}></Route>
         <Route exact path="/:username">
           <DummyCmp type="type1" />
         </Route>

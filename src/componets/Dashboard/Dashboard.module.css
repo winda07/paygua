@@ -3,20 +3,14 @@
   font-family: "DM Sans";
 }
 .App {
-  /* height: 737px; */
   align-items: center;
   background-color: white;
-  /* padding-top: 40px;
-    padding-bottom: 40px; */
-  /* background-color: #dcdcdc; */
 }
 .form-signin {
-  /* display: block; */
   background-color: white;
   height: 820px;
   width: 100%;
   max-width: 376px;
-  /* padding: 15px; */
   margin-bottom: 390px;
   margin: 0px auto;
   position: relative;
@@ -32,7 +26,6 @@
 .dropdown {
   position: absolute;
   flex-direction: column;
-  /* align-items: space-between; */
   box-shadow: 0 10px 10px gray;
   margin: 30px 80px;
   z-index: 1;
@@ -49,22 +42,12 @@
   position: relative;
 }
 .dropdown a:hover {
-  /* background-color: #464646; */
   color: black;
 }
 .menu:hover .dropdown {
   display: block;
 }
 
-/* .box1 {
-  width: 330px;
-  height: 270px;
-  background: black;
-  border-radius: 5px;
-  margin-top: 20px;
-  margin-left: 10px;
-  position: relative;
-} */
 .usertext {
   color: white;
   padding-top: 110px;
@@ -89,7 +72,6 @@
   top: 15px;
   border-radius: 100%;
   color: white;
-  /* background-color: black; */
   margin-bottom: 210px;
   position: absolute;
 }
@@ -126,16 +108,11 @@
   position: absolute;
 }
 .boxdua3 {
-  /* margin-top: 10px; */
   width: 342px;
   height: 110px;
   margin-left: 19px;
-  /* right: 20px; */
-  /* top: -20px; */
   border-radius: 16px;
   background-color: white;
-  /* margin-bottom: 10px; */
-  /* margin-left: 20px; */
   border-color: transparent;
   padding: 0.5em 1em;
   box-shadow: 1px 4px 8px rgb(169, 169, 169);
@@ -169,16 +146,12 @@
 }
 .a {
   position: absolute;
-  /* margin-left: 5px; */
   color: white;
   position: absolute;
   top: -7px;
   font-size: 12px;
 }
 .picture {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   width: 330px;
   height: 280px;
   border-radius: 16px;
@@ -230,47 +203,20 @@
   left: 10;
   right: 10;
   bottom: 0;
-  /* width: 26.1%; */
-  /* width: 100%; */
   width: 376px;
   background-color: white;
   display: flex;
   text-align: center;
   box-shadow: 1px 4px 8px rgb(169, 169, 169);
 }
-/* .footer {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 350px;
-  width: 375px;
-  height: 50px;
-  margin-right: 10px;
-  right: 20px;
-  top: -20px;
-  border-radius: 16px;
-  background-color: white;
-  margin-bottom: 10px;
-  margin-left: 20px;
-  border-color: transparent;
-  padding: 0.5em 0em;
-  box-shadow: 1px 4px 15px rgb(169, 169, 169);
-  position: absolute;
-} */
 .home {
-  /* position: absolute; */
   margin-top: 10px;
   width: 20px;
   height: 22.74px;
-  /* margin-left: 100px; */
   cursor: pointer;
-  /* margin-bottom: 7px; */
-  /* text-align: right; */
-  /* margin-top: 20px; */
 }
 .beranda {
   cursor: pointer;
-  /* margin-bottom: 10px; */
-  /* margin-left: 70px; */
   margin-top: 0px;
   font-size: 10px;
   color: #21242b;
@@ -280,14 +226,9 @@
   height: 22px;
   margin-top: 10px;
   cursor: pointer;
-  /* position: absolute; */
-  /* margin-left: 250px; */
-  /* margin-bottom: 7px; */
-  /* margin-top: 20px; */
 }
 .notifikasi {
   cursor: pointer;
-  /* margin-left: 10px; */
   margin-top: 0px;
   font-size: 10px;
   color: #838790;
@@ -297,9 +238,6 @@
   width: 35px;
   height: 35px;
   cursor: pointer;
-  /* position: absolute; */
-  /* margin-left: 150px; */
-  /* margin-top: 20px; */
 }
 .pengaturan {
   width: 21px;
@@ -320,7 +258,6 @@
   height: 22px;
   margin-top: 10px;
   cursor: pointer;
-  /* margin-bottom: 7px; */
   margin-left: 20px;
 }
 .log {
@@ -352,15 +289,12 @@
 }
 .bioContainer {
   margin-top: 35px;
-  /* margin-left: 20px; */
-  /* display: flex;
-  flex: column; */
 }
 .divfooter1 {
-  margin-left: 80px;
+  margin-left: 77px;
 }
 .divfooter2 {
-  margin-left: 50px;
+  margin-left: 52px;
 }
 .divfooter3 {
   margin-left: 50px;
@@ -447,13 +381,13 @@
     margin-left: 20px;
   }
   .divfooter1 {
-    margin-left: 50px;
+    margin-left: 65px;
   }
   .divfooter2 {
-    margin-left: 10px;
+    margin-left: -15px;
   }
   .divfooter3 {
-    margin-left: 50px;
+    margin-left: 35px;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px) {
@@ -510,13 +444,13 @@
     margin-left: 25px;
   }
   .divfooter1 {
-    margin-left: 0px;
+    margin-left: 5px;
   }
   .divfooter2 {
-    margin-left: 10px;
+    margin-left: -4px;
   }
   .divfooter3 {
-    margin-left: 10px;
+    margin-left: -5px;
   }
 }
 @media only screen and (min-width: 376px) and (max-width: 425px) {
@@ -586,12 +520,12 @@
     margin-left: 40px;
   }
   .divfooter1 {
-    margin-left: 0px;
+    margin-left: 30px;
   }
   .divfooter2 {
-    margin-left: 10px;
+    margin-left: -7px;
   }
   .divfooter3 {
-    margin-left: 10px;
+    margin-left: -7px;
   }
 }

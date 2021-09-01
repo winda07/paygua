@@ -11,6 +11,10 @@
   background-color: white;
 }
 .form-signin {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background-color: white;
   width: 100%;
   /* height: 790px; */
@@ -36,4 +40,108 @@
   border-color: 21242b;
   background-color: transparent;
   border-radius: 100px;
+}
+.image {
+  width: 338px;
+  height: 401px;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.text {
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+@media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+    padding: 20px;
+  }
+  .image {
+    width: 300px;
+    height: 300px;
+  }
+  .top {
+    margin-top: 40px;
+    margin-right: 40px;
+    justify-content: space-between;
+  }
+  .text {
+    font-size: 14px;
+    margin-right: 25px;
+  }
+  .buttonQr {
+    width: 280px;
+    height: 46px;
+  }
+  .buttonQr2 {
+    width: 280px;
+    height: 46px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+    padding: 20px;
+  }
+  .image {
+    width: 300px;
+    height: 300px;
+    margin-left: 20px;
+  }
+  .top {
+    margin-top: 40px;
+    margin-right: 20px;
+    justify-content: space-between;
+  }
+  .text {
+    font-size: 15px;
+    margin-right: 15px;
+  }
+  .buttonQr {
+    width: 300px;
+    height: 46px;
+    margin-left: 20px;
+  }
+  .buttonQr2 {
+    width: 300px;
+    height: 46px;
+    margin-left: 20px;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+    height: 100%;
+    padding: 30px;
+  }
+  .image {
+    width: 300px;
+    height: 300px;
+    margin-left: 50px;
+  }
+  .top {
+    margin-top: 40px;
+    justify-content: space-between;
+  }
+  .text {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .buttonQr {
+    width: 300px;
+    height: 46px;
+    margin-left: 20px;
+  }
+  .buttonQr2 {
+    width: 300px;
+    height: 46px;
+    margin-left: 20px;
+  }
 }

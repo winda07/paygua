@@ -3,8 +3,10 @@ import jwt from "jwt-decode"
 import axios from "axios"
 import { Link, Redirect, useHistory } from "react-router-dom";
 import styles from "./AdminHome.module.css";
-
+import AdminPopupSuccessWithdraw from "../AdminPopupEdit/AdminPopupSuccessWithdraw";
+import silang from "../../img/ion.svg"
 const GetWithdrawal = () => {
+    const [buttonPopup, setButtonPopup] = useState(false);
     const [data, setValues] = useState({
         getuserinWithdrawal: [],
         totalWithdrawal: ""
@@ -72,6 +74,10 @@ const GetWithdrawal = () => {
         })
             .then((result) => {
                 if (result.data.status === 200) {
+                    setButtonPopup(true)
+                    setTimeout(() => {
+                        setButtonPopup(false)
+                    }, 1000);
                     axios.get("https://paygua.com/api/admin/withdraw", {
                         headers: {
                             Authorization: token,
@@ -83,6 +89,7 @@ const GetWithdrawal = () => {
                                     getuserinWithdrawal: result.data.data.withdraws,
                                     totalWithdrawal: result.data.data.total
                                 })
+                                console.log(result.data)
                             }
                             console.log(result)
                         })
@@ -132,12 +139,16 @@ const GetWithdrawal = () => {
                                 <b>Done</b>
                                 {userinWithdrawal.isFinish ?
                                     <div style={{ width: "20px", height: "20px", borderRadius: "100%", backgroundColor: "green", marginLeft: "10px", marginTop: "5px" }}></div> :
-                                    <div style={{ width: "20px", height: "20px", borderRadius: "100%", backgroundColor: "black", marginLeft: "10px", marginTop: "5px" }} onClick={() => handleFinish(userinWithdrawal._id)}></div>}
+                                    <div style={{ width: "20px", height: "20px", borderRadius: "100%", backgroundColor: "black", marginLeft: "10px", marginTop: "5px", cursor: "pointer" }} onClick={() => handleFinish(userinWithdrawal._id)}></div>}
 
                             </div>
                         </div>
                     ))
                 }
+                <AdminPopupSuccessWithdraw trigger={buttonPopup}>
+                    <img style={{ marginLeft: "320px", cursor: "pointer" }} onClick={() => { setButtonPopup(false) }} src={silang}></img>
+                    <p style={{ textAlign: "center", fontSize: "20px" }}>Success</p>
+                </AdminPopupSuccessWithdraw>
             </div>
         </div>
     )

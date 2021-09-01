@@ -7,30 +7,7 @@
 .App {
   align-items: center;
   background-color: white;
-  /* background-color: #dcdcdc; */
-
-  /* width: 100%; */
-  /* max-width: 370px; */
-  /* margin-bottom: 390px; */
-  /* margin: 0px auto; */
-  /* position: relative; */
 }
-@media only screen and(max-width: 320px) {
-  .App {
-    background-color: white;
-  }
-}
-@media only screen and (max-width: 375px) {
-  .App {
-    background-color: white;
-  }
-}
-@media only screen and (max-width: 425px) {
-  .App {
-    background-color: white;
-  }
-}
-
 .form-signin {
   background-color: white;
   width: 100%;
@@ -40,35 +17,7 @@
   margin: 0px auto;
   position: relative;
 }
-@media only screen and (max-width: 320px) {
-  .form-signin {
-    width: 100%;
-    height: 2400px;
-    /* max-width: 450px; */
-  }
-}
-@media only screen and (max-width: 375px) {
-  .form-signin {
-    width: 100%;
-    max-width: 400px;
-    /* height: 2400px; */
-    /* max-width: 450px; */
-  }
-}
-@media only screen and (max-width: 425px) {
-  .form-signin {
-    max-width: 400px;
-    width: 100%;
-    height: 2400px;
-  }
-}
-/* @media only screen and (max-width: 425px) {
-  .form-signin {
-    max-width: 425px;
-    width: 100%;
-    height: 2400px;
-  }
-} */
+
 .textlogin {
   color: black;
   font-size: 14px;
@@ -85,47 +34,14 @@
   border: 1px solid #21242b;
   background: transparent;
 }
-@media only screen and (max-width: 320px) {
-  .buttonLogin {
-    margin-left: 90px;
-  }
-}
-/* @media only screen and (max-width: 425px) {
-  .buttonLogin {
-    margin-left: 150px;
-  }
-} */
-
 .latar {
   text-align: center;
   width: 320px;
 }
-@media only screen and (max-width: 320px) {
-  .latar {
-    width: 300px;
-    /* margin-right: 10px; */
-  }
-}
-/* @media only screen and (max-width: 425px) {
-  .latar {
-    width: 350px;
-  }
-} */
 .logo {
   margin-top: 20px;
   margin-left: 20px;
 }
-/* @media only screen and (device-width: 425px) {
-  .logo {
-    margin-left: 30px;
-  }
-} */
-/* @media only screen and (max-width: 375px) {
-  .logo {
-    margin-left: 40px;
-  }
-} */
-
 .menu {
   cursor: pointer;
   display: flex;
@@ -134,16 +50,10 @@
   top: 15px;
   margin-left: 130px;
 }
-/* @media only screen and (max-width: 320px) {
-  .menu {
-    left: -70px;
-  }
-} */
 
 .dropdown {
   position: absolute;
   flex-direction: column;
-  /* align-items: space-between; */
   box-shadow: 0px 10px 10px gray;
   margin: 30px 80px;
   z-index: 1;
@@ -155,7 +65,6 @@
   text-decoration: none;
   color: black;
   padding: 10px;
-  /*   margin: 20px; */
   font-size: 15px;
   display: block;
   position: relative;
@@ -168,22 +77,13 @@
   display: block;
 }
 .textBold {
-  /* margin-left: 50px; */
   margin-right: 10px;
   position: absolute;
   width: 279px;
   height: 480px;
   color: #ffffff;
   padding-bottom: 70px;
-  /* padding-left: 70px; */
 }
-/* @media only screen and (max-width: 320px) {
-  .textBold {
-    margin-left: 10px;
-    margin-right: 40px;
-    margin-top: 30px;
-  }
-} */
 .TentangKami {
   margin-top: 10px;
   justify-content: space-evenly;
@@ -191,30 +91,12 @@
   align-items: center;
   position: relative;
 }
-/* .text {
-  margin-left: 10px;
-} */
-/* @media only screen and (max-width: 320px) {
-  .TentangKami {
-    margin-left: 10px;
-    margin-right: 20px;
-  }
-} */
 .atas {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
 }
-@media only screen and (max-width: 320px) {
-  .atas {
-    margin-right: 10px;
-  }
-}
-@media only screen and (max-width: 425px) {
-  .atas {
-    margin-left: 20px;
-  }
-}
+
 .text {
   margin-top: 30px;
   margin-left: 1px;
@@ -224,13 +106,6 @@
   color: #eff0f2;
   font-size: 14px;
 }
-/* @media only screen and (max-width: 320px) {
-  .text {
-    margin-left: 10px;
-    margin-right: 40px;
-    margin-top: 30px;
-  }
-} */
 
 .button {
   margin-right: 135px;
@@ -245,89 +120,36 @@
   border: 2px solid white;
   background: transparent;
 }
-@media only screen and (max-width: 320px) {
-  .button {
-    width: 50%;
-    left: 5px;
-    /* right: 70px; */
-    /* width: 100%; */
-  }
-}
-@media only screen and (max-width: 425px) {
-  .button {
-    bottom: 100px;
-    right: 70px;
-    /* width: 100%; */
-  }
-}
+
 .judul {
   font-size: 14px;
   color: #21242b;
   margin: 2px 4px 8px 16px;
 }
-/* @media only screen and (max-width: 320px) {
-  .judul {
-    margin-right: 10px;
-    font-size: 12px;
-  }
-} */
 .isi1 {
   font-size: 14px;
   color: #21242b;
   margin: 5px 10px 20px 40px;
 }
-/* @media only screen and (max-width: 320px) {
-  .isi1 {
-    margin-right: 10px;
-    font-size: 12px;
-    font-size: 11px;
-  }
-} */
 .isi2 {
   font-size: 14px;
   color: #21242b;
   margin: 5px 10px 20px 40px;
 }
-/* @media only screen and (max-width: 320px) {
-  .isi2 {
-    margin-right: 10px;
-    font-size: 12px;
-    font-size: 11px;
-  }
-} */
 .isi3 {
   font-size: 14px;
   color: #21242b;
   margin: 5px 10px 20px 40px;
 }
-/* @media only screen and (max-width: 320px) {
-  .isi3 {
-    margin-right: 10px;
-    font-size: 12px;
-    font-size: 11px;
-  }
-} */
 .isi4 {
   font-size: 14px;
   color: #21242b;
   margin: 5px 10px 20px 40px;
 }
-/* @media only screen and (max-width: 320px) {
-  .isi4 {
-    margin-right: 10px;
-    font-size: 12px;
-    font-size: 11px;
-  }
-} */
 .use {
   font-size: 18px;
   color: #21242b;
   margin-left: 12px;
-}
-@media only screen and (max-width: 320px) {
-  .use {
-    margin-left: 20px;
-  }
 }
 .imgwhy1 {
   margin-top: 20px;
@@ -335,36 +157,20 @@
   margin-left: 12px;
   border-radius: 4px;
 }
-@media only screen and (max-width: 320px) {
-  .imgwhy1 {
-    margin-left: 25px;
-    width: 280px;
-  }
-}
 .imgwhy2 {
   margin-top: 10px;
   max-width: 330px;
   margin-left: 12px;
   border-radius: 4px;
 }
-@media only screen and (max-width: 320px) {
-  .imgwhy2 {
-    margin-left: 25px;
-    width: 280px;
-  }
-}
+
 .imgwhy3 {
   margin-top: 10px;
   max-width: 330px;
   margin-left: 12px;
   border-radius: 4px;
 }
-@media only screen and (max-width: 320px) {
-  .imgwhy3 {
-    margin-left: 25px;
-    width: 280px;
-  }
-}
+
 .choose {
   position: absolute;
   height: 300px;
@@ -374,16 +180,6 @@
 .gambar1 {
   position: absolute;
   margin-left: 28px;
-}
-@media only screen and (max-width: 320px) {
-  .gambar1 {
-    margin-left: 1px;
-  }
-}
-@media only screen and (max-width: 425px) {
-  .gambar1 {
-    margin-left: 40px;
-  }
 }
 
 .KK {
@@ -395,16 +191,7 @@
   margin-top: 35px;
   margin-left: 25px;
 }
-@media only screen and (max-width: 320px) {
-  .KK {
-    margin-left: 10px;
-  }
-}
-@media only screen and (max-width: 425px) {
-  .KK {
-    margin-left: 40px;
-  }
-}
+
 .VA {
   position: absolute;
   font-size: 12px;
@@ -412,16 +199,6 @@
   color: white;
   margin-top: 50px;
   margin-left: 145px;
-}
-@media only screen and (max-width: 320px) {
-  .VA {
-    margin-left: 112px;
-  }
-}
-@media only screen and (max-width: 425px) {
-  .VA {
-    margin-left: 155px;
-  }
 }
 
 .E-Wallet {
@@ -431,16 +208,6 @@
   height: 100px;
   margin-left: 275px;
   margin-top: 50px;
-}
-@media only screen and (max-width: 320px) {
-  .E-Wallet {
-    margin-left: 230px;
-  }
-}
-@media only screen and (max-width: 425px) {
-  .E-Wallet {
-    margin-left: 285px;
-  }
 }
 
 .TentangKami2 {
@@ -458,7 +225,6 @@
   position: absolute;
   color: #ffffff;
   height: 100px;
-  /* margin-bottom: 20px; */
 }
 
 .rules {
@@ -489,15 +255,9 @@
   justify-content: space-evenly;
   align-items: center;
 }
-/* @media only screen and (max-width: 425px) {
-  .why {
-    margin-left: 45px;
-  }
-} */
 
 .f {
   margin-left: 15px;
-  /* height: 100px; */
   position: relative;
 }
 
@@ -509,47 +269,22 @@
   margin-left: 70px;
   margin-top: -285px;
   position: absolute;
-  /* width: 200px; */
   color: #ffffff;
-  /* font-size: 13px; */
-}
-@media only screen and (max-width: 320px) {
-  .img1 {
-    margin-left: 80px;
-    margin-top: -260px;
-  }
 }
 
 .img2 {
   margin-left: 70px;
   margin-top: -175px;
   position: absolute;
-  /* width: 200px; */
   color: #ffffff;
-  /* font-size: 13px; */
-}
-@media only screen and (max-width: 320px) {
-  .img2 {
-    margin-left: 80px;
-    margin-top: -160px;
-  }
 }
 
 .img3 {
   margin-left: 70px;
   margin-top: -80px;
   position: absolute;
-  /* width: 200px; */
   color: #ffffff;
-  /* font-size: 13px; */
 }
-@media only screen and (max-width: 320px) {
-  .img3 {
-    margin-left: 80px;
-    margin-top: -77px;
-  }
-}
-
 .n {
   margin-left: 12px;
   margin-top: 40px;
@@ -566,23 +301,10 @@
   margin-top: 40px;
   position: absolute;
 }
-@media only screen and (max-width: 425px) {
-  .box1 {
-    width: 100%;
-  }
-}
-
 .fot1 {
   margin-top: 50px;
   margin-left: 20px;
-  /* right: 20px; */
-  /* margin-left: 20px; */
 }
-/* @media only screen and (max-width: 768px) and (min-width: 425px) {
-  .fot1 {
-    margin-left: 100px;
-  }
-} */
 
 h6 {
   margin-left: 10px;
@@ -626,11 +348,6 @@ h6 {
   position: relative;
   margin-left: 160px;
 }
-/* @media only screen and (max-width: 320px) {
-  .menu2 {
-    left: 15px;
-  }
-} */
 .section {
   display: flex;
   justify-content: space-evenly;
@@ -638,106 +355,46 @@ h6 {
 .cocok1 {
   margin-bottom: 10px;
 }
-@media only screen and (max-width: 320px) {
-  .cocok1 {
-    /* width: 90px; */
-    margin-left: 7px;
-  }
-}
+
 .cocok2 {
   margin-bottom: 10px;
   margin-left: 4px;
 }
-/* @media only screen and (max-width: 320px) {
-  .cocok2 {
-    width: 110px;
-  }
-} */
 .cocok3 {
   margin-bottom: 10px;
   margin-left: 4px;
 }
-/* @media only screen and (max-width: 320px) {
-  .cocok3 {
-    width: 70px;
-  }
-} */
 .cocok4 {
   margin-bottom: 10px;
-  /* margin-left: 5px; */
 }
-/* @media only screen and (max-width: 320px) {
-  .cocok4 {
-    width: 90px;
-  }
-} */
 .cocok5 {
   margin-bottom: 10px;
   margin-left: 4px;
 }
-/* @media only screen and (max-width: 320px) {
-  .cocok5 {
-    width: 70px;
-  }
-} */
+
 .cocok6 {
   margin-bottom: 10px;
   margin-left: 4px;
 }
-/* @media only screen and (max-width: 320px) {
-  .cocok6 {
-    width: 80px;
-    margin-left: 10px;
-  }
-} */
 .cocok7 {
   margin-bottom: 10px;
-  /* margin-left: 5px; */
 }
-/* @media only screen and (max-width: 320px) {
-  .cocok7 {
-    width: 95px;
-  }
-} */
 .tes {
   margin-left: 9px;
 }
 
-/* @media only screen and (max-width: 320px) {
-  .tes {
-    margin-left: 15px;
-  }
-} */
 .group {
   margin-top: 150px;
   width: 100%;
 }
-@media only screen and (max-width: 425px) {
-  .group {
-    width: 100%;
-  }
-}
 .text10 {
   margin-top: 30px;
   font-size: 18px;
-  /* margin-left: 17px; */
 }
-/* @media only screen and (max-width: 425px) {
-  .text10 {
-    margin-left: 5px;
-    font-size: 13px;
-  }
-} */
 
 .text11 {
   font-size: 14px;
 }
-/* @media only screen and (max-width: 320px) {
-  .text11 {
-    margin-left: 20px;
-    font-size: 13px;
-  }
-} */
 .text12 {
   color: #006aff;
   font-size: 14px;
@@ -745,53 +402,317 @@ h6 {
 .accept {
   margin-left: 30px;
 }
-@media only screen and (max-width: 320px) {
-  .accept {
-    margin-left: 15px;
-  }
-}
-@media only screen and (max-width: 425px) {
-  .accept {
-    margin-left: 40px;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .gmb1 {
-    width: 90px;
-    height: 90px;
-    margin-left: 15px;
-  }
-}
 
 .gmb2 {
   margin-left: 5px;
 }
-@media only screen and (max-width: 320px) {
-  .gmb2 {
-    width: 90px;
-    height: 90px;
-    margin-left: 5px;
-  }
-}
-/* @media only screen and (max-width: 425px) {
-  .gmb2 {
-    margin-left: 15px;
-  }
-} */
 
 .gmb3 {
   margin-left: 5px;
 }
 @media only screen and (max-width: 320px) {
+  .form-signin {
+    width: 100%;
+    height: 100%;
+  }
+  .accept {
+    margin-left: 15px;
+  }
   .gmb3 {
     margin-left: 5px;
     width: 90px;
     height: 90px;
   }
-}
-/* @media only screen and (max-width: 425px) {
-  .gmb {
+  .gmb2 {
+    width: 90px;
+    height: 90px;
+    margin-left: 5px;
+  }
+  .gmb1 {
+    width: 90px;
+    height: 90px;
     margin-left: 15px;
   }
-} */
+  .buttonLogin {
+    margin-left: 80px;
+  }
+  .latar {
+    width: 290px;
+  }
+  .atas {
+    margin-right: 10px;
+  }
+  .button {
+    width: 50%;
+    margin-left: 20px;
+  }
+  .imgwhy1 {
+    margin-left: 25px;
+    width: 280px;
+  }
+  .use {
+    margin-left: 20px;
+  }
+  .imgwhy3 {
+    margin-left: 25px;
+    width: 280px;
+  }
+  .imgwhy2 {
+    margin-left: 25px;
+    width: 280px;
+  }
+  .gambar1 {
+    margin-left: 1px;
+  }
+  .cocok1 {
+    margin-left: 7px;
+  }
+  .img3 {
+    margin-left: 80px;
+    margin-top: -77px;
+  }
+  .img2 {
+    margin-left: 80px;
+    margin-top: -160px;
+  }
+  .img1 {
+    margin-left: 80px;
+    margin-top: -260px;
+  }
+  .E-Wallet {
+    margin-left: 230px;
+  }
+  .VA {
+    margin-left: 112px;
+  }
+  .KK {
+    margin-left: 10px;
+  }
+  .textBold {
+    margin-top: 30px;
+    width: 260px;
+  }
+  .text {
+    text-align: left;
+    font-size: 12px;
+    margin-left: 20px;
+  }
+  .why {
+    margin-top: 330px;
+  }
+  .tes {
+    margin-left: 20px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    left: 0%;
+  }
+  .accept {
+    margin-left: 30px;
+  }
+  .gmb3 {
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+  }
+  .gmb2 {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+  }
+  .gmb1 {
+    width: 100px;
+    height: 100px;
+  }
+  .buttonLogin {
+    margin-left: 110px;
+  }
+  .latar {
+    width: 320px;
+    margin-right: 10px;
+  }
+  .atas {
+    margin-right: 10px;
+  }
+  .button {
+    width: 50%;
+    margin-left: 30px;
+  }
+  .imgwhy1 {
+    margin-left: 25px;
+    width: 280px;
+  }
+  .use {
+    margin-left: 20px;
+  }
+  .imgwhy3 {
+    margin-left: 25px;
+    width: 280px;
+  }
+  .imgwhy2 {
+    margin-left: 25px;
+    width: 280px;
+  }
+  .cocok1 {
+    margin-left: 7px;
+  }
+  .img3 {
+    margin-left: 80px;
+    margin-top: -77px;
+  }
+  .img2 {
+    margin-left: 80px;
+    margin-top: -160px;
+  }
+  .img1 {
+    margin-left: 80px;
+    margin-top: -260px;
+  }
+  .E-Wallet {
+    margin-left: 275px;
+  }
+  .VA {
+    margin-left: 145px;
+  }
+  .KK {
+    margin-left: 25px;
+  }
+  .textBold {
+    width: 260px;
+    margin-right: 30px;
+  }
+  .text {
+    text-align: left;
+    font-size: 12px;
+  }
+  .why {
+    margin-top: 330px;
+  }
+  .tes {
+    margin-left: 40px;
+  }
+  .rules {
+    margin-left: 40px;
+  }
+  .fot1 {
+    margin-left: 40px;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    left: 0%;
+    max-width: 450px;
+  }
+  .accept {
+    margin-left: 50px;
+  }
+  .gmb3 {
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+  }
+  .gmb2 {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+  }
+  .gmb1 {
+    width: 100px;
+    height: 100px;
+    margin-left: 25px;
+  }
+  .buttonLogin {
+    margin-left: 110px;
+  }
+  .latar {
+    width: 320px;
+    margin-right: 10px;
+  }
+  .atas {
+    margin-left: 30px;
+  }
+  .button {
+    width: 50%;
+    margin-left: 30px;
+  }
+  .imgwhy1 {
+    margin-left: 20px;
+    width: 330px;
+  }
+  .use {
+    margin-left: 20px;
+  }
+  .imgwhy3 {
+    margin-left: 20px;
+    width: 330px;
+  }
+  .imgwhy2 {
+    margin-left: 20px;
+    width: 330px;
+  }
+  .cocok1 {
+    margin-left: 7px;
+  }
+  .cocok4 {
+    margin-left: 7px;
+  }
+  .cocok7 {
+    margin-left: 7px;
+  }
+  .img3 {
+    margin-left: 80px;
+    margin-top: -82px;
+  }
+  .img2 {
+    margin-left: 80px;
+    margin-top: -180px;
+  }
+  .img1 {
+    margin-left: 80px;
+    margin-top: -290px;
+  }
+  .E-Wallet {
+    margin-left: 300px;
+  }
+  .VA {
+    margin-left: 170px;
+  }
+  .KK {
+    margin-left: 50px;
+  }
+  .textBold {
+    width: 260px;
+    margin-right: 30px;
+  }
+  .text {
+    text-align: left;
+    font-size: 12px;
+  }
+  .why {
+    margin-top: 330px;
+  }
+  .tes {
+    margin-left: 30px;
+  }
+  .rules {
+    margin-left: 40px;
+  }
+  .fot1 {
+    margin-left: 30px;
+  }
+}

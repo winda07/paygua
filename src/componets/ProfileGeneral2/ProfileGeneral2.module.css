@@ -5,7 +5,7 @@
 
 .App {
   align-items: center;
-  background-color: #dcdcdc;
+  background-color: white;
 }
 /* html,
 body,
@@ -113,7 +113,7 @@ body,
 
 .logo1 {
   margin-left: 130px;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
 .section {
@@ -501,6 +501,12 @@ body,
   text-align: center;
   justify-content: center;
 }
+.securestyle {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 10px;
+}
 @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
@@ -612,6 +618,9 @@ body,
   }
   .powered {
     margin-right: 20px;
+  }
+  .securestyle {
+    margin-right: 30px;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px) {
@@ -726,6 +735,9 @@ body,
   .powered {
     margin-right: 20px;
   }
+  .securestyle {
+    margin-right: 30px;
+  }
 }
 @media only screen and (min-width: 376px) and (max-width: 425px) {
   .form-signin {
@@ -834,5 +846,8 @@ body,
   }
   .logo1 {
     margin-left: 120px;
+  }
+  .securestyle {
+    margin-left: 10px;
   }
 }

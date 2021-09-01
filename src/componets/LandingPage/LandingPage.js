@@ -11,21 +11,23 @@ const LandingPage = () => {
     return (
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
-                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <div className={styles.top}>
                     <img src={logo}></img>
-                    <Link style={{ textDecoration: "none" }} to="/"><p style={{ fontSize: "14px", color: "black", cursor: "pointer" }}>Learn more</p></Link>
+                    <Link style={{ textDecoration: "underline", color: "black" }} to="/TentangKami"><p style={{ fontSize: "14px", color: "black", cursor: "pointer" }}>Learn more</p></Link>
                 </div>
-                <img src={animation}></img>
+                <img className={styles.image} src={animation}></img>
                 <marquee bgcolor="#ffffff" direction="left" height="40px" scrollamount="5" width="100%"><img src={maqrue}></img></marquee>
                 <br></br>
                 <br></br>
-                <b style={{ fontSize: "16px", textAlign: "center", display: "flex", justifyContent: "center" }}>Terima pembayaran untukmu dan bisnismu dengan mudah dan aman via smartphone</b>
+                <b className={styles.text}>Terima pembayaran untukmu dan bisnismu dengan mudah dan aman via smartphone</b>
                 <br></br>
                 <br></br>
-                <Link to="/register"><button className={styles.buttonQr}><p style={{ color: "white", fontSize: "14px", display: "flex", marginTop: "12px", textAlign: "center", justifyContent: "center" }}>Mulai Sekarang</p></button></Link>
-                <br></br>
-                <br></br>
-                <Link to="/login"><button className={styles.buttonQr2}><p style={{ color: "black", fontSize: "14px", marginTop: "12px", display: "flex", textAlign: "center", justifyContent: "center" }}>Masuk</p></button></Link>
+                <div>
+                    <Link to="/register"><button className={styles.buttonQr}><p style={{ color: "white", fontSize: "14px", display: "flex", marginTop: "12px", textAlign: "center", justifyContent: "center" }}>Mulai Sekarang</p></button></Link>
+                </div>
+                <div style={{ marginTop: "5px" }}>
+                    <Link to="/login"><button className={styles.buttonQr2}><p style={{ color: "black", fontSize: "14px", marginTop: "12px", display: "flex", textAlign: "center", justifyContent: "center" }}>Masuk</p></button></Link>
+                </div>
             </div>
         </div>
     )

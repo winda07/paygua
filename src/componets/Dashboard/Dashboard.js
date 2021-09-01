@@ -146,7 +146,7 @@ const Dashboard = () => {
           </div>
         </PopupHome>
         <footer className={styles.footer}>
-          <div style={{ display: "flex", textAlign: "center", justifyContent: "center" }}>
+          <div style={{ display: "flex" }}>
             <div className={styles.divfooter1}>
               <img className={styles.home} src={home}></img>
               <figcaption className={styles.beranda}>Beranda</figcaption>

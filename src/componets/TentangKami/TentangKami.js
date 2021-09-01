@@ -53,8 +53,8 @@ const TentangKami = () => {
         }
     }, []);
     const scrollToTop = () => {
-        document.querySelector("body").scrollTo({ top: 0, behavior: "smooth" })
-        // window.scrollTo({ top: 0, behavior: "smooth" });
+        // document.querySelector("body").scrollTo({ top: 0, behavior: "smooth" })
+        window.scrollTo({ top: 0, behavior: "smooth" });
         console.log("test")
     }
     // console.log(scrollToTop)
@@ -160,7 +160,7 @@ const TentangKami = () => {
                         </div>
                         <div className={styles.img3}>
                             <b style={{ fontSize: "14px" }}>Biaya Terjangkau</b>
-                            <p style={{ fontSize: "14px", marginTop: "10px" }}>Biaya dan potongan harga yang  terjangkau.</p>
+                            <p style={{ fontSize: "14px", marginTop: "10px" }}>Biaya dan potongan harga yang <br></br> terjangkau.</p>
                         </div>
                     </div>
                 </div>

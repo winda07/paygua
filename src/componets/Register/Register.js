@@ -57,25 +57,10 @@ const Register = ({ submitForm }) => {
   }, [errors]);
 
   const handleChange = (e) => {
-    // paygua.com /
-    // if (e.target.name === "username") {
-    //   let currentUsername = e.target.value;
-    //   let username = currentUsername.split('/')[1]
-
-    //   if (username == undefined) {
-    //     username = ""
-    //   }
-
-    //   setValues({
-    //     ...data,
-    //     [e.target.name]: username,
-    //   });
-    // } else {
     setValues({
       ...data,
       [e.target.name]: e.target.value,
     });
-    // }
   };
 
   const handleFormSubmit = (e) => {
@@ -136,7 +121,7 @@ const Register = ({ submitForm }) => {
             <div className="sandi">
               <p className={styles["text-ketentuan"]}>
                 Dengan mendaftar, kamu setuju dengan{" "}
-                <Link class={styles["text"]}>Syarat dan Ketentuan</Link> yang
+                <Link to="/SyaratdanKetentuan" class={styles["text"]}>Syarat dan Ketentuan</Link> yang
                 berlaku
               </p>
             </div>

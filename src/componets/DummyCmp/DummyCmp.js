@@ -37,6 +37,7 @@ import PopupGopay from "../PopupGopay/PopupGopay"
 import gopayinQr from "../../img/gopayinQR.svg"
 import PopupCopy from "../PopupCopy2/PopupCopy2";
 import silang from "../../img/ion.svg"
+import secure from "../../img/secure.svg"
 
 const DummyCmp = (props) => {
     const masukkanOVO = "Masukkan nomor OVO"
@@ -425,6 +426,7 @@ const DummyCmp = (props) => {
                             <div className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.btnSubmit : styles.btnBedaWarna} onClick={handleFormSubmit}>
                                 <p className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.text2 : styles.text21}  >Bayar</p>
                             </div>
+                            {/* <img src={secure}></img> */}
                             <Popup
                                 trigger={buttonPopup}>
                                 <div>
@@ -480,7 +482,13 @@ const DummyCmp = (props) => {
                                 </div>
                             </Popup>
                             {/* </div> */}
-                            <Link to="/"><img className={styles.logo1} src={logo} alt="logo" /></Link>
+                            <div className={styles.securestyle}>
+                                <img src={secure}></img>
+                                <p style={{ fontSize: "12px" }}>Pembayaran 100% aman dan terenkripsi</p>
+                            </div>
+                            <div>
+                                <Link to="/"><img className={styles.logo1} src={logo} alt="logo" /></Link>
+                            </div>
                         </div>
                         <Loading trigger={loadingPopup}></Loading>
                     </div>
