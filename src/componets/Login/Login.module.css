@@ -92,11 +92,43 @@ body,
   height: 62px;
   font-size: 24px;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    /* position: fixed; */
+    height: 100%;
+    /* width: 800px; */
+    margin: 0 auto;
+  }
+  .logo {
+    width: 100px;
+  }
+  .form-control {
+    width: 95%;
+  }
+  .img {
+    width: 20px;
+    margin-right: 20px;
+  }
+  .sandi {
+    margin-left: 5%;
+  }
+  .text-center1 {
+    margin-right: 30px;
+  }
+  .btnSubmit {
+    width: 95%;
+    height: 55px;
+  }
+  .text {
+    color: white;
+    text-align: center;
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
     height: 100%;
-    padding: 20px;
+    padding: 5%;
   }
   .logo {
     width: 100px;
@@ -109,7 +141,7 @@ body,
     margin-right: 30px;
   }
   .sandi {
-    margin-left: -10%;
+    margin-left: -7%;
   }
   .btnSubmit {
     width: 90%;
@@ -127,7 +159,7 @@ body,
   .form-signin {
     position: fixed;
     height: 100%;
-    padding: 20px;
+    padding: 9%;
   }
   .logo {
     width: 100px;
@@ -137,10 +169,10 @@ body,
   }
   .img {
     width: 20px;
-    margin-right: 40px;
+    margin-right: 50px;
   }
   .sandi {
-    margin-left: 5%;
+    margin-left: 2%;
   }
   .text-center1 {
     margin-right: 30px;
@@ -158,8 +190,7 @@ body,
   .form-signin {
     position: fixed;
     height: 100%;
-    margin-top: 10%;
-    margin-left: 5%;
+    padding: 13%;
   }
   .logo {
     width: 100px;
@@ -169,7 +200,7 @@ body,
   }
   .img {
     width: 20px;
-    margin-right: 40px;
+    margin-right: 50px;
   }
   .sandi {
     margin-left: 5%;
@@ -185,4 +216,4 @@ body,
     color: white;
     text-align: center;
   }
-}
+} */
