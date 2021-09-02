@@ -94,29 +94,28 @@ body,
 }
 @media only screen and (max-width: 500px) {
   .form-signin {
-    /* position: fixed; */
     height: 100%;
-    /* width: 800px; */
+    align-items: center;
     margin: 0 auto;
   }
   .logo {
     width: 100px;
   }
   .form-control {
-    width: 95%;
+    width: 100%;
   }
   .img {
     width: 20px;
     margin-right: 20px;
   }
   .sandi {
-    margin-left: 5%;
+    margin-left: 10%;
   }
   .text-center1 {
     margin-right: 30px;
   }
   .btnSubmit {
-    width: 95%;
+    width: 100%;
     height: 55px;
   }
   .text {
