@@ -21,11 +21,6 @@ const Tagihan = () => {
                 </div>
                 <br></br>
                 <GetUserInvoice></GetUserInvoice>
-                {/* <h6>&emsp;Belum dibayar</h6>
-                <h4>&emsp;Irfan Aziz <br></br>&emsp;Rp.100.000</h4> */}
-                {/* <Link className={styles['arrow']} to="/detailtagihan"><img src={arrow2}></img> </Link>
-                    <Link to="share"><p style={{ color: "black" }} className={styles['share']}></p></Link>
-                    <img className={styles['time']} src={time}></img> */}
             </div>
 
 

@@ -8,8 +8,9 @@ import styles from "./Transaksi.module.css"
 import panahbawah from "../../img/panahbawah.svg"
 import panahatas from "../../img/panahatas.svg"
 import { red } from "@material-ui/core/colors";
-
+import Loading from "../Loading/Loading"
 const GetHistory = () => {
+    const [loadingPopup, setButtonLoading] = useState(false);
     const history = useHistory()
     const [data, setValues] = useState({
         transaksi: []
@@ -17,6 +18,7 @@ const GetHistory = () => {
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
+            setButtonLoading(true)
             axios.get("https://paygua.com/api/user/history", {
                 headers: {
                     Authorization: token,
@@ -25,10 +27,12 @@ const GetHistory = () => {
                 .then((result) => {
                     if (result.data) {
                         if (result.data.status === 200) {
+                            setButtonLoading(false)
                             setValues({
                                 ...data, transaksi: result.data.data
                             })
                         } else {
+                            setButtonLoading(false)
                             history.push('/login')
                         }
                     }
@@ -58,7 +62,7 @@ const GetHistory = () => {
                 ))
             }
 
-
+            <Loading trigger={loadingPopup}></Loading>
         </div>
     )
 }

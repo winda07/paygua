@@ -8,7 +8,7 @@
   align-items: center;
   /* padding-top: 40px;
   padding-bottom: 40px; */
-  background-color: #dcdcdc;
+  background-color: white;
 }
 .form-signin {
   /* display: block; */
@@ -45,3 +45,23 @@
   margin-top: 180px;
   margin-left: 120px;
 }
+
+/* @media only screen and (max-width: 320px) {
+  .form-signin {
+    position: fixed;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .form-signin {
+    position: fixed;
+    padding: 20px;
+  }
+
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .form-signin {
+    position: fixed;
+    padding: 40px;
+  }
+} */

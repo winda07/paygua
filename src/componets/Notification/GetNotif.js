@@ -8,15 +8,20 @@ import axios from "axios"
 import red from "../../img/reddd.svg"
 import { Link, useHistory } from "react-router-dom";
 import animation from "../../img/animation5.webp"
+import Loading from "../Loading/Loading"
 
 const GetNotif = () => {
-    const history = useHistory()
+    const [loadingPopup, setButtonLoading] = useState(false);
+    const history = useHistory();
+    const [render, setRender] = useState(false);
     const [data, setValues] = useState({
         notif: [],
     })
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
+            setButtonLoading(true)
+
             axios.get("https://paygua.com/api/user/notification", {
                 headers: {
                     Authorization: token,
@@ -25,11 +30,14 @@ const GetNotif = () => {
                 .then((result) => {
                     if (result.data) {
                         if (result.data.status === 200) {
+                            setButtonLoading(false)
+                            setRender(true);
                             setValues({
                                 ...data, notif: result.data.data
                             })
                             setRead()
                         } else {
+                            setButtonLoading(false)
                             history.push('/login')
                         }
 
@@ -59,6 +67,7 @@ const GetNotif = () => {
                 }
             })
                 .then((result) => {
+
                     console.log("set read started")
                 })
                 .catch(e => {
@@ -67,33 +76,34 @@ const GetNotif = () => {
 
         }
     })
-
     return (
         < div >
-            {data.notif.length === 0 ? <div className={styles.animation1} style={{ marginLeft: "70px", marginTop: "70px" }}>
-                <img className={styles.animation2} style={{ width: "246px", height: "246px" }} src={animation}></img>
-                <figcaption className={styles.animation3} style={{ fontSize: "20px", color: "black" }}>Belum ada notifikasi, bos..</figcaption>
-                <button style={{ width: "115px", height: "36px", border: "1px solid #21242B", borderRadius: "100px", background: "transparent", marginTop: "20px", marginLeft: "50px", cursor: "pointer" }} onClick={() => { window.location.reload() }}>Refresh</button></div> :
-                data.notif.map(ntif => (
-                    <div className={styles.a}>
-                        <p></p>
-                        <div className={styles.boxdua}>
-                            {ntif.isSeen === false ? <img className={styles['redd']} src={red}></img> : null}
-                            <div className={styles.img}>
-                                <p className={styles.message}>
-                                    {ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||
-                                        ntif.type === "cashOut" ? <img src={cashOut}></img> : null ||
-                                            ntif.type === "withdrawProcess" ? <img src={withdrawProcess}></img> : null ||
-                                                ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null || ntif.isSeen === "false" ? <img src={red}></img> : null}
-                                    {ntif.message}</p>
+            {render ? <div>
+                {data.notif.length === 0 ? (<div className={styles.animation1} style={{ marginLeft: "70px", marginTop: "70px" }}>
+                    <img className={styles.animation2} style={{ width: "246px", height: "246px" }} src={animation}></img>
+                    <figcaption className={styles.animation3} style={{ fontSize: "20px", color: "black" }}>Belum ada notifikasi, bos..</figcaption>
+                    <button style={{ width: "115px", height: "36px", border: "1px solid #21242B", borderRadius: "100px", background: "transparent", marginTop: "20px", marginLeft: "50px", cursor: "pointer" }} onClick={() => { window.location.reload() }}>Refresh</button></div>) :
+                    (data.notif.map(ntif => (
+                        <div className={styles.a}>
+                            <p></p>
+                            <div className={styles.boxdua}>
+                                {ntif.isSeen === false ? <img className={styles['redd']} src={red}></img> : null}
+                                <div className={styles.img}>
+                                    <p className={styles.message}>
+                                        {ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||
+                                            ntif.type === "cashOut" ? <img src={cashOut}></img> : null ||
+                                                ntif.type === "withdrawProcess" ? <img src={withdrawProcess}></img> : null ||
+                                                    ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null || ntif.isSeen === "false" ? <img src={red}></img> : null}
+                                        {ntif.message}</p>
+                                </div>
                             </div>
-
-
-
                         </div>
-                    </div>
-                ))
-            }
+                    )))
+
+                }
+            </div> : null}
+
+            <Loading trigger={loadingPopup}></Loading>
         </div >
     )
 

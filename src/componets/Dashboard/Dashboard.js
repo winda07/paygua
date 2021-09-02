@@ -88,7 +88,6 @@ const Dashboard = () => {
     console.log(payload)
   }
 
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {

@@ -10,10 +10,12 @@ import time from "../../img/time.svg"
 import { red } from "@material-ui/core/colors";
 import PopupCopy from "../PopupCopy2/PopupCopy2";
 import animation from "../../img/animation5.webp"
-
+import Loading from "../Loading/Loading"
 
 const GetUserInvoice = () => {
+    const [loadingPopup, setButtonLoading] = useState(false);
     const [buttoncopy, setButtonCopy] = useState(false)
+    const [render, setRender] = useState(false);
     const [data, setValues] = useState({
         tagihan: []
     })
@@ -44,6 +46,7 @@ const GetUserInvoice = () => {
     localStorage.setItem('token', token);
     useEffect(() => {
         if (token) {
+            setButtonLoading(true)
             axios.get("https://paygua.com/api/invoice/getMyInvoice", {
                 headers: {
                     Authorization: token,
@@ -52,10 +55,13 @@ const GetUserInvoice = () => {
                 .then((result) => {
                     if (result.data) {
                         if (result.data.status === 200) {
+                            setButtonLoading(false)
+                            setRender(true);
                             setValues({
                                 ...data, tagihan: result.data.data
                             })
                         } else {
+                            setButtonLoading(false)
                             history.push('/login')
                         }
 
@@ -78,45 +84,47 @@ const GetUserInvoice = () => {
                         <Link style={{ textDecoration: 'none' }} to="/buattagihan"><p className={styles.button}>Buat</p></Link>
                     </div>
                     <br></br>
-                    {data.tagihan.length === 0 ? <div className={styles.animation1} style={{ marginLeft: "70px", marginTop: "70px" }}>
-                        <img className={styles.animation2} style={{ width: "246px", height: "246px" }} src={animation}></img>
-                        <figcaption className={styles.animation3} style={{ fontSize: "20px", color: "black" }}>Belum ada tagihan, bos..</figcaption>
-                    </div>
-                        : data.tagihan.map((tghn, idx) => (
-                            <div className={styles.a}>
-                                {console.log(tghn)}
-                                <div className={styles.boxdua} style={{
-                                    display: "flex",
-                                    alignItems: "center"
-                                }} >
-                                    <div style={{ width: "50%" }}>
-                                        <p onClick={() => tagihanClick(idx)} style={{ color: "#838790", fontSize: "12px", margin: "10px" }}>{tghn.isPaid === false ? <p>belum dibayar</p> : <p>sudah dibayar</p>}</p>
-                                        <div style={{ fontSize: "16px", margin: "10px" }}>
-                                            <p onClick={() => tagihanClick(idx)} style={{ marginTop: "10px" }}>{tghn.name}<br></br>Rp{tghn.nominal}</p>
+                    {render ? <div>
+                        {data.tagihan.length === 0 ? <div className={styles.animation1} style={{ marginLeft: "70px", marginTop: "70px" }}>
+                            <img className={styles.animation2} style={{ width: "246px", height: "246px" }} src={animation}></img>
+                            <figcaption className={styles.animation3} style={{ fontSize: "20px", color: "black" }}>Belum ada tagihan, bos..</figcaption>
+                        </div>
+                            : data.tagihan.map((tghn, idx) => (
+                                <div className={styles.a}>
+                                    {console.log(tghn)}
+                                    <div className={styles.boxdua} style={{
+                                        display: "flex",
+                                        alignItems: "center"
+                                    }} >
+                                        <div style={{ width: "50%" }}>
+                                            <p onClick={() => tagihanClick(idx)} style={{ color: "#838790", fontSize: "12px", margin: "10px" }}>{tghn.isPaid === false ? <p>belum dibayar</p> : <p>sudah dibayar</p>}</p>
+                                            <div style={{ fontSize: "16px", margin: "10px" }}>
+                                                <p onClick={() => tagihanClick(idx)} style={{ marginTop: "10px" }}>{tghn.name}<br></br>Rp{tghn.nominal}</p>
+                                            </div>
+                                            <button className={styles["a"]} onClick={() => navigator.clipboard.writeText(`paygua.com/${user.username}/${tghn.invoiceId}`)}>
+                                                <p onClick={setcopy} className={styles.link}>Paygua.com/{user.username}/{tghn.invoiceId}</p>
+                                            </button>
                                         </div>
-                                        <button className={styles["a"]} onClick={() => navigator.clipboard.writeText(`paygua.com/${user.username}/${tghn.invoiceId}`)}>
-                                            <p onClick={setcopy} className={styles.link}>Paygua.com/{user.username}/{tghn.invoiceId}</p>
-                                        </button>
+                                        <div onClick={() => tagihanClick(idx)} style={{ width: "50%", textAlign: "right", marginTop: "70px" }}>
+                                            <div ><img onClick={() => tagihanClick(idx)} style={{ cursor: "pointer" }} src={arroww}></img></div>
+
+                                            <p style={{ fontSize: "12px", marginRight: "12px" }}><img className={styles.time} src={time}></img>{tghn.isExpired === false ? <p>{tghn.expireIn}Hari</p> : <p>{tghn.expireIn}</p>}</p>
+
+
+                                        </div>
+
+
                                     </div>
-                                    <div onClick={() => tagihanClick(idx)} style={{ width: "50%", textAlign: "right", marginTop: "70px" }}>
-                                        <div ><img onClick={() => tagihanClick(idx)} style={{ cursor: "pointer" }} src={arroww}></img></div>
-
-                                        <p style={{ fontSize: "12px", marginRight: "12px" }}><img className={styles.time} src={time}></img>{tghn.isExpired === false ? <p>{tghn.expireIn}Hari</p> : <p>{tghn.expireIn}</p>}</p>
-
-
-                                    </div>
-
-
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                    </div> : null}
                 </div>
                 <PopupCopy trigger={buttoncopy}>
                     <p style={{ marginLeft: "40px" }}>Berhasil disalin ke Clipboard!</p>
                 </PopupCopy>
 
             </div>
-
+            <Loading trigger={loadingPopup}></Loading>
 
         </div>
     )

@@ -146,7 +146,7 @@
   color: #838790;
 }
 
-@media only screen and (max-width: 320px) {
+@media screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
   }
