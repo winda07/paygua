@@ -17,7 +17,6 @@
   right: 0;
   background-color: white;
   width: 100%;
-  /* height: 790px; */
   max-width: 350px;
   padding: 25px;
   margin-bottom: 390px;
@@ -56,7 +55,39 @@
   display: flex;
   justify-content: center;
 }
-@media only screen and (max-width: 320px) {
+
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .image {
+    width: 100%;
+    height: 300px;
+    /* align-items: center; */
+    /* margin-left: 50px; */
+  }
+  .top {
+    margin-top: 40px;
+    justify-content: space-between;
+  }
+  .text {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .buttonQr {
+    width: 100%;
+    height: 46px;
+    /* margin-left: 20px; */
+  }
+  .buttonQr2 {
+    width: 100%;
+    height: 46px;
+    /* margin-left: 20px; */
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
     height: 100%;
@@ -144,4 +175,4 @@
     height: 46px;
     margin-left: 20px;
   }
-}
+} */
