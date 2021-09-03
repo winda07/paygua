@@ -31,19 +31,19 @@
   border-radius: 5px;
 }
 .btnSubmit {
-  margin-left: 10px;
-  position: relative;
-  appearance: none;
-  padding: 0.1em 9em;
   cursor: pointer;
-  outline: none;
+  width: 350px;
+  height: 46px;
+  border: 1px solid;
+  border-color: white;
+  background-color: #21242b;
   border-radius: 100px;
-  border: 2px solid white;
-  background: black;
   margin-top: 30px;
 }
 .text {
   color: white;
+  text-align: center;
+  margin-top: 13px;
 }
 .judul {
   font-size: 24px;
@@ -54,4 +54,14 @@
 }
 .set {
   color: red;
+}
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 20px auto;
+  }
+  .form-control {
+    width: 100%;
+  }
 }

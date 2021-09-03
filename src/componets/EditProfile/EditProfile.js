@@ -17,6 +17,7 @@ import Loading from "../Loading/Loading";
 
 const EditProfile = ({ formSubmit }) => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
     const [errors, setErros] = useState({});
     const history = useHistory();
     const [image, setImage] = useState([]);
@@ -33,7 +34,12 @@ const EditProfile = ({ formSubmit }) => {
     });
     const urlPayGua = "Paygua.com/"
 
-
+    useEffect(() => {
+        console.log("isClicked: ", isClicked)
+        // setErros(validation(data));
+        setDataIsCorrect(false);
+        setIsClicked(false);
+    }, [])
     const handleChange = (e) => {
         setValues({
             ...data,
@@ -92,6 +98,7 @@ const EditProfile = ({ formSubmit }) => {
         e.preventDefault();
         setErros(validation(data));
         setDataIsCorrect(true);
+        setIsClicked(true);
 
         // submit
         if (dataIsCorrect) {
@@ -253,7 +260,7 @@ const EditProfile = ({ formSubmit }) => {
                 <img style={{ marginLeft: "320px", display: "flex", cursor: "pointer" }} onClick={() => {
                     setButtonPopup(false)
                 }} src={silang}></img>
-                <div style={{ marginLeft: "80px", marginBottom: "20px" }}>{message}</div>
+                <div style={{ display: "flex", textAlign: "center", justifyContent: "center", marginBottom: "20px" }}>{message}</div>
             </Popup>
             <Loading trigger={loadingPopup}></Loading>
         </div >

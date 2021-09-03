@@ -46,7 +46,14 @@
 .message {
   font-size: 16px;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0px auto;
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
     top: 0%;
@@ -100,4 +107,4 @@
     width: 100%;
     margin-left: 0px;
   }
-}
+} */

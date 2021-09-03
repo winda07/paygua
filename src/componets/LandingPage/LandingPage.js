@@ -12,7 +12,7 @@ const LandingPage = () => {
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
                 <div className={styles.top}>
-                    <img src={logo}></img>
+                    <Link to="/TentangKami"> <img style={{ marginTop: "5px" }} src={logo}></img></Link>
                     <Link style={{ textDecoration: "underline", color: "black" }} to="/TentangKami"><p style={{ fontSize: "14px", color: "black", cursor: "pointer" }}>Learn more</p></Link>
                 </div>
                 <img className={styles.image} src={animation}></img>

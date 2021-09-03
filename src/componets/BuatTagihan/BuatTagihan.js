@@ -212,15 +212,6 @@ const BuatTagihan = () => {
                     onChange={handleChange}
                 ></input>
                 <div className={styles["set"]}>{errors.email && isClicked && <p className="error">{errors.email}</p>}</div>
-                {/* <input
-                    type="number"
-                    class={styles["form-control-nominal"]}
-                    id="floatingInput"
-                    name="nominal"
-                    placeholder="Nominal"
-                    value={data.nominal}
-                    onChange={handleChange}
-                ></input> */}
                 <CurrencyFormat className={styles["form-control-nominal"]} name="nominal"
                     placeholder="Nominal"
                     value={data.nominal}

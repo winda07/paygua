@@ -10,13 +10,10 @@ const Notfound = () => {
             <div className={styles['form-signin']}>
                 <br></br>
                 <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
                 <img style={{ marginLeft: "50px" }} src={animation}></img>
                 <b className={styles.text}>Pengguna atau halaman yang anda cari tidak ada</b>
                 <button className={styles.button}><Link style={{ textDecoration: "none", color: "black", fontSize: "14px" }} to="/"><b>Kembali ke halaman utama</b></Link></button>
-                <img className={styles.logo} src={logo}></img>
+                <Link to="/TentangKami"><img className={styles.logo} src={logo}></img></Link>
             </div>
         </div>
     )

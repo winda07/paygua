@@ -5,9 +5,6 @@
 
 .App {
   align-items: center;
-  /* padding-top: 40px;
-  padding-bottom: 40px; */
-  /* background-color: #dcdcdc; */
   background-color: white;
 }
 .form-signin {
@@ -44,7 +41,14 @@
   text-align: center;
   justify-content: center;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0px auto;
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
   }
@@ -84,4 +88,4 @@
   .caption {
     margin-left: 50px;
   }
-}
+} */

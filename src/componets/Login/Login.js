@@ -98,7 +98,7 @@ const Login = ({ submitForm }) => {
     <div className={styles.App}>
       <form onSubmit={handleFormSubmit} className={styles['form-signin']}>
         <header className={styles['App-header']}>
-          <img className={styles.logo} src={logo} alt="logo" />
+          <Link to="/TentangKami"><img className={styles.logo} src={logo} /></Link>
           <br></br>
           <br></br>
           <div className="datang">

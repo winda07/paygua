@@ -112,9 +112,8 @@ const Dashboard = () => {
   return (
     <div className={styles.App}>
       <div className={styles["form-signin"]}>
-        <img className={styles['logo']} src={logo} />
+        <Link to="/TentangKami"><img className={styles['logo']} src={logo} /></Link>
         <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
-
         <div style={{ height: "200px" }}>
           <GetProfile></GetProfile>
           <button className={styles.boxdalam2} onClick={setcopy}>
@@ -145,7 +144,7 @@ const Dashboard = () => {
           </div>
         </PopupHome>
         <footer className={styles.footer}>
-          <div style={{ display: "flex" }}>
+          <div className={styles.divfooter}>
             <div className={styles.divfooter1}>
               <img className={styles.home} src={home}></img>
               <figcaption className={styles.beranda}>Beranda</figcaption>

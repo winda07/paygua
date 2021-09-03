@@ -20,11 +20,13 @@
   margin: 0px auto;
 }
 .cairkan {
-  margin-left: 250px;
-  margin-top: -50px;
+  margin-left: 240px;
+  margin-top: -200px;
   position: relative;
   appearance: none;
-  padding: 0.25em 1.3em;
+  width: 85px;
+  height: 34px;
+  /* padding: 0.25em 1.3em; */
   color: #21242b;
   cursor: pointer;
   outline: none;
@@ -61,7 +63,14 @@
   margin-top: 0px;
   font-size: 24px;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 20px auto;
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
     top: 0%;
@@ -69,7 +78,6 @@
     left: 0%;
     overflow-x: hidden;
     overflow-y: scroll;
-    /* height: 100%; */
   }
   .saldo {
     font-size: 12px;
@@ -150,4 +158,4 @@
   .total {
     margin-left: 0px;
   }
-}
+} */

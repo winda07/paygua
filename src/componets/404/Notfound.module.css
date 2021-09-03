@@ -4,16 +4,13 @@
 }
 
 .App {
-  /* height: 750px; */
   align-items: center;
-  /* padding-top: 40px;
-  padding-bottom: 40px; */
   background-color: white;
 }
 .form-signin {
   /* display: block; */
   background-color: white;
-  height: 790px;
+  height: 100%;
   width: 100%;
   max-width: 350px;
   padding: 15px;
@@ -28,22 +25,28 @@
   color: black;
 }
 .button {
-  height: 50px;
-  margin-left: 10px;
-  position: relative;
-  appearance: none;
-  padding: 0.1em 5.5em;
   cursor: pointer;
-  outline: none;
+  width: 228px;
+  height: 36px;
+  border: 1px solid #21242b;
+  background-color: transparent;
   border-radius: 100px;
-  border: 2px solid white;
-  border-color: #21242b;
-  background: transparent;
+  position: absolute;
   margin-top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .logo {
-  margin-top: 180px;
+  margin-top: 100px;
   margin-left: 120px;
+}
+
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0px auto;
+  }
 }
 
 /* @media only screen and (max-width: 320px) {

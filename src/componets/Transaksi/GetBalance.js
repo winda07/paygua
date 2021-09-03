@@ -40,8 +40,15 @@ const GetBalance = () => {
                 <div className={styles.gbrarow}>
                     <Link to="/dashboard"><img src={arrow} alt="logo" /></Link>
                 </div>
-                <p className={styles.saldo} >Saldo kamu saat ini</p>
-                <p className={styles.kun}>Rp{data.Balance}</p>
+                <div style={{ display: "flex", alignItems: "center" }} >
+                    <div style={{ width: "50%" }} >
+                        <p className={styles.saldo} >Saldo kamu saat ini</p>
+                        <p className={styles.kun}>Rp{data.Balance}</p>
+                    </div>
+                    <div style={{ width: "10%", marginLeft: "-170px" }}>
+                        <Link style={{ textDecoration: "none" }} to="/pencairan"><button className={styles['cairkan']} >Cairkan</button></Link>
+                    </div>
+                </div>
 
 
             </div>

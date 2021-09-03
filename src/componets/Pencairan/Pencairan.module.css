@@ -70,10 +70,12 @@
 }
 
 .btnSubmit {
-  margin-left: 10px;
+  /* margin-left: 10px; */
   position: relative;
   appearance: none;
-  padding: 0.1em 9em;
+  width: 343px;
+  height: 46px;
+  /* padding: 0.1em 9em; */
   cursor: pointer;
   outline: none;
   border-radius: 100px;
@@ -85,12 +87,20 @@
   display: flex;
   text-align: center;
   justify-content: center;
+  margin-top: 13px;
   color: white;
 }
 .set {
   color: red;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 20px auto;
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
     height: 100%;
@@ -188,4 +198,4 @@
     text-align: center;
     justify-content: center;
   }
-}
+} */

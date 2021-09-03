@@ -11,6 +11,7 @@ import { red } from "@material-ui/core/colors";
 import PopupCopy from "../PopupCopy2/PopupCopy2";
 import animation from "../../img/animation5.webp"
 import Loading from "../Loading/Loading"
+import plus from "../../img/add.svg"
 
 const GetUserInvoice = () => {
     const [loadingPopup, setButtonLoading] = useState(false);
@@ -76,12 +77,14 @@ const GetUserInvoice = () => {
 
             <div className={styles.App}>
                 <div className={styles['form-signin']}>
-                    <div style={{ width: "0%" }}>
-                        <Link to="/dashboard"><img className={styles.arrow} src={arrow}></img></Link>
-                        <p className={styles.tagihan}>Tagihan</p>
-                    </div>
-                    <div style={{ width: "100%", textAlign: "right" }}>
-                        <Link style={{ textDecoration: 'none' }} to="/buattagihan"><p className={styles.button}>Buat</p></Link>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <div>
+                            <Link to="/dashboard"><img className={styles.arrow} src={arrow}></img></Link>
+                            <p className={styles.tagihan}>Tagihan</p>
+                        </div>
+                        <div>
+                            <Link style={{ textDecoration: 'none' }} to="/buattagihan"><button className={styles.button}> <p style={{ display: "flex", textAlign: "center", justifyContent: "center", marginTop: "7px", fontSize: "14px" }}>Buat &nbsp; <img src={plus}></img></p></button></Link>
+                        </div>
                     </div>
                     <br></br>
                     {render ? <div>

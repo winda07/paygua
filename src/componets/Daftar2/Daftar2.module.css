@@ -4,23 +4,12 @@
 }
 
 .App {
-  /* height: 100%; */
   align-items: center;
-  /* padding-top: 40px;
-  padding-bottom: 40px; */
   background-color: white;
 }
-/* html,
-body,
-:root,
-.App {
-  height: 100%;
-  position: fixed;
-  overflow: auto;
-} */
 .logo {
-  width: 114px;
-  height: 36px;
+  width: 100%;
+  /* height: 36px; */
 }
 .judul {
   color: black;
@@ -44,12 +33,14 @@ body,
   align-items: center;
 }
 .form-signin {
+  position: fixed;
+  left: 0;
+  right: 0;
   background-color: white;
-  height: 790px;
   width: 100%;
-  max-width: 370px;
-  padding: 15px;
-  /* margin-bottom: 390px; */
+  max-width: 350px;
+  padding: 25px;
+  margin-bottom: 390px;
   margin: 0px auto;
 }
 .profile {
@@ -60,26 +51,26 @@ body,
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  /* display: inline-block; */
+  display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 5px;
+  position: relative;
 }
 .btnSubmit {
-  margin-left: 10px;
-  /* position: relative; */
-  /* appearance: none; */
-  padding: 0.1em 9em;
   cursor: pointer;
-  /* outline: none; */
+  width: 350px;
+  height: 46px;
+  border: 1px solid;
+  border-color: white;
+  background-color: #21242b;
   border-radius: 100px;
-  border: 2px solid white;
-  background: #21242b;
   margin-top: 30px;
 }
 .text {
   color: white;
   text-align: center;
+  margin-top: 13px;
 }
 .lengkapi {
   margin-right: 190px;
@@ -92,21 +83,18 @@ body,
   color: red;
 }
 .ukuranPP {
-  width: 218px;
-  height: 218px;
+  width: 150px;
+  height: 150px;
 }
 .boxupload {
   display: grid;
-  margin-left: 70px;
+  margin-left: 100px;
   margin-top: 20px;
   place-items: center;
   border: 1px dashed #799cd9;
-  /* padding: 36px 48px; */
   position: relative;
-
-  height: 220px;
-  width: 220px;
-
+  width: 150px;
+  height: 150px;
   background: #fbfbff;
   border-radius: 200px;
 }
@@ -125,8 +113,8 @@ body,
   display: none;
 }
 .uploadImage {
-  height: 220px;
-  width: 220px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 200px;
 }
@@ -145,7 +133,46 @@ body,
   opacity: 1;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0px auto;
+  }
+  .form-control {
+    width: 100%;
+    /* margin-left: 15px; */
+  }
+  .form-control-bio {
+    width: 100%;
+    /* margin-left: 15px; */
+    padding: 12px 20px 40px;
+  }
+  .ukuranPP {
+    height: 128px;
+    width: 128px;
+  }
+  .set {
+    font-size: 12px;
+  }
+  .boxupload {
+    height: 128px;
+    width: 128px;
+    margin-left: 110px;
+  }
+  .uploadImage {
+    width: 128px;
+    height: 128px;
+  }
+  .btnSubmit {
+    width: 100%;
+  }
+  .text {
+    text-align: center;
+    margin-top: 13px;
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
   }
@@ -265,4 +292,4 @@ body,
   .text {
     margin-left: -23px;
   }
-}
+} */

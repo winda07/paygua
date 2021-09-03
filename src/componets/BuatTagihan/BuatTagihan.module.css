@@ -78,19 +78,20 @@
   border-radius: 5px;
 }
 .btnSubmit {
-  margin-top: 20px;
-  position: relative;
-  appearance: none;
-  padding: 0.1em 10.5em;
   cursor: pointer;
-  outline: none;
+  width: 350px;
+  height: 46px;
+  border: 1px solid;
+  border-color: white;
+  background-color: #21242b;
   border-radius: 100px;
-  border: 2px solid white;
-  background: black;
+  margin-top: 30px;
 }
 .text2 {
   color: white;
-  margin-left: -25px;
+  text-align: center;
+  justify-content: center;
+  margin-top: 13px;
 }
 .min {
   font-size: 12px;
@@ -101,14 +102,12 @@
   color: red;
 }
 .a {
-  /* margin-left: 80px; */
-  border-radius: 5px;
+  border: 1px solid #eff0f2;
+  width: 205px;
+  height: 50px;
+  border-radius: 100px;
   cursor: pointer;
-  border-color: transparent;
-  display: inline-block;
-  /* position: absolute; */
-  /* top: 50%; */
-  left: 50%;
+  background-color: transparent;
 }
 .popup {
   width: 171px;
@@ -146,7 +145,14 @@
   color: #838790;
 }
 
-@media screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0px auto;
+  }
+}
+/* @media screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
   }
@@ -260,4 +266,4 @@
   .text2 {
     margin-left: 0px;
   }
-}
+} */

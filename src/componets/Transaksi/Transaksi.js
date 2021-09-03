@@ -9,9 +9,7 @@ const Transaksi = () => {
         <div className={styles.App}>
             <div className={styles['form-signin']}>
                 <GetBalance></GetBalance>
-
-                <Link style={{ textDecoration: "none" }} to="/pencairan"> <p className={styles['cairkan']} >Cairkan</p></Link>
-
+                {/* <Link style={{ textDecoration: "none" }} to="/pencairan"><button className={styles['cairkan']} >Cairkan</button></Link> */}
                 <p className={styles.box}>Riwayat Transaksi</p>
 
                 <GetHistory></GetHistory>

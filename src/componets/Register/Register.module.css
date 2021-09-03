@@ -41,16 +41,13 @@
 }
 
 .btnSubmit12 {
-  height: 50px;
-  margin-left: 10px;
-  position: relative;
-  appearance: none;
-  padding: 0.1em 11em;
   cursor: pointer;
-  outline: none;
+  width: 343px;
+  height: 46px;
+  border: 1px solid;
+  border-color: white;
+  background-color: #21242b;
   border-radius: 100px;
-  border: 2px solid white;
-  background: #21242b;
   margin-top: 30px;
 }
 .text1 {
@@ -111,4 +108,34 @@
 }
 .set {
   color: red;
+}
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .logo {
+    width: 100px;
+  }
+  .form-control {
+    width: 100%;
+  }
+  .img {
+    width: 20px;
+    margin-right: 10px;
+  }
+  .sandi {
+    margin-left: 10%;
+  }
+  .text-center1 {
+    text-align: center;
+  }
+  .btnSubmit {
+    width: 100%;
+    height: 55px;
+  }
+  .text {
+    text-align: center;
+  }
 }

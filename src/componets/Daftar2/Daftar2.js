@@ -107,12 +107,10 @@ const Daftar2 = () => {
         <div className={styles.App}>
             <div className={styles['form-signin']}>
                 <header className={styles['App-header']}>
-                    <img className={styles.logo} src={logo} alt="logo" />
+                    <Link to="/TentangKami"><img className={styles.logo} src={logo} /></Link>
                 </header>
                 <br></br>
-                {/* <br></br> */}
                 <b className={styles.judul}>Lengkapi Profil</b>
-                {/* <BoxUpload > */}
                 <div className={styles.boxupload}>
                     <div className={styles.imageupload}>
                         {!isUploaded ? (
@@ -122,7 +120,6 @@ const Daftar2 = () => {
                                         src={FolderIcon}
                                         draggable={"false"}
                                         alt="placeholder"
-                                    // style={{ width: 218, height: 218 }}
                                     />
 
                                 </label>
@@ -133,11 +130,9 @@ const Daftar2 = () => {
                                     type="file"
                                     onChange={handleChange2}
                                     accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
-                                // accept=".webp"
                                 />
                             </>
                         ) : (
-                            // <ImagePreview>
                             <div>
                                 <img
                                     className="close-icon"
@@ -154,12 +149,9 @@ const Daftar2 = () => {
                                     alt="uploaded-img"
                                 />
                             </div>
-
-                            // </ImagePreview>
                         )}
                     </div>
                 </div>
-                {/* </BoxUpload> */}
                 <br></br>
                 <input
                     type="text"
@@ -190,41 +182,6 @@ const Daftar2 = () => {
                 </div>
             </div>
         </div>
-
-        // <div className={styles.App}>
-        //     <div className={styles['form-signin']}>
-        //         <header className={styles['App-header']}>
-        //             <img src={logo} alt="logo" />
-        //         </header>
-        //         <div className={styles.profile}>
-        //             <img src={profile} alt="logo" />
-        //         </div>
-        //         <h3 class="h3 mb-3 fw-normal">Lengkapi Profile</h3>
-        //         <input
-        //             type="text"
-        //             class={styles["form-control"]}
-        //             id="floatingNama"
-        //             placeholder="Nama"
-        //             name="nama"
-        //             value={data.nama}
-        //             onChange={handleChange}
-        //         ></input>
-        //         {errors.nama && <p className="error">{errors.nama}</p>}
-        //         <textarea
-        //             type="text"
-        //             class={styles["form-control-bio"]}
-        //             id="floatingBio"
-        //             placeholder="Bio"
-        //             name="bio"
-        //             value={data.bio}
-        //             onChange={handleChange}
-        //         ></textarea>
-        //         {errors.bio && <p className="error">{errors.bio}</p>}
-        //         <div className={styles.btnSubmit} onClick={handleFormSubmit}>
-        //             <p className={styles.text}  >Selesai</p>
-        //         </div>
-        //     </div>
-        // </div>
     )
 }
 

@@ -11,7 +11,8 @@
 .form-signin {
   background-color: white;
   width: 100%;
-  height: 2568px;
+  /* height: 2568px; */
+  height: 100%;
   max-width: 370px;
   margin-bottom: 390px;
   margin: 0px auto;
@@ -36,7 +37,8 @@
 }
 .latar {
   text-align: center;
-  width: 320px;
+  width: 327px;
+  height: 537px;
 }
 .logo {
   margin-top: 20px;
@@ -409,7 +411,59 @@ h6 {
 .gmb3 {
   margin-left: 5px;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0px auto;
+    max-width: 100%;
+  }
+  .atas {
+    justify-content: center;
+  }
+  .logo {
+    margin-left: 10px;
+  }
+  .button {
+    margin-right: 40px;
+  }
+  .buttonLogin {
+    width: 100px;
+    margin-right: 10px;
+  }
+  .accept {
+    margin-left: 50px;
+  }
+  .gambar1 {
+    margin-left: 45px;
+  }
+  .KK {
+    margin-left: 50px;
+  }
+  .VA {
+    margin-left: 160px;
+  }
+  .E-Wallet {
+    margin-left: 290px;
+  }
+  .rules {
+    margin-left: 30px;
+  }
+  .why {
+    margin-top: 300px;
+    margin-left: 5px;
+  }
+  .tes {
+    margin-left: 30px;
+  }
+  .n {
+    margin-left: 5px;
+  }
+  .fot1 {
+    margin-left: 30px;
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     width: 100%;
     height: 100%;
@@ -715,4 +769,4 @@ h6 {
   .fot1 {
     margin-left: 30px;
   }
-}
+} */

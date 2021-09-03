@@ -4,11 +4,7 @@
 }
 
 .App {
-  /* height: 700px; */
   align-items: center;
-  /* padding-top: 40px; */
-  /* padding-bottom: 40px; */
-  /* background-color: #dcdcdc; */
   background-color: white;
 }
 .form-signin {
@@ -25,18 +21,15 @@
 
 .gbrarow {
   position: relative;
-  margin-top: 10px;
+  margin-top: 30px;
   display: flex;
   text-align: center;
   justify-content: center;
 }
 .kun {
-  /* margin-left: 0px; */
   margin-top: 2px;
   position: absolute;
   font-size: 18px;
-  /* margin-bottom: 7px; */
-  /* margin-left: 195px; */
 }
 .check {
   margin-left: 330px;
@@ -71,7 +64,14 @@
   box-sizing: border-box;
   border-radius: 5px;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0px auto;
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
     height: 100%;
@@ -100,4 +100,4 @@
   .kun {
     margin-right: 10px;
   }
-}
+} */

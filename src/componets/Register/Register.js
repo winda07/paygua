@@ -74,7 +74,7 @@ const Register = ({ submitForm }) => {
     <div className={styles.App}>
       <form onSubmit={handleFormSubmit} className={styles["form-signin"]}>
         <header className={styles["App-header"]}>
-          <img src={logo} alt="logo" />
+          <Link to="/TentangKami"> <img style={{ marginTop: "5px" }} src={logo} alt="logo" /></Link>
           <div className="datang">
             <h1 class="h3 mb-3 fw-normal">Gabung Paygua Sekarang</h1>
             <input

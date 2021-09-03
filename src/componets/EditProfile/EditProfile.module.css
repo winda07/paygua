@@ -4,11 +4,7 @@
 }
 
 .App {
-  /* height: 700px; */
   align-items: center;
-  /* padding-top: 40px; */
-  /* padding-bottom: 40px; */
-  /* background-color: #dcdcdc; */
   background-color: white;
 }
 .form-signin {
@@ -176,7 +172,30 @@
 .kun1 {
   margin-left: 110px;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0px auto;
+  }
+  .boxupload {
+    height: 128px;
+    width: 128px;
+    margin-left: 120px;
+  }
+  .uploadImage {
+    width: 128px;
+    height: 128px;
+  }
+  .ukuranPP {
+    height: 128px;
+    width: 128px;
+  }
+  .kun1 {
+    margin-left: 120px;
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
     height: 100%;
@@ -323,4 +342,4 @@
   .kun1 {
     margin-left: 120px;
   }
-}
+} */
