@@ -56,6 +56,7 @@ const DummyCmp = (props) => {
     const [showtransfer, setShowTransfer] = useState('');
     const [showShopeepay, setShowShopeepay] = useState('');
     const [popupovo, setPopupOvo] = useState(false)
+    const [type, setType] = useState(false);
     const creatQrCode = (text) => {
         console.log(text)
         QrCode.toCanvas(document.getElementById("canvas"), text, function (err) {
@@ -245,6 +246,7 @@ const DummyCmp = (props) => {
 
     useEffect(() => {
         if (props.type === "type1") {
+            setType("type1");
             axios.get("https://paygua.com/api/transaction/" + paramobj.username, null, {
             })
                 .then((result) => {
@@ -261,13 +263,11 @@ const DummyCmp = (props) => {
                         history.push("/404error")
                     }
 
-                    // console.log(bio)
-
                 })
                 .catch((e) => {
                 });
         } else if (props.type === "type2") {
-            //alert("out")
+            setType("type2");
             axios.get("https://paygua.com/api/transaction/" + paramobj.username + "/" + paramobj.invoiceId, null, {
             })
                 .then((result) => {
@@ -339,6 +339,7 @@ const DummyCmp = (props) => {
                                     placeholder="Masukkan Nama Anda"
                                     value={data.nama}
                                     onChange={handleChange}
+                                    disabled={type === "type2"}
                                 ></input>
                                 <div className={styles["set"]}>{errors.nama && <p className="error">{errors.nama}</p>}</div>
                                 <input
@@ -348,12 +349,14 @@ const DummyCmp = (props) => {
                                     placeholder="Masukkan Email Anda"
                                     value={data.email}
                                     onChange={handleChange}
+                                    disabled={type === "type2"}
                                 ></input>
                                 <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
 
                                 <CurrencyFormat className={styles["nominal"]} name="nominal" id="price"
                                     value={data.nominal}
                                     placeholder="Masukkan Nominal"
+                                    disabled={type === "type2"}
                                     onValueChange={(values) => {
                                         const { formattedValue, value } = values;
                                         setValues({
@@ -371,6 +374,7 @@ const DummyCmp = (props) => {
                                     placeholder="Pesan (Contoh: Pembayaran Produk Digital)"
                                     value={data.pesan}
                                     onChange={handleChange}
+                                    disabled={type === "type2"}
                                 ></input>
 
 
@@ -403,30 +407,12 @@ const DummyCmp = (props) => {
                                 </div>
                                     : null
                             }
-                            {/* {
-                                showShopeepay ? <div> <div class={styles["inputOVO"]}>
-                                    <h5 class={styles["OVOLabel"]}>
-                                        {masukkanShopeepay}
-                                        <h5 class={styles["number"]}>
-                                            {codeNumber}
-                                            <CurrencyFormat className={styles["ovo"]} name="nomor" maxLength="12"
-                                                value={data.nomor}
-                                                onChange={handleChange}></CurrencyFormat>
-                                        </h5>
-                                    </h5>
-                                </div>
-                                    <p style={{ fontSize: "11px", color: "#838790", display: "flex", textAlign: "center", justifyContent: "center" }}>powered by <img src={durianpay}></img></p>
-                                </div>
-
-                                    : null
-                            } */}
                             {
                                 showtransfer ? <p className={styles.admin}>*Transfer Bank akan ditambah biaya 4.000</p> : null
                             }
                             <div className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.btnSubmit : styles.btnBedaWarna} onClick={handleFormSubmit}>
                                 <p className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.text2 : styles.text21}  >Bayar</p>
                             </div>
-                            {/* <img src={secure}></img> */}
                             <Popup
                                 trigger={buttonPopup}>
                                 <div>
@@ -456,9 +442,7 @@ const DummyCmp = (props) => {
                                     <br></br>
                                     <button className={styles.buttonQr} onClick={() => { setButtonPopup(false) }}><p style={{ color: "white", fontSize: "18px", marginTop: "10px" }}>Selesai Bayar</p></button>
                                 </div>
-                                {/* <img src={URL.createObjectURL({ qrImage })} /> */}
                             </Popup>
-                            {/* <div> */}
                             <Popup trigger={popupgopay}>
                                 <div>
                                     <canvas className={styles.canvas2} id="canvasGopay"></canvas>
@@ -481,7 +465,6 @@ const DummyCmp = (props) => {
                                     <div style={{ marginLeft: "100px", marginBottom: "20px" }}>{Message}</div>
                                 </div>
                             </Popup>
-                            {/* </div> */}
                             <div className={styles.securestyle}>
                                 <img src={secure}></img>
                                 <p style={{ fontSize: "12px" }}>Pembayaran 100% aman dan terenkripsi</p>
