@@ -25,11 +25,14 @@ import tagih from "../../img/tagih.svg"
 import qrstatis from "../../img/qrcode.svg"
 import kirim from "../../img/kirim.svg"
 import axios from "axios"
+import Loading from "../Loading/Loading"
+
 toast.configure()
 const Dashboard = () => {
   const token = localStorage.getItem("token");
   const history = useHistory()
   const location = useLocation()
+  const [loadingPopup, setButtonLoading] = useState(false);
   const [HomePopup, setHome] = useState(false)
   const user = jwt(token)
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -91,6 +94,7 @@ const Dashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
+      setButtonLoading(true)
       axios.get("https://paygua.com/api/user/profile", {
         headers: {
           Authorization: token,
@@ -98,6 +102,7 @@ const Dashboard = () => {
       })
         .then((result) => {
           if (result.data.status === 200) {
+            setButtonLoading(false)
             setValues({
               name: result.data.data.name,
               qr: result.data.data.qr
@@ -165,6 +170,8 @@ const Dashboard = () => {
             trigger={buttonPopup}>
           </Popup>
         </footer>
+        <Loading
+          trigger={loadingPopup}></Loading>
       </div>
     </div>
 

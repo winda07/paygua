@@ -12,13 +12,14 @@ import Popup from "../PopupLogin/PopupLogin";
 import silang from "../../img/ion.svg"
 import FolderIcon from "../../img/profile.svg"
 import Loading from "../Loading/Loading";
-
+import PopupSuksesUbah from "../PopupSuksesUbah/PopupSuksesUbah"
 
 
 const EditProfile = ({ formSubmit }) => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
     const [errors, setErros] = useState({});
+    const [popupAfterUpdate, setpopupAfterUpdate] = useState(false)
     const history = useHistory();
     const [image, setImage] = useState([]);
     const [isUploaded, setIsUploaded] = useState(false);
@@ -66,10 +67,8 @@ const EditProfile = ({ formSubmit }) => {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        // console.log("token: ", token)
         if (token) {
             const user2 = jwt(token)
-            // console.log(user2)
             axios.get("https://paygua.com/api/user/profile", {
                 headers: {
                     Authorization: token,
@@ -116,10 +115,7 @@ const EditProfile = ({ formSubmit }) => {
                     formData.append(key, data[key]);
                 }
             }
-            // if (token) {
             const user = jwt(token);
-            // for (var pair of formData.entries()) { console.log(pair[0] + ', ' + pair[1]); }
-            // console.log(formData)
             axios
                 .put("https://paygua.com/api/user/" + user.id, formData, {
                     headers: {
@@ -133,14 +129,16 @@ const EditProfile = ({ formSubmit }) => {
                     if (result) {
                         if (result.data) {
                             if (result.data.status === 200) {
-                                history.push('/settings')
+                                setpopupAfterUpdate(true)
+                                setTimeout(() => {
+                                    setpopupAfterUpdate(false)
+                                }, 1000);
                                 setButtonLoading(false)
                             } else {
                                 setButtonPopup(true);
                                 setMessage(result.data.errors.errorMessage)
                                 setButtonLoading(false)
                             }
-
                         }
                     }
                 })
@@ -220,21 +218,15 @@ const EditProfile = ({ formSubmit }) => {
                     value={data.name}
                     onChange={handleChange}
                 ></input>
-                <div class={styles["inputContainer"]}>
-                    <h5 class={styles["usernameLabel"]}>
-                        {urlPayGua}
-                    </h5>
-                    <input
-                        type="text"
-                        name="username"
-                        disabled
-                        class={styles["username"]}
-                        placeholder="Username"
-                        id="=floatingUsername"
-                        value={data.username}
-                        onChange={handleChange}
-                    ></input>
-                </div>
+                <input disabled
+                    type="text"
+                    name="username"
+                    class={styles["form-control"]}
+                    placeholder="Username"
+                    id="=floatingUsername"
+                    value={`paygua.com/${data.username}`}
+                    onChange={handleChange}>
+                </input>
                 <textarea
                     type="text"
                     class={styles["form-control-bio"]}
@@ -263,6 +255,13 @@ const EditProfile = ({ formSubmit }) => {
                 <div style={{ display: "flex", textAlign: "center", justifyContent: "center", marginBottom: "20px" }}>{message}</div>
             </Popup>
             <Loading trigger={loadingPopup}></Loading>
+            <PopupSuksesUbah trigger={popupAfterUpdate}>
+                <img style={{ marginLeft: "310px", cursor: "pointer" }} src={silang} onClick={() => {
+                    setpopupAfterUpdate(false)
+                }}></img>
+                <div style={{ textAlign: "center", justifyContent: "center" }}>Success</div>
+
+            </PopupSuksesUbah>
         </div >
     );
 };

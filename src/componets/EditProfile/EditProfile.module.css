@@ -181,7 +181,7 @@
   .boxupload {
     height: 128px;
     width: 128px;
-    margin-left: 120px;
+    margin-left: 105px;
   }
   .uploadImage {
     width: 128px;
@@ -192,7 +192,7 @@
     width: 128px;
   }
   .kun1 {
-    margin-left: 120px;
+    margin-left: 110px;
   }
 }
 /* @media only screen and (max-width: 320px) {

@@ -79,16 +79,12 @@ h6 {
   /* margin-left: 20px; */
 }
 .a {
-  /* position: absolute; */
-  border-radius: 5px;
-  border: 1px;
+  border-radius: 100px;
+  border: 1px solid #eff0f2;
   margin-left: 5px;
   margin-bottom: 8px;
   cursor: pointer;
-}
-.time {
-  float: left;
-  margin-left: 100px;
+  background-color: transparent;
 }
 @media only screen and (max-width: 500px) {
   .form-signin {

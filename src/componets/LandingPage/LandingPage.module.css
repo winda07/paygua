@@ -63,10 +63,10 @@
     margin: 0 auto;
   }
   .image {
-    width: 100%;
+    width: 80%;
     height: 300px;
-    /* align-items: center; */
-    /* margin-left: 50px; */
+    display: flex;
+    margin-left: 40px;
   }
   .top {
     margin-top: 40px;

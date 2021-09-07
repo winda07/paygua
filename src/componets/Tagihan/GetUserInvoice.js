@@ -108,15 +108,14 @@ const GetUserInvoice = () => {
                                                 <p onClick={setcopy} className={styles.link}>Paygua.com/{user.username}/{tghn.invoiceId}</p>
                                             </button>
                                         </div>
-                                        <div onClick={() => tagihanClick(idx)} style={{ width: "50%", textAlign: "right", marginTop: "70px" }}>
+                                        <div onClick={() => tagihanClick(idx)} style={{ width: "40%", textAlign: "right", marginTop: "70px" }}>
                                             <div ><img onClick={() => tagihanClick(idx)} style={{ cursor: "pointer" }} src={arroww}></img></div>
+                                            <div style={{ display: 'flex', justifyContent: "right", marginLeft: "110px" }}>
+                                                <img className={styles.time} src={time}></img>
+                                                <p style={{ fontSize: "12px" }}>{tghn.isExpired === false ? <p>{tghn.expireIn}Hari</p> : <p>{tghn.expireIn}</p>}</p>
 
-                                            <p style={{ fontSize: "12px", marginRight: "12px" }}><img className={styles.time} src={time}></img>{tghn.isExpired === false ? <p>{tghn.expireIn}Hari</p> : <p>{tghn.expireIn}</p>}</p>
-
-
+                                            </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             ))}

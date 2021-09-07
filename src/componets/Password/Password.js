@@ -9,9 +9,10 @@ import validation from './validation'
 import showPdwImg from "../../img/showPassword.svg";
 import hidePwdImg from "../../img/hidePassword.svg";
 import jwt from "jwt-decode"
+import Loading from "../Loading/Loading"
 
 const Password = () => {
-
+    const [loadingPopup, setButtonLoading] = useState(false);
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
     const [isRevealPwd, setIsRevealPwd] = useState(false);
     const [isRevealPwd2, setIsRevealPwd2] = useState(false);
@@ -39,6 +40,7 @@ const Password = () => {
         setErros(validation(data));
         setDataIsCorrect(true)
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
+            setButtonLoading(true)
             const token = localStorage.getItem('token');
             if (token) {
                 const user = jwt(token);
@@ -55,8 +57,10 @@ const Password = () => {
                         if (result) {
                             if (result.data.status === 200) {
                                 history.push('/settings')
+                                setButtonLoading(false)
                             } else {
                                 history.push('/login')
+                                setButtonLoading(false)
                             }
                         }
                         console.log(result.data);
@@ -120,7 +124,7 @@ const Password = () => {
                     <Link to="/lupaPassword"><a href="#" class={styles['ForgetPwd']}>Lupa Kata Sandi?</a></Link>
                 </div>
 
-
+                <Loading trigger={loadingPopup}></Loading>
             </div>
         </div>
     )

@@ -16,29 +16,10 @@ function PopupSuksesTagihan(props) {
         <div>
             <div className={styles.App}>
                 <div className={styles["form-signin"]}>
-                    <img className={styles.popup} src={popup} alt="logo" />
-                    <p className={styles.text}>Update Berhasil</p>
+                    {props.children}
                 </div>
-                {props.children}
             </div>
         </div>
     ) : "";
-
-    // return (props.trigger) ? (
-    //     <div className={styles.App}>
-    //         <div className={styles["form-signin"]}>
-    //             <img className={styles.popup} src={popup} alt="logo" />
-    //             <p className={styles.text}>Update Berhasil</p>
-    //             <Link style={{ textDecoration: "none" }} to="/share">
-    //                 {" "}
-    //                 <button className={styles["a"]} onClick={() => { navigator.clipboard.writeText(`Paygua.com/${props.user}/${props.id}`) }}>
-    //                     <Link style={{ textDecoration: "none" }} to="/notifToast"><p className={styles.link}>Paygua.com/{props.user}/{props.id}</p></Link>
-    //                 </button>
-    //                 {/* <p className={styles.link}>Paygua.com/{props.user}/{props.id}</p> */}
-    //             </Link>
-    //             {props.children}
-    //         </div>
-    //     </div>
-    // ) : "";
 }
 export default PopupSuksesTagihan;
