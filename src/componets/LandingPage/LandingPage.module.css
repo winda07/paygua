@@ -54,6 +54,9 @@
 
 @media only screen and (max-width: 500px) {
   .form-signin {
+    position: fixed;
+    left: 0;
+    right: 0;
     height: 100%;
     align-items: center;
     margin: 0 auto;
@@ -65,7 +68,6 @@
     margin-left: 40px;
   }
   .top {
-    margin-top: 40px;
     justify-content: space-between;
   }
   .text {
