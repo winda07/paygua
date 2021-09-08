@@ -138,7 +138,7 @@ const Dashboard = () => {
               <figcaption style={{ fontSize: "9px", color: "white" }}>Tagih</figcaption>
             </div>
             <div style={{ width: "38px", height: "38px", borderRadius: "100%", backgroundColor: "white", cursor: "pointer" }}>
-              <img onClick={setPush} style={{ marginTop: "10px" }} src={qrstatis}></img>
+              <Link to="/Qris"><img style={{ marginTop: "10px" }} src={qrstatis}></img></Link>
               <figcaption style={{ fontSize: "9px", color: "white", marginTop: "10px" }}>Show QR</figcaption>
             </div>
             <div style={{ cursor: "pointer" }}>

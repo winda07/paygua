@@ -25,7 +25,8 @@ const QrStatis = () => {
     const history = useHistory()
     const [data, setValues] = useState({
         name: "",
-        qr: ""
+        url: "",
+        nominal: ""
     })
     const creatQrCode = (text) => {
         console.log(text)
@@ -40,9 +41,10 @@ const QrStatis = () => {
         setValues({
             ...data,
             name: location.state.name,
-            qr: location.state.qr
+            url: location.state.url,
+            nominal: location.state.nominal
         })
-        creatQrCode(location.state.qr)
+        creatQrCode(location.state.url)
         console.log(location)
         console.log(history)
     }, [])
@@ -51,6 +53,7 @@ const QrStatis = () => {
             <div className={styles["form-signin"]}>
                 <Link to="/dashboard"><img className={styles.arrow} src={arrow}></img></Link>
                 <b className={styles.judul}>{location.state.name}</b>
+                <p style={{ fontWeight: "bold", fontSize: "30px", textAlign: "center" }}>Rp {data.nominal}</p>
                 <canvas className={styles.canvas} id="canvas"></canvas>
                 <p className={styles.description}>Silahkan scan QR dengan metode dibawah ini</p>
                 <section className={styles.gambar}>
@@ -75,7 +78,7 @@ const QrStatis = () => {
                     <img src={qrisQR}></img>
                 </section>
                 <br></br>
-                <Link to="/notification"><button className={styles.buttonQr}><p style={{ color: "white", fontSize: "18px", marginTop: "12px", textAlign: "center" }}>Cek Pembayaran</p></button></Link>
+                <Link to="/notification"><button className={styles.buttonQr}><p style={{ color: "white", fontSize: "18px", marginTop: "13px", textAlign: "center" }}>Cek Pembayaran</p></button></Link>
             </div>
         </div>
     )

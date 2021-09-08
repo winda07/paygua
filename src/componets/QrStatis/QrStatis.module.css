@@ -13,6 +13,9 @@
   padding: 15px;
   margin-bottom: 390px;
   margin: 0px auto;
+  position: fixed;
+  left: 0;
+  right: 0;
 }
 .buttonQr {
   cursor: pointer;
@@ -22,14 +25,17 @@
   border-color: white;
   background-color: #1238f7;
   border-radius: 31px;
+  margin-left: 7px;
 }
 .gambar {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin-top: 10px;
+  margin-left: 10px;
 }
 .canvas {
-  margin-left: 60px;
+  margin-left: 55px;
+  display: flex;
   width: 268px;
   height: 268px;
 }
@@ -48,7 +54,18 @@
   margin-left: 50px;
   color: #838790;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0 auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+}
+
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
     background-color: white;
@@ -125,4 +142,4 @@
   .arrow {
     margin-left: 20px;
   }
-}
+} */

@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500;0,700;1,400&display=swap");
+* {
+  font-family: "DM Sans";
+}
+
+.App {
+  /* height: 737px; */
+  align-items: center;
+  /* padding-top: 40px;
+  padding-bottom: 40px; */
+  /* background-color: #dcdcdc; */
+  background-color: white;
+}
+.form-signin {
+  background-color: white;
+  height: 790px;
+  width: 100%;
+  max-width: 350px;
+  padding: 15px;
+  margin-bottom: 390px;
+  margin: 0px auto;
+  position: relative;
+}
+.form-control {
+  border: 1px;
+  font-size: 64px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  height: 50px;
+}
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]:focus {
+  outline: none;
+}
+.formPesan {
+  border: 1px;
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+}
+input[type="text"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="text"]:focus {
+  outline: none;
+}
+.button {
+  width: 323px;
+  height: 55px;
+  background-color: black;
+  border-radius: 31px;
+  border: 1px;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .form-control {
+    width: 80%;
+    font-size: 60px;
+  }
+}

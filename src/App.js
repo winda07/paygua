@@ -36,6 +36,7 @@ import AdminLogin from "./componets/Admin/AdminLogin";
 import AdminHome from "./componets/AdminHome/AdminHome";
 import SyaratdanKetentuan from "./componets/SyaratdanKetentuan/SyaratdanKetentuan";
 import PaymentSuccess from "./componets/PaymentSuccess/PaymentSuccess"
+import Qris from "./componets/Qris/Qris";
 import { Route, Switch, useHistory } from 'react-router-dom';
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router";
@@ -103,6 +104,7 @@ const App = () => {
         <Route path="/AdminHome" component={AdminHome}></Route>
         <Route path="/SyaratdanKetentuan" component={SyaratdanKetentuan}></Route>
         <Route path="/paymentSuccess" component={PaymentSuccess}></Route>
+        <Route path="/Qris" component={Qris}></Route>
         <Route exact path="/:username">
           <DummyCmp type="type1" />
         </Route>
