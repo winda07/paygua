@@ -1,9 +1,10 @@
 
-const validation = (values) => {
+const Validation = (values) => {
     let errors = {}
 
     if (!values.nominal) {
-        errors.email = "Nominal tidak boleh kosong"
+        errors.nominal = "Nominal tidak boleh kosong"
     }
     return errors;
 }
+export default Validation

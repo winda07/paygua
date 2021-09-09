@@ -52,7 +52,7 @@ const QrStatis = () => {
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
                 <Link to="/dashboard"><img className={styles.arrow} src={arrow}></img></Link>
-                <b className={styles.judul}>{location.state.name}</b>
+                <b className={styles.judul}>Your QR</b>
                 <p style={{ fontWeight: "bold", fontSize: "30px", textAlign: "center" }}>Rp {data.nominal}</p>
                 <canvas className={styles.canvas} id="canvas"></canvas>
                 <p className={styles.description}>Silahkan scan QR dengan metode dibawah ini</p>
