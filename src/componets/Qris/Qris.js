@@ -42,7 +42,7 @@ const Qris = () => {
     useEffect(() => {
         var numberField = document.getElementById("nominal")
         numberField.addEventListener("keyup", function (evt) {
-            var n = parseInt(this.value.replace(/\D/g, ''), 10);
+            var n = parseInt(this.value.replace(/\D/g, ""), 10);
             numberField.value = n.toLocaleString('de-DE');
             console.log(n)
         }, false);
@@ -60,8 +60,8 @@ const Qris = () => {
         const token = localStorage.getItem("token");
         const user = jwt(token);
         const dataSend = {
-            nominal: valueNominal.replace(/\./g, ''),
-            nominal: data.nominal,
+            nominal: valueNominal.replace(/\./g, ""),
+            // nominal: data.nominal,
             email: user.email,
             payment: data.payment,
             Pesan: data.Pesan,
