@@ -62,6 +62,7 @@ const GetProfile = () => {
                                 qr: result.data.data.qr
                             }
                         })
+                        console.log("name", data.name)
                         setValues({
                             ...data,
                             bio: result.data.data.bio,

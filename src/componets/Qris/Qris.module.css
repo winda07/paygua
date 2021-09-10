@@ -19,7 +19,7 @@
 }
 .form-control {
   border: 1px;
-  font-size: 64px;
+  font-size: 50px;
   font-weight: bold;
   width: 100%;
   text-align: center;
@@ -96,7 +96,7 @@ input[type="text"]:focus {
   }
   .form-control {
     width: 100%;
-    font-size: 60px;
-    margin-left: -30px;
+    font-size: 50px;
+    margin-left: -25px;
   }
 }

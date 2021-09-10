@@ -11,9 +11,9 @@ const validation = (values) => {
     }
     if (!values.nominal) {
         errors.nominal = "Nominal tidak boleh kosong"
-    } else if (values.nominal < 2.000) {
+    } else if (parseInt(values.nominal.replace(/\./g, '')) < 2000) {
         errors.nominal = "Minimal Rp2.000"
-    } else if (values.nominal >= 5000000) {
+    } else if (parseInt(values.nominal.replace(/\./g, '')) > 5000000) {
         errors.nominal = "Maksimal Rp5.000.000"
     }
     if (!values.bank) {

@@ -103,9 +103,8 @@ const Qris = () => {
                     <Link to="/dashboard"><img src={arrow}></img></Link>
                     <b style={{ marginLeft: "110px", fontSize: "20px" }}>My QRIS</b>
                 </div>
-                <p style={{ textAlign: "center", color: "#838790", fontSize: "12px", marginTop: "50px" }} >MASUKKAN JUMLAH PEMBAYARAN</p>
+                <p style={{ textAlign: "center", color: "#838790", fontSize: "12px", marginTop: "50px" }} >MASUKKAN JUMLAH PEMBAYARAN (RP)</p>
                 <div style={{ height: "10px" }}>
-                    <b className={styles.rupiah}>{Rupiah}</b>
                     <input type="text"
                         pattern="\d*" inputMode="numeric"
                         class={styles["form-control"]}

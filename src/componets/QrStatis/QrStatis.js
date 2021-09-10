@@ -19,6 +19,7 @@ import permataQR from "../../img/permataQR.svg"
 import uobQR from "../../img/uobQR.svg"
 import qrisQR from "../../img/qrisQR.svg"
 import QrCode from "qrcode"
+import axios from "axios"
 
 const QrStatis = () => {
     const location = useLocation()
@@ -36,14 +37,29 @@ const QrStatis = () => {
             }
         })
     }
-
     useEffect(() => {
-        setValues({
-            ...data,
-            name: location.state.name,
-            url: location.state.url,
-            nominal: location.state.nominal
-        })
+        const token = localStorage.getItem("token");
+        if (token) {
+            // setButtonLoading(true)
+            axios.get("https://paygua.com/api/user/profile", {
+                headers: {
+                    Authorization: token,
+                }
+            })
+                .then((result) => {
+                    if (result.data.status === 200) {
+                        // setButtonLoading(false)
+                        setValues({
+                            ...data,
+                            name: result.data.data.name,
+                            url: location.state.url,
+                            nominal: location.state.nominal
+                        })
+                    }
+                    console.log(result.data.data.name)
+                })
+
+        }
         creatQrCode(location.state.url)
         console.log(location)
         console.log(history)
@@ -52,7 +68,7 @@ const QrStatis = () => {
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
                 <Link to="/dashboard"><img className={styles.arrow} src={arrow}></img></Link>
-                <b className={styles.judul}>Your QR</b>
+                <b className={styles.judul}>{data.name}</b>
                 <p style={{ fontWeight: "bold", fontSize: "30px", textAlign: "center" }}>Rp {data.nominal}</p>
                 <canvas className={styles.canvas} id="canvas"></canvas>
                 <p className={styles.description}>Silahkan scan QR dengan metode dibawah ini</p>

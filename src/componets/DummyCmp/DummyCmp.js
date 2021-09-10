@@ -46,6 +46,7 @@ const DummyCmp = (props) => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
     const [loadingPopup, setButtonLoading] = useState(false);
     const [errors, setErros] = useState({});
+    // console.log(errors.nominal)
     const [Message, setMessage] = useState("")
     const [errorPopup, setErrorPopup] = useState(false)
     const [isClicked, setIsClicked] = useState(false);
@@ -73,8 +74,16 @@ const DummyCmp = (props) => {
             }
         })
     }
-
     useEffect(() => {
+        var numberField = document.getElementById("nominal")
+        numberField.addEventListener("keyup", function (evt) {
+            var n = parseInt(this.value.replace(/\D/g, ""), 10);
+            numberField.value = n.toLocaleString('de-DE');
+            console.log(n)
+        }, false);
+    })
+    useEffect(() => {
+        const valueNominal = document.getElementById("nominal").value;
         const token = localStorage.getItem('token');
         let paymentMethod = window.innerWidth <= 600 ? data.bank : "qris";
         paymentMethod = data.bank === "bank" ? "bank" : paymentMethod;
@@ -82,7 +91,8 @@ const DummyCmp = (props) => {
 
         const dataSend = {
             name: data.nama,
-            nominal: data.nominal.replace(/\./g, ''),
+            nominal: valueNominal.replace(/\./g, ""),
+            // nominal: data.nominal.replace(/\./g, ''),
             email: data.email,
             payment: paymentMethod,
             username: paramobj.username,
@@ -169,19 +179,35 @@ const DummyCmp = (props) => {
         setErros(validation(data));
         setDataIsCorrect(true)
         setIsClicked(true);
+        if (e.target.name === "nominal") {
+            setErros(validation({
+                [e.target.name]: e.target.value.replace(/\./g, '')
+            }))
+        }
     }
     const handleChange = (e) => {
+        var value = e.target.value;
         if (e.target.name === "nomor") {
             setValues({
                 ...data,
                 [e.target.name]: e.target.value.replace(/^[0]+/g, "")
             });
-        } else {
+        } else if (e.target.name === "nominal") {
+            value = value.length < 2 && value.toString().substring(0, 1) == 0 ? '0' : value;
+            value = value == 0 || value == '0' ? 0 : value;
+            console.log("6", value)
+            setValues({
+                ...data,
+                [e.target.name]: value
+            })
+        }
+        else {
             setValues({
                 ...data,
                 [e.target.name]: e.target.value
             });
         }
+
 
     };
 
@@ -352,8 +378,18 @@ const DummyCmp = (props) => {
                                     disabled={type === "type2"}
                                 ></input>
                                 <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
-
-                                <CurrencyFormat className={styles["nominal"]} name="nominal" id="price"
+                                <input type="text"
+                                    pattern="\d*" inputMode="numeric"
+                                    class={styles["nominal"]}
+                                    name="nominal"
+                                    placeholder="Masukkan Nominal"
+                                    onBlur={handleChange}
+                                    id="nominal"
+                                    value={data.nominal}
+                                    onChange={handleChange}
+                                >
+                                </input>
+                                {/* <CurrencyFormat className={styles["nominal"]} name="nominal" id="price"
                                     value={data.nominal}
                                     placeholder="Masukkan Nominal"
                                     disabled={type === "type2"}
@@ -363,7 +399,7 @@ const DummyCmp = (props) => {
                                             ...data,
                                             ["nominal"]: formattedValue
                                         });
-                                    }} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
+                                    }} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat> */}
 
                                 <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
 
