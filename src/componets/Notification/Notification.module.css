@@ -22,9 +22,10 @@
 .boxdua {
   cursor: pointer;
   width: 100%;
-  padding: 8px;
+  padding: 0 8px;
   margin-left: -10px;
   border-radius: 10px;
+  border: 1px solid white;
   background-color: white;
   box-shadow: 4px 5px 10px rgb(169, 169, 169);
 }
@@ -33,6 +34,7 @@
   border: 1px;
   margin-left: 5px;
   margin-bottom: 8px;
+  cursor: pointer;
 }
 .img {
   margin-left: 10px;
@@ -42,9 +44,11 @@
 }
 .notifikasi {
   font-size: 24px;
+  margin-left: 30px;
 }
 .message {
   font-size: 16px;
+  float: left;
 }
 @media only screen and (max-width: 500px) {
   .form-signin {

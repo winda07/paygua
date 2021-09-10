@@ -28,8 +28,7 @@ function Share(props) {
         }, 1000)
         // navigator.clipboard.writeText(`paygua.com/${data.username}`)
     }
-    const token = localStorage.getItem("token");
-    const user = jwt(token)
+    const user = localStorage.getItem("username");
     console.log(user.username)
     return (props.trigger) ? (
         <div className={styles.Applima}>
@@ -37,12 +36,12 @@ function Share(props) {
                 <p className={styles.text2}>Bagikan profile mu</p>
 
                 <div className={styles.share1}>
-                    <button className={styles["a"]} onClick={() => { navigator.clipboard.writeText(`paygua.com/${user.username}`) }}>
+                    <button className={styles["a"]} onClick={() => { navigator.clipboard.writeText(`paygua.com/${user}`) }}>
                         <img onClick={setcopy} className={styles["cop"]} src={share1}></img>
                     </button>
-                    <a href={`whatsapp://send?text=paygua.com/${user.username}`}> <img src={wa} alt="logo" /></a>
-                    <a href={`https://t.me/share/url?url=paygua.com/${user.username}`}> <img src={telegram} alt="logo" /></a>
-                    <a href={`mailto:?Subject=Paygua&Body=paygua.com/${user.username}`}> <img src={email} alt="logo" /></a>
+                    <a href={`whatsapp://send?text=paygua.com/${user}`}> <img src={wa} alt="logo" /></a>
+                    <a href={`https://t.me/share/url?url=paygua.com/${user}`}> <img src={telegram} alt="logo" /></a>
+                    <a href={`mailto:?Subject=Paygua&Body=paygua.com/${user}`}> <img src={email} alt="logo" /></a>
                 </div>
                 <Popup
                     trigger={buttonPopup}></Popup>

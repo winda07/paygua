@@ -71,6 +71,8 @@ const GetProfile = () => {
                             profilePicture: result.data.data.profilePicture,
                             qr: result.data.data.qr
                         })
+                        const username = result.data.data.username
+                        localStorage.setItem('username', username);
                     }
                     else {
                         // setButtonLoading(false)

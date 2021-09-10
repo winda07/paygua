@@ -22,7 +22,8 @@ const BuatTagihan = () => {
     const [buttoncopy, setButtonCopy] = useState(false)
     const [loadingPopup, setButtonLoading] = useState(false);
     const token = localStorage.getItem("token");
-    const user = jwt(token);
+    const user = localStorage.getItem("username");
+
     const [data, setValues] = useState({
         name: "",
         email: "",
@@ -41,7 +42,7 @@ const BuatTagihan = () => {
         setTimeout(() => {
             setButtonCopy(false)
         }, 1000)
-        navigator.clipboard.writeText(`paygua.com/${user.username}/${data.invoiceId}`)
+        navigator.clipboard.writeText(`paygua.com/${user}/${data.invoiceId}`)
     }
 
     const handleChange = (e) => {
@@ -243,7 +244,7 @@ const BuatTagihan = () => {
                     <br></br>
                     <p >Tagihan Berhasil Dibuat</p>
                     <button className={styles["a"]} onClick={setcopy}>
-                        <p className={styles.link}>Paygua.com/{user.username}/{data.invoiceId} <img src={copy}></img></p>
+                        <p className={styles.link}>Paygua.com/{user}/{data.invoiceId} <img src={copy}></img></p>
                     </button>
                     <PopupCopy trigger={buttoncopy}>
                         <p style={{ marginLeft: "40px" }}>Berhasil disalin ke Clipboard!</p>

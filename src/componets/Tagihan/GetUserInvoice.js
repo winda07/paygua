@@ -43,7 +43,7 @@ const GetUserInvoice = () => {
     }
 
     const token = localStorage.getItem("token");
-    const user = jwt(token)
+    const user = localStorage.getItem("username");
     localStorage.setItem('token', token);
     useEffect(() => {
         if (token) {
@@ -104,8 +104,8 @@ const GetUserInvoice = () => {
                                             <div style={{ fontSize: "16px", margin: "10px" }}>
                                                 <p onClick={() => tagihanClick(idx)} style={{ marginTop: "10px" }}>{tghn.name}<br></br>Rp{tghn.nominal}</p>
                                             </div>
-                                            <button className={styles["a"]} onClick={() => navigator.clipboard.writeText(`paygua.com/${user.username}/${tghn.invoiceId}`)}>
-                                                <p onClick={setcopy} className={styles.link}>Paygua.com/{user.username}/{tghn.invoiceId}</p>
+                                            <button className={styles["a"]} onClick={() => navigator.clipboard.writeText(`paygua.com/${user}/${tghn.invoiceId}`)}>
+                                                <p onClick={setcopy} className={styles.link}>Paygua.com/{user}/{tghn.invoiceId}</p>
                                             </button>
                                         </div>
                                         <div onClick={() => tagihanClick(idx)} style={{ width: "40%", textAlign: "right", marginTop: "70px" }}>

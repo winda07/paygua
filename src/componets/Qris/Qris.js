@@ -58,14 +58,15 @@ const Qris = () => {
         const valueNominal = document.getElementById("nominal").value;
         console.log("control values", valueNominal);
         const token = localStorage.getItem("token");
-        const user = jwt(token);
+        const getJwt = jwt(token)
+        const user = localStorage.getItem("username");
         const dataSend = {
             nominal: valueNominal.replace(/\./g, ""),
             // nominal: data.nominal,
-            email: user.email,
+            email: getJwt.email,
             payment: data.payment,
             Pesan: data.Pesan,
-            username: user.username,
+            username: user,
             name: data.name
         }
         console.log(dataSend)

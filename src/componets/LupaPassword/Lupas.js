@@ -16,6 +16,7 @@ const Lupas = ({ submitForm }) => {
   const [data, setValues] = useState({
     email: "",
   });
+  const token = localStorage.getItem("token");
   useEffect(() => {
     console.log("isClicked: ", isClicked)
     // setErros(validation(data));
@@ -39,6 +40,8 @@ const Lupas = ({ submitForm }) => {
           }
         })
 
+    } else if (token) {
+      history.push('/dashboard')
     }
   }, [errors, dataIsCorrect])
   const handleChange = (e) => {

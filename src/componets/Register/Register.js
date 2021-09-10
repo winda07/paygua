@@ -20,7 +20,7 @@ const Register = ({ submitForm }) => {
   const [buttonPopup, setButtonPopup] = useState(false);
   const history = useHistory();
   const urlPayGua = "Paygua.com/"
-
+  const token = localStorage.getItem("token");
   const [data, setValues] = useState({
     username: "",
     email: "",
@@ -53,6 +53,8 @@ const Register = ({ submitForm }) => {
         .catch((e) => {
 
         });
+    } else if (token) {
+      history.push('/dashboard')
     }
   }, [errors]);
 

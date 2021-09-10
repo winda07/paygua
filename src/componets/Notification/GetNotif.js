@@ -52,8 +52,7 @@ const GetNotif = () => {
 
         const token = localStorage.getItem("token");
         const array = []
-        for (let i = 0; i < data.notif.length; i++) {
-            // console.log()
+        for (var i = 0; i < data.notif.length; i++) {
             if (!data.notif[i].isSeen) {
                 array.push(data.notif[i]._id)
             }
@@ -86,17 +85,17 @@ const GetNotif = () => {
                     (data.notif.map(ntif => (
                         <div className={styles.a}>
                             <p></p>
-                            <div className={styles.boxdua}>
+                            <button onClick={setRead} className={styles.boxdua}>
                                 {ntif.isSeen === false ? <img className={styles['redd']} src={red}></img> : null}
                                 <div className={styles.img}>
                                     <p className={styles.message}>
                                         {ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||
                                             ntif.type === "cashOut" ? <img src={cashOut}></img> : null ||
                                                 ntif.type === "withdrawProcess" ? <img src={withdrawProcess}></img> : null ||
-                                                    ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null || ntif.isSeen === "false" ? <img src={red}></img> : null}
+                                                    ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null || ntif.isSeen === "false" ? <img className={styles.rednotif} src={red}></img> : null}
                                         {ntif.message}</p>
                                 </div>
-                            </div>
+                            </button>
                         </div>
                     )))
 

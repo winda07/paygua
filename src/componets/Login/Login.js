@@ -17,6 +17,7 @@ const Login = ({ submitForm }) => {
   const [errors, setErros] = useState({});
   const [buttonPopup, setButtonPopup] = useState(false);
   const history = useHistory();
+  const token = localStorage.getItem("token");
   const [message, setMessage] = useState("")
   const [loadingPopup, setButtonLoading] = useState(false);
   const [data, setValues] = useState({
@@ -76,6 +77,8 @@ const Login = ({ submitForm }) => {
           console.log(e)
         });
       // submitForm();
+    } else if (token) {
+      history.push('/dashboard')
     }
   }, [errors]);
 

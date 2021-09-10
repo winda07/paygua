@@ -28,11 +28,13 @@ import axios from "axios"
 
 
 const TentangKami = () => {
+    const history = useHistory();
+    const token = localStorage.getItem("token");
     const [data, setValues] = useState({
         name: "",
     })
     useEffect(() => {
-        const token = localStorage.getItem("token");
+
         if (token) {
             axios.get("https://paygua.com/api/user/profile", {
                 headers: {
@@ -41,6 +43,7 @@ const TentangKami = () => {
             })
                 .then((result) => {
                     if (result.data.status === 200) {
+                        history.push('/dashboard')
                         setValues({
                             ...data,
                             name: result.data.data.name,
@@ -58,8 +61,8 @@ const TentangKami = () => {
         console.log("test")
     }
     // console.log(scrollToTop)
-    const token = localStorage.getItem("token");
-    console.log(token)
+    // const token = localStorage.getItem("token");
+    // console.log(token)
     return (
         <div className={styles.App}>
             <div className={styles["form-signin"]}>

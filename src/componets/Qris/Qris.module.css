@@ -62,28 +62,6 @@ input[type="text"]:focus {
   font-size: 30px;
   margin-left: 120px;
 }
-.inputContainer {
-  width: 100%;
-  padding: 0 20px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  display: flex;
-  flex-direction: row;
-  align-items: "center";
-  background-color: "white";
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-.usernameLabel {
-  margin: 12px 0px;
-  font-weight: normal;
-}
-.username {
-  width: 100%;
-  border: none;
-  box-shadow: none;
-  outline: none !important;
-}
 
 @media only screen and (max-width: 500px) {
   .form-signin {
@@ -97,6 +75,5 @@ input[type="text"]:focus {
   .form-control {
     width: 100%;
     font-size: 50px;
-    margin-left: -25px;
   }
 }
