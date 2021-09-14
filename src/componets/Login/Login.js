@@ -77,8 +77,6 @@ const Login = ({ submitForm }) => {
           console.log(e)
         });
       // submitForm();
-    } else if (token) {
-      history.push('/dashboard')
     }
   }, [errors]);
 

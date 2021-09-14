@@ -53,8 +53,6 @@ const Register = ({ submitForm }) => {
         .catch((e) => {
 
         });
-    } else if (token) {
-      history.push('/dashboard')
     }
   }, [errors]);
 

@@ -46,7 +46,7 @@ const GetBalance = () => {
                         <p className={styles.kun}>Rp{data.Balance}</p>
                     </div>
                     <div style={{ width: "10%", marginLeft: "-170px" }}>
-                        <Link style={{ textDecoration: "none" }} to="/pencairan"><button className={styles['cairkan']} >Cairkan</button></Link>
+                        <Link style={{ textDecoration: "none" }} to="/RekeningBank"><button className={styles['cairkan']} >Cairkan</button></Link>
                     </div>
                 </div>
 

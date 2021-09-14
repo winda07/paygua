@@ -40,8 +40,6 @@ const Lupas = ({ submitForm }) => {
           }
         })
 
-    } else if (token) {
-      history.push('/dashboard')
     }
   }, [errors, dataIsCorrect])
   const handleChange = (e) => {

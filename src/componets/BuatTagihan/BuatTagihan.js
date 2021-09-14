@@ -181,8 +181,6 @@ const BuatTagihan = () => {
         setErros(validation(data));
         setDataIsCorrect(true);
         setIsClicked(true);
-
-
     };
     return (
         <div className={styles.App}>

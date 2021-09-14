@@ -116,7 +116,7 @@ const Dashboard = () => {
 
   return (
     <div className={styles.App}>
-      <div className={styles["form-signin"]}>
+      <div className={styles["form-signin"]} onClick={plusHandleClick}>
         <Link to="/TentangKami"><img className={styles['logo']} src={logo} /></Link>
         <Link to="/settings"><img className={styles.pengaturan} src={pengaturan}></img></Link>
         <div style={{ height: "200px" }}>

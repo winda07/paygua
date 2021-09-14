@@ -100,7 +100,7 @@ const GetUserInvoice = () => {
                                         alignItems: "center"
                                     }} >
                                         <div style={{ width: "50%" }}>
-                                            <p onClick={() => tagihanClick(idx)} style={{ color: "#838790", fontSize: "12px", margin: "10px" }}>{tghn.isPaid === false ? <p>belum dibayar</p> : <p>sudah dibayar</p>}</p>
+                                            <p onClick={() => tagihanClick(idx)} style={{ color: "#838790", fontSize: "12px", margin: "10px" }}>{tghn.isPaid === false ? <p style={{ color: "#ECB800" }}>Belum dibayar</p> : <p style={{ color: "#006AFF" }}>Sudah dibayar</p>}</p>
                                             <div style={{ fontSize: "16px", margin: "10px" }}>
                                                 <p onClick={() => tagihanClick(idx)} style={{ marginTop: "10px" }}>{tghn.name}<br></br>Rp{tghn.nominal}</p>
                                             </div>

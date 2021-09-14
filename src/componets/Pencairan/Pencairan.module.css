@@ -4,11 +4,7 @@
 }
 
 .App {
-  /* height: 700px; */
   align-items: center;
-  /* padding-top: 40px; */
-  /* padding-bottom: 40px; */
-  /* background-color: #dcdcdc; */
   background-color: white;
 }
 .form-signin {
@@ -19,183 +15,43 @@
   padding: 15px;
   margin-bottom: 390px;
   margin: 0px auto;
+  position: fixed;
+  left: 0;
+  right: 0;
 }
-.gbrarow {
-  position: relative;
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
+.divRekeningName {
+  width: 341px;
+  height: 142px;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
 }
-
-.kun {
-  margin-left: 10px;
-  margin-top: 2px;
-  position: absolute;
-  font-size: 18px;
-}
-.silang {
-  margin-left: 320px;
-}
-
-.form-control-nama {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-.form-control-nominal {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-
-.choose {
+.namaRek {
+  padding: 0 20px;
+  font-weight: bold;
   font-size: 16px;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  border-radius: 5px;
-  /* height: 250px; */
-  cursor: pointer;
+  color: #21242b;
 }
-
-.btnSubmit {
-  /* margin-left: 10px; */
-  position: relative;
-  appearance: none;
-  width: 343px;
-  height: 46px;
-  /* padding: 0.1em 9em; */
-  cursor: pointer;
-  outline: none;
+.divnominal {
+  width: 341px;
+  height: 63px;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+.button {
+  width: 350px;
+  height: 59px;
+  background-color: #143af5;
   border-radius: 100px;
-  border: 2px solid white;
-  background: black;
-}
-
-.text2 {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  margin-top: 13px;
+  border: 1px;
   color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 15px 0;
 }
-.set {
-  color: red;
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 350px;
+  background-color: white;
 }
-@media only screen and (max-width: 500px) {
-  .form-signin {
-    height: 100%;
-    align-items: center;
-    margin: 20px auto;
-  }
-}
-/* @media only screen and (max-width: 320px) {
-  .form-signin {
-    position: fixed;
-    height: 100%;
-    padding: 15px;
-  }
-  .silang {
-    margin-left: 260px;
-  }
-  .kun {
-    font-size: 16px;
-    margin-left: 5px;
-  }
-  .form-control-nama {
-    width: 90%;
-  }
-  .form-control-nominal {
-    width: 90%;
-  }
-  .choose {
-    width: 90%;
-  }
-  .btnSubmit {
-    margin-left: 5px;
-    width: 55px;
-    padding: 0.1em 7em;
-  }
-  .text2 {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-  }
-}
-@media only screen and (min-width: 321px) and (max-width: 375px) {
-  .form-signin {
-    position: fixed;
-    height: 100%;
-    padding: 30px;
-  }
-  .kun {
-    font-size: 16px;
-    margin-left: 5px;
-  }
-  .silang {
-    margin-left: 300px;
-  }
-  .form-control-nama {
-    width: 95%;
-  }
-  .form-control-nominal {
-    width: 95%;
-  }
-  .choose {
-    width: 95%;
-  }
-  .btnSubmit {
-    margin-left: 5px;
-    width: 95px;
-    padding: 0.1em 7em;
-  }
-  .text2 {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-  }
-}
-@media only screen and (min-width: 376px) and (max-width: 425px) {
-  .form-signin {
-    position: fixed;
-    height: 100%;
-    padding: 30px;
-  }
-  .kun {
-    font-size: 18px;
-    margin-left: 5px;
-  }
-  .silang {
-    margin-left: 320px;
-  }
-  .form-control-nama {
-    width: 100%;
-  }
-  .form-control-nominal {
-    width: 100%;
-  }
-  .choose {
-    width: 100%;
-  }
-  .btnSubmit {
-    margin-left: 5px;
-    width: 110px;
-    padding: 0.1em 7em;
-  }
-  .text2 {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-  }
-} */

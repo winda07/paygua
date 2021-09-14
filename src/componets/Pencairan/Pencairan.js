@@ -1,166 +1,66 @@
 import React, { useState, useEffect } from "react";
 import styles from './Pencairan.module.css'
-import { Link, useHistory } from "react-router-dom";
-import silang from '../../img/ion.svg'
-import bca from '../../img/BCA.svg'
-import validation from './validation'
-import axios from 'axios';
-import jwt from "jwt-decode"
-import CurrencyFormat from "react-currency-format";
-import Popup from "../PopupSuksesBuatTagihan/PopupSuksesTagihan"
-import animation from "../../img/animation3.webp"
-import Loading from "../Loading/Loading";
-
+import { Link, useHistory, useLocation } from "react-router-dom";
+import arrow from "../../img/arrow-left.svg"
+import arrowdown from "../../img/arrow-down.svg"
+import Loading from "../Loading/Loading"
+import axios from "axios"
 const Pencairan = () => {
-    const [dataIsCorrect, setDataIsCorrect] = useState(false)
-    const [buttonPopup, setButtonPopup] = useState(false);
+    const location = useLocation()
     const [loadingPopup, setButtonLoading] = useState(false);
-    const [errors, setErros] = useState({});
-    const history = useHistory();
-
     const [data, setValues] = useState({
         name: "",
-        nominal: "",
-        accNumber: "",
         bank: "",
-        code: ""
-    });
-
-    const handleChange = (e) => {
-
-        setValues({
-            ...data,
-            [e.target.name]: e.target.value
-        });
-        console.log(e.target.value)
-    };
-
-    const onRadioButtonChanged = (e) => {
-        const bankname = e.target.value.split(";")[0]
-        const code = e.target.value.split(";")[1]
-        setValues({
-            ...data,
-            bank: bankname,
-            code: code
-        })
-    }
-
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-        console.log(data)
-        setErros(validation(data));
-        setDataIsCorrect(true)
-        if (Object.keys(errors).length === 0 && dataIsCorrect) {
+        number: "",
+        codeBank: ""
+    })
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
             setButtonLoading(true)
-            const token = localStorage.getItem('token');
-            console.log(token)
-            if (token) {
-                const user = jwt(token);
-                axios
-                    .post("https://paygua.com/api/user/withdraw", {
-                        name: data.name,
-                        nominal: data.nominal.replace(".", ""),
-                        accNumber: data.accNumber,
-                        bank: data.bank,
-                        code: data.code
-                    }, {
-                        headers: {
-                            'Authorization': token,
-                        }
-                    })
-                    .then((result) => {
-                        if (result) {
-                            if (result.data.status === 200) {
-                                // history.push('/successPencairan')
-                                setButtonPopup(true);
-                                setTimeout(() => {
-                                    setButtonPopup(false)
-                                }, 3000)
-                                setButtonLoading(false)
-                            } else {
-                                history.push('/login')
-                                setButtonLoading(false)
-                            }
-                        }
-                        console.log(result.data);
-                        console.log(token)
-                    })
-                    .catch((e) => {
-                    });
-                // submitForm()
-            }
+            axios.get("https://paygua.com/api/user/withdraw/bankAcc", {
+                headers: {
+                    Authorization: token,
+                }
+            })
+                .then((result) => {
+                    if (result.data.status === 200) {
+                        setButtonLoading(false)
+                        setValues({
+                            ...data,
+                            name: result.data.data.name,
+                            bank: result.data.data.bank,
+                            number: result.data.data.number,
+                        })
+                        console.log("location:", location)
+                    }
 
+                })
 
         }
-    }
+    }, []);
     return (
         <div className={styles.App}>
             <div className={styles['form-signin']}>
-                <div className={styles.gbrarow}>
-                    <Link to="/transaksi"><img className={styles.silang} src={silang} alt="logo" /></Link>
-                    <p className={styles.kun}>Ajukan Pencairan</p>
+                <Link to="/RekeningBank"><img src={arrow}></img></Link>
+                <p style={{ fontSize: "24px", fontWeight: "bold" }}>Pencairan</p>
+                <div className={styles.divRekeningName}>
+                    <p className={styles.namaRek}>Nama Rekening</p>
+                    <p style={{ padding: "0 20px", marginTop: "10px" }}>{data.name}<br></br>{data.bank} {data.number}</p>
+                    <Link style={{ textDecoration: "none" }} to="/RekeningBank"><p style={{ fontSize: "16px", fontWeight: "bold", color: "#143AF5", padding: "0 20px", cursor: "pointer" }}>UBAH</p></Link>
                 </div>
-                {/* <input
-                    type="number"
-                    class={styles["form-control-nominal"]}
-                    id="floatingNama"
-                    placeholder="Nominal"
-                    name="nominal"
-                    value={data.nominal}
-                    onChange={handleChange}
-                ></input> */}
-                <CurrencyFormat className={styles["form-control-nominal"]} name="nominal"
-                    placeholder="Nominal"
-                    value={data.nominal}
-                    onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
-                <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
-                <input
-                    type="text"
-                    class={styles["form-control-nama"]}
-                    id="floatingNama"
-                    placeholder="Nama"
-                    name="name"
-                    value={data.name}
-                    onChange={handleChange}
-                ></input>
-                <div className={styles["set"]}>{errors.name && <p className="error">{errors.name}</p>}</div>
-                <input
-                    type="number"
-                    class={styles["form-control-nominal"]}
-                    id="floatingNama"
-                    placeholder="Nomor Rekening"
-                    name="accNumber"
-                    value={data.accNumber}
-                    onChange={handleChange}
-                ></input>
-                <div className={styles["set"]}>{errors.accNumber && <p className="error">{errors.accNumber}</p>}</div>
-                <div className={styles.choose}>
-                    <p>Pilihan Bank </p>
-                    <br></br>
-                    <div>
-                        <img src={bca} alt="logo" />
-                        <input style={{ float: "right" }} type="radio" name="bank" id="BCA" value="BANK BCA;014" onChange={onRadioButtonChanged}></input>
-                    </div>
-
+                <div className={styles.divnominal}>
+                    <p style={{ fontSize: "16px", color: "#1238F7", fontWeight: "bold", padding: "0 20px" }}>Rp | </p>
                 </div>
-                <div className={styles["set"]}>{errors.bank && <p className="error">{errors.bank}</p>}</div>
-                <br></br>
-                <br></br>
-                <div className={styles.btnSubmit} onClick={handleFormSubmit}>
-                    <p className={styles.text2} >Ajukan</p>
-                </div>
+                <footer className={styles.footer}>
+                    <button className={styles.button}>
+                        Cairkan
+                    </button>
+                    <p style={{ fontSize: '12px', color: "#21242B", display: 'flex', textAlign: "center", justifyContent: "center" }}>Dana yang dicairkan akan diproses kurang lebih 1 x 24 Jam</p>
+                </footer>
             </div>
-            <Popup
-                trigger={buttonPopup}>
-
-                <img style={{ marginLeft: "310px", cursor: "pointer" }} onClick={() => { setButtonPopup(false) }} src={silang}></img>
-                <div style={{ textAlign: "center", justifyContent: "center" }}>
-                    <img src={animation}></img>
-                    <br></br>
-                    <p style={{ display: "flex", textAlign: "center", justifyContent: "center" }}>Pencairan telah diajukan dan akan diproses dalam 2x24jam</p>
-                </div>
-            </Popup>
-            <Loading trigger={loadingPopup}></Loading>
+            <Loading
+                trigger={loadingPopup}></Loading>
         </div>
     )
 }

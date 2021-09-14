@@ -1,0 +1,170 @@
+import React, { useState, useEffect } from "react";
+import styles from './RekeningBank.module.css'
+import { Link, useLocation, useHistory } from "react-router-dom";
+import arrow from "../../img/arrow-left.svg"
+import arrowdown from "../../img/arrow-down.svg"
+import axios from 'axios';
+import validation from "./Validation";
+import Loading from "../Loading/Loading";
+import Popup from "./Popup"
+import silang from "../../img/ion.svg"
+const RekeningBank = () => {
+    const [errors, setErros] = useState({});
+    const history = useHistory();
+    const [dataIsCorrect, setDataIsCorrect] = useState(false)
+    const [loadingPopup, setButtonLoading] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
+    const [popup, setPopup] = useState(false);
+    const username = localStorage.getItem("username");
+    const token = localStorage.getItem("token")
+    const [data, setValues] = useState({
+        username: username,
+        norek: "",
+        bank: "",
+        codeBank: ""
+    })
+    const handleChange = (e) => {
+        setValues({
+            ...data,
+            [e.target.name]: e.target.value,
+        });
+    };
+    const checkBank = () => {
+        setErros(validation(data));
+        setDataIsCorrect(true)
+        setIsClicked(true);
+        const dataSend = {
+            name: username,
+            accNum: data.norek,
+            bank: data.bank,
+            bankCode: data.codeBank
+        }
+        console.log(dataSend)
+        console.log("handleFormSubmit Object keys: ", Object.keys(errors).length)
+        if (Object.keys(errors).length === 0 && dataIsCorrect) {
+            setPopup(false)
+            setButtonLoading(true)
+            if (token) {
+                console.log(token)
+                axios.post("https://paygua.com/api/user/withdraw/checkBank", dataSend, {
+                    headers: {
+                        Authorization: token,
+                    },
+                })
+                    .then((result) => {
+                        if (result) {
+                            if (result.data.status === 200) {
+                                setButtonLoading(false)
+                                setPopup(true)
+                                setTimeout(() => {
+                                    setPopup(false)
+                                }, 1000)
+                            }
+                        }
+                        console.log(result.data)
+                    })
+            }
+        }
+
+    }
+    const location = useLocation()
+    useEffect(() => {
+        if (location.params) {
+            setValues({
+                bank: location.params.bank.name,
+                codeBank: location.params.bank.code,
+            })
+        }
+        console.log("location:", location)
+    }, []);
+    useEffect(() => {
+        console.log("isClicked: ", isClicked)
+        setErros(validation(data));
+        setDataIsCorrect(false);
+        setIsClicked(false);
+    }, [])
+    const handleForSubmit = (e) => {
+        setErros(validation(data));
+        setDataIsCorrect(true)
+        setIsClicked(true);
+        const dataSend = {
+            name: username,
+            number: data.norek,
+            bank: data.bank,
+        }
+        console.log(dataSend)
+
+        if (Object.keys(errors).length === 0 && dataIsCorrect) {
+            setButtonLoading(true)
+            if (token) {
+                console.log(token)
+                axios.post("https://paygua.com/api/user/withdraw/saveBank", dataSend, {
+                    headers: {
+                        Authorization: token,
+                    },
+                })
+                    .then((result) => {
+                        if (result) {
+                            if (result.data.status === 200) {
+                                setButtonLoading(false)
+                                history.push("/pencairan")
+                            }
+
+                        }
+                        console.log(result)
+                    })
+            }
+        }
+    }
+
+    return (
+        <div className={styles.App}>
+            <div className={styles['form-signin']}>
+                <Link to="/transaksi"><img src={arrow}></img></Link>
+                <p style={{ fontSize: "24px", fontWeight: "bold" }}>Rekening Bank</p>
+                <Link style={{ textDecoration: "none" }} to="/PilihBank"> <div class={styles["inputContainer"]}>
+                    <input
+                        type="text"
+                        class={styles["form-control"]}
+                        name="bank"
+                        placeholder="Pilih Bank"
+                        value={data.bank}
+                        onChange={handleChange}
+                    ></input>
+                    <img class={styles["usernameLabel"]} src={arrowdown}></img>
+                </div></Link>
+                <div className={styles["set"]}>{errors.bank && isClicked && <p className="error">{errors.bank}</p>}</div>
+                <div class={styles["inputContainerRek"]}>
+                    <input type="text"
+                        pattern="\d*" inputMode="numeric"
+                        class={styles["form-control"]}
+                        name="norek"
+                        placeholder="Masukkan Nomor Rekening"
+                        value={data.norek}
+                        onChange={handleChange}
+                    >
+                    </input>
+                    <div onClick={checkBank} class={styles["usernameLabelPeriksa"]}>PERIKSA</div>
+                </div>
+                <div className={styles["set"]}>{errors.norek && isClicked && <p className="error">{errors.norek}</p>}</div>
+                <div className={styles.divRekeningName}>
+                    <p className={styles.namaRek}>Nama Rekening</p>
+                    <p style={{ padding: "0 20px" }}>{username}</p>
+                </div>
+                <footer className={styles.footer}>
+                    <button onClick={handleForSubmit} className={styles.button}>
+                        Lanjutkan
+                    </button>
+                    <p style={{ fontSize: '12px', color: "#21242B", display: 'flex', textAlign: "center", justifyContent: "center" }}>Dana yang dicairkan akan diproses kurang lebih 1 x 24 Jam</p>
+                </footer>
+            </div>
+            <Loading trigger={loadingPopup}></Loading>
+            <Popup trigger={popup}><div>
+                <img onClick={() => { setPopup(false) }} style={{ marginLeft: "270px", display: "flex", cursor: "pointer" }} src={silang}></img>
+                <p style={{ display: "flex", textAlign: "center", justifyContent: "center" }}>Bank account is verified</p>
+            </div></Popup>
+        </div>
+    )
+}
+
+export default RekeningBank

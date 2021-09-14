@@ -84,10 +84,10 @@ const TentangKami = () => {
                 <div className={styles.TentangKami}>
                     <img className={styles.latar} src={latar} alt="latar" />
                     <div className={styles.textBold}>
-                        <h1>Jual produk digitalmu dengan cara paling mudah</h1>
+                        <h1>mobile point of sale paling simpel untukmu dan bisnismu</h1>
                     </div>
                     <div className={styles.text}>
-                        <p>Paygua membantu kamu menjual produk digital dengan mudah dari pelanggan hanya dengan link. Buat halaman untuk produk digital hanya dengan beberapa klik, tanpa website, tanpa ribet.</p>
+                        <p>Paygua adalah mobile point of sale yang paling mudah, aman dan simpel untuk bisnismu. Buat halaman untuk bisnismu hanya dengan beberapa klik, tanpa ribet.</p>
                     </div>
                     <button className={styles.button}>
                         <Link style={{ textDecoration: "none", color: "white" }} to="/register">
@@ -117,7 +117,10 @@ const TentangKami = () => {
                 <div style={{ marginLeft: "17px", marginTop: "30px" }}>
                     <b className={styles.text10}>Terima pembayaran produk digital dengan mudah
                         aman dan terpercaya</b>
-                    <p className={styles.text11}>Terima pembayaran produk digital dengan mudah. Paygua menggunakan gerbang pembayaran produk digital yang aman dan terpercaya (memiliki izin BI)</p>
+                    <p className={styles.text11}>Terima pembayaran di point of sale dengan mudah aman dan terpercaya
+                        <br></br>
+                        <br></br>
+                        Catat transaksi dan terima pembayaran untuk bisnismu dengan mudah. Paygua menggunakan gerbang pembayaran yang aman dan terpercaya</p>
                     <Link style={{ textDecoration: 'none' }} className={styles.text12} to={'/register'}><p>Mulai daftar Paygua <img src={blue}></img></p>
                     </Link>
                 </div>
@@ -139,12 +142,10 @@ const TentangKami = () => {
                     <b className={styles.judul} >2.&emsp;Buat Tagihan</b>
                     <p className={styles.isi2} >Buat tagihan hanya dengan <br></br>
                         hitungan detik di dashboard Paygua.</p>
-                    <b className={styles.judul} >3.&emsp;Bagikan Link dan Terima Pembayaran</b>
-                    <p className={styles.isi3}>Salin dan tempel tautan <br></br>
-                        di aplikasi pesan, email atau media sosial.</p>
-                    <b className={styles.judul} >4.&emsp;Terima Produk Digital</b>
-                    <p className={styles.isi4} >Terima produk digital secara real-time <br></br>
-                        dengan email.</p>
+                    <b className={styles.judul} >3.&emsp;Terima Pembayaran</b>
+                    <p className={styles.isi3}>Terima pembayaran di aplikasi Paygua dengan QRIS dan berbagai metode lainnya</p>
+                    <b className={styles.judul} >4.&emsp;Notifikasi Realtime</b>
+                    <p className={styles.isi4} >Dapatkan notifikasi transaksi ke emailmu dan email pelanggan</p>
                 </div>
 
                 <div className={styles.why}>

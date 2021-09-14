@@ -19,7 +19,7 @@ const LandingPage = () => {
                 <marquee bgcolor="#ffffff" direction="left" height="40px" scrollamount="5" width="100%"><img src={maqrue}></img></marquee>
                 <br></br>
                 <br></br>
-                <b className={styles.text}>Jual produk digitalmu dengan cara paling mudah dan aman via smartphone</b>
+                <b className={styles.text}>mobile point of sale paling simpel untukmu dan bisnismu</b>
                 <br></br>
                 <br></br>
                 <div>
