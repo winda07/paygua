@@ -39,7 +39,7 @@ const RekeningBank = () => {
             bank: data.bank,
             bankCode: data.codeBank
         }
-        console.log(dataSend)
+        console.log("datasend:", dataSend)
         console.log("handleFormSubmit Object keys: ", Object.keys(errors).length)
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             setPopup(false)
@@ -91,8 +91,9 @@ const RekeningBank = () => {
             name: username,
             number: data.norek,
             bank: data.bank,
+            bankCode: data.codeBank
         }
-        console.log(dataSend)
+        console.log("datasend:", dataSend)
 
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             setButtonLoading(true)

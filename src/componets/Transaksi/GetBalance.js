@@ -34,6 +34,27 @@ const GetBalance = () => {
             console.log(data)
         }
     }, []);
+    const cairkan = () => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            axios.get("https://paygua.com/api/user/withdraw/bankAcc", {
+                headers: {
+                    Authorization: token,
+                }
+            })
+                .then((result) => {
+                    if (result.data.status === 200) {
+
+                        history.push("/pencairan")
+                    } else if (result.data.status === 404) {
+
+                        history.push("/RekeningBank")
+                    }
+                    console.log(result)
+                })
+
+        }
+    }
     return (
         <div>
             <div>
@@ -46,7 +67,7 @@ const GetBalance = () => {
                         <p className={styles.kun}>Rp{data.Balance}</p>
                     </div>
                     <div style={{ width: "10%", marginLeft: "-170px" }}>
-                        <Link style={{ textDecoration: "none" }} to="/RekeningBank"><button className={styles['cairkan']} >Cairkan</button></Link>
+                        <button onClick={cairkan} className={styles['cairkan']} >Cairkan</button>
                     </div>
                 </div>
 
