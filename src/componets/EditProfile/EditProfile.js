@@ -22,6 +22,7 @@ const EditProfile = ({ formSubmit }) => {
     const [popupAfterUpdate, setpopupAfterUpdate] = useState(false)
     const history = useHistory();
     const [image, setImage] = useState([]);
+    const [imageBG, setImageBG] = useState([])
     const [isUploaded, setIsUploaded] = useState(false);
     const [isUploadedBackground, setIsUploadedBackground] = useState(false);
     const [buttonPopup, setButtonPopup] = useState(false);
@@ -63,8 +64,8 @@ const EditProfile = ({ formSubmit }) => {
 
             reader.onload = function (e) {
                 setImage(e.target.result);
+                setImageBG(e.target.result)
                 setIsUploaded(true);
-                // setIsUploadedBackground(true)
             };
 
             reader.readAsDataURL(e.target.files[0]);
@@ -119,7 +120,7 @@ const EditProfile = ({ formSubmit }) => {
                 console.log(key)
                 if (key === "profilePicture" || key === "background") {
                     if (isUploaded) {
-                        formData.append(key, image);
+                        formData.append(key, data[key]);
                     }
                 } else if (key != "email" && key != "username") {
                     formData.append(key, data[key]);
@@ -219,7 +220,7 @@ const EditProfile = ({ formSubmit }) => {
                         )}
                     </div>
                 </div>
-                {/* <br></br>
+                <br></br>
                 <div className={styles.boxupload}>
                     <div className={styles.imageupload}>
                         {!isUploaded ? (
@@ -254,7 +255,7 @@ const EditProfile = ({ formSubmit }) => {
                                 />
                                 <img className={styles.uploadImage}
                                     id="uploaded-image"
-                                    src={image}
+                                    src={imageBG}
                                     draggable={false}
                                     alt="uploaded-img"
                                 />
@@ -263,7 +264,7 @@ const EditProfile = ({ formSubmit }) => {
 
                         )}
                     </div>
-                </div> */}
+                </div>
                 <p className={styles.kun1}>Ganti Foto Profile</p>
                 <input
                     type="text"

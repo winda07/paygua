@@ -19,7 +19,7 @@
 .box {
   margin: 0px auto;
   width: 343px;
-  height: 376px;
+  height: 446px;
   border: 1px solid white;
   border-radius: 16px;
   background-color: white;
@@ -72,4 +72,15 @@
   margin-left: 145px;
   position: absolute;
   margin-top: 115px;
+}
+.nominal {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+.pesan {
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  color: #949494;
 }

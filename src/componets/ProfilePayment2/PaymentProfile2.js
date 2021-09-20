@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router"
 import styles from "../ProfileGeneral2/ProfileGeneral2.module.css"
@@ -39,13 +39,14 @@ import PopupCopy from "../PopupCopy2/PopupCopy2";
 import silang from "../../img/ion.svg"
 import secure from "../../img/secure.svg"
 
-const PaymentProfile = (props) => {
+const PaymentProfile2 = (props) => {
     const masukkanOVO = "Masukkan nomor OVO"
     const masukkanShopeepay = "Masukkan nomor Shopeepay"
     const codeNumber = "+62"
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
     const [loadingPopup, setButtonLoading] = useState(false);
     const [errors, setErros] = useState({});
+    const location = useLocation()
     // console.log(errors.nominal)
     const [Message, setMessage] = useState("")
     const [errorPopup, setErrorPopup] = useState(false)
@@ -238,6 +239,8 @@ const PaymentProfile = (props) => {
         biayaBank: 5000,
         total: 0,
     })
+    let paramobj = useParams();
+    console.log(paramobj)
 
     const setBank = (bank) => {
         if (bank === "ovo") {
@@ -265,22 +268,28 @@ const PaymentProfile = (props) => {
     }
 
     useEffect(() => {
-        axios.get("https://paygua.com/api/transaction/" + username, null, {
+        axios.get("https://paygua.com/api/transaction/" + location.state.username + "/" + location.state.invoiceId, null, {
         })
             .then((result) => {
                 if (result.data.status === 200) {
+
                     setValues({
                         ...data,
                         bio: generateBioLines(result.data.data.bio),
-                        profilePicture: result.data.data.profilePicture,
                         name: result.data.data.name,
-                        username: username
+                        nama: result.data.data.invoice.name,
+                        email: result.data.data.invoice.email,
+                        nominal: result.data.data.invoice.nominal,
+                        pesan: result.data.data.invoice.message,
+                        profilePicture: result.data.data.profilePicture,
+                        username: data.username
                     })
 
                 } else if (result.data.status === 400) {
                     history.push("/404error")
                 }
 
+                console.log("data:", result.data);
             })
             .catch((e) => {
             });
@@ -300,7 +309,7 @@ const PaymentProfile = (props) => {
                                 <br></br>
                                 <div className={styles.boxdua}>
                                     <img className={styles.boxdalam} src={data.profilePicture}></img>
-                                    <b className={styles.usernameCard}>@{data.username}</b>
+                                    <b className={styles.usernameCard}>@{username}</b>
                                     <div className={styles.bioContainer}>
                                         {
                                             data.bio.map((text, i) => {
@@ -328,7 +337,7 @@ const PaymentProfile = (props) => {
                                     placeholder="Masukkan Nama Anda"
                                     value={data.nama}
                                     onChange={handleChange}
-                                    disabled={type === "type2"}
+                                    disabled
                                 ></input>
                                 <div className={styles["set"]}>{errors.nama && <p className="error">{errors.nama}</p>}</div>
                                 <input
@@ -338,7 +347,7 @@ const PaymentProfile = (props) => {
                                     placeholder="Masukkan Email Anda"
                                     value={data.email}
                                     onChange={handleChange}
-                                    disabled={type === "type2"}
+                                    disabled
                                 ></input>
                                 <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
                                 <input type="text"
@@ -348,7 +357,7 @@ const PaymentProfile = (props) => {
                                     placeholder="Masukkan Nominal"
                                     onBlur={handleChange}
                                     id="nominal"
-                                    disabled={type === "type2"}
+                                    disabled
                                     value={data.nominal}
                                     onChange={handleChange}
                                 >
@@ -374,7 +383,7 @@ const PaymentProfile = (props) => {
                                     placeholder="Pesan (Contoh: Pembayaran Produk Digital)"
                                     value={data.pesan}
                                     onChange={handleChange}
-                                    disabled={type === "type2"}
+                                    disabled
                                 ></input>
 
 
@@ -480,4 +489,6 @@ const PaymentProfile = (props) => {
     )
 }
 
-export default PaymentProfile
+
+
+export default PaymentProfile2

@@ -40,7 +40,9 @@ import Qris from "./componets/Qris/Qris";
 import pilihBank from "./componets/Pencairan/PilihBank"
 import RekeningBank from "./componets/Pencairan/RekeningBank";
 import ProfilePaymentType1 from "./componets/ProfilePayment/ProfilePaymentType1";
+import ProfilePaymentType2 from "./componets/ProfilePayment/ProfilePaymentType2";
 import ProfilePayment from "./componets/ProfilePayment2/PaymentProfile"
+import ProfilePayment2 from "./componets/ProfilePayment2/PaymentProfile2"
 import { Route, Switch, useHistory } from 'react-router-dom';
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router";
@@ -111,8 +113,10 @@ const App = () => {
         <Route path="/Qris" component={Qris}></Route>
         <Route path="/PilihBank" component={pilihBank}></Route>
         <Route path="/RekeningBank" component={RekeningBank}></Route>
-        <Route path="/payment" component={ProfilePayment}></Route>
-        <Route path="/:username" component={ProfilePaymentType1}></Route>
+        <Route path="/PaymentProfile" component={ProfilePayment}></Route>
+        <Route path="/PaymentProfileInvoice" component={ProfilePayment2}></Route>
+        <Route exact path="/:username" component={ProfilePaymentType1}></Route>
+        <Route exact path="/:username/:invoiceId" component={ProfilePaymentType2}></Route>
         {/* <Route exact path="/:username">
           <DummyCmp type="type1" />
         </Route>
