@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
-const ProfilePayment = () => {
+const PaymentProfile = () => {
     return (
         <>
             <div>
@@ -11,4 +11,4 @@ const ProfilePayment = () => {
     )
 }
 
-export default ProfilePayment
+export default PaymentProfile

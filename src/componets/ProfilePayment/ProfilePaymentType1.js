@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-// import styles from "./Qris.module.css"
+import styles from "./ProfilePaymentType1.module.css"
 import axios from 'axios';
 import { useParams } from "react-router"
 const ProfilePaymentType1 = (props) => {
@@ -9,7 +9,8 @@ const ProfilePaymentType1 = (props) => {
     let paramobj = useParams();
     const [data, setValues] = useState({
         nama: "",
-        username: ""
+        username: "",
+        profilePicture: ""
     })
     useEffect(() => {
         axios.get("https://paygua.com/api/transaction/" + paramobj.username, null, {
@@ -19,6 +20,7 @@ const ProfilePaymentType1 = (props) => {
                     setValues({
                         ...data,
                         name: result.data.data.name,
+                        profilePicture: result.data.data.profilePicture,
                         username: paramobj.username
                     })
 
@@ -30,19 +32,18 @@ const ProfilePaymentType1 = (props) => {
 
 
     }, [])
-    const handleClick = () => {
-        history.push({
-            pathname: "/dashbord",
-            state: {
-                name: data.name
-            }
-        })
-    }
     return (
         <div >
-            <p>{data.name}</p>
-            <p>@{data.username}</p>
-            <button>Bayar</button>
+            <div className={styles.App}>
+                <div className={styles["form-signin"]}>
+                    <div className={styles.box}>
+                        <p className={styles.name}>{data.name}</p>
+                        <p className={styles.username}>@{data.username}</p>
+                        <Link to="/payment"><button className={styles.button}>Bayar</button></Link>
+                    </div>
+
+                </div>
+            </div>
         </div>
     )
 }

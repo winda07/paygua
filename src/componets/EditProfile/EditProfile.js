@@ -64,7 +64,7 @@ const EditProfile = ({ formSubmit }) => {
             reader.onload = function (e) {
                 setImage(e.target.result);
                 setIsUploaded(true);
-                setIsUploadedBackground(true)
+                // setIsUploadedBackground(true)
             };
 
             reader.readAsDataURL(e.target.files[0]);
@@ -118,13 +118,14 @@ const EditProfile = ({ formSubmit }) => {
             for (var key in data) {
                 console.log(key)
                 if (key === "profilePicture" || key === "background") {
-                    if (isUploaded || isUploadedBackground) {
+                    if (isUploaded) {
                         formData.append(key, image);
                     }
                 } else if (key != "email" && key != "username") {
                     formData.append(key, data[key]);
                 }
             }
+            console.log("formData:", formData)
             const user = jwt(token);
             axios
                 .put("https://paygua.com/api/user/" + user.id, formData, {
@@ -151,6 +152,7 @@ const EditProfile = ({ formSubmit }) => {
                             }
                         }
                     }
+                    console.log("data:", data)
                 })
                 .catch((e) => {
                     alert("error");
@@ -220,7 +222,7 @@ const EditProfile = ({ formSubmit }) => {
                 {/* <br></br>
                 <div className={styles.boxupload}>
                     <div className={styles.imageupload}>
-                        {!isUploadedBackground ? (
+                        {!isUploaded ? (
                             <>
                                 <label htmlFor="upload-input">
                                     <img className={styles.ukuranPP}
@@ -246,7 +248,7 @@ const EditProfile = ({ formSubmit }) => {
                                     className="close-icon"
 
                                     onClick={() => {
-                                        setIsUploadedBackground(false);
+                                        setIsUploaded(false);
                                         setImage(null);
                                     }}
                                 />
@@ -259,11 +261,10 @@ const EditProfile = ({ formSubmit }) => {
 
                             </div>
 
-
                         )}
                     </div>
-                </div>
-                <p className={styles.kun1}>Ganti Foto Profile</p> */}
+                </div> */}
+                <p className={styles.kun1}>Ganti Foto Profile</p>
                 <input
                     type="text"
                     class={styles["form-control"]}
