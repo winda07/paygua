@@ -64,23 +64,24 @@ const Pencairan = () => {
     return (
         <div className={styles.App}>
             <div className={styles['form-signin']}>
-                <Link to="/RekeningBank"><img src={arrow}></img></Link>
-                <b style={{ fontSize: "16px", marginTop: "2px", marginLeft: "30px", position: "absolute" }}>Pilih Bank</b>
-
-                <form autoComplete="off">
-                    <input
-                        type="text"
-                        class={styles["form-control"]}
-                        name="bank"
-                        id="searchbank"
-                        placeholder="Cari Bank"
-                        autocomplete="no"
-                    ></input>
-                    <button onClick={handleSearchSubmit} hidden id="hiddenSubmit" />
-                </form>
+                <div>
+                    <Link to="/RekeningBank"><img src={arrow}></img></Link>
+                    <b style={{ fontSize: "16px", marginTop: "2px", marginLeft: "30px" }}>Pilih Bank</b>
+                    <form autoComplete="off">
+                        <input
+                            type="text"
+                            class={styles["form-control"]}
+                            name="bank"
+                            id="searchbank"
+                            placeholder="Cari Bank"
+                            autocomplete="no"
+                        ></input>
+                        <button onClick={handleSearchSubmit} hidden id="hiddenSubmit" />
+                    </form>
+                </div>
                 {data.bank.map(bnk => (
                     <div>
-                        <p style={{ padding: "0 20px", cursor: "pointer" }} onClick={() => sendBank(bnk)}>{bnk.name}</p>
+                        <p style={{ padding: "0 20px", cursor: "pointer", fontWeight: "bold" }} onClick={() => sendBank(bnk)}>{bnk.name}</p>
                     </div>
                 ))}
             </div>

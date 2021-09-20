@@ -45,7 +45,7 @@ const Dashboard = () => {
   })
   socket.on('newNotif', function (data) {
     toast(data, {
-      autoClose: 3000, position: toast.POSITION.TOP_RIGHT, progressClassName: ({
+      autoClose: 3000, position: toast.POSITION.TOP_CENTER, progressClassName: ({
         background: '#EE0022',
       }),
     })
@@ -68,7 +68,7 @@ const Dashboard = () => {
     setTimeout(() => {
       setButtonPopup(false)
     }, 1000)
-    navigator.clipboard.writeText(`paygua.com/${user.username}`)
+    navigator.clipboard.writeText(`https://paygua.com/${user.username}`)
   }
   const plusHandleClick = () => {
     setHome(!HomePopup)

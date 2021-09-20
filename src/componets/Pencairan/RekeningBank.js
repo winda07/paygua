@@ -8,6 +8,7 @@ import validation from "./Validation";
 import Loading from "../Loading/Loading";
 import Popup from "./Popup"
 import silang from "../../img/ion.svg"
+import PopupLimit from "./PopupLimit"
 const RekeningBank = () => {
     const [errors, setErros] = useState({});
     const history = useHistory();
@@ -15,13 +16,15 @@ const RekeningBank = () => {
     const [loadingPopup, setButtonLoading] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
     const [popup, setPopup] = useState(false);
+    const [popupLimit, setPopupLimit] = useState(false);
     const username = localStorage.getItem("username");
     const token = localStorage.getItem("token")
     const [data, setValues] = useState({
         username: username,
         norek: "",
         bank: "",
-        codeBank: ""
+        codeBank: "",
+        name: ""
     })
     const handleChange = (e) => {
         setValues({
@@ -29,9 +32,8 @@ const RekeningBank = () => {
             [e.target.name]: e.target.value,
         });
     };
-    const checkBank = () => {
+    const checkBank = (e) => {
         setErros(validation(data));
-        setDataIsCorrect(true)
         setIsClicked(true);
         const dataSend = {
             name: username,
@@ -41,11 +43,18 @@ const RekeningBank = () => {
         }
         console.log("datasend:", dataSend)
         console.log("handleFormSubmit Object keys: ", Object.keys(errors).length)
-        if (Object.keys(errors).length === 0 && dataIsCorrect) {
+        console.log("data iscorr", dataIsCorrect)
+        if (data.bank !== "") {
+            setPopupLimit(false)
             setPopup(false)
             setButtonLoading(true)
             if (token) {
                 console.log(token)
+                // setValues({
+                //     ...data,
+                //     name: "winda hardcoded"
+                // })
+                // setDataIsCorrect(true);
                 axios.post("https://paygua.com/api/user/withdraw/checkBank", dataSend, {
                     headers: {
                         Authorization: token,
@@ -54,6 +63,23 @@ const RekeningBank = () => {
                     .then((result) => {
                         if (result) {
                             if (result.data.status === 200) {
+                                setDataIsCorrect(true)
+                                setPopupLimit(false)
+                                setPopup(false)
+                                setButtonLoading(false)
+                                if (result.data.errors) {
+                                    setPopupLimit(true);
+                                    setTimeout(() => {
+                                        setPopupLimit(false)
+                                    }, 1000)
+                                } else {
+                                    setValues({
+                                        ...data,
+                                        name: result.data.data.name
+                                    })
+                                }
+                            } else if (result.data.status === 404) {
+                                setPopupLimit(false)
                                 setButtonLoading(false)
                                 setPopup(true)
                                 setTimeout(() => {
@@ -61,7 +87,7 @@ const RekeningBank = () => {
                                 }, 1000)
                             }
                         }
-                        console.log(result.data)
+                        console.log("data:", result.data)
                     })
             }
         }
@@ -76,7 +102,16 @@ const RekeningBank = () => {
             })
         }
         console.log("location:", location)
+        console.log("is correct", dataIsCorrect)
     }, []);
+    // useEffect(() => {
+    //     setValues({
+    //         bank: "",
+    //         codeBank: "",
+    //         name: "",
+    //         norek: ""
+    //     });
+    // }, [])
     useEffect(() => {
         console.log("isClicked: ", isClicked)
         setErros(validation(data));
@@ -85,10 +120,11 @@ const RekeningBank = () => {
     }, [])
     const handleForSubmit = (e) => {
         setErros(validation(data));
-        setDataIsCorrect(true)
-        setIsClicked(true);
+        // setDataIsCorrect(true)
+        // setIsClicked(true);
+        console.log("data valueeeeeeeeeee", data);
         const dataSend = {
-            name: username,
+            name: data.name,
             number: data.norek,
             bank: data.bank,
             bankCode: data.codeBank
@@ -99,6 +135,7 @@ const RekeningBank = () => {
             setButtonLoading(true)
             if (token) {
                 console.log(token)
+                console.log("payload", dataSend);
                 axios.post("https://paygua.com/api/user/withdraw/saveBank", dataSend, {
                     headers: {
                         Authorization: token,
@@ -138,7 +175,7 @@ const RekeningBank = () => {
                 <div class={styles["inputContainerRek"]}>
                     <input type="text"
                         pattern="\d*" inputMode="numeric"
-                        class={styles["form-control"]}
+                        class={styles["form-control-2"]}
                         name="norek"
                         placeholder="Masukkan Nomor Rekening"
                         value={data.norek}
@@ -150,20 +187,29 @@ const RekeningBank = () => {
                 <div className={styles["set"]}>{errors.norek && isClicked && <p className="error">{errors.norek}</p>}</div>
                 <div className={styles.divRekeningName}>
                     <p className={styles.namaRek}>Nama Rekening</p>
-                    <p style={{ padding: "0 20px" }}>{username}</p>
+                    <p style={{ padding: "0 20px" }}>{data.name}</p>
                 </div>
                 <footer className={styles.footer}>
-                    <button onClick={handleForSubmit} className={styles.button}>
+                    <button onClick={handleForSubmit} className={!dataIsCorrect ? styles.btnSubmit : styles.button} disabled={!dataIsCorrect}>
                         Lanjutkan
                     </button>
-                    <p style={{ fontSize: '12px', color: "#21242B", display: 'flex', textAlign: "center", justifyContent: "center" }}>Dana yang dicairkan akan diproses kurang lebih 1 x 24 Jam</p>
+                    <p style={{ fontSize: '12px', color: "#21242B", display: 'flex', textAlign: "center", justifyContent: "center" }}>Dana yang dicairkan akan diproses kurang lebih 2 x 24 Jam</p>
                 </footer>
             </div>
             <Loading trigger={loadingPopup}></Loading>
-            <Popup trigger={popup}><div>
-                <img onClick={() => { setPopup(false) }} style={{ marginLeft: "270px", display: "flex", cursor: "pointer" }} src={silang}></img>
-                <p style={{ display: "flex", textAlign: "center", justifyContent: "center" }}>Bank account is verified</p>
-            </div></Popup>
+            <Popup trigger={popup}>
+                <div>
+                    <img onClick={() => { setPopup(false) }} style={{ marginLeft: "270px", cursor: "pointer" }} src={silang}></img>
+                    <p style={{ textAlign: "center" }}>Failed to check your bank account</p>
+                </div>
+            </Popup>
+            <PopupLimit trigger={popupLimit}>
+                <div>
+                    <img onClick={() => { setPopupLimit(false) }} style={{ marginLeft: "270px", cursor: "pointer" }} src={silang}></img>
+                    <p style={{ textAlign: "center" }}>You reach your limit</p>
+                </div>
+            </PopupLimit>
+
         </div>
     )
 }

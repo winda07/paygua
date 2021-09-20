@@ -49,11 +49,31 @@ const Pencairan = () => {
 
         }
     }, []);
+    useEffect(() => {
+        var numberField = document.getElementById("nominal")
+        numberField.addEventListener("keyup", function (evt) {
+            var n = parseInt(this.value.replace(/\D/g, ""), 10);
+            numberField.value = n.toLocaleString('de-DE');
+            console.log(n)
+        }, false);
+    })
     const handleChange = (e) => {
-        setValues({
-            ...data,
-            [e.target.name]: e.target.value,
-        });
+        var value = e.target.value;
+        if (e.target.name === "nominal") {
+            value = value.length < 2 && value.toString().substring(0, 1) == 0 ? '0' : value;
+            value = value == 0 || value == '0' ? 0 : value;
+            console.log("6", value)
+            setValues({
+                ...data,
+                [e.target.name]: value
+            })
+        } else {
+            setValues({
+                ...data,
+                [e.target.name]: e.target.value,
+            });
+        }
+
     }
     const HandleForSubmit = () => {
         const token = localStorage.getItem("token");
@@ -105,22 +125,24 @@ const Pencairan = () => {
                     <h5 class={styles["usernameLabel"]}>
                         {Rp}
                     </h5>
-                    <input
-                        type="text"
+                    <input type="text"
                         pattern="\d*" inputMode="numeric"
-                        name="nominal"
                         class={styles["username"]}
+                        name="nominal"
                         placeholder="Masukkan Nominal"
-                        id="=floatingUsername"
+                        onBlur={handleChange}
+                        id="nominal"
+                        value={data.nominal}
                         onChange={handleChange}
-                    ></input>
+                    >
+                    </input>
                 </div>
                 <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
                 <footer className={styles.footer}>
                     <button onClick={HandleForSubmit} className={styles.button}>
                         Cairkan
                     </button>
-                    <p style={{ fontSize: '12px', color: "#21242B", display: 'flex', textAlign: "center", justifyContent: "center" }}>Dana yang dicairkan akan diproses kurang lebih 1 x 24 Jam</p>
+                    <p style={{ fontSize: '12px', color: "#21242B", display: 'flex', textAlign: "center", justifyContent: "center" }}>Dana yang dicairkan akan diproses kurang lebih 2 x 24 Jam</p>
                 </footer>
             </div>
             <Loading

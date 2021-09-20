@@ -23,6 +23,7 @@ const EditProfile = ({ formSubmit }) => {
     const history = useHistory();
     const [image, setImage] = useState([]);
     const [isUploaded, setIsUploaded] = useState(false);
+    const [isUploadedBackground, setIsUploadedBackground] = useState(false);
     const [buttonPopup, setButtonPopup] = useState(false);
     const [message, setMessage] = useState("")
     const [loadingPopup, setButtonLoading] = useState(false);
@@ -32,6 +33,10 @@ const EditProfile = ({ formSubmit }) => {
         bio: "",
         email: "",
         profilePicture: [],
+        background: [],
+        whatsapp: "",
+        instagram: "",
+        web: ""
     });
     const urlPayGua = "Paygua.com/"
 
@@ -59,6 +64,7 @@ const EditProfile = ({ formSubmit }) => {
             reader.onload = function (e) {
                 setImage(e.target.result);
                 setIsUploaded(true);
+                setIsUploadedBackground(true)
             };
 
             reader.readAsDataURL(e.target.files[0]);
@@ -82,7 +88,11 @@ const EditProfile = ({ formSubmit }) => {
                             name: result.data.data.name,
                             username: result.data.data.username,
                             bio: result.data.data.bio,
-                            profilePicture: result.data.data.profilePicture
+                            profilePicture: result.data.data.profilePicture,
+                            whatsapp: result.data.data.whatsapp,
+                            instagram: result.data.data.instagram,
+                            web: result.data.data.web,
+                            background: result.data.data.background
                         })
                     } else {
                         history.push('/login')
@@ -107,8 +117,8 @@ const EditProfile = ({ formSubmit }) => {
             const formData = new FormData();
             for (var key in data) {
                 console.log(key)
-                if (key === "profilePicture") {
-                    if (isUploaded) {
+                if (key === "profilePicture" || key === "background") {
+                    if (isUploaded || isUploadedBackground) {
                         formData.append(key, image);
                     }
                 } else if (key != "email" && key != "username") {
@@ -208,6 +218,51 @@ const EditProfile = ({ formSubmit }) => {
                     </div>
                 </div>
                 <br></br>
+                <div className={styles.boxupload}>
+                    <div className={styles.imageupload}>
+                        {!isUploadedBackground ? (
+                            <>
+                                <label htmlFor="upload-input">
+                                    <img className={styles.ukuranPP}
+                                        src={data.background}
+                                        draggable={"false"}
+                                        alt="placeholder"
+
+                                    />
+                                </label>
+                                <input
+                                    id="upload-input"
+                                    name="background"
+                                    type="file"
+                                    onChange={handleChange2}
+                                    accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
+
+                                />
+                            </>
+                        ) : (
+
+                            <div>
+                                <img
+                                    className="close-icon"
+
+                                    onClick={() => {
+                                        setIsUploadedBackground(false);
+                                        setImage(null);
+                                    }}
+                                />
+                                <img className={styles.uploadImage}
+                                    id="uploaded-image"
+                                    src={image}
+                                    draggable={false}
+                                    alt="uploaded-img"
+                                />
+
+                            </div>
+
+
+                        )}
+                    </div>
+                </div>
                 <p className={styles.kun1}>Ganti Foto Profile</p>
                 <input
                     type="text"
@@ -244,6 +299,34 @@ const EditProfile = ({ formSubmit }) => {
                     name="email"
                     disabled
                     value={data.email}
+                    onChange={handleChange}
+                ></input>
+                <input
+                    type="text"
+                    pattern="\d*" inputMode="numeric"
+                    class={styles["form-control"]}
+                    id="floatingEmail"
+                    placeholder="Nomor WhatsApp (08xxxxxx)"
+                    name="whatsapp"
+                    value={data.whatsapp}
+                    onChange={handleChange}
+                ></input>
+                <input
+                    type="text"
+                    class={styles["form-control"]}
+                    id="floatingEmail"
+                    placeholder="Link Instagram"
+                    name="instagram"
+                    value={data.instagram}
+                    onChange={handleChange}
+                ></input>
+                <input
+                    type="text"
+                    class={styles["form-control"]}
+                    id="floatingEmail"
+                    placeholder="Link Website"
+                    name="web"
+                    value={data.web}
                     onChange={handleChange}
                 ></input>
             </div>

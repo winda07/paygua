@@ -85,7 +85,7 @@ const GetTransaction = () => {
                             </div>
                             <div style={{ width: "5%" }}>
                                 <b>Username</b>
-                                <p>{userinTransaction.username}</p>
+                                <p>{userinTransaction.paidUser}</p>
                             </div>
                             <div style={{ width: "15%" }}>
                                 <b>Email</b>

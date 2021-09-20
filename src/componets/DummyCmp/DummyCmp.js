@@ -385,6 +385,7 @@ const DummyCmp = (props) => {
                                     placeholder="Masukkan Nominal"
                                     onBlur={handleChange}
                                     id="nominal"
+                                    disabled={type === "type2"}
                                     value={data.nominal}
                                     onChange={handleChange}
                                 >
@@ -444,7 +445,7 @@ const DummyCmp = (props) => {
                                     : null
                             }
                             {
-                                showtransfer ? <p className={styles.admin}>*Transfer Bank akan ditambah biaya 4.000</p> : null
+                                showtransfer ? <p className={styles.admin}>*Transfer Bank akan ditambah biaya 5.000</p> : null
                             }
                             <div className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.btnSubmit : styles.btnBedaWarna} onClick={handleFormSubmit}>
                                 <p className={data.bank == "" || data.nama == "" || data.email == "" || data.nominal == "" ? styles.text2 : styles.text21}  >Bayar</p>

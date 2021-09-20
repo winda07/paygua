@@ -16,6 +16,7 @@
   padding: 15px;
   margin-bottom: 390px;
   margin: 0px auto;
+  position: relative;
 }
 .form-control {
   width: 341px;
@@ -28,6 +29,7 @@
   box-sizing: border-box;
   border-radius: 8px;
   cursor: pointer;
+  position: absolute;
 }
 .form-control::-webkit-input-placeholder {
   color: #21242b;

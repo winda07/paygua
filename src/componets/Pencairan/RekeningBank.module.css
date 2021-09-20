@@ -47,6 +47,12 @@
   box-shadow: none;
   outline: none !important;
 }
+.form-control-2 {
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  outline: none !important;
+}
 .form-control::-webkit-input-placeholder {
   color: #21242b;
   font-size: 16px;
@@ -79,6 +85,18 @@
   width: 350px;
   height: 59px;
   background-color: #143af5;
+  border-radius: 100px;
+  border: 1px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 15px 0;
+  cursor: pointer;
+}
+.btnSubmit {
+  width: 350px;
+  height: 59px;
+  background-color: #808080;
   border-radius: 100px;
   border: 1px;
   color: white;
