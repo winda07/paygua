@@ -179,11 +179,6 @@ const DummyCmp = (props) => {
         setErros(validation(data));
         setDataIsCorrect(true)
         setIsClicked(true);
-        if (e.target.name === "nominal") {
-            setErros(validation({
-                [e.target.name]: e.target.value.replace(/\./g, '')
-            }))
-        }
     }
     const handleChange = (e) => {
         var value = e.target.value;
