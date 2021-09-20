@@ -217,7 +217,7 @@ const EditProfile = ({ formSubmit }) => {
                         )}
                     </div>
                 </div>
-                <br></br>
+                {/* <br></br>
                 <div className={styles.boxupload}>
                     <div className={styles.imageupload}>
                         {!isUploadedBackground ? (
@@ -263,7 +263,7 @@ const EditProfile = ({ formSubmit }) => {
                         )}
                     </div>
                 </div>
-                <p className={styles.kun1}>Ganti Foto Profile</p>
+                <p className={styles.kun1}>Ganti Foto Profile</p> */}
                 <input
                     type="text"
                     class={styles["form-control"]}
