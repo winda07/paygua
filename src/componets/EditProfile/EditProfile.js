@@ -234,6 +234,7 @@ const EditProfile = ({ formSubmit }) => {
                         )}
                     </div>
                 </div>
+                <p className={styles.kun1}>Ganti Foto Profile</p>
                 <br></br>
                 <div className={styles.boxupload}>
                     <div className={styles.imageupload}>
@@ -279,7 +280,7 @@ const EditProfile = ({ formSubmit }) => {
                         )}
                     </div>
                 </div>
-                <p className={styles.kun1}>Ganti Foto Profile</p>
+                <p className={styles.kun1}>Ganti Background</p>
                 <input
                     type="text"
                     class={styles["form-control"]}

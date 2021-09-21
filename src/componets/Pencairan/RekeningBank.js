@@ -4,7 +4,7 @@ import { Link, useLocation, useHistory } from "react-router-dom";
 import arrow from "../../img/arrow-left.svg"
 import arrowdown from "../../img/arrow-down.svg"
 import axios from 'axios';
-import validation from "./validation";
+import validation from "./Validation";
 import Loading from "../Loading/Loading";
 import Popup from "./Popup"
 import silang from "../../img/ion.svg"
