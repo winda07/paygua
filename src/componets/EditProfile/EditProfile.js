@@ -64,8 +64,24 @@ const EditProfile = ({ formSubmit }) => {
 
             reader.onload = function (e) {
                 setImage(e.target.result);
-                setImageBG(e.target.result)
                 setIsUploaded(true);
+            };
+
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    };
+
+    const handleChange3 = (e) => {
+        setValues({
+            ...data,
+            [e.target.name]: e.target.files[0],
+        });
+        if (e.target.files && e.target.files[0]) {
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                setImageBG(e.target.result)
+                setIsUploadedBackground(true);
             };
 
             reader.readAsDataURL(e.target.files[0]);
@@ -118,10 +134,8 @@ const EditProfile = ({ formSubmit }) => {
             const formData = new FormData();
             for (var key in data) {
                 console.log(key)
-                if (key === "profilePicture" || key === "background") {
-                    if (isUploaded) {
-                        formData.append(key, data[key]);
-                    }
+                if ((key === "profilePicture" && isUploaded) || (key === "background" && isUploadedBackground)) {
+                    formData.append(key, data[key]);
                 } else if (key != "email" && key != "username") {
                     formData.append(key, data[key]);
                 }
@@ -223,7 +237,7 @@ const EditProfile = ({ formSubmit }) => {
                 <br></br>
                 <div className={styles.boxupload}>
                     <div className={styles.imageupload}>
-                        {!isUploaded ? (
+                        {!isUploadedBackground ? (
                             <>
                                 <label htmlFor="upload-input">
                                     <img className={styles.ukuranPP}
@@ -237,7 +251,7 @@ const EditProfile = ({ formSubmit }) => {
                                     id="upload-input"
                                     name="background"
                                     type="file"
-                                    onChange={handleChange2}
+                                    onChange={handleChange3}
                                     accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
 
                                 />
@@ -249,8 +263,8 @@ const EditProfile = ({ formSubmit }) => {
                                     className="close-icon"
 
                                     onClick={() => {
-                                        setIsUploaded(false);
-                                        setImage(null);
+                                        setIsUploadedBackground(false);
+                                        setImageBG(null);
                                     }}
                                 />
                                 <img className={styles.uploadImage}
