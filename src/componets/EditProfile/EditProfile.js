@@ -240,7 +240,7 @@ const EditProfile = ({ formSubmit }) => {
                     <div className={styles.imageupload}>
                         {!isUploadedBackground ? (
                             <>
-                                <label htmlFor="upload-input">
+                                <label htmlFor="upload-input1">
                                     <img className={styles.ukuranPP}
                                         src={data.background}
                                         draggable={"false"}
@@ -249,7 +249,7 @@ const EditProfile = ({ formSubmit }) => {
                                     />
                                 </label>
                                 <input
-                                    id="upload-input"
+                                    id="upload-input1"
                                     name="background"
                                     type="file"
                                     onChange={handleChange3}
