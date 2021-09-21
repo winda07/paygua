@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from "./Qris.module.css"
-import arrow from "../../img/arrow-left.svg"
+import arrow from "../../img/arrow-left.webp"
 import { Link, useHistory } from "react-router-dom";
 import axios from 'axios';
 import validation from "./Validation"

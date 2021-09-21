@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from "./check.module.css"
-import lupapw from "../../img/Logo_LupPW.svg"
+import lupapw from "../../img/Logo_LupPW.webp"
 import { Link, useLocation } from "react-router-dom";
-import animation from "../../img/animation1.svg"
+import animation from "../../img/animation1.webp"
 
 const RegisterCheck = () => {
     return (

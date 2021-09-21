@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "./ResetPassword.module.css"
-import arrow from "../../img/arrow-left.svg"
-import check from "../../img/check.svg"
+import arrow from "../../img/arrow-left.webp"
+import check from "../../img/check.webp"
 import { Link, Redirect, useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { AirlineSeatIndividualSuiteSharp, Message } from "@material-ui/icons";
 import validation from "./validation.js";
-import showPdwImg from "../../img/showPassword.svg"
-import hidePwdImg from "../../img/hidePassword.svg"
+import showPdwImg from "../../img/showPassword.webp"
+import hidePwdImg from "../../img/hidePassword.webp"
 
 
 const ResetPassword = ({ submitForm }) => {

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styles from "./EditProfile.module.css";
-import logo from "../../img/logo.svg";
-import arrow from "../../img/arrow-left.svg";
-import check from "../../img/check.svg";
-import user from "../../img/profile.svg";
+import logo from "../../img/logo.webp";
+import arrow from "../../img/arrow-left.webp";
+import check from "../../img/check.webp";
+import user from "../../img/profile.webp";
 import { Link, useHistory } from "react-router-dom";
 import validation from "./validation";
 import axios from "axios";
 import jwt from "jwt-decode"
 import Popup from "../PopupLogin/PopupLogin";
-import silang from "../../img/ion.svg"
-import FolderIcon from "../../img/profile.svg"
+import silang from "../../img/ion.webp"
+import FolderIcon from "../../img/profile.webp"
 import Loading from "../Loading/Loading";
 import PopupSuksesUbah from "../PopupSuksesUbah/PopupSuksesUbah"
 
@@ -43,7 +43,7 @@ const EditProfile = ({ formSubmit }) => {
 
     useEffect(() => {
         console.log("isClicked: ", isClicked)
-        // setErros(validation(data));
+        setErros(validation(data));
         setDataIsCorrect(false);
         setIsClicked(false);
     }, [])
@@ -121,7 +121,7 @@ const EditProfile = ({ formSubmit }) => {
     }, []);
 
     const handleFormSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         setErros(validation(data));
         setDataIsCorrect(true);
         setIsClicked(true);
@@ -189,6 +189,53 @@ const EditProfile = ({ formSubmit }) => {
                     <img className={styles.check1} onClick={handleFormSubmit} src={check} alt="logo"></img>
 
                 </div>
+                <div className={styles.boxuploadBG}>
+                    <div className={styles.textBG}>
+                        <button className={styles.kun2}>Ganti Foto Background</button>
+                    </div>
+                    <div className={styles.imageupload}>
+                        {!isUploadedBackground ? (
+                            <>
+                                <label htmlFor="upload-input1">
+                                    <img className={styles.ukuranBG}
+                                        src={data.background}
+                                        draggable={"false"}
+                                        alt="placeholder"
+
+                                    />
+                                </label>
+                                <input
+                                    id="upload-input1"
+                                    name="background"
+                                    type="file"
+                                    onChange={handleChange3}
+                                    accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
+
+                                />
+                            </>
+                        ) : (
+
+                            <div>
+                                <img
+                                    className="close-icon"
+
+                                    onClick={() => {
+                                        setIsUploadedBackground(false);
+                                        setImageBG(null);
+                                    }}
+                                />
+                                <img className={styles.uploadImage2}
+                                    id="uploaded-image"
+                                    src={imageBG}
+                                    draggable={false}
+                                    alt="uploaded-img"
+                                />
+
+                            </div>
+
+                        )}
+                    </div>
+                </div>
                 <div className={styles.boxupload}>
                     <div className={styles.imageupload}>
                         {!isUploaded ? (
@@ -235,52 +282,6 @@ const EditProfile = ({ formSubmit }) => {
                     </div>
                 </div>
                 <p className={styles.kun1}>Ganti Foto Profile</p>
-                <br></br>
-                <div className={styles.boxupload}>
-                    <div className={styles.imageupload}>
-                        {!isUploadedBackground ? (
-                            <>
-                                <label htmlFor="upload-input1">
-                                    <img className={styles.ukuranPP}
-                                        src={data.background}
-                                        draggable={"false"}
-                                        alt="placeholder"
-
-                                    />
-                                </label>
-                                <input
-                                    id="upload-input1"
-                                    name="background"
-                                    type="file"
-                                    onChange={handleChange3}
-                                    accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
-
-                                />
-                            </>
-                        ) : (
-
-                            <div>
-                                <img
-                                    className="close-icon"
-
-                                    onClick={() => {
-                                        setIsUploadedBackground(false);
-                                        setImageBG(null);
-                                    }}
-                                />
-                                <img className={styles.uploadImage}
-                                    id="uploaded-image"
-                                    src={imageBG}
-                                    draggable={false}
-                                    alt="uploaded-img"
-                                />
-
-                            </div>
-
-                        )}
-                    </div>
-                </div>
-                <p className={styles.kun1}>Ganti Background</p>
                 <input
                     type="text"
                     class={styles["form-control"]}

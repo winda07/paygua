@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import styles from "./Password.module.css"
-import logo from "../../img/logo.svg"
-import arrow from "../../img/arrow-left.svg"
-import check from "../../img/check.svg"
+import logo from "../../img/logo.webp"
+import arrow from "../../img/arrow-left.webp"
+import check from "../../img/check.webp"
 import { Link, useHistory } from "react-router-dom";
 import axios from 'axios';
 import validation from './validation'
-import showPdwImg from "../../img/showPassword.svg";
-import hidePwdImg from "../../img/hidePassword.svg";
+import showPdwImg from "../../img/showPassword.webp";
+import hidePwdImg from "../../img/hidePassword.webp";
 import jwt from "jwt-decode"
 import Loading from "../Loading/Loading"
 

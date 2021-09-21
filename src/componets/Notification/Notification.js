@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./Notification.module.css";
-import arrow from "../../img/arrow-left.svg"
+import arrow from "../../img/arrow-left.webp"
 import { Link } from "react-router-dom";
 import GetNotif from './GetNotif';
 

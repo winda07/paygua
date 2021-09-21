@@ -116,18 +116,23 @@
 }
 .boxupload {
   display: grid;
-  margin-left: 95px;
-  margin-top: 20px;
+  margin-left: 120px;
+  margin-top: 100px;
   place-items: center;
   border: 1px dashed #799cd9;
-  /* padding: 36px 48px; */
   position: relative;
 
-  height: 150px;
-  width: 150px;
+  height: 108px;
+  width: 108px;
 
   background: #fbfbff;
-  border-radius: 200px;
+  border-radius: 100px;
+}
+.boxuploadBG {
+  position: absolute;
+  height: 132px;
+  width: 350px;
+  background: #fbfbff;
 }
 .imageupload {
   display: flex;
@@ -144,10 +149,14 @@
   display: none;
 }
 .uploadImage {
-  height: 220px;
-  width: 220px;
+  height: 108px;
+  width: 108px;
   object-fit: cover;
   border-radius: 200px;
+}
+.uploadImage2 {
+  height: 132px;
+  width: 350px;
 }
 .close-icon {
   background: #000;
@@ -164,13 +173,31 @@
   opacity: 1;
 }
 .ukuranPP {
-  width: 150px;
-  height: 150px;
-  border-radius: 100%;
+  width: 108px;
+  height: 108px;
+  border-radius: 100px;
   cursor: pointer;
 }
+.ukuranBG {
+  width: 350px;
+  height: 132px;
+}
 .kun1 {
-  margin-left: 110px;
+  font-size: 14px;
+  margin-left: 120px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.kun2 {
+  position: absolute;
+  margin-top: 60px;
+  width: 171px;
+  height: 32px;
+  border: 1px solid transparent;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  margin-left: 90px;
 }
 @media only screen and (max-width: 500px) {
   .form-signin {

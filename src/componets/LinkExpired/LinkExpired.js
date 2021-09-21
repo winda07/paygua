@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./LinkExpired.module.css"
-import thanks from "../../img/popup-tagihan.svg"
-import success from "../../img/ion.svg"
+import thanks from "../../img/popup-tagihan.webp"
+import success from "../../img/ion.webp"
 import { Link, useHistory } from "react-router-dom";
 const LinkExpired = () => {
     const history = useHistory();

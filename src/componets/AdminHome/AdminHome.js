@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./AdminHome.module.css";
 import { Link, useHistory } from "react-router-dom";
-import logo from "../../img/logo.svg"
+import logo from "../../img/logo.webp"
 import GetUser from "./GetUser"
 import GetTransaction from "./GetTransaction";
 import GetWithdrawal from "./GetWithdrawal"

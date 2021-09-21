@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from "./Settings.module.css"
-import logo from "../../img/logo.svg"
-import arrow from "../../img/arrow-left.svg"
-import check from "../../img/check.svg"
-import user from "../../img/profile.svg"
+import logo from "../../img/logo.webp"
+import arrow from "../../img/arrow-left.webp"
+import check from "../../img/check.webp"
+import user from "../../img/profile.webp"
 import { Link } from "react-router-dom";
 const Settings = () => {
     const removetoken = () => {

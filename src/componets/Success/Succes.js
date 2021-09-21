@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./Succes.module.css"
-import thanks from "../../img/popup-tagihan.svg"
-import success from "../../img/Logo_LupPW.svg"
+import thanks from "../../img/popup-tagihan.webp"
+import success from "../../img/Logo_LupPW.webp"
 import { Link, useHistory } from "react-router-dom";
 const Success = () => {
     const history = useHistory();

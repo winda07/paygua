@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import jwt from "jwt-decode"
 import axios from "axios"
-import arrow from "../../img/arrow-left.svg"
+import arrow from "../../img/arrow-left.webp"
 import { Link, useHistory } from "react-router-dom";
 import { DataUsageSharp } from "@material-ui/icons"
 import styles from "./Tagihan.module.css"
@@ -11,7 +11,7 @@ import { red } from "@material-ui/core/colors";
 import PopupCopy from "../PopupCopy2/PopupCopy2";
 import animation from "../../img/animation5.webp"
 import Loading from "../Loading/Loading"
-import plus from "../../img/add.svg"
+import plus from "../../img/add.webp"
 
 const GetUserInvoice = () => {
     const [loadingPopup, setButtonLoading] = useState(false);

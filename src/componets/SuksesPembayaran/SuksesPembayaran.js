@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./SuksesPembayaran.module.css"
-import popup from "../../img/popup-tagihan.svg"
+import popup from "../../img/popup-tagihan.webp"
 import { Link } from "react-router-dom";
 
 const SuksesPembayaran = () => {

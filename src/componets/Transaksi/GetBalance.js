@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import jwt from "jwt-decode"
 import axios from "axios"
-import arrow from "../../img/arrow-left.svg"
+import arrow from "../../img/arrow-left.webp"
 import { Link, useHistory } from "react-router-dom";
 import { DataUsageSharp } from "@material-ui/icons"
 import styles from "./Transaksi.module.css"

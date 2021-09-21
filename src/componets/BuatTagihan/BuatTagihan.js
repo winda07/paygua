@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import styles from "./BuatTagihan.module.css";
 import jwt from "jwt-decode";
 import validation from "./validation";
-import silang from "../../img/ion.svg";
+import silang from "../../img/ion.webp";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import Popup from "../PopupSuksesBuatTagihan/PopupSuksesTagihan";
 import CurrencyFormat from "react-currency-format";
-import logo from "../../img/popup-tagihan.svg"
-import copy from "../../img/copyblack.svg"
+import logo from "../../img/popup-tagihan.webp"
+import copy from "../../img/copyblack.webp"
 import PopupCopy from "../PopupCopy2/PopupCopy2";
 import animation from "../../img/animation2.webp"
 import Loading from "../Loading/Loading";

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from './Pencairan.module.css'
 import { Link, useHistory, useLocation } from "react-router-dom";
-import arrow from "../../img/arrow-left.svg"
-import arrowdown from "../../img/arrow-down.svg"
+import arrow from "../../img/arrow-left.webp"
+import arrowdown from "../../img/arrow-down.webp"
 import Loading from "../Loading/Loading"
 import axios from "axios"
 import validation from "./Validation2";
 import Popup from "../PopupPencairan/PopupPencairan"
-import animation from "../../img/animation3.svg"
+import animation from "../../img/animation3.webp"
 const Pencairan = () => {
     const Rp = "Rp|"
     const [isClicked, setIsClicked] = useState(false);

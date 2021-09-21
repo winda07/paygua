@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from './PilihBank.module.css'
 import { Link, useHistory } from "react-router-dom";
-import arrow from "../../img/arrow-left.svg"
+import arrow from "../../img/arrow-left.webp"
 import axios from "axios"
 import Loading from "../Loading/Loading"
 const Pencairan = () => {
@@ -54,6 +54,7 @@ const Pencairan = () => {
             .then((result) => {
                 if (result.data.status === 200) {
                     setValues({
+                        ...data,
                         bank: result.data.data
                     })
                 }
@@ -65,8 +66,10 @@ const Pencairan = () => {
         <div className={styles.App}>
             <div className={styles['form-signin']}>
                 <div>
-                    <Link to="/RekeningBank"><img src={arrow}></img></Link>
-                    <b style={{ fontSize: "16px", marginTop: "2px", marginLeft: "30px" }}>Pilih Bank</b>
+                    <div style={{ display: "flex" }}>
+                        <Link to="/RekeningBank"><img src={arrow}></img></Link>
+                        <b style={{ fontSize: "16px", marginTop: "2px", marginLeft: "30px" }}>Pilih Bank</b>
+                    </div>
                     <form autoComplete="off">
                         <input
                             type="text"

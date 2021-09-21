@@ -3,11 +3,11 @@ import { Link, useHistory } from 'react-router-dom'
 import styles from "./ProfilePaymentType1.module.css"
 import axios from 'axios';
 import { useParams } from "react-router"
-import instagram from "../../img/instagram.svg"
-import whatsapp from "../../img/whatssapp.svg"
-import web from "../../img/web.svg"
-import secure from "../../img/secure.svg"
-import logo from "../../img/logo.svg"
+import instagram from "../../img/instagram.webp"
+import whatsapp from "../../img/whatssapp.webp"
+import web from "../../img/web.webp"
+import secure from "../../img/secure.webp"
+import logo from "../../img/logo.webp"
 const ProfilePaymentType1 = (props) => {
     const history = useHistory()
     const [type, setType] = useState(false);
@@ -16,6 +16,7 @@ const ProfilePaymentType1 = (props) => {
         nama: "",
         username: "",
         profilePicture: "",
+        background: "",
         bio: ""
     })
     useEffect(() => {
@@ -27,6 +28,7 @@ const ProfilePaymentType1 = (props) => {
                         ...data,
                         name: result.data.data.name,
                         profilePicture: result.data.data.profilePicture,
+                        background: result.data.data.background,
                         bio: result.data.data.bio,
                         username: paramobj.username
                     })
@@ -43,6 +45,7 @@ const ProfilePaymentType1 = (props) => {
         <div >
             <div className={styles.App}>
                 <div className={styles["form-signin"]}>
+                    <img src={data.background}></img>
                     <img className={styles.image} src={data.profilePicture}></img>
                     <div className={styles.box}>
                         <p className={styles.name}>{data.name}</p>

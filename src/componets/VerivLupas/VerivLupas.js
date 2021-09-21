@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./VerivLupas.module.css"
-import lupapw from "../../img/Logo_LupPW.svg"
+import lupapw from "../../img/Logo_LupPW.webp"
 import { Link, useLocation } from "react-router-dom";
 import animation from "../../img/animation1.webp"
 const VerivLupas = () => {

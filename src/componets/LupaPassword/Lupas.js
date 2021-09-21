@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Lupas.module.css";
-import logo from "../../img/logo.svg";
+import logo from "../../img/logo.webp";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import axios from "axios";
 import { AirlineSeatIndividualSuiteSharp, Message } from "@material-ui/icons";

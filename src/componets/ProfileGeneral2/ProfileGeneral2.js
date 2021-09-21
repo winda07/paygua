@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react"
 import { Link, useHistory } from "react-router-dom";
 import styles from "./ProfileGeneral2.module.css"
-import logo from "../../img/logo.svg"
-import ovo from "../../img/OVO.svg"
-import gopay from "../../img/GOPAY.svg"
-import dana from "../../img/DANA.svg"
-import linkaja from "../../img/LINKAJA.svg"
-import shopeepay from "../../img/SHOPEEPAY.svg"
-// import qris from "../../img/QRIS.svg"
-import transfer from "../../img/Bank Transfer.svg"
+import logo from "../../img/logo.webp"
+import ovo from "../../img/OVO.webp"
+import gopay from "../../img/GOPAY.webp"
+import dana from "../../img/DANA.webp"
+import linkaja from "../../img/LINKAJA.webp"
+import shopeepay from "../../img/SHOPEEPAY.webp"
+// import qris from "../../img/QRIS.webp"
+import transfer from "../../img/Bank Transfer.webp"
 import axios from 'axios';
 import jwt from "jwt-decode"
 import validation from "./validation";
