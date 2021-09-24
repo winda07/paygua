@@ -23,7 +23,7 @@
   border: 1px solid white;
   border-radius: 16px;
   background-color: white;
-  margin-top: 150px;
+  /* margin-top: 150px; */
   box-shadow: 1px 4px 8px rgb(169, 169, 169);
 }
 .name {
@@ -69,7 +69,13 @@
   width: 74px;
   height: 74px;
   border-radius: 100px;
-  margin-left: 145px;
+  margin-left: -200px;
   position: absolute;
   margin-top: 115px;
+}
+.BG {
+  margin: 0px auto;
+  height: 132px;
+  width: 350px;
+  margin-left: 10px;
 }

@@ -114,7 +114,7 @@ const EditProfile = ({ formSubmit }) => {
                     } else {
                         history.push('/login')
                     }
-                    console.log(result.data)
+                    console.log("whatsapp: ", data.whatsapp)
 
                 })
         }

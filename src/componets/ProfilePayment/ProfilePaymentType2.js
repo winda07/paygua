@@ -16,10 +16,14 @@ const ProfilePaymentType2 = (props) => {
         nama: "",
         username: "",
         profilePicture: "",
+        background: "",
         bio: "",
         invoiceId: "",
         nominal: "",
-        pesan: ""
+        pesan: "",
+        whatsapp: "",
+        instagram: "",
+        web: ""
     })
     useEffect(() => {
         axios.get("https://paygua.com/api/transaction/" + paramobj.username + "/" + paramobj.invoiceId, null, {
@@ -31,9 +35,13 @@ const ProfilePaymentType2 = (props) => {
                         name: result.data.data.name,
                         profilePicture: result.data.data.profilePicture,
                         bio: result.data.data.bio,
+                        background: result.data.data.background,
                         username: paramobj.username,
                         nominal: result.data.data.invoice.nominal,
-                        pesan: result.data.data.invoice.message
+                        pesan: result.data.data.invoice.message,
+                        whatsapp: result.data.data.whatsapp,
+                        instagram: result.data.data.instagram,
+                        web: result.data.data.web,
                     })
 
                 } else if (result.data.status === 400) {
@@ -44,6 +52,9 @@ const ProfilePaymentType2 = (props) => {
 
 
     }, [])
+    function Web() {
+        window.open(`https://${data.web}`)
+    }
     const handleClick = () => {
         history.push({
             pathname: "/PaymentProfileInvoice",
@@ -57,6 +68,7 @@ const ProfilePaymentType2 = (props) => {
         <div >
             <div className={styles.App}>
                 <div className={styles["form-signin"]}>
+                    <img className={styles.BG} src={data.background}></img>
                     <img className={styles.image} src={data.profilePicture}></img>
                     <div className={styles.box}>
                         <p className={styles.name}>Bayar ke {data.name}</p>
@@ -65,14 +77,14 @@ const ProfilePaymentType2 = (props) => {
                         <p className={styles.pesan}>{data.pesan}</p>
                         <button onClick={handleClick} className={styles.button}>Bayar</button>
                         <div className={styles.divimage}>
-                            <img style={{ cursor: "pointer" }} src={whatsapp}></img>
-                            <img style={{ cursor: "pointer" }} src={instagram}></img>
-                            <img style={{ cursor: "pointer" }} src={web}></img>
+                            <a href={`https://wa.me/${data.whatsapp}`}><img style={{ cursor: "pointer" }} src={whatsapp}></img></a>
+                            <a style={{ textDecoration: "none" }} href={`instagram://user?username=${data.instagram}`}>  <img style={{ cursor: "pointer" }} src={instagram}></img></a>
+                            <img onClick={Web} style={{ cursor: "pointer" }} src={web}></img>
                         </div>
                         <div className={styles.divimage2}>
-                            <p style={{ marginLeft: "27px" }}>WhatsApp</p>
-                            <p style={{ marginLeft: "57px" }}>Instagram</p>
-                            <p style={{ marginLeft: "65px" }}>Website</p>
+                            <a style={{ textDecoration: "none" }} href={`https://wa.me/${data.whatsapp}`}> <p style={{ marginLeft: "27px", color: "black" }}>WhatsApp</p></a>
+                            <a style={{ textDecoration: "none" }} href={`instagram://user?username=${data.instagram}`}>    <p style={{ marginLeft: "57px", color: "black" }}>Instagram</p></a>
+                            <p onClick={Web} style={{ marginLeft: "62px" }}>Website</p>
                         </div>
                         <hr className={styles.hr}></hr>
                         <p className={styles.bio}>{data.bio}</p>
