@@ -23,16 +23,17 @@ const Pencairan = () => {
                     if (result.data.status === 200) {
                         setButtonLoading(false)
                         setValues({
-                            ...data,
+
                             bank: result.data.data
                         })
-                        console.log(result.data.data)
+                        // console.log(result.data.data)
                     }
 
                 })
 
         }
     }, []);
+    console.log("data bank:", data.bank.length)
     const sendBank = (bank) => {
         history.push({
             pathname: "/RekeningBank",
@@ -63,34 +64,40 @@ const Pencairan = () => {
         console.log("submited", value);
     }
     return (
-        <div className={styles.App}>
-            <div className={styles['form-signin']}>
-                <div>
-                    <div style={{ display: "flex" }}>
-                        <Link to="/RekeningBank"><img src={arrow}></img></Link>
-                        <b style={{ fontSize: "16px", marginTop: "2px", marginLeft: "30px" }}>Pilih Bank</b>
+        <>
+
+            <div className={styles.App}>
+                <div className={styles['form-signin']}>
+                    <div style={{ position: "fixed", backgroundColor: "white", marginTop: "-15px" }}>
+                        <div style={{ display: "flex" }}>
+                            <Link to="/RekeningBank"><img src={arrow}></img></Link>
+                            <b style={{ fontSize: "16px", marginTop: "2px", marginLeft: "30px" }}>Pilih Bank</b>
+                        </div>
+                        <form autoComplete="off">
+                            <input
+                                type="text"
+                                class={styles["form-control"]}
+                                name="bank"
+                                id="searchbank"
+                                placeholder="Cari Bank"
+                                autocomplete="no"
+                            ></input>
+                            <button onClick={handleSearchSubmit} hidden id="hiddenSubmit" />
+                        </form>
                     </div>
-                    <form autoComplete="off">
-                        <input
-                            type="text"
-                            class={styles["form-control"]}
-                            name="bank"
-                            id="searchbank"
-                            placeholder="Cari Bank"
-                            autocomplete="no"
-                        ></input>
-                        <button onClick={handleSearchSubmit} hidden id="hiddenSubmit" />
-                    </form>
+                    <div style={{ marginTop: "120px" }}>
+                        {data.bank.map(bnk => (
+                            <div>
+                                <p style={{ padding: "0 20px", cursor: "pointer", fontWeight: "bold" }} onClick={() => sendBank(bnk)}>{bnk.name}</p>
+                            </div>
+                        ))}
+                    </div>
+                    {console.log("bankk:", data.bank.length)}
                 </div>
-                {data.bank.map(bnk => (
-                    <div>
-                        <p style={{ padding: "0 20px", cursor: "pointer", fontWeight: "bold" }} onClick={() => sendBank(bnk)}>{bnk.name}</p>
-                    </div>
-                ))}
-            </div>
-            <Loading
-                trigger={loadingPopup}></Loading>
-        </div >
+                <Loading
+                    trigger={loadingPopup}></Loading>
+            </div >
+        </>
     )
 }
 

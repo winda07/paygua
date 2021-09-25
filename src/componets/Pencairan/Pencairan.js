@@ -85,7 +85,7 @@ const Pencairan = () => {
             accNumber: data.number,
             bank: data.bank,
             code: data.codeBank,
-            nominal: data.nominal
+            nominal: data.nominal.replace(".", "")
         }
         console.log("datasend:", dataSend)
         console.log("handleFormSubmit Object keys: ", Object.keys(errors).length)

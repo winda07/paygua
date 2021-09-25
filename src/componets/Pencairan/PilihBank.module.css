@@ -29,7 +29,6 @@
   box-sizing: border-box;
   border-radius: 8px;
   cursor: pointer;
-  position: absolute;
 }
 .form-control::-webkit-input-placeholder {
   color: #21242b;
