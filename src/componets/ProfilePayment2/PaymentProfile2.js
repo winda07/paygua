@@ -3,42 +3,44 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router"
 import styles from "../ProfileGeneral2/ProfileGeneral2.module.css"
-import logo from "../../img/logo.webp"
-import ovo from "../../img/OVO.webp"
-import gopay from "../../img/GOPAY.webp"
-import dana from "../../img/DANA.webp"
-import linkaja from "../../img/LINKAJA.webp"
-import shopeepay from "../../img/SHOPEEPAY.webp"
-import qris from "../../img/QRIS.webp"
-import transfer from "../../img/Bank Transfer.webp"
-import durianpay from "../../img/durianpay.webp"
+import logo from "../../img/logo.svg"
+import ovo from "../../img/OVO.svg"
+import gopay from "../../img/GOPAY.svg"
+import dana from "../../img/DANA.svg"
+import linkaja from "../../img/LINKAJA.svg"
+import shopeepay from "../../img/SHOPEEPAY.svg"
+import qris from "../../img/QRIS.svg"
+import transfer from "../../img/Bank Transfer.svg"
+import durianpay from "../../img/durianpay.svg"
 import jwt from "jwt-decode"
 import CurrencyFormat from "react-currency-format";
 import validation from "./Validation";
 import Popup from "../PopupTransaction/PopupTransaction"
 import QrCode from "qrcode"
-import gopayQR from "../../img/gopayQR.webp"
-import ovoQR from "../../img/ovoQR.webp"
-import danaQR from "../../img/danaQR.webp"
-import linkajaQR from "../../img/linkajaQR.webp"
-import shopeeQR from "../../img/shopeeQR.webp"
-import bcaQR from "../../img/bcaQR.webp"
-import mandiriQR from "../../img/mandiriQR.webp"
-import bniQR from "../../img/bniQR.webp"
-import briQR from "../../img/briQR.webp"
-import jeniusQR from "../../img/jeniusQR.webp"
-import cimbQR from "../../img/cimbQR.webp"
-import bankmegaQR from "../../img/bankmegaQR.webp"
-import permataQR from "../../img/permataQR.webp"
-import uobQR from "../../img/uobQR.webp"
-import qrisQR from "../../img/qrisQR.webp"
+import gopayQR from "../../img/gopayQR.svg"
+import ovoQR from "../../img/ovoQR.svg"
+import danaQR from "../../img/danaQR.svg"
+import linkajaQR from "../../img/linkajaQR.svg"
+import shopeeQR from "../../img/shopeeQR.svg"
+import bcaQR from "../../img/bcaQR.svg"
+import mandiriQR from "../../img/mandiriQR.svg"
+import bniQR from "../../img/bniQR.svg"
+import briQR from "../../img/briQR.svg"
+import jeniusQR from "../../img/jeniusQR.svg"
+import cimbQR from "../../img/cimbQR.svg"
+import bankmegaQR from "../../img/bankmegaQR.svg"
+import permataQR from "../../img/permataQR.svg"
+import uobQR from "../../img/uobQR.svg"
+import qrisQR from "../../img/qrisQR.svg"
 import Loading from "../Loading/Loading";
 import PopupGopay from "../PopupGopay/PopupGopay"
-import gopayinQr from "../../img/gopayinQR.webp"
+import gopayinQr from "../../img/gopayinQR.svg"
 import PopupCopy from "../PopupCopy2/PopupCopy2";
-import silang from "../../img/ion.webp"
-import secure from "../../img/secure.webp"
-
+import silang from "../../img/ion.svg"
+import secure from "../../img/secure.svg"
+import PopupBca from "./Popup"
+import copy from "../../img/copyblack.svg"
+import Success from "./Popupsuccess"
 const PaymentProfile2 = (props) => {
     const masukkanOVO = "Masukkan nomor OVO"
     const masukkanShopeepay = "Masukkan nomor Shopeepay"
@@ -46,6 +48,9 @@ const PaymentProfile2 = (props) => {
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
     const [loadingPopup, setButtonLoading] = useState(false);
     const [errors, setErros] = useState({});
+    const [success, setsuccess] = useState(false)
+    const [popupbca, setpopupbca] = useState(false)
+    const [bca, setbca] = useState("")
     const location = useLocation()
     // console.log(errors.nominal)
     const [Message, setMessage] = useState("")
@@ -90,11 +95,10 @@ const PaymentProfile2 = (props) => {
         let paymentMethod = window.innerWidth <= 600 ? data.bank : "qris";
         paymentMethod = data.bank === "bank" ? "bank" : paymentMethod;
         paymentMethod = paymentMethod === "gopay" ? "qris" : paymentMethod;
-
+        paymentMethod = data.bank === "bca" ? "bca" : paymentMethod
         const dataSend = {
             name: data.nama,
             nominal: valueNominal.replace(/\./g, ""),
-            // nominal: data.nominal.replace(/\./g, ''),
             email: data.email,
             payment: paymentMethod,
             username: username,
@@ -159,6 +163,10 @@ const PaymentProfile2 = (props) => {
                                     setButtonLoading(false)
                                     window.open(`${result.data.data.url}`, `_self`)
                                 }
+                            } else if (data.bank === "bca") {
+                                setButtonLoading(false)
+                                setpopupbca(true)
+                                setbca(result.data.data.vaNumber)
                             }
                             console.log(result.data)
                         } else {
@@ -266,7 +274,13 @@ const PaymentProfile2 = (props) => {
 
         })
     }
-
+    const setcopy = () => {
+        setsuccess(true)
+        setTimeout(() => {
+            setsuccess(false)
+        }, 1000)
+        navigator.clipboard.writeText(`${bca}`)
+    }
     useEffect(() => {
         axios.get("https://paygua.com/api/transaction/" + location.state.username + "/" + location.state.invoiceId, null, {
         })
@@ -397,6 +411,7 @@ const PaymentProfile2 = (props) => {
                                 <img name="bank" value={data.bank === "shopeepay"} className={data.bank === "shopeepay" ? styles.borderchooseshopeepay : styles.logoshopeepay} src={shopeepay} onClick={() => setBank("shopeepay")}></img>
                                 <img name="bank" value={data.bank === "qris"} className={data.bank === "qris" ? styles.borderchooseqris : styles.logoqris} src={qris} onClick={() => setBank("qris")} ></img>
                                 <img name="bank" value={data.bank === "bank"} className={data.bank === "bank" ? styles.borderchoosetransfer : styles.logotransfer} src={transfer} onClick={() => setBank("bank")} ></img>
+                                <img name="bank" value={data.bank === "bca"} className={data.bank === "bca" ? styles.borderchoosebca : styles.logobca} src={bcaQR} onClick={() => { setBank("bca") }}></img>
                             </section>
                             <div className={styles["set"]}>{errors.bank && <p className="error">{errors.bank}</p>}</div>
                             {
@@ -460,6 +475,22 @@ const PaymentProfile2 = (props) => {
                                     <button className={styles.buttonQr} onClick={() => { setpopupGopay(false) }}><p style={{ color: "white", fontSize: "18px", marginTop: "10px" }}>Selesai Bayar</p></button>
                                 </div>
                             </Popup>
+                            <PopupBca trigger={popupbca}>
+                                <div>
+                                    <img style={{ float: "right", cursor: "pointer" }} src={silang} onClick={() => { setpopupbca(false) }}></img>
+                                    <div style={{ display: "flex", marginLeft: "30px" }}>
+                                        <p >Virtual Account {bca}</p>
+                                        <img onClick={setcopy} style={{ marginLeft: "-10px", cursor: "pointer" }} src={copy}></img>
+
+                                    </div>
+                                </div>
+                            </PopupBca>
+                            <Success trigger={success}>
+                                <div>
+                                    <img style={{ cursor: "pointer", marginLeft: "280px" }} src={silang} onClick={() => { setsuccess(false) }}></img>
+                                    <p style={{ textAlign: "center" }}>Success</p>
+                                </div>
+                            </Success>
                             <PopupCopy trigger={popupovo}>
                                 <div>
                                     <img style={{ display: "flex", marginLeft: "270px", cursor: "pointer" }} src={silang} onClick={() => { setPopupOvo(false) }}></img>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./ThanksEmail.module.css"
-import thanks from "../../img/popup-tagihan.webp"
+import thanks from "../../img/popup-tagihan.svg"
 const ThanksEmail = () => {
     return (
         <div className={styles.App}>

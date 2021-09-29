@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Dashboard.module.css";
-import logo from "../../img/logo.webp";
+import logo from "../../img/logo.svg";
 import GetProfile from "./GetProfile"
 import GetBalance from "./GetBalance";
 import GetTotalInvoice from "./GetTotalInvoice"
 import io from "socket.io-client"
 import { ToastContainer, toast, Slide } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import red from "../../img/reddd.webp"
+import red from "../../img/reddd.svg"
 import { Link, useHistory, useLocation } from "react-router-dom";
-import menu from "../../img/menu.webp"
-import merah from "../../img/merahNotif.webp"
-import home from "../../img/home.webp"
-import notification from "../../img/notification.webp"
-import addHome from "../../img/addHome.webp"
-import pengaturan from "../../img/pengaturan.webp"
-import Logout from "../../img/Logout.webp"
+import menu from "../../img/menu.svg"
+import merah from "../../img/merahNotif.svg"
+import home from "../../img/home.svg"
+import notification from "../../img/notification.svg"
+import addHome from "../../img/addHome.svg"
+import pengaturan from "../../img/pengaturan.svg"
+import Logout from "../../img/Logout.svg"
 import Popup from "../PopupCopy/PopupCopy"
 import copy from "../../img/copy.svg"
 import jwt from "jwt-decode"
-import addHome2 from "../../img/addHome2.webp"
+import addHome2 from "../../img/addHome2.svg"
 import PopupHome from "../PopupHome/PopupHome"
-import tagih from "../../img/tagih.webp"
-import qrstatis from "../../img/qrcode.webp"
-import kirim from "../../img/kirim.webp"
+import tagih from "../../img/tagih.svg"
+import qrstatis from "../../img/qrcode.svg"
+import kirim from "../../img/kirim.svg"
 import axios from "axios"
 import Loading from "../Loading/Loading"
 

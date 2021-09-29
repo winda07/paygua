@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./PopupSuksesPencairain.module.css"
-import popup from "../../img/popup-tagihan.webp"
+import popup from "../../img/popup-tagihan.svg"
 const PopupSuksesPencairan = () => {
     return (
         <div className={styles.App}>

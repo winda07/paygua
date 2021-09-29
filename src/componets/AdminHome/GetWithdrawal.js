@@ -4,7 +4,7 @@ import axios from "axios"
 import { Link, Redirect, useHistory } from "react-router-dom";
 import styles from "./AdminHome.module.css";
 import AdminPopupSuccessWithdraw from "../AdminPopupEdit/AdminPopupSuccessWithdraw";
-import silang from "../../img/ion.webp"
+import silang from "../../img/ion.svg"
 const GetWithdrawal = () => {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [data, setValues] = useState({

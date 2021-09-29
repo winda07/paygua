@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./Transaksi.module.css"
-import arrow from "../../img/arrow-left.webp"
+import arrow from "../../img/arrow-left.svg"
 import { Link } from 'react-router-dom'
 import GetBalance from './GetBalance'
 import GetHistory from './GetHistory'

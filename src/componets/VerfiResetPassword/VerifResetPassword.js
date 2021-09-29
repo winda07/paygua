@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./VerifResetPassword.module.css"
-import lupapw from "../../img/Logo_LupPW.webp"
+import lupapw from "../../img/Logo_LupPW.svg"
 import { Link, useLocation } from "react-router-dom";
 const VerifResetPassword = () => {
     return (

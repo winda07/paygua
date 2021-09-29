@@ -1,51 +1,57 @@
 import React, { useState, useEffect } from "react"
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router"
 import styles from "../ProfileGeneral2/ProfileGeneral2.module.css"
-import logo from "../../img/logo.webp"
-import ovo from "../../img/OVO.webp"
-import gopay from "../../img/GOPAY.webp"
-import dana from "../../img/DANA.webp"
-import linkaja from "../../img/LINKAJA.webp"
-import shopeepay from "../../img/SHOPEEPAY.webp"
-import qris from "../../img/QRIS.webp"
-import transfer from "../../img/Bank Transfer.webp"
-import durianpay from "../../img/durianpay.webp"
+import logo from "../../img/logo.svg"
+import ovo from "../../img/OVO.svg"
+import gopay from "../../img/GOPAY.svg"
+import dana from "../../img/DANA.svg"
+import linkaja from "../../img/LINKAJA.svg"
+import shopeepay from "../../img/SHOPEEPAY.svg"
+import qris from "../../img/QRIS.svg"
+import transfer from "../../img/Bank Transfer.svg"
+import durianpay from "../../img/durianpay.svg"
 import jwt from "jwt-decode"
 import CurrencyFormat from "react-currency-format";
 import validation from "./Validation";
 import Popup from "../PopupTransaction/PopupTransaction"
 import QrCode from "qrcode"
-import gopayQR from "../../img/gopayQR.webp"
-import ovoQR from "../../img/ovoQR.webp"
-import danaQR from "../../img/danaQR.webp"
-import linkajaQR from "../../img/linkajaQR.webp"
-import shopeeQR from "../../img/shopeeQR.webp"
-import bcaQR from "../../img/bcaQR.webp"
-import mandiriQR from "../../img/mandiriQR.webp"
-import bniQR from "../../img/bniQR.webp"
-import briQR from "../../img/briQR.webp"
-import jeniusQR from "../../img/jeniusQR.webp"
-import cimbQR from "../../img/cimbQR.webp"
-import bankmegaQR from "../../img/bankmegaQR.webp"
-import permataQR from "../../img/permataQR.webp"
-import uobQR from "../../img/uobQR.webp"
-import qrisQR from "../../img/qrisQR.webp"
+import gopayQR from "../../img/gopayQR.svg"
+import ovoQR from "../../img/ovoQR.svg"
+import danaQR from "../../img/danaQR.svg"
+import linkajaQR from "../../img/linkajaQR.svg"
+import shopeeQR from "../../img/shopeeQR.svg"
+import bcaQR from "../../img/bcaQR.svg"
+import mandiriQR from "../../img/mandiriQR.svg"
+import bniQR from "../../img/bniQR.svg"
+import briQR from "../../img/briQR.svg"
+import jeniusQR from "../../img/jeniusQR.svg"
+import cimbQR from "../../img/cimbQR.svg"
+import bankmegaQR from "../../img/bankmegaQR.svg"
+import permataQR from "../../img/permataQR.svg"
+import uobQR from "../../img/uobQR.svg"
+import qrisQR from "../../img/qrisQR.svg"
 import Loading from "../Loading/Loading";
 import PopupGopay from "../PopupGopay/PopupGopay"
-import gopayinQr from "../../img/gopayinQR.webp"
+import gopayinQr from "../../img/gopayinQR.svg"
 import PopupCopy from "../PopupCopy2/PopupCopy2";
-import silang from "../../img/ion.webp"
-import secure from "../../img/secure.webp"
-
+import silang from "../../img/ion.svg"
+import secure from "../../img/secure.svg"
+import PopupBca from "./Popup"
+import copy from "../../img/copyblack.svg"
+import Success from "./Popupsuccess"
 const PaymentProfile = (props) => {
     const masukkanOVO = "Masukkan nomor OVO"
     const masukkanShopeepay = "Masukkan nomor Shopeepay"
     const codeNumber = "+62"
+    const location = useLocation()
     const [dataIsCorrect, setDataIsCorrect] = useState(false)
     const [loadingPopup, setButtonLoading] = useState(false);
+    const [success, setsuccess] = useState(false)
     const [errors, setErros] = useState({});
+    const [popupbca, setpopupbca] = useState(false)
+    const [bca, setbca] = useState("")
     // console.log(errors.nominal)
     const [Message, setMessage] = useState("")
     const [errorPopup, setErrorPopup] = useState(false)
@@ -58,7 +64,7 @@ const PaymentProfile = (props) => {
     const [showShopeepay, setShowShopeepay] = useState('');
     const [popupovo, setPopupOvo] = useState(false)
     const [type, setType] = useState(false);
-    const username = localStorage.getItem("username")
+    // const username = localStorage.getItem("username")
     const creatQrCode = (text) => {
         console.log(text)
         QrCode.toCanvas(document.getElementById("canvas"), text, function (err) {
@@ -89,14 +95,14 @@ const PaymentProfile = (props) => {
         let paymentMethod = window.innerWidth <= 600 ? data.bank : "qris";
         paymentMethod = data.bank === "bank" ? "bank" : paymentMethod;
         paymentMethod = paymentMethod === "gopay" ? "qris" : paymentMethod;
+        paymentMethod = data.bank === "bca" ? "bca" : paymentMethod
 
         const dataSend = {
             name: data.nama,
             nominal: valueNominal.replace(/\./g, ""),
-            // nominal: data.nominal.replace(/\./g, ''),
             email: data.email,
             payment: paymentMethod,
-            username: username,
+            username: data.username,
             number: "0" + data.nomor
         }
         console.log("dataSend: ", dataSend)
@@ -158,6 +164,11 @@ const PaymentProfile = (props) => {
                                     setButtonLoading(false)
                                     window.open(`${result.data.data.url}`, `_self`)
                                 }
+                            } else if (data.bank === "bca") {
+                                setButtonLoading(false)
+                                setpopupbca(true)
+                                setbca(result.data.data.vaNumber)
+                                // window.open(`${result.data.data.vaNumber}`, `_self`)
                             }
                             console.log(result.data)
                         } else {
@@ -227,7 +238,7 @@ const PaymentProfile = (props) => {
 
     const [data, setValues] = useState({
         bio: [],
-        nama: "",
+        name: "",
         email: "",
         nominal: "",
         pesan: "",
@@ -263,9 +274,16 @@ const PaymentProfile = (props) => {
 
         })
     }
+    const setcopy = () => {
+        setsuccess(true)
+        setTimeout(() => {
+            setsuccess(false)
+        }, 1000)
+        navigator.clipboard.writeText(`${bca}`)
+    }
 
     useEffect(() => {
-        axios.get("https://paygua.com/api/transaction/" + username, null, {
+        axios.get("https://paygua.com/api/transaction/" + location.state.username, null, {
         })
             .then((result) => {
                 if (result.data.status === 200) {
@@ -274,18 +292,17 @@ const PaymentProfile = (props) => {
                         bio: generateBioLines(result.data.data.bio),
                         profilePicture: result.data.data.profilePicture,
                         name: result.data.data.name,
-                        username: username
+                        username: location.state.username
                     })
 
                 } else if (result.data.status === 400) {
                     history.push("/404error")
                 }
-
+                console.log("result:", result)
             })
             .catch((e) => {
             });
     }, [])
-    console.log(data);
     return (
         <>
             {
@@ -300,7 +317,7 @@ const PaymentProfile = (props) => {
                                 <br></br>
                                 <div className={styles.boxdua}>
                                     <img className={styles.boxdalam} src={data.profilePicture}></img>
-                                    <b className={styles.usernameCard}>@{data.username}</b>
+                                    <b className={styles.usernameCard}>@{location.state.username}</b>
                                     <div className={styles.bioContainer}>
                                         {
                                             data.bio.map((text, i) => {
@@ -328,7 +345,7 @@ const PaymentProfile = (props) => {
                                     placeholder="Masukkan Nama Anda"
                                     value={data.nama}
                                     onChange={handleChange}
-                                    disabled={type === "type2"}
+
                                 ></input>
                                 <div className={styles["set"]}>{errors.nama && <p className="error">{errors.nama}</p>}</div>
                                 <input
@@ -338,35 +355,22 @@ const PaymentProfile = (props) => {
                                     placeholder="Masukkan Email Anda"
                                     value={data.email}
                                     onChange={handleChange}
-                                    disabled={type === "type2"}
+
                                 ></input>
                                 <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
+                                <p className={styles.txtRate}>Rp. |</p>
                                 <input type="text"
                                     pattern="\d*" inputMode="numeric"
-                                    class={styles["nominal"]}
+                                    class={styles["username2"]}
                                     name="nominal"
                                     placeholder="Masukkan Nominal"
                                     onBlur={handleChange}
                                     id="nominal"
-                                    disabled={type === "type2"}
                                     value={data.nominal}
                                     onChange={handleChange}
                                 >
                                 </input>
-                                {/* <CurrencyFormat className={styles["nominal"]} name="nominal" id="price"
-                                    value={data.nominal}
-                                    placeholder="Masukkan Nominal"
-                                    disabled={type === "type2"}
-                                    onValueChange={(values) => {
-                                        const { formattedValue, value } = values;
-                                        setValues({
-                                            ...data,
-                                            ["nominal"]: formattedValue
-                                        });
-                                    }} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat> */}
-
                                 <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
-
                                 <input
                                     type="text"
                                     class={styles["pesan"]}
@@ -374,13 +378,11 @@ const PaymentProfile = (props) => {
                                     placeholder="Pesan (Contoh: Pembayaran Produk Digital)"
                                     value={data.pesan}
                                     onChange={handleChange}
-                                    disabled={type === "type2"}
+
                                 ></input>
-
-
                             </div>
 
-                            <section className="section">
+                            <section className={styles.section}>
                                 <img name="bank" value={data.bank === "ovo"} className={data.bank === "ovo" ? styles.borderchoose : styles.logoovo} src={ovo} onClick={() => setBank("ovo")} ></img>
                                 <img name="bank" value={data.bank === "gopay"} className={data.bank === "gopay" ? styles.borderchoosegopay : styles.logogopay} src={gopay} onClick={() => setBank("gopay")} ></img>
                                 <img name="bank" value={data.bank === "dana"} className={data.bank === "dana" ? styles.borderchoosedana : styles.logodana} src={dana} onClick={() => setBank("dana")}></img>
@@ -388,6 +390,8 @@ const PaymentProfile = (props) => {
                                 <img name="bank" value={data.bank === "shopeepay"} className={data.bank === "shopeepay" ? styles.borderchooseshopeepay : styles.logoshopeepay} src={shopeepay} onClick={() => setBank("shopeepay")}></img>
                                 <img name="bank" value={data.bank === "qris"} className={data.bank === "qris" ? styles.borderchooseqris : styles.logoqris} src={qris} onClick={() => setBank("qris")} ></img>
                                 <img name="bank" value={data.bank === "bank"} className={data.bank === "bank" ? styles.borderchoosetransfer : styles.logotransfer} src={transfer} onClick={() => setBank("bank")} ></img>
+                                <img name="bank" value={data.bank === "bca"} className={data.bank === "bca" ? styles.borderchoosebca : styles.logobca} src={bcaQR} onClick={() => { setBank("bca") }}></img>
+
                             </section>
                             <div className={styles["set"]}>{errors.bank && <p className="error">{errors.bank}</p>}</div>
                             {
@@ -451,6 +455,16 @@ const PaymentProfile = (props) => {
                                     <button className={styles.buttonQr} onClick={() => { setpopupGopay(false) }}><p style={{ color: "white", fontSize: "18px", marginTop: "10px" }}>Selesai Bayar</p></button>
                                 </div>
                             </Popup>
+                            <PopupBca trigger={popupbca}>
+                                <div>
+                                    <img style={{ float: "right", cursor: "pointer" }} src={silang} onClick={() => { setpopupbca(false) }}></img>
+                                    <div style={{ display: "flex", marginLeft: "30px" }}>
+                                        <p >Virtual Account {bca}</p>
+                                        <img onClick={setcopy} style={{ marginLeft: "-10px", cursor: "pointer" }} src={copy}></img>
+
+                                    </div>
+                                </div>
+                            </PopupBca>
                             <PopupCopy trigger={popupovo}>
                                 <div>
                                     <img style={{ display: "flex", marginLeft: "270px", cursor: "pointer" }} src={silang} onClick={() => { setPopupOvo(false) }}></img>
@@ -465,6 +479,12 @@ const PaymentProfile = (props) => {
                                     <div style={{ marginLeft: "100px", marginBottom: "20px" }}>{Message}</div>
                                 </div>
                             </Popup>
+                            <Success trigger={success}>
+                                <div>
+                                    <img style={{ cursor: "pointer", marginLeft: "280px" }} src={silang} onClick={() => { setsuccess(false) }}></img>
+                                    <p style={{ textAlign: "center" }}>Success</p>
+                                </div>
+                            </Success>
                             <div className={styles.securestyle}>
                                 <img src={secure}></img>
                                 <p style={{ fontSize: "12px" }}>Pembayaran 100% aman dan terenkripsi</p>
@@ -474,7 +494,7 @@ const PaymentProfile = (props) => {
                             </div>
                         </div>
                         <Loading trigger={loadingPopup}></Loading>
-                    </div>
+                    </div >
             }
         </>
     )

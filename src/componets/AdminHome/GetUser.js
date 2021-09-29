@@ -4,7 +4,7 @@ import axios from "axios"
 import { Link, Redirect, useHistory } from "react-router-dom";
 import styles from "./AdminHome.module.css";
 import AdminPopupEdit from "../AdminPopupEdit/AdminPopupEdit"
-import silang from "../../img/ion.webp"
+import silang from "../../img/ion.svg"
 import AdminPopupSuccess from "../AdminPopupEdit/AdminPopupSuccess";
 import AdminPopupAfterUpdate from "../AdminPopupEdit/AdminPopupAfterUpdate";
 const GetUser = () => {

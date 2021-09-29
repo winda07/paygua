@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from './PilihBank.module.css'
 import { Link, useHistory } from "react-router-dom";
-import arrow from "../../img/arrow-left.webp"
+import arrow from "../../img/arrow-left.svg"
 import axios from "axios"
 import Loading from "../Loading/Loading"
 const Pencairan = () => {

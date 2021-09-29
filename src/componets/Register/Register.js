@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Register.module.css";
-import logo from "../../img/logo.webp";
+import logo from "../../img/logo.svg";
 import { Link, useHistory } from "react-router-dom";
-import showPdwImg from "../../img/showPassword.webp";
-import hidePwdImg from "../../img/hidePassword.webp";
+import showPdwImg from "../../img/showPassword.svg";
+import hidePwdImg from "../../img/hidePassword.svg";
 import axios from "axios";
 import { AirlineSeatIndividualSuiteSharp, Message } from "@material-ui/icons";
 import validation from "./validation.js";

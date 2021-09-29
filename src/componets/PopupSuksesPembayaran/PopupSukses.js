@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./PopupSukses.module.css"
-import popup from "../../img/popup-tagihan.webp"
-import gopay from "../../img/GOPAY.webp"
+import popup from "../../img/popup-tagihan.svg"
+import gopay from "../../img/GOPAY.svg"
 
 function PopupSukses(props) {
     return (props.trigger) ? (

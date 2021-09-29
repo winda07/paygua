@@ -23,7 +23,9 @@
   border: 1px solid white;
   border-radius: 16px;
   background-color: white;
-  /* margin-top: 150px; */
+  position: absolute;
+  margin-top: -70px;
+  margin-left: 10px;
   box-shadow: 1px 4px 8px rgb(169, 169, 169);
 }
 .name {
@@ -37,6 +39,7 @@
   font-size: 12px;
   text-align: center;
   color: #949494;
+  margin-top: -10px;
 }
 .button {
   width: 313px;
@@ -47,6 +50,7 @@
   color: white;
   margin-left: 15px;
   cursor: pointer;
+  margin-top: 10px;
 }
 .divimage {
   margin-top: 10px;
@@ -57,25 +61,27 @@
   display: flex;
   font-weight: normal;
   font-size: 12px;
+  margin-top: -10px;
 }
 .hr {
   width: 301px;
 }
 .bio {
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
 }
 .image {
   width: 74px;
   height: 74px;
   border-radius: 100px;
-  margin-left: -200px;
+  margin-left: 130px;
   position: absolute;
-  margin-top: 115px;
+  margin-top: -40px;
 }
 .BG {
   margin: 0px auto;
-  height: 132px;
-  width: 350px;
-  margin-left: 10px;
+  height: 256px;
+  width: 400px;
+  margin-top: -15px;
+  margin-left: -15px;
 }

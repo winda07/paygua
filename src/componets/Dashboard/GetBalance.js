@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import jwt from "jwt-decode"
 import axios from "axios"
-import share from "../../img/share.webp"
-import copy from "../../img/copy.webp"
+import share from "../../img/share.svg"
+import copy from "../../img/copy.svg"
 import { Link, Redirect, useHistory } from "react-router-dom";
-// import Frame from "../../img/Frame.webp"
+// import Frame from "../../img/Frame.svg"
 import arrow from "../../img/arrow>.svg"
 import styles from "./Dashboard.module.css";
 import { DataUsageSharp } from "@material-ui/icons"

@@ -4,9 +4,9 @@ import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 import PopupSukses from "../PopupSuksesPembayaran/PopupSukses";
 import styles from "./PopupSuksesTagihan.module.css";
-import popup from "../../img/popup-tagihan.webp";
+import popup from "../../img/popup-tagihan.svg";
 import { useLocation } from "react-router-dom";
-import copy from "../../img/copyblack.webp"
+import copy from "../../img/copyblack.svg"
 function PopupSuksesTagihan(props) {
     const token = localStorage.getItem("token");
     const location = useLocation();

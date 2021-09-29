@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styles from "./DetailTagihan.module.css"
-import silang from "../../img/ion.webp"
+import silang from "../../img/ion.svg"
 import trash from "../../img/trash.svg"
 import jwt from "jwt-decode";
 import { Link, useLocation, useHistory } from 'react-router-dom'

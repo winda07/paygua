@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from './RekeningBank.module.css'
 import { Link, useLocation, useHistory } from "react-router-dom";
-import arrow from "../../img/arrow-left.webp"
-import arrowdown from "../../img/arrow-down.webp"
+import arrow from "../../img/arrow-left.svg"
+import arrowdown from "../../img/arrow-down.svg"
 import axios from 'axios';
 import validation from "./Validation";
 import Loading from "../Loading/Loading";
 import Popup from "./Popup"
-import silang from "../../img/ion.webp"
+import silang from "../../img/ion.svg"
 import PopupLimit from "./PopupLimit"
 const RekeningBank = () => {
     const [errors, setErros] = useState({});

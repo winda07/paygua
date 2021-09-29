@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from "./LandingPage.module.css";
-import arrow from "../../img/arrow-left.webp"
+import arrow from "../../img/arrow-left.svg"
 import { Link } from "react-router-dom";
-import logo from "../../img/logo.webp"
+import logo from "../../img/logo.svg"
 import animation from "../../img/animation6.webp"
-import maqrue from "../../img/marque.webp"
+import maqrue from "../../img/marque.svg"
 
 
 const LandingPage = () => {

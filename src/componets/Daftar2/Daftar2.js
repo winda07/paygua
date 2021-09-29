@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Daftar2.module.css"
-import logo from "../../img/logo.webp"
-import profile from "../../img/profile.webp"
+import logo from "../../img/logo.svg"
+import profile from "../../img/profile.svg"
 import { Link, useHistory, withRouter } from "react-router-dom";
 import validation from "./validation";
 import axios from "axios";
 import jwt from "jwt-decode"
 import { BoxUpload, ImagePreview } from "./index";
-import FolderIcon from "../../img/profile.webp"
+import FolderIcon from "../../img/profile.svg"
 import Loading from "../Loading/Loading"
 
 const Daftar2 = () => {

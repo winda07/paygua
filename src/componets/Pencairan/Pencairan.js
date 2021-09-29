@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from './Pencairan.module.css'
 import { Link, useHistory, useLocation } from "react-router-dom";
-import arrow from "../../img/arrow-left.webp"
-import arrowdown from "../../img/arrow-down.webp"
+import arrow from "../../img/arrow-left.svg"
+import arrowdown from "../../img/arrow-down.svg"
 import Loading from "../Loading/Loading"
 import axios from "axios"
 import validation from "./Validation2";
@@ -121,22 +121,18 @@ const Pencairan = () => {
                     <p style={{ padding: "0 20px", marginTop: "10px" }}>{data.name}<br></br>{data.bank} {data.number}</p>
                     <Link style={{ textDecoration: "none" }} to="/RekeningBank"><p style={{ fontSize: "16px", fontWeight: "bold", color: "#143AF5", padding: "0 20px", cursor: "pointer" }}>UBAH</p></Link>
                 </div>
-                <div class={styles["inputContainer"]}>
-                    <h5 class={styles["usernameLabel"]}>
-                        {Rp}
-                    </h5>
-                    <input type="text"
-                        pattern="\d*" inputMode="numeric"
-                        class={styles["username"]}
-                        name="nominal"
-                        placeholder="Masukkan Nominal"
-                        onBlur={handleChange}
-                        id="nominal"
-                        value={data.nominal}
-                        onChange={handleChange}
-                    >
-                    </input>
-                </div>
+                <p className={styles.txtRate}>Rp. |</p>
+                <input type="text"
+                    pattern="\d*" inputMode="numeric"
+                    class={styles["username2"]}
+                    name="nominal"
+                    placeholder="Masukkan Nominal"
+                    onBlur={handleChange}
+                    id="nominal"
+                    value={data.nominal}
+                    onChange={handleChange}
+                >
+                </input>
                 <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
                 <footer className={styles.footer}>
                     <button onClick={HandleForSubmit} className={styles.button}>

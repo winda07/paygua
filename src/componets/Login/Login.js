@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styles from './Login.module.css'
-import logo from "../../img/logo.webp"
+import logo from "../../img/logo.svg"
 import axios from "axios";
 import validation from "./validation"
 import { Link, useHistory } from "react-router-dom";
-import showPdwImg from "../../img/showPassword.webp"
-import hidePwdImg from "../../img/hidePassword.webp"
+import showPdwImg from "../../img/showPassword.svg"
+import hidePwdImg from "../../img/hidePassword.svg"
 import jwt from "jwt-decode"
 import Popup from "../PopupLogin/PopupLogin"
 import Loading from "../Loading/Loading"
-import silang from "../../img/ion.webp"
+import silang from "../../img/ion.svg"
 
 const Login = ({ submitForm }) => {
   const [isRevealPwd, setIsRevealPwd] = useState(false);

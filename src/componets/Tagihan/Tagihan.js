@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from "./Tagihan.module.css"
-import arrow from "../../img/arrow-left.webp"
-import plus from "../../img/plus.webp"
-import arrow2 from "../../img/arrow.webp"
-import time from "../../img/time.webp"
+import arrow from "../../img/arrow-left.svg"
+import plus from "../../img/plus.svg"
+import arrow2 from "../../img/arrow.svg"
+import time from "../../img/time.svg"
 import GetUserInvoice from './GetUserInvoice'
 import { Link } from "react-router-dom";
 

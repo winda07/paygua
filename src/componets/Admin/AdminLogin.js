@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./AdminLogin.module.css";
 import { Link, useHistory } from "react-router-dom";
-import logo from "../../img/logo.webp"
-import showPdwImg from "../../img/showPassword.webp";
-import hidePwdImg from "../../img/hidePassword.webp";
+import logo from "../../img/logo.svg"
+import showPdwImg from "../../img/showPassword.svg";
+import hidePwdImg from "../../img/hidePassword.svg";
 import validation from "./validation";
 import Loading from "../Loading/Loading";
 import axios from "axios";

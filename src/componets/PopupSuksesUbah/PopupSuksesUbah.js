@@ -2,7 +2,7 @@ import React from "react";
 import jwt from "jwt-decode";
 import { Link, Redirect } from "react-router-dom";
 import styles from "./PopupSuksesUbah.module.css"
-import popup from "../../img/popup-tagihan.webp";
+import popup from "../../img/popup-tagihan.svg";
 import { useLocation } from "react-router-dom";
 
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Share.module.css";
-import share1 from "../../img/share1.webp"
-import wa from "../../img/share2.webp"
-import telegram from "../../img/share3.webp"
-import email from "../../img/share4.webp"
+import share1 from "../../img/share1.svg"
+import wa from "../../img/share2.svg"
+import telegram from "../../img/share3.svg"
+import email from "../../img/share4.svg"
 import { Link, useLocation } from "react-router-dom";
 import { set } from "react-hook-form";
 import jwt from "jwt-decode"

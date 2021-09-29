@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 import styles from "./EditProfile.module.css";
-import logo from "../../img/logo.webp";
-import arrow from "../../img/arrow-left.webp";
-import check from "../../img/check.webp";
-import user from "../../img/profile.webp";
+import logo from "../../img/logo.svg";
+import arrow from "../../img/arrow-left.svg";
+import check from "../../img/check.svg";
+import user from "../../img/profile.svg";
 import { Link, useHistory } from "react-router-dom";
 import validation from "./validation";
 import axios from "axios";
 import jwt from "jwt-decode"
 import Popup from "../PopupLogin/PopupLogin";
-import silang from "../../img/ion.webp"
-import FolderIcon from "../../img/profile.webp"
+import silang from "../../img/ion.svg"
+import FolderIcon from "../../img/profile.svg"
 import Loading from "../Loading/Loading";
 import PopupSuksesUbah from "../PopupSuksesUbah/PopupSuksesUbah"
 
 
 const EditProfile = ({ formSubmit }) => {
+    const at = "@"
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
     const [errors, setErros] = useState({});
@@ -329,15 +330,30 @@ const EditProfile = ({ formSubmit }) => {
                     value={data.whatsapp}
                     onChange={handleChange}
                 ></input>
-                <input
+                <div class={styles["inputContainer"]}>
+                    <h5 class={styles["usernameLabel"]}>
+                        {at}
+                    </h5>
+                    <input
+                        type="text"
+                        class={styles["username"]}
+                        id="floatingEmail"
+                        placeholder="Username Instagram"
+                        name="instagram"
+                        value={data.instagram}
+                        onChange={handleChange}
+                    >
+                    </input>
+                </div>
+                {/* <input
                     type="text"
                     class={styles["form-control"]}
                     id="floatingEmail"
-                    placeholder="Link Instagram"
+                    placeholder="Username Instagram"
                     name="instagram"
                     value={data.instagram}
                     onChange={handleChange}
-                ></input>
+                ></input> */}
                 <input
                     type="text"
                     class={styles["form-control"]}
