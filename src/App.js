@@ -43,6 +43,7 @@ import ProfilePaymentType1 from "./componets/ProfilePayment/ProfilePaymentType1"
 import ProfilePaymentType2 from "./componets/ProfilePayment/ProfilePaymentType2";
 import ProfilePayment from "./componets/ProfilePayment2/PaymentProfile"
 import ProfilePayment2 from "./componets/ProfilePayment2/PaymentProfile2"
+import DetailNotif from "./componets/Notification/DetailNotif";
 import { Route, Switch, useHistory } from 'react-router-dom';
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router";
@@ -56,6 +57,12 @@ const App = () => {
   const history = useHistory()
   // const { location } = props;
   // const CMHistory = createMemoryHistory(location)
+  const remove = () => {
+    localStorage.removeItem("token")
+    localStorage.removeItem("username")
+    localStorage.removeItem("userId")
+    history.push('/')
+  }
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -63,10 +70,13 @@ const App = () => {
       const dateNow = new Date();
       const expToken = new Date(user.exp * 1000);
       if (dateNow > expToken) {
-        history.push('/')
+        remove()
+      } else {
+        history.push("/dashboard")
       }
+    } else {
+      remove()
     }
-
   })
   return (
     <div>
@@ -115,6 +125,7 @@ const App = () => {
         <Route path="/RekeningBank" component={RekeningBank}></Route>
         <Route path="/PaymentProfile" component={ProfilePayment}></Route>
         <Route path="/PaymentProfileInvoice" component={ProfilePayment2}></Route>
+        <Route path="/detailNotif" component={DetailNotif}></Route>
         <Route exact path="/:username" component={ProfilePaymentType1}></Route>
         <Route exact path="/:username/:invoiceId" component={ProfilePaymentType2}></Route>
         {/* <Route exact path="/:username">

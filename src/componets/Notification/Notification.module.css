@@ -51,6 +51,28 @@
   font-size: 14px;
   /* float: left; */
 }
+.detailbox {
+  width: 331px;
+  height: 410px;
+  border: 1px solid black;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+.detailbox2 {
+  width: 331px;
+  height: 51px;
+  background-color: #1238f7;
+  border: 1px solid transparent;
+}
+.detailbtn {
+  width: 228px;
+  height: 36px;
+  border: 1px solid black;
+  border-radius: 100px;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 2rem 4rem;
+}
 @media only screen and (max-width: 500px) {
   .form-signin {
     height: 100%;

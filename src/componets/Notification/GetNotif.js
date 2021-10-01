@@ -16,6 +16,7 @@ const GetNotif = () => {
     const [render, setRender] = useState(false);
     const [data, setValues] = useState({
         notif: [],
+        orderId: ""
     })
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -43,6 +44,7 @@ const GetNotif = () => {
 
 
                     }
+                    console.log("result notif: ", result)
                 })
 
         }
@@ -75,6 +77,14 @@ const GetNotif = () => {
 
         }
     })
+    const pushOrderId = (orderId) => {
+        history.push({
+            pathname: "/detailNotif",
+            state: {
+                orderId: orderId
+            }
+        })
+    }
     return (
         < div >
             {render ? <div>
@@ -84,21 +94,41 @@ const GetNotif = () => {
                     <button style={{ width: "115px", height: "36px", border: "1px solid #21242B", borderRadius: "100px", background: "transparent", marginTop: "20px", marginLeft: "50px", cursor: "pointer" }} onClick={() => { window.location.reload() }}>Refresh</button></div>) :
                     (data.notif.map(ntif => (
                         <div className={styles.a}>
-                            <p></p>
-                            <button onClick={setRead} className={styles.boxdua}>
-                                {ntif.isSeen === false ? <img className={styles['redd']} src={red}></img> : null}
-                                <div style={{ display: "flex" }}>
-                                    <div style={{ marginTop: "10px" }}>
-                                        {ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||
-                                            ntif.type === "cashOut" ? <img src={cashOut}></img> : null ||
-                                                ntif.type === "withdrawProcess" ? <img src={withdrawProcess}></img> : null ||
-                                                    ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null || ntif.isSeen === "false" ? <img className={styles.rednotif} src={red}></img> : null}
-                                    </div>
-                                    <div>
-                                        <p style={{ marginLeft: "10px", fontSize: "16px" }}>{ntif.message}</p>
-                                    </div>
+                            {ntif.orderId ?
+                                <div>
+                                    <button onClick={() => { pushOrderId(ntif.orderId) }} className={styles.boxdua}>
+                                        {ntif.isSeen === false ? <img className={styles['redd']} src={red}></img> : null}
+                                        <div style={{ display: "flex" }}>
+                                            <div style={{ marginTop: "10px" }}>
+                                                {ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||
+                                                    ntif.type === "cashOut" ? <img src={cashOut}></img> : null ||
+                                                        ntif.type === "withdrawProcess" ? <img src={withdrawProcess}></img> : null ||
+                                                            ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null || ntif.isSeen === "false" ? <img className={styles.rednotif} src={red}></img> : null}
+                                            </div>
+                                            <div>
+                                                <p style={{ marginLeft: "10px", fontSize: "16px" }}>{ntif.message}</p>
+                                            </div>
+                                        </div>
+                                    </button>
                                 </div>
-                            </button>
+                                :
+                                <div >
+                                    <button className={styles.boxdua}>
+                                        {ntif.isSeen === false ? <img className={styles['redd']} src={red}></img> : null}
+                                        <div style={{ display: "flex" }}>
+                                            <div style={{ marginTop: "10px" }}>
+                                                {ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||
+                                                    ntif.type === "cashOut" ? <img src={cashOut}></img> : null ||
+                                                        ntif.type === "withdrawProcess" ? <img src={withdrawProcess}></img> : null ||
+                                                            ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null || ntif.isSeen === "false" ? <img className={styles.rednotif} src={red}></img> : null}
+                                            </div>
+                                            <div>
+                                                <p style={{ marginLeft: "10px", fontSize: "16px", textAlign: "initial" }}>{ntif.message}</p>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>}
+
                         </div>
                     )))
 
