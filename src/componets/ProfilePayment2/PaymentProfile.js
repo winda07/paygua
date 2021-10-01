@@ -168,7 +168,6 @@ const PaymentProfile = (props) => {
                                 setButtonLoading(false)
                                 setpopupbca(true)
                                 setbca(result.data.data.vaNumber)
-                                // window.open(`${result.data.data.vaNumber}`, `_self`)
                             }
                             console.log(result.data)
                         } else {

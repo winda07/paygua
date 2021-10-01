@@ -87,13 +87,16 @@ const GetNotif = () => {
                             <p></p>
                             <button onClick={setRead} className={styles.boxdua}>
                                 {ntif.isSeen === false ? <img className={styles['redd']} src={red}></img> : null}
-                                <div className={styles.img}>
-                                    <p className={styles.message}>
+                                <div style={{ display: "flex" }}>
+                                    <div style={{ marginTop: "10px" }}>
                                         {ntif.type === "cashIn" ? <img src={cashIn}></img> : null ||
                                             ntif.type === "cashOut" ? <img src={cashOut}></img> : null ||
                                                 ntif.type === "withdrawProcess" ? <img src={withdrawProcess}></img> : null ||
                                                     ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null || ntif.isSeen === "false" ? <img className={styles.rednotif} src={red}></img> : null}
-                                        {ntif.message}</p>
+                                    </div>
+                                    <div>
+                                        <p style={{ marginLeft: "10px", fontSize: "16px" }}>{ntif.message}</p>
+                                    </div>
                                 </div>
                             </button>
                         </div>

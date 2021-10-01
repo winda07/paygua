@@ -543,7 +543,14 @@ body,
   border-radius: 8px;
   outline: none;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
+  .form-signin {
+    height: 100%;
+    align-items: center;
+    margin: 0px auto;
+  }
+}
+/* @media only screen and (max-width: 320px) {
   .form-signin {
     position: fixed;
     top: 0%;
@@ -799,11 +806,9 @@ body,
     height: 95px;
   }
   .usernameCard {
-    /* margin-top: -5px */
     font-size: 14px;
   }
   .info {
-    /* margin-top: 5px; */
     font-size: 14px;
   }
   .nama {
@@ -886,4 +891,4 @@ body,
   .securestyle {
     margin-left: 10px;
   }
-}
+} */

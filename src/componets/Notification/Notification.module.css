@@ -36,19 +36,20 @@
   margin-bottom: 8px;
   cursor: pointer;
 }
-.img {
+/* .img {
   margin-left: 10px;
-}
+} */
 .redd {
   margin-left: 330px;
+  display: flex;
 }
 .notifikasi {
   font-size: 24px;
   margin-left: 30px;
 }
 .message {
-  font-size: 16px;
-  float: left;
+  font-size: 14px;
+  /* float: left; */
 }
 @media only screen and (max-width: 500px) {
   .form-signin {
