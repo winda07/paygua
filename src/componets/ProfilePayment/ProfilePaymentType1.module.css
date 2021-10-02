@@ -84,4 +84,6 @@
   width: 400px;
   margin-top: -15px;
   margin-left: -15px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
