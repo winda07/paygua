@@ -84,5 +84,10 @@
   width: 400px;
   margin-top: -15px;
   margin-left: -15px;
+<<<<<<< HEAD
   border-radius: 9px;
+=======
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+>>>>>>> 83000267aacfa844a95dd5ca2cca8ee3aea137f6
 }

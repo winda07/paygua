@@ -44,7 +44,9 @@ import ProfilePaymentType2 from "./componets/ProfilePayment/ProfilePaymentType2"
 import ProfilePayment from "./componets/ProfilePayment2/PaymentProfile"
 import ProfilePayment2 from "./componets/ProfilePayment2/PaymentProfile2"
 import DetailNotif from "./componets/Notification/DetailNotif";
-import { Route, Switch, useHistory } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute'
+import PrivateRoute2 from './PrivateRoute2'
+import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router";
 import jwt from "jwt-decode"
@@ -57,6 +59,7 @@ const App = () => {
   const history = useHistory()
   // const { location } = props;
   // const CMHistory = createMemoryHistory(location)
+<<<<<<< HEAD
   const remove = () => {
     localStorage.removeItem("token")
     localStorage.removeItem("username")
@@ -76,54 +79,83 @@ const App = () => {
       remove()
     }
   })
+=======
+  // const remove = () => {
+  //   localStorage.removeItem("token")
+  //   localStorage.removeItem("username")
+  //   localStorage.removeItem("userId")
+  //   history.push('/')
+  // }
+  // useEffect(() => {
+  //   checkRoute()
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     const user = jwt(token)
+  //     const dateNow = new Date();
+  //     const expToken = new Date(user.exp * 1000);
+  //     if (dateNow > expToken) {
+  //       remove()
+  //     } else {
+  //       history.push("/dashboard")
+  //     }
+  //   } else {
+  //     remove()
+  //   }
+  // })
+
+  // function checkRoute() {
+  //   const location = useLocation();
+  //   console.log(location.pathname);
+  // }
+>>>>>>> 83000267aacfa844a95dd5ca2cca8ee3aea137f6
   return (
     <div>
       <Switch>
 
         {/* {isMobileDevice && <Route exact path="/" component={TentangKami} />} */}
-        <Route exact path="/" component={LandingPage}></Route>
-        <Route path="/TentangKami" component={TentangKami} />
-        <Route path="/login" component={Login}></Route>
-        <Route path="/register" component={Form} />
-        <Route path="/verifLupaPassword" component={VerivLupas}></Route>
-        <Route path="/lupaPassword" component={LupaPassword} />
+        <PrivateRoute2 exact path="/" component={LandingPage} />
+        <PrivateRoute2 path="/TentangKami" component={TentangKami} />
+        <PrivateRoute2 path="/login" component={Login} />
+        <PrivateRoute2 path="/register" component={Form} />
+        <PrivateRoute2 path="/verifLupaPassword" component={VerivLupas} />
+        <PrivateRoute2 path="/lupaPassword" component={LupaPassword} />
         <Route path="/auth/reset/:tokenid" component={ResetPassword} />
         <Route path="/auth/verify/:email/:tokenid" component={VerifyEmail}></Route>
         <Route path="/Success" component={Success}></Route>
         <Route path="/Expired" component={Expired}></Route>
-        <Route path="/gantiPassword" component={ChangePassword}></Route>
-        <Route path="/settings" component={Settings}></Route>
-        <Route path="/editProfile" component={Editprofile} ></Route>
-        <Route path="/successPayment" component={SuksesPembayaran}></Route>
+        <PrivateRoute path="/gantiPassword" component={ChangePassword} />
+        <PrivateRoute path="/settings" component={Settings} />
+        <PrivateRoute path="/editProfile" component={Editprofile} />
+        <PrivateRoute path="/successPayment" component={SuksesPembayaran} />
         {/* <Route history={CMHistory} path="/daftar" component={Daftar2}></Route> */}
         <Route path="/daftar" component={Daftar2}></Route>
-        <Route path="/dashboard" component={Dashboard}></Route>
-        <Route path="/share" component={Share}></Route>
+        <PrivateRoute path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/share" component={Share} />
         <Route path="/notifToast" component={notifToast}></Route>
-        <Route path="/pencairan" component={Pencairan}></Route>
-        <Route path="/successPencairan" component={SuccessPencairan}></Route>
-        <Route path="/transaksi" component={Transaksi}></Route>
-        <Route path="/buatTagihan" component={BuatTagihan}></Route>
+        <PrivateRoute path="/pencairan" component={Pencairan} />
+        <PrivateRoute path="/successPencairan" component={SuccessPencairan} />
+        <PrivateRoute path="/transaksi" component={Transaksi} />
+        <PrivateRoute path="/buatTagihan" component={BuatTagihan} />
         <Route path="/successTagihan" component={SuksesTagihan}></Route>
-        <Route path="/tagihan" component={Tagihan}></Route>
-        <Route exact path="/detailTagihan" component={DetailTagihan}></Route>
+        <PrivateRoute path="/tagihan" component={Tagihan} />
+        <PrivateRoute exact path="/detailTagihan" component={DetailTagihan} />
         <Route path="/profileGeneral" component={ProfileGeneral2}></Route>
-        <Route path="/notification" component={Notification}></Route>
+        <PrivateRoute path="/notification" component={Notification} />
         <Route path="/verifResetPassword" component={VerfifResetPasswrod}></Route>
         <Route path="/registerCheck" component={RegisterCheck}></Route>
         <Route path="/404error" component={UserNotFound}></Route>
-        <Route path="/kirimDana" component={KirimDana}></Route>
-        <Route exact path="/Qr" component={QrStatis}></Route>
+        <PrivateRoute path="/kirimDana" component={KirimDana} />
+        <PrivateRoute exact path="/Qr" component={QrStatis} />
         <Route path="/AdminLogin" component={AdminLogin}></Route>
         <Route path="/AdminHome" component={AdminHome}></Route>
         <Route path="/SyaratdanKetentuan" component={SyaratdanKetentuan}></Route>
-        <Route path="/paymentSuccess" component={PaymentSuccess}></Route>
-        <Route path="/Qris" component={Qris}></Route>
-        <Route path="/PilihBank" component={pilihBank}></Route>
-        <Route path="/RekeningBank" component={RekeningBank}></Route>
+        <PrivateRoute path="/paymentSuccess" component={PaymentSuccess} />
+        <PrivateRoute path="/Qris" component={Qris} />
+        <PrivateRoute path="/PilihBank" component={pilihBank} />
+        <PrivateRoute path="/RekeningBank" component={RekeningBank} />
         <Route path="/PaymentProfile" component={ProfilePayment}></Route>
         <Route path="/PaymentProfileInvoice" component={ProfilePayment2}></Route>
-        <Route path="/detailNotif" component={DetailNotif}></Route>
+        <PrivateRoute path="/detailNotif" component={DetailNotif} />
         <Route exact path="/:username" component={ProfilePaymentType1}></Route>
         <Route exact path="/:username/:invoiceId" component={ProfilePaymentType2}></Route>
         {/* <Route exact path="/:username">
