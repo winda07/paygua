@@ -225,9 +225,9 @@ const BuatTagihan = () => {
                     value={data.message}
                     onChange={handleChange}
                 ></textarea>
-                <button className={styles.addLink}>Add Link</button>
+                {/* <button className={styles.addLink}>Add Link</button>
                 <button className={styles.AddFiles}>Add Files</button>
-                <p className={styles.textbawah}>*File atau link yang diunggah  akan diterima kustomer di email yang dicantumkan setelah membayar</p>
+                <p className={styles.textbawah}>*File atau link yang diunggah  akan diterima kustomer di email yang dicantumkan setelah membayar</p> */}
 
                 <div className={styles.btnSubmit} onClick={handleFormSubmit}>
                     <p className={styles.text2}>Selesai</p>

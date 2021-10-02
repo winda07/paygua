@@ -166,7 +166,7 @@ const DetailTagihan = () => {
                     placeholder="Nominal"
                     value={data.nominal}
                     onChange={handleChange} thousandSeparator={'.'} decimalSeparator={','}></CurrencyFormat>
-                <p className={styles["min"]}>*Mininal Rp10.000</p>
+                {/* <p className={styles["min"]}>*Mininal Rp10.000</p> */}
                 <div className={styles["set"]}>{(errors.nominal && isClicked) && <p className="error">{errors.nominal}</p>}</div>
                 <textarea
                     type="text"

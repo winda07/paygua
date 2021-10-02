@@ -357,18 +357,21 @@ const PaymentProfile = (props) => {
 
                                 ></input>
                                 <div className={styles["set"]}>{errors.email && <p className="error">{errors.email}</p>}</div>
-                                <p className={styles.txtRate}>Rp. |</p>
-                                <input type="text"
-                                    pattern="\d*" inputMode="numeric"
-                                    class={styles["username2"]}
-                                    name="nominal"
-                                    placeholder="Masukkan Nominal"
-                                    onBlur={handleChange}
-                                    id="nominal"
-                                    value={data.nominal}
-                                    onChange={handleChange}
-                                >
-                                </input>
+                                <div className={styles["inputContainer"]}>
+                                    <h5 className={styles.txtRate}>Rp |</h5>
+                                    <input type="text"
+                                        pattern="\d*" inputMode="numeric"
+                                        class={styles["username2"]}
+                                        name="nominal"
+                                        placeholder="Masukkan Nominal"
+                                        onBlur={handleChange}
+                                        id="nominal"
+                                        value={data.nominal}
+                                        onChange={handleChange}
+                                    >
+                                    </input>
+                                </div>
+
                                 <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
                                 <input
                                     type="text"
@@ -388,8 +391,8 @@ const PaymentProfile = (props) => {
                                 <img name="bank" value={data.bank === "linkaja"} className={data.bank === "linkaja" ? styles.borderchooselinkaja : styles.logolinkaja} style={{ marginLeft: "7px" }} src={linkaja} onClick={() => setBank("linkaja")}></img><br></br>
                                 <img name="bank" value={data.bank === "shopeepay"} className={data.bank === "shopeepay" ? styles.borderchooseshopeepay : styles.logoshopeepay} src={shopeepay} onClick={() => setBank("shopeepay")}></img>
                                 <img name="bank" value={data.bank === "qris"} className={data.bank === "qris" ? styles.borderchooseqris : styles.logoqris} src={qris} onClick={() => setBank("qris")} ></img>
-                                <img name="bank" value={data.bank === "bank"} className={data.bank === "bank" ? styles.borderchoosetransfer : styles.logotransfer} src={transfer} onClick={() => setBank("bank")} ></img>
                                 <img name="bank" value={data.bank === "bca"} className={data.bank === "bca" ? styles.borderchoosebca : styles.logobca} src={bcaQR} onClick={() => { setBank("bca") }}></img>
+                                <img name="bank" value={data.bank === "bank"} className={data.bank === "bank" ? styles.borderchoosetransfer : styles.logotransfer} src={transfer} onClick={() => setBank("bank")} ></img>
 
                             </section>
                             <div className={styles["set"]}>{errors.bank && <p className="error">{errors.bank}</p>}</div>

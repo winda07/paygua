@@ -55,7 +55,7 @@
 .divimage {
   margin-top: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .divimage2 {
   display: flex;
@@ -84,4 +84,5 @@
   width: 400px;
   margin-top: -15px;
   margin-left: -15px;
+  border-radius: 9px;
 }

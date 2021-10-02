@@ -13,7 +13,7 @@ import silang from "../../img/ion.svg"
 import FolderIcon from "../../img/profile.svg"
 import Loading from "../Loading/Loading";
 import PopupSuksesUbah from "../PopupSuksesUbah/PopupSuksesUbah"
-
+import bg from "../../img/bg.svg"
 
 const EditProfile = ({ formSubmit }) => {
     const at = "@"
@@ -198,12 +198,21 @@ const EditProfile = ({ formSubmit }) => {
                         {!isUploadedBackground ? (
                             <>
                                 <label htmlFor="upload-input1">
-                                    <img className={styles.ukuranBG}
-                                        src={data.background}
-                                        draggable={"false"}
-                                        alt="placeholder"
+                                    {data.background ? <div>
+                                        <img className={styles.ukuranBG}
+                                            src={data.background}
+                                            draggable={"false"}
+                                            alt="placeholder"
 
-                                    />
+                                        />
+                                    </div> : <div>
+                                        <img className={styles.ukuranBG}
+                                            src={bg}
+                                            draggable={"false"}
+                                            alt="placeholder"
+
+                                        /></div>}
+
                                 </label>
                                 <input
                                     id="upload-input1"

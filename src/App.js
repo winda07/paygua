@@ -71,8 +71,6 @@ const App = () => {
       const expToken = new Date(user.exp * 1000);
       if (dateNow > expToken) {
         remove()
-      } else {
-        history.push("/dashboard")
       }
     } else {
       remove()

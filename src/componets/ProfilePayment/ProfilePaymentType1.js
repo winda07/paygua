@@ -84,9 +84,9 @@ const ProfilePaymentType1 = (props) => {
                                 <img onClick={Web} style={{ cursor: "pointer" }} src={web}></img>
                             </div>
                             <div className={styles.divimage2}>
-                                <a style={{ textDecoration: "none" }} href={`https://api.whatsapp.com/send?phone=+${data.whatsapp}`}><p style={{ marginLeft: "27px", color: 'black' }}>WhatsApp</p></a>
-                                <a style={{ textDecoration: "none" }} href={`instagram://user?username=${data.instagram}`}><p style={{ marginLeft: "57px", color: "black" }}>Instagram</p></a>
-                                <p onClick={Web} style={{ marginLeft: "62px" }}>Website</p>
+                                <a style={{ textDecoration: "none" }} href={`https://api.whatsapp.com/send?phone=+${data.whatsapp}`}><p style={{ marginLeft: "45px", color: 'black' }}>WhatsApp</p></a>
+                                <a style={{ textDecoration: "none" }} href={`instagram://user?username=${data.instagram}`}><p style={{ marginLeft: "40px", color: "black" }}>Instagram</p></a>
+                                <p onClick={Web} style={{ marginLeft: "42px" }}>Website</p>
                             </div>
                             <hr className={styles.hr}></hr>
                             <p className={styles.bio}>{data.bio}</p>

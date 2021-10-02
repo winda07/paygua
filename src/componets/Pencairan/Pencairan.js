@@ -8,6 +8,8 @@ import axios from "axios"
 import validation from "./Validation2";
 import Popup from "../PopupPencairan/PopupPencairan"
 import animation from "../../img/animation3.webp"
+import PopupFailed from "./PopupFailed"
+import silang from "../../img/ion.svg"
 const Pencairan = () => {
     const Rp = "Rp|"
     const [isClicked, setIsClicked] = useState(false);
@@ -16,6 +18,7 @@ const Pencairan = () => {
     const [errors, setErros] = useState({});
     const location = useLocation()
     const [loadingPopup, setButtonLoading] = useState(false);
+    const [failed, setFailed] = useState(false)
     const [data, setValues] = useState({
         name: "",
         bank: "",
@@ -85,7 +88,7 @@ const Pencairan = () => {
             accNumber: data.number,
             bank: data.bank,
             code: data.codeBank,
-            nominal: data.nominal.replace(".", "")
+            nominal: data.nominal.replace(/\./g, "")
         }
         console.log("datasend:", dataSend)
         console.log("handleFormSubmit Object keys: ", Object.keys(errors).length)
@@ -103,6 +106,12 @@ const Pencairan = () => {
                             if (result.data.status === 200) {
                                 setButtonLoading(false)
                                 setPopup(true)
+                            } else if (result.data.status === 400) {
+                                setButtonLoading(false)
+                                setFailed(true)
+                                setTimeout(() => {
+                                    setFailed(false)
+                                }, 1000)
                             }
 
                         }
@@ -114,25 +123,27 @@ const Pencairan = () => {
     return (
         <div onClick={() => { setPopup(false) }} className={styles.App}>
             <div className={styles['form-signin']}>
-                <Link to="/RekeningBank"><img src={arrow}></img></Link>
+                <Link to="/transaksi"><img src={arrow}></img></Link>
                 <p style={{ fontSize: "24px", fontWeight: "bold" }}>Pencairan</p>
                 <div className={styles.divRekeningName}>
                     <p className={styles.namaRek}>Nama Rekening</p>
                     <p style={{ padding: "0 20px", marginTop: "10px" }}>{data.name}<br></br>{data.bank} {data.number}</p>
                     <Link style={{ textDecoration: "none" }} to="/RekeningBank"><p style={{ fontSize: "16px", fontWeight: "bold", color: "#143AF5", padding: "0 20px", cursor: "pointer" }}>UBAH</p></Link>
                 </div>
-                <p className={styles.txtRate}>Rp. |</p>
-                <input type="text"
-                    pattern="\d*" inputMode="numeric"
-                    class={styles["username2"]}
-                    name="nominal"
-                    placeholder="Masukkan Nominal"
-                    onBlur={handleChange}
-                    id="nominal"
-                    value={data.nominal}
-                    onChange={handleChange}
-                >
-                </input>
+                <div className={styles["inputContainer"]}>
+                    <h5 className={styles.txtRate}>Rp |</h5>
+                    <input type="text"
+                        pattern="\d*" inputMode="numeric"
+                        class={styles["username2"]}
+                        name="nominal"
+                        placeholder="Masukkan Nominal"
+                        onBlur={handleChange}
+                        id="nominal"
+                        value={data.nominal}
+                        onChange={handleChange}
+                    >
+                    </input>
+                </div>
                 <div className={styles["set"]}>{errors.nominal && <p className="error">{errors.nominal}</p>}</div>
                 <footer className={styles.footer}>
                     <button onClick={HandleForSubmit} className={styles.button}>
@@ -149,6 +160,10 @@ const Pencairan = () => {
                     <p className={styles.popuptext}>Pencairan telah diajukan dan akan diproses maks dalam 2x24jam</p>
                     <Link to="/dashboard"><button className={styles.popupbutton}>Kembali ke dashboard</button></Link>
                 </div></Popup>
+            <PopupFailed trigger={failed}>
+                <img style={{ marginLeft: "280px", cursor: "pointer" }} onClick={() => { setFailed(false) }} src={silang}></img>
+                <p style={{ textAlign: "center" }}>Balance isn't enough</p>
+            </PopupFailed>
         </div>
     )
 }

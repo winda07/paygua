@@ -108,7 +108,7 @@ const Dashboard = () => {
               qr: result.data.data.qr
             })
           }
-          console.log(result.data.data.name)
+          // console.log(result.data.data.name)
         })
 
     }

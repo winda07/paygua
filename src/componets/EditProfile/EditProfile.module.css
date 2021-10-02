@@ -137,6 +137,7 @@
 .imageupload {
   display: flex;
   flex-wrap: wrap;
+  /* width: 100%; */
 }
 .imageupload label {
   cursor: pointer;
@@ -179,8 +180,14 @@
   cursor: pointer;
 }
 .ukuranBG {
-  width: 350px;
+  width: 375px;
   height: 132px;
+  border-radius: 9px;
+}
+.ukuranbg {
+  /* width: 100%; */
+  height: 132px;
+  border-radius: 9px;
 }
 .kun1 {
   font-size: 14px;
