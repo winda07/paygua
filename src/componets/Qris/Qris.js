@@ -3,7 +3,7 @@ import styles from "./Qris.module.css"
 import arrow from "../../img/arrow-left.svg"
 import { Link, useHistory } from "react-router-dom";
 import axios from 'axios';
-import validation from "./validation"
+import validation from "./Validation"
 import jwt from "jwt-decode"
 import Loading from "../Loading/Loading"
 const Qris = () => {

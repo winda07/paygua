@@ -354,15 +354,6 @@ const EditProfile = ({ formSubmit }) => {
                     >
                     </input>
                 </div>
-                {/* <input
-                    type="text"
-                    class={styles["form-control"]}
-                    id="floatingEmail"
-                    placeholder="Username Instagram"
-                    name="instagram"
-                    value={data.instagram}
-                    onChange={handleChange}
-                ></input> */}
                 <input
                     type="text"
                     class={styles["form-control"]}

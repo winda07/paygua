@@ -186,7 +186,7 @@ const BuatTagihan = () => {
         <div className={styles.App}>
             <div className={styles["form-signin"]}>
                 <div className={styles.gbrarow}>
-                    <Link to="/dashboard">
+                    <Link to="/tagihan">
                         <img className={styles.silang} src={silang} alt="logo" />
                     </Link>
                     <p className={styles.kun}>Buat Tagihan</p>

@@ -59,7 +59,6 @@ const App = () => {
   const history = useHistory()
   // const { location } = props;
   // const CMHistory = createMemoryHistory(location)
-<<<<<<< HEAD
   const remove = () => {
     localStorage.removeItem("token")
     localStorage.removeItem("username")
@@ -79,35 +78,6 @@ const App = () => {
       remove()
     }
   })
-=======
-  // const remove = () => {
-  //   localStorage.removeItem("token")
-  //   localStorage.removeItem("username")
-  //   localStorage.removeItem("userId")
-  //   history.push('/')
-  // }
-  // useEffect(() => {
-  //   checkRoute()
-  //   const token = localStorage.getItem("token");
-  //   if (token) {
-  //     const user = jwt(token)
-  //     const dateNow = new Date();
-  //     const expToken = new Date(user.exp * 1000);
-  //     if (dateNow > expToken) {
-  //       remove()
-  //     } else {
-  //       history.push("/dashboard")
-  //     }
-  //   } else {
-  //     remove()
-  //   }
-  // })
-
-  // function checkRoute() {
-  //   const location = useLocation();
-  //   console.log(location.pathname);
-  // }
->>>>>>> 83000267aacfa844a95dd5ca2cca8ee3aea137f6
   return (
     <div>
       <Switch>
