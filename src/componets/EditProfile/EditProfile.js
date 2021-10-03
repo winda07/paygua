@@ -107,15 +107,15 @@ const EditProfile = ({ formSubmit }) => {
                             username: result.data.data.username,
                             bio: result.data.data.bio,
                             profilePicture: result.data.data.profilePicture,
-                            whatsapp: result.data.data.whatsapp,
-                            instagram: result.data.data.instagram,
-                            web: result.data.data.web,
+                            whatsapp: result.data.data.whatsapp === "undefined" ? null : result.data.data.whatsapp,
+                            instagram: result.data.data.instagram === "undefined" ? null : result.data.data.instagram,
+                            web: result.data.data.web === "undefined" ? null : result.data.data.web,
                             background: result.data.data.background
                         })
                     } else {
                         history.push('/login')
                     }
-                    console.log("whatsapp: ", data.whatsapp)
+                    console.log("whatsapp: ", result.data.data.whatsapp)
 
                 })
         }
