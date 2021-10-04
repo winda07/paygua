@@ -56,28 +56,28 @@ const App = () => {
   // const isMobileDevice = useMediaQuery({
   //   query: "(min-device-width: 480px)",
   // });
-  const history = useHistory()
-  // const { location } = props;
-  // const CMHistory = createMemoryHistory(location)
-  const remove = () => {
-    localStorage.removeItem("token")
-    localStorage.removeItem("username")
-    localStorage.removeItem("userId")
-    history.push('/')
-  }
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const user = jwt(token)
-      const dateNow = new Date();
-      const expToken = new Date(user.exp * 1000);
-      if (dateNow > expToken) {
-        remove()
-      }
-    } else {
-      remove()
-    }
-  })
+  // const history = useHistory()
+  // // const { location } = props;
+  // // const CMHistory = createMemoryHistory(location)
+  // const remove = () => {
+  //   localStorage.removeItem("token")
+  //   localStorage.removeItem("username")
+  //   localStorage.removeItem("userId")
+  //   history.push('/')
+  // }
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     const user = jwt(token)
+  //     const dateNow = new Date();
+  //     const expToken = new Date(user.exp * 1000);
+  //     if (dateNow > expToken) {
+  //       remove()
+  //     }
+  //   } else {
+  //     remove()
+  //   }
+  // })
   return (
     <div>
       <Switch>
