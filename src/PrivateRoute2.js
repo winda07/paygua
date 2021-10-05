@@ -17,8 +17,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
                 setIsAuthenticated(true)
             }
         } else {
-            localStorage.clear();
-           setIsAuthenticated(false)
+          localStorage.clear();
+          setIsAuthenticated(false)
         }
     // eslint-disable-next-line
   })

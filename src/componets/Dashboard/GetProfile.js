@@ -54,7 +54,7 @@ const GetProfile = () => {
                 }
             })
                 .then((result) => {
-                    if (result.data.status === 200) {
+                    if (result.data.status === 200 && result.data.success) {
                         history.push({
                             pathname: "/dashboard",
                             state: {
@@ -75,6 +75,7 @@ const GetProfile = () => {
                         localStorage.setItem('username', username);
                     }
                     else {
+                        localStorage.clear()
                         // setButtonLoading(false)
                         history.push('/login')
                     }

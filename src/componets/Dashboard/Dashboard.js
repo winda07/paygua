@@ -91,28 +91,28 @@ const Dashboard = () => {
     console.log(payload)
   }
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setButtonLoading(true)
-      axios.get("https://paygua.com/api/user/profile", {
-        headers: {
-          Authorization: token,
-        }
-      })
-        .then((result) => {
-          if (result.data.status === 200) {
-            setButtonLoading(false)
-            setValues({
-              name: result.data.data.name,
-              qr: result.data.data.qr
-            })
-          }
-          // console.log(result.data.data.name)
-        })
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     setButtonLoading(true)
+  //     axios.get("https://paygua.com/api/user/profile", {
+  //       headers: {
+  //         Authorization: token,
+  //       }
+  //     })
+  //       .then((result) => {
+  //         if (result.data.status === 200) {
+  //           setButtonLoading(false)
+  //           setValues({
+  //             name: result.data.data.name,
+  //             qr: result.data.data.qr
+  //           })
+  //         }
+  //         // console.log(result.data.data.name)
+  //       })
 
-    }
-  }, []);
+  //   }
+  // }, []);
 
   return (
     <div className={styles.App}>
