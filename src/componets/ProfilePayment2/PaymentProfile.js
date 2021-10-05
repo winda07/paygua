@@ -280,6 +280,13 @@ const PaymentProfile = (props) => {
         }, 1000)
         navigator.clipboard.writeText(`${bca}`)
     }
+    const setcopy2 = () => {
+        setsuccess(true)
+        setTimeout(() => {
+            setsuccess(false)
+        }, 1000)
+        navigator.clipboard.writeText(`${data.nominal}`)
+    }
 
     useEffect(() => {
         axios.get("https://paygua.com/api/transaction/" + location.state.username, null, {
@@ -459,12 +466,30 @@ const PaymentProfile = (props) => {
                             </Popup>
                             <PopupBca trigger={popupbca}>
                                 <div>
-                                    <img style={{ float: "right", cursor: "pointer" }} src={silang} onClick={() => { setpopupbca(false) }}></img>
-                                    <div style={{ display: "flex", marginLeft: "30px" }}>
-                                        <p >Virtual Account {bca}</p>
-                                        <img onClick={setcopy} style={{ marginLeft: "-10px", cursor: "pointer" }} src={copy}></img>
-
+                                    <div style={{ display: "flex", justifyContent: "space-around" }}>
+                                        <p style={{ fontWeight: "bold", fontSize: "18px" }}>BCA Virtual Account</p>
+                                        <img src={bcaQR}></img>
                                     </div>
+                                    <p style={{ marginLeft: "20px", fontSize: "16px", fontWeight: "normal" }}>Nomor Virtual Account</p>
+                                    <div style={{ display: "flex", justifyContent: "space-around", marginTop: "-15px" }}>
+                                        <b style={{ fontSize: "18px", fontWeight: "bold" }}>{bca}</b>
+                                        <b onClick={setcopy} style={{ fontSize: "16px", fontWeight: "bold", cursor: "pointer" }}>SALIN</b>
+                                    </div>
+
+                                    <p style={{ marginLeft: "20px", fontSize: "16px", fontWeight: "normal" }}>Total Pembayaran</p>
+                                    <div style={{ display: "flex", justifyContent: "space-around", marginTop: "-15px" }}>
+                                        <b style={{ fontSize: "18px", fontWeight: "bold", width: "56%" }}>Rp{data.nominal}</b>
+                                        <b onClick={setcopy2} style={{ fontSize: "16px", fontWeight: "bold", cursor: "pointer" }}>SALIN</b>
+                                    </div>
+                                    <div style={{ fontSize: "14px", marginLeft: "23px", marginTop: "20px" }}>
+                                        <b >mBCA</b>
+                                        <p >1. Lakukan log in pada aplikasi BCA Mobile</p>
+                                        <p style={{ marginTop: "-5px" }}>2. Pilih menu m-Transfer lalu BCA Virtual Account</p>
+                                        <p style={{ marginTop: "-5px" }}>3. Salin nomor Virtual Account diatas dan salin ke aplikasi mBCA</p>
+                                        <p style={{ marginTop: "-5px" }}>4. Masukkan pin mBCA</p>
+                                        <p style={{ marginTop: "-5px" }}>5. Pembayaran selesai</p>
+                                    </div>
+                                    <button className={styles.btnbca} onClick={() => { setpopupbca(false) }}>Selesai Bayar</button>
                                 </div>
                             </PopupBca>
                             <PopupCopy trigger={popupovo}>

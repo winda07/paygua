@@ -574,6 +574,15 @@ body,
   background-color: transparent;
   border-radius: 8px;
 }
+.btnbca {
+  width: 300px;
+  height: 55px;
+  border: 1px solid transparent;
+  background-color: black;
+  color: white;
+  border-radius: 31px;
+  cursor: pointer;
+}
 @media only screen and (max-width: 500px) {
   .form-signin {
     height: 100%;
