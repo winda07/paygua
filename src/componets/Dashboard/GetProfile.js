@@ -54,8 +54,8 @@ const GetProfile = () => {
                 }
             })
                 .then((result) => {
-                    if (result.data && result.data.success) {
-                        if (result.data.status === 200) {
+                    if (result.data) {
+                        if (result.data.status === 200 && result.data.success) {
                             history.push({
                                 pathname: "/dashboard",
                                 state: {

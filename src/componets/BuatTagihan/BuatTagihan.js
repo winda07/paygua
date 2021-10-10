@@ -116,8 +116,8 @@ const BuatTagihan = () => {
                                     }
                                 })
                                     .then((result) => {
-                                        if (result.data && result.data.success) {
-                                            if (result.data.status === 200) {
+                                        if (result.data) {
+                                            if (result.data.status === 200 && result.data.success) {
                                                 setValues2({
                                                     ...data2, notif: result.data.data
                                                 })
@@ -134,8 +134,8 @@ const BuatTagihan = () => {
                                     }
                                 })
                                     .then((result) => {
-                                        if (result.data && result.data.success) {
-                                            if (result.data.status === 200) {
+                                        if (result.data) {
+                                            if (result.data.status === 200 && result.data.success) {
                                                 setValues3({
                                                     ...data3, tagihan: result.data.data
                                                 })

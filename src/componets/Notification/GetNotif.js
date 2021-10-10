@@ -30,7 +30,7 @@ const GetNotif = () => {
             })
                 .then((result) => {
                     if (result.data) {
-                        if (result.data.status === 200) {
+                        if (result.data.status === 200 && result.data.success) {
                             setButtonLoading(false)
                             setRender(true);
                             setValues({

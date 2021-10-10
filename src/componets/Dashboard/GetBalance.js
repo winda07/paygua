@@ -24,16 +24,14 @@ const GetBalance = () => {
                 }
             })
                 .then((result) => {
-                    if (result.data && result.data.success) {
-                        if (result.data.status === 200) {
-                            setValues({
-                                ...data,
-                                balance: result.data.data.balance
-                            })
-                        } else {
-                            localStorage.clear()
-                            history.push('/login')
-                        }
+                    if (result.data.status === 200 && result.data.success) {
+                        setValues({
+                            ...data,
+                            balance: result.data.data.balance
+                        })
+                    } else {
+                        localStorage.clear()
+                        history.push('/login')
                     }
 
 

@@ -7,9 +7,8 @@ import user from "../../img/profile.svg"
 import { Link } from "react-router-dom";
 const Settings = () => {
     const removetoken = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("userId");
-        localStorage.removeItem("tokenAdmin")
+        localStorage.clear();
+        console.log("test")
     }
     return (
         <div className={styles.App}>

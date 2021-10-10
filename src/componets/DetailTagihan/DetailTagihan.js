@@ -72,8 +72,8 @@ const DetailTagihan = () => {
                         }
                     )
                     .then((result) => {
-                        if (result.data && result.data.success) {
-                            if (result.data.status === 200) {
+                        if (result.data) {
+                            if (result.data.status === 200 && result.data.success) {
 
                                 setButtonPopup(true);
                                 setTimeout(() => {

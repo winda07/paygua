@@ -23,12 +23,13 @@ const GetTotalInvoice = () => {
                 }
             })
                 .then((result) => {
-                    if (result.data.status === 200) {
+                    if (result.data.status === 200 && result.data.success) {
                         setValues({
                             ...data,
                             Total: result.data.data.total
                         })
                     } else {
+                        localStorage.clear()
                         history.push('login')
                     }
 

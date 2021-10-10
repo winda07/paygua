@@ -21,8 +21,8 @@ const GetBalance = () => {
                 }
             })
                 .then((result) => {
-                    if (result.data && result.data.success) {
-                        if (result.data.status === 200) {
+                    if (result.data) {
+                        if (result.data.status === 200 && result.data.success) {
                             setValues({
                                 ...data,
                                 Balance: result.data.data.balance

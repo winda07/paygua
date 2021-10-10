@@ -26,7 +26,7 @@ const GetHistory = () => {
             })
                 .then((result) => {
                     if (result.data) {
-                        if (result.data.status === 200) {
+                        if (result.data.status === 200 && result.data.success) {
                             setButtonLoading(false)
                             setValues({
                                 ...data, transaksi: result.data.data

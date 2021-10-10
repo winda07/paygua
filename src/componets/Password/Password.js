@@ -54,8 +54,8 @@ const Password = () => {
                         }
                     })
                     .then((result) => {
-                        if (result.data && result.data.success) {
-                            if (result.data.status === 200) {
+                        if (result.data) {
+                            if (result.data.status === 200 && result.data.success) {
                                 history.push('/settings')
                                 setButtonLoading(false)
                             } else {
