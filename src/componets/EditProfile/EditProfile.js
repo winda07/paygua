@@ -122,12 +122,9 @@ const EditProfile = ({ formSubmit }) => {
     }, []);
 
     const handleFormSubmit = (e) => {
-        // e.preventDefault();
         setErros(validation(data));
         setDataIsCorrect(true);
         setIsClicked(true);
-
-        // submit
         if (dataIsCorrect) {
             setButtonLoading(true)
             const token = localStorage.getItem("token");
@@ -158,11 +155,16 @@ const EditProfile = ({ formSubmit }) => {
                                     setpopupAfterUpdate(false)
                                 }, 1000);
                                 setButtonLoading(false)
+                                setTimeout(() => {
+                                    history.push("/dashboard")
+                                }, 1000);
+
                             } else {
                                 setButtonPopup(true);
                                 setMessage(result.data.errors.errorMessage)
                                 setButtonLoading(false)
                             }
+
                         }
                     }
                 })
