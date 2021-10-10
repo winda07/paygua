@@ -33,7 +33,6 @@ const GetTotalInvoice = () => {
                     }
 
                 })
-            console.log(data)
         }
     }, []);
     return (

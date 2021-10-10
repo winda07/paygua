@@ -37,11 +37,9 @@ const Dashboard = () => {
   const user = jwt(token)
   const [buttonPopup, setButtonPopup] = useState(false);
   const userId = localStorage.getItem("userId")
-  console.log("userId", userId);
   const SERVER = "https://paygua.com"
   const socket = io.connect(SERVER, { query: `userId=${userId}` })
   socket.on('connection', () => {
-    console.log(`I'm connected with the back-end`)
   })
   socket.on('newNotif', function (data) {
     toast(data, {
@@ -49,10 +47,8 @@ const Dashboard = () => {
         background: '#EE0022',
       }),
     })
-    console.log(data);
   });
   socket.on('totalNotif', function (data) {
-    console.log("total notif:", data);
     setValues({
       total: data
     })
@@ -62,7 +58,6 @@ const Dashboard = () => {
     name: "",
     qr: ""
   })
-  console.log(value.total)
   const setcopy = () => {
     setButtonPopup(true)
     setTimeout(() => {
@@ -73,7 +68,6 @@ const Dashboard = () => {
   const plusHandleClick = () => {
     setHome(!HomePopup)
   }
-  console.log(value.name)
   const setPush = () => {
     const payload = {
       name: value.name,
@@ -85,10 +79,6 @@ const Dashboard = () => {
       state:
         payload
     })
-    // history.push("/Qr", payload);
-    console.log(value.name)
-    console.log(value.qr)
-    console.log(payload)
   }
 
   useEffect(() => {
@@ -108,7 +98,6 @@ const Dashboard = () => {
               qr: result.data.data.qr
             })
           }
-          // console.log(result.data.data.name)
         })
 
     }

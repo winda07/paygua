@@ -17,7 +17,6 @@ const ResetPassword = ({ submitForm }) => {
   const [errors, setErros] = useState({});
 
   let { tokenid } = useParams();
-  console.log(tokenid)
 
   const history = useHistory();
 
@@ -37,7 +36,6 @@ const ResetPassword = ({ submitForm }) => {
               history.push('/verifResetPassword')
             }
           }
-          console.log(result.data);
         })
         .catch((e) => {
         });

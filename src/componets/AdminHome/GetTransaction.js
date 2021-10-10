@@ -11,7 +11,6 @@ const GetTransaction = () => {
     })
     useEffect(() => {
         const token = localStorage.getItem("tokenAdmin");
-        console.log(token)
         if (token) {
             axios.get("https://paygua.com/api/admin/transaction", {
                 headers: {
@@ -25,9 +24,7 @@ const GetTransaction = () => {
                             totalTransaction: result.data.data.total
                         })
                     }
-                    console.log(result)
                 })
-            // console.log(data.getuser)
         }
     }, []);
     useEffect(() => {
@@ -43,7 +40,6 @@ const GetTransaction = () => {
         const token = localStorage.getItem("tokenAdmin");
         e.preventDefault();
         const value = document.getElementById("searchEmail2").value
-        console.log(value)
         axios.get("https://paygua.com/api/admin/transaction/" + value, {
             headers: {
                 Authorization: token,
@@ -56,14 +52,11 @@ const GetTransaction = () => {
                         totalTransaction: result.data.data.total
                     })
                 }
-                console.log(result)
             })
-        console.log("submited", value);
     }
     return (
 
         <div>
-            {console.log(data.getuserinTransaction)}
             <div style={{ marginTop: "100px" }}>
                 <div style={{ display: "flex", justifyContent: "space-around" }}>
                     <b style={{ fontSize: "18px", marginRight: "340px" }}>Total Transaksi : Rp. {data.totalTransaction}</b>

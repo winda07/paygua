@@ -10,17 +10,6 @@ const VerifyEmail = () => {
   const [dataIsCorrect, setDataIsCorrect] = useState(false)
   const [errors, setErros] = useState({});
   let { email, tokenid } = useParams();
-  console.log(tokenid)
-  // const [formIsSubmitted, setFormIsSubmitted] = useState(false)
-  // const [formIsValid, setFormIsValid] = useState(false)
-  // const submitForm = (isDataValid = false) => {
-  //   setFormIsSubmitted(true)
-  //   if (isDataValid) {
-  //     setFormIsValid(true)
-  //   } else {
-  //     setFormIsValid(false)
-  //   }
-  // }
 
   const history = useHistory();
 
@@ -37,7 +26,6 @@ const VerifyEmail = () => {
             }
           }
         }
-        console.log(result.data);
       })
       .catch((e) => {
       });

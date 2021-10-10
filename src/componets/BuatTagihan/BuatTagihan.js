@@ -56,12 +56,10 @@ const BuatTagihan = () => {
         const token = localStorage.getItem("token");
         const array = []
         for (let i = 0; i < data2.notif.length; i++) {
-            // console.log()
             if (!data2.notif[i].isSeen) {
                 array.push(data2.notif[i]._id)
             }
         }
-        console.log(array)
         if (token) {
             axios.post("https://paygua.com/api/user/notification", { notifId: array }, {
 
@@ -70,33 +68,23 @@ const BuatTagihan = () => {
                 }
             })
                 .then((result) => {
-                    console.log("set read started")
                 })
                 .catch(e => {
-                    console.log("errror")
                 })
 
         }
     })
 
     useEffect(() => {
-        console.log("isClicked: ", isClicked)
         setErros(validation(data));
         setDataIsCorrect(false);
         setIsClicked(false);
     }, [])
 
     useEffect(() => {
-
-
-        console.log("handleFormSubmit Object keys: ", Object.keys(errors).length)
-        console.log("handleFormSubmit isDataCorrect: ", dataIsCorrect)
-
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             setButtonLoading(true)
             if (token) {
-
-                // console.log(user)
                 axios
                     .post(
                         "https://paygua.com/api/invoice/create",
@@ -128,17 +116,16 @@ const BuatTagihan = () => {
                                     }
                                 })
                                     .then((result) => {
-                                        if (result.data) {
+                                        if (result.data && result.data.success) {
                                             if (result.data.status === 200) {
                                                 setValues2({
                                                     ...data2, notif: result.data.data
                                                 })
                                                 setRead()
                                             } else {
+                                                localStorage.clear()
                                                 history.push('/login')
                                             }
-
-                                            console.log(data.nominal)
                                         }
                                     })
                                 axios.get("https://paygua.com/api/invoice/getMyInvoice", {
@@ -147,31 +134,26 @@ const BuatTagihan = () => {
                                     }
                                 })
                                     .then((result) => {
-                                        if (result.data) {
+                                        if (result.data && result.data.success) {
                                             if (result.data.status === 200) {
                                                 setValues3({
                                                     ...data3, tagihan: result.data.data
                                                 })
                                             } else {
+                                                localStorage.clear()
                                                 history.push('/login')
                                             }
 
                                         }
 
                                     })
-                                console.log(data.tagihan.length)
-                                console.log(data.nominal)
-
                             } else {
                                 history.push('login')
                                 setButtonLoading(false)
                             }
                         }
-                        console.log(result.data);
-                        console.log(token);
                     })
                     .catch((e) => { });
-                // submitForm()
             }
         }
 

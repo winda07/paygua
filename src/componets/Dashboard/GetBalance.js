@@ -16,12 +16,7 @@ const GetBalance = () => {
         balance: ""
     })
     useEffect(() => {
-
         const token = localStorage.getItem("token");
-        // const user = jwt(token)
-        // const dateNow = new Date();
-        // const expToken = new Date(user.exp * 1000);
-        // if (dateNow < expToken) {
         if (token) {
             axios.get("https://paygua.com/api/user/balance", {
                 headers: {
@@ -29,23 +24,21 @@ const GetBalance = () => {
                 }
             })
                 .then((result) => {
-                    if (result.data.status === 200) {
-                        setValues({
-                            ...data,
-                            balance: result.data.data.balance
-                        })
-                    } else {
-                        history.push('/login')
+                    if (result.data && result.data.success) {
+                        if (result.data.status === 200) {
+                            setValues({
+                                ...data,
+                                balance: result.data.data.balance
+                            })
+                        } else {
+                            localStorage.clear()
+                            history.push('/login')
+                        }
                     }
 
-                })
-            console.log(data)
-        }
-        // } else {
-        //     history.push('/login')
-        // }
 
-        // console.log("jwt", user)
+                })
+        }
     }, []);
     return (
         <div>

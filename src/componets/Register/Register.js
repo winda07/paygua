@@ -48,7 +48,6 @@ const Register = ({ submitForm }) => {
               }
             }
           }
-          console.log(result.data);
         })
         .catch((e) => {
 
@@ -68,8 +67,6 @@ const Register = ({ submitForm }) => {
     setErros(validation(data));
     setDataIsCorrect(true)
   }
-
-  console.log("submitForm on Register: ", submitForm)
   return (
     <div className={styles.App}>
       <form onSubmit={handleFormSubmit} className={styles["form-signin"]}>

@@ -41,20 +41,11 @@ const RekeningBank = () => {
             bank: data.bank,
             bankCode: data.codeBank
         }
-        console.log("datasend:", dataSend)
-        console.log("handleFormSubmit Object keys: ", Object.keys(errors).length)
-        console.log("data iscorr", dataIsCorrect)
         if (data.bank !== "") {
             setPopupLimit(false)
             setPopup(false)
             setButtonLoading(true)
             if (token) {
-                console.log(token)
-                // setValues({
-                //     ...data,
-                //     name: "winda hardcoded"
-                // })
-                // setDataIsCorrect(true);
                 axios.post("https://paygua.com/api/user/withdraw/checkBank", dataSend, {
                     headers: {
                         Authorization: token,
@@ -87,7 +78,6 @@ const RekeningBank = () => {
                                 }, 1000)
                             }
                         }
-                        console.log("data:", result.data)
                     })
             }
         }
@@ -101,41 +91,23 @@ const RekeningBank = () => {
                 codeBank: location.params.bank.code,
             })
         }
-        console.log("location:", location)
-        console.log("is correct", dataIsCorrect)
     }, []);
-    // useEffect(() => {
-    //     setValues({
-    //         bank: "",
-    //         codeBank: "",
-    //         name: "",
-    //         norek: ""
-    //     });
-    // }, [])
     useEffect(() => {
-        console.log("isClicked: ", isClicked)
         setErros(validation(data));
         setDataIsCorrect(false);
         setIsClicked(false);
     }, [])
     const handleForSubmit = (e) => {
         setErros(validation(data));
-        // setDataIsCorrect(true)
-        // setIsClicked(true);
-        console.log("data valueeeeeeeeeee", data);
         const dataSend = {
             name: data.name,
             number: data.norek,
             bank: data.bank,
             bankCode: data.codeBank
         }
-        console.log("datasend:", dataSend)
-
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             setButtonLoading(true)
             if (token) {
-                console.log(token)
-                console.log("payload", dataSend);
                 axios.post("https://paygua.com/api/user/withdraw/saveBank", dataSend, {
                     headers: {
                         Authorization: token,
@@ -149,7 +121,6 @@ const RekeningBank = () => {
                             }
 
                         }
-                        console.log(result)
                     })
             }
         }

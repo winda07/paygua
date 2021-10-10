@@ -34,7 +34,6 @@ const GetUserInvoice = () => {
             }
         });
     }
-    // console.log(data.tagihan.invoiceId)
     const setcopy = () => {
         setButtonCopy(true)
         setTimeout(() => {
@@ -54,7 +53,7 @@ const GetUserInvoice = () => {
                 }
             })
                 .then((result) => {
-                    if (result.data) {
+                    if (result.data && result.data.success) {
                         if (result.data.status === 200) {
                             setButtonLoading(false)
                             setRender(true);
@@ -63,13 +62,13 @@ const GetUserInvoice = () => {
                             })
                         } else {
                             setButtonLoading(false)
+                            localStorage.clear()
                             history.push('/login')
                         }
 
                     }
 
                 })
-            console.log(data.tagihan.length)
         }
     }, []);
     return (
@@ -94,7 +93,6 @@ const GetUserInvoice = () => {
                         </div>
                             : data.tagihan.map((tghn, idx) => (
                                 <div className={styles.a}>
-                                    {console.log(tghn)}
                                     <div className={styles.boxdua} style={{
                                         display: "flex",
                                         alignItems: "center"

@@ -54,31 +54,31 @@ const GetProfile = () => {
                 }
             })
                 .then((result) => {
-                    if (result.data.status === 200) {
-                        history.push({
-                            pathname: "/dashboard",
-                            state: {
+                    if (result.data && result.data.success) {
+                        if (result.data.status === 200) {
+                            history.push({
+                                pathname: "/dashboard",
+                                state: {
+                                    name: result.data.data.name,
+                                    qr: result.data.data.qr
+                                }
+                            })
+                            setValues({
+                                ...data,
+                                bio: result.data.data.bio,
                                 name: result.data.data.name,
+                                username: result.data.data.username,
+                                profilePicture: result.data.data.profilePicture,
                                 qr: result.data.data.qr
-                            }
-                        })
-                        console.log("name", data.name)
-                        setValues({
-                            ...data,
-                            bio: result.data.data.bio,
-                            name: result.data.data.name,
-                            username: result.data.data.username,
-                            profilePicture: result.data.data.profilePicture,
-                            qr: result.data.data.qr
-                        })
-                        const username = result.data.data.username
-                        localStorage.setItem('username', username);
+                            })
+                            const username = result.data.data.username
+                            localStorage.setItem('username', username);
+                        }
+                        else {
+                            localStorage.clear()
+                            history.push('/login')
+                        }
                     }
-                    else {
-                        // setButtonLoading(false)
-                        history.push('/login')
-                    }
-                    console.log(result)
                 })
 
         }

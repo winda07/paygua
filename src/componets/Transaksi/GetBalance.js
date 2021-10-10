@@ -21,17 +21,20 @@ const GetBalance = () => {
                 }
             })
                 .then((result) => {
-                    if (result.data.status === 200) {
-                        setValues({
-                            ...data,
-                            Balance: result.data.data.balance
-                        })
-                    } else {
-                        history.push('/login')
+                    if (result.data && result.data.success) {
+                        if (result.data.status === 200) {
+                            setValues({
+                                ...data,
+                                Balance: result.data.data.balance
+                            })
+                        } else {
+                            localStorage.clear()
+                            history.push('/login')
+                        }
                     }
 
+
                 })
-            console.log(data)
         }
     }, []);
     const cairkan = () => {
@@ -50,7 +53,6 @@ const GetBalance = () => {
 
                         history.push("/RekeningBank")
                     }
-                    console.log(result)
                 })
 
         }

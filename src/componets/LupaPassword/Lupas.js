@@ -18,8 +18,6 @@ const Lupas = ({ submitForm }) => {
   });
   const token = localStorage.getItem("token");
   useEffect(() => {
-    console.log("isClicked: ", isClicked)
-    // setErros(validation(data));
     setDataIsCorrect(false);
     setIsClicked(false);
   }, [])

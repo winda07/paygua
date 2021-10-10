@@ -30,17 +30,14 @@ const QrStatis = () => {
         nominal: ""
     })
     const creatQrCode = (text) => {
-        console.log(text)
         QrCode.toCanvas(document.getElementById("canvas"), text, function (err) {
             if (err) {
-                console.log(err)
             }
         })
     }
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
-            // setButtonLoading(true)
             axios.get("https://paygua.com/api/user/profile", {
                 headers: {
                     Authorization: token,
@@ -48,7 +45,6 @@ const QrStatis = () => {
             })
                 .then((result) => {
                     if (result.data.status === 200) {
-                        // setButtonLoading(false)
                         setValues({
                             ...data,
                             name: result.data.data.name,
@@ -56,13 +52,10 @@ const QrStatis = () => {
                             nominal: location.state.nominal
                         })
                     }
-                    console.log(result.data.data.name)
                 })
 
         }
         creatQrCode(location.state.url)
-        console.log(location)
-        console.log(history)
     }, [])
     return (
         <div className={styles.App}>

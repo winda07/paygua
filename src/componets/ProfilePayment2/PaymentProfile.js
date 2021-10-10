@@ -52,7 +52,6 @@ const PaymentProfile = (props) => {
     const [errors, setErros] = useState({});
     const [popupbca, setpopupbca] = useState(false)
     const [bca, setbca] = useState("")
-    // console.log(errors.nominal)
     const [Message, setMessage] = useState("")
     const [errorPopup, setErrorPopup] = useState(false)
     const [isClicked, setIsClicked] = useState(false);
@@ -64,20 +63,15 @@ const PaymentProfile = (props) => {
     const [showShopeepay, setShowShopeepay] = useState('');
     const [popupovo, setPopupOvo] = useState(false)
     const [type, setType] = useState(false);
-    // const username = localStorage.getItem("username")
     const creatQrCode = (text) => {
-        console.log(text)
         QrCode.toCanvas(document.getElementById("canvas"), text, function (err) {
             if (err) {
-                console.log(err)
             }
         })
     }
     const createQrGopay = (text) => {
-        console.log(text)
         QrCode.toCanvas(document.getElementById("canvasGopay"), text, function (err) {
             if (err) {
-                console.log(err)
             }
         })
     }
@@ -86,7 +80,6 @@ const PaymentProfile = (props) => {
         numberField.addEventListener("keyup", function (evt) {
             var n = parseInt(this.value.replace(/\D/g, ""), 10);
             numberField.value = n.toLocaleString('de-DE');
-            console.log(n)
         }, false);
     })
     useEffect(() => {
@@ -105,13 +98,11 @@ const PaymentProfile = (props) => {
             username: data.username,
             number: "0" + data.nomor
         }
-        console.log("dataSend: ", dataSend)
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             setButtonLoading(true)
             axios
                 .post("https://paygua.com/api/transaction/create", dataSend)
                 .then((result) => {
-                    console.log("result", result);
                     if (result) {
                         if (result.data.status == 200) {
                             if (data.bank === "gopay") {
@@ -169,24 +160,17 @@ const PaymentProfile = (props) => {
                                 setpopupbca(true)
                                 setbca(result.data.data.vaNumber)
                             }
-                            console.log(result.data)
                         } else {
 
                         }
-                        console.log("if result", result)
                     }
-
-                    console.log("result:", result.data);
-                    console.log(token)
                 })
                 .catch((e) => {
-                    console.log(e);
                     alert("Error")
                 })
         };
     }, [errors, dataIsCorrect])
     const handleFormSubmit = (e) => {
-        console.log(window.innerWidth)
         setErros(validation(data));
         setDataIsCorrect(true)
         setIsClicked(true);
@@ -201,7 +185,6 @@ const PaymentProfile = (props) => {
         } else if (e.target.name === "nominal") {
             value = value.length < 2 && value.toString().substring(0, 1) == 0 ? '0' : value;
             value = value == 0 || value == '0' ? 0 : value;
-            console.log("6", value)
             setValues({
                 ...data,
                 [e.target.name]: value
@@ -304,7 +287,6 @@ const PaymentProfile = (props) => {
                 } else if (result.data.status === 400) {
                     history.push("/404error")
                 }
-                console.log("result:", result)
             })
             .catch((e) => {
             });
@@ -327,7 +309,6 @@ const PaymentProfile = (props) => {
                                     <div className={styles.bioContainer}>
                                         {
                                             data.bio.map((text, i) => {
-                                                console.log(text)
                                                 if (data.bio.length === 1) {
                                                     return (
                                                         <div style={{ marginLeft: 0 }}>

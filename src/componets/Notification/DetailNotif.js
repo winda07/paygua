@@ -45,7 +45,6 @@ const DetailNotif = () => {
                             })
                         } else {
                         }
-                        console.log("result detail: ", result)
 
                     }
                 })

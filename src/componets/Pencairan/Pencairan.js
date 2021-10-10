@@ -45,9 +45,7 @@ const Pencairan = () => {
                             number: result.data.data.number,
                             codeBank: result.data.data.bankCode
                         })
-                        console.log("location:", location)
                     }
-
                 })
 
         }
@@ -57,7 +55,6 @@ const Pencairan = () => {
         numberField.addEventListener("keyup", function (evt) {
             var n = parseInt(this.value.replace(/\D/g, ""), 10);
             numberField.value = n.toLocaleString('de-DE');
-            console.log(n)
         }, false);
     })
     const handleChange = (e) => {
@@ -65,7 +62,6 @@ const Pencairan = () => {
         if (e.target.name === "nominal") {
             value = value.length < 2 && value.toString().substring(0, 1) == 0 ? '0' : value;
             value = value == 0 || value == '0' ? 0 : value;
-            console.log("6", value)
             setValues({
                 ...data,
                 [e.target.name]: value
@@ -90,12 +86,9 @@ const Pencairan = () => {
             code: data.codeBank,
             nominal: data.nominal.replace(/\./g, "")
         }
-        console.log("datasend:", dataSend)
-        console.log("handleFormSubmit Object keys: ", Object.keys(errors).length)
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             setButtonLoading(true)
             if (token) {
-                console.log(token)
                 axios.post("https://paygua.com/api/user/withdraw", dataSend, {
                     headers: {
                         Authorization: token,
@@ -115,7 +108,6 @@ const Pencairan = () => {
                             }
 
                         }
-                        console.log(result)
                     })
             }
         }

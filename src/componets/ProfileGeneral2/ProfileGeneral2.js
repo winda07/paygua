@@ -35,18 +35,11 @@ const ProfileGeneral2 = () => {
             ...data,
             [e.target.name]: e.target.value
         });
-        console.log(e.target.value)
     };
 
     useEffect(() => {
-
-
-        console.log("handleFormSubmit Object keys: ", Object.keys(errors).length)
-        console.log("handleFormSubmit isDataCorrect: ", dataIsCorrect)
-
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             const token = localStorage.getItem('token');
-            console.log(token)
             if (token) {
                 const user = jwt(token);
                 axios
@@ -62,20 +55,17 @@ const ProfileGeneral2 = () => {
                         }
                     })
                     .then((result) => {
-                        if (result) {
+                        if (result.data && result.data.success) {
                             if (result.data.status == 200) {
                                 setButtonPopup(true);
                             } else {
+                                localStorage.clear()
                                 history.push('/login')
                             }
                         }
-
-                        console.log(result.data);
-                        console.log(token)
                     })
                     .catch((e) => {
                     });
-                // submitForm()
             }
 
 
@@ -84,7 +74,6 @@ const ProfileGeneral2 = () => {
     }, [errors, dataIsCorrect]);
 
     const handleFormSubmit = (e) => {
-        console.log(data)
         setErros(validation(data));
         setDataIsCorrect(true)
         setIsClicked(true);

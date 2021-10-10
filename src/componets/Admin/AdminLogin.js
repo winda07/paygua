@@ -43,20 +43,18 @@ const AdminLogin = () => {
                                     setButtonPopup(false)
                                 }, 1000)
                                 setMessage(result.data.errors.errorMessage)
-                                console.log(result.data.errors.errorMessage)
                             } else if (result.data.status === 200) {
                                 const tokenAdmin = result.data.data.token;
                                 localStorage.setItem('tokenAdmin', tokenAdmin);
-                                console.log(tokenAdmin)
                                 setButtonLoading(false)
                                 history.replace("/AdminHome")
                             }
                         }
-                        console.log(result.data.status)
+
                     }
                 })
                 .catch((e) => {
-                    console.log(e)
+
                 });
         }
     }, [errors])

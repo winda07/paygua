@@ -54,21 +54,19 @@ const Password = () => {
                         }
                     })
                     .then((result) => {
-                        if (result) {
+                        if (result.data && result.data.success) {
                             if (result.data.status === 200) {
                                 history.push('/settings')
                                 setButtonLoading(false)
                             } else {
+                                localStorage.clear()
                                 history.push('/login')
                                 setButtonLoading(false)
                             }
                         }
-                        console.log(result.data);
-                        console.log(token)
                     })
                     .catch((e) => {
                     });
-                // submitForm()
             }
 
 

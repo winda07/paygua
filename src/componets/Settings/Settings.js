@@ -10,7 +10,6 @@ const Settings = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("userId");
         localStorage.removeItem("tokenAdmin")
-        console.log("test")
     }
     return (
         <div className={styles.App}>

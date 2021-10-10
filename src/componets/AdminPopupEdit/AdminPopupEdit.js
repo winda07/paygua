@@ -3,7 +3,6 @@ import styles from "./AdminPopupEdit.module.css"
 
 function AdminPopupEdit(props) {
     const { showPopUp, name } = props;
-    console.log(showPopUp, name);
     return (props.trigger && showPopUp == name) ? (
         <div className={styles.App}>
             <div className={styles["form-signin"]}>

@@ -49,20 +49,13 @@ const TentangKami = () => {
                             name: result.data.data.name,
                         })
                     }
-
-                    console.log(result)
                 })
 
         }
     }, []);
     const scrollToTop = () => {
-        // document.querySelector("body").scrollTo({ top: 0, behavior: "smooth" })
         window.scrollTo({ top: 0, behavior: "smooth" });
-        console.log("test")
     }
-    // console.log(scrollToTop)
-    // const token = localStorage.getItem("token");
-    // console.log(token)
     return (
         <div className={styles.App}>
             <div className={styles["form-signin"]}>

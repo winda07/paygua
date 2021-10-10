@@ -59,8 +59,6 @@ const ProfilePaymentType1 = (props) => {
             }
         })
     }
-    // console.log(data.whatsapp)
-    // console.log(`https://api.whatsapp.com/send?phone=' + ${data.whatsapp} + '&text=%20' + message)`)
     function Web() {
         window.open(`https://${data.web}`)
     }
@@ -78,7 +76,23 @@ const ProfilePaymentType1 = (props) => {
                             <p className={styles.name}>{data.name}</p>
                             <p className={styles.username}>@{data.username}</p>
                             <button onClick={shareParam} className={styles.button}>Bayar</button>
-                            <div className={styles.divimage}>
+                            <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "10px" }}>
+                                {data.whatsapp === "undefined" ? null : <div>
+                                    <a href={`https://api.whatsapp.com/send?phone=+${data.whatsapp}`}> <img style={{ cursor: "pointer" }} src={whatsapp}></img></a>
+                                    <figcaption style={{ fontSize: "12px", fontWeight: "normal", marginLeft: "-10px", cursor: "pointer" }}>Whatsapp</figcaption>
+                                </div>}
+                                {data.instagram === "undefined" ? null :
+                                    <div>
+                                        <a style={{ textDecoration: "none" }} href={`instagram://user?username=${data.instagram}`}><img style={{ cursor: "pointer" }} src={instagram}></img></a>
+                                        <figcaption style={{ fontSize: "12px", fontWeight: "normal", marginLeft: "-8px", cursor: "pointer" }}>Instagram</figcaption>
+                                    </div>}
+                                {data.web === "undefined" ? null :
+                                    <div>
+                                        <img onClick={Web} style={{ cursor: "pointer" }} src={web}></img>
+                                        <figcaption style={{ fontSize: "12px", fontWeight: "normal", marginLeft: "6px", cursor: "pointer" }}>Web</figcaption>
+                                    </div>}
+                            </div>
+                            {/* <div className={styles.divimage}>
                                 <a href={`https://api.whatsapp.com/send?phone=+${data.whatsapp}`}> <img style={{ cursor: "pointer" }} src={whatsapp}></img></a>
                                 <a style={{ textDecoration: "none" }} href={`instagram://user?username=${data.instagram}`}><img style={{ cursor: "pointer" }} src={instagram}></img></a>
                                 <img onClick={Web} style={{ cursor: "pointer" }} src={web}></img>
@@ -87,7 +101,7 @@ const ProfilePaymentType1 = (props) => {
                                 <a style={{ textDecoration: "none" }} href={`https://api.whatsapp.com/send?phone=+${data.whatsapp}`}><p style={{ marginLeft: "45px", color: 'black' }}>WhatsApp</p></a>
                                 <a style={{ textDecoration: "none" }} href={`instagram://user?username=${data.instagram}`}><p style={{ marginLeft: "40px", color: "black" }}>Instagram</p></a>
                                 <p onClick={Web} style={{ marginLeft: "42px" }}>Website</p>
-                            </div>
+                            </div> */}
                             <hr className={styles.hr}></hr>
                             <p className={styles.bio}>{data.bio}</p>
                         </div>

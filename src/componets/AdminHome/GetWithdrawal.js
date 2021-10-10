@@ -16,7 +16,6 @@ const GetWithdrawal = () => {
     })
     useEffect(() => {
         const token = localStorage.getItem("tokenAdmin");
-        console.log(token)
         if (token) {
             axios.get("https://paygua.com/api/admin/withdraw", {
                 headers: {
@@ -30,7 +29,6 @@ const GetWithdrawal = () => {
                             totalWithdrawal: result.data.data.total
                         })
                     }
-                    console.log(result)
                 })
         }
     }, []);
@@ -59,9 +57,7 @@ const GetWithdrawal = () => {
                         totalWithdrawal: result.data.data.total
                     })
                 }
-                console.log(result)
             })
-        console.log("submited", value);
     }
     const handleFinish = (userId) => {
         const token = localStorage.getItem("tokenAdmin");
@@ -89,14 +85,10 @@ const GetWithdrawal = () => {
                                     getuserinWithdrawal: result.data.data.withdraws,
                                     totalWithdrawal: result.data.data.total
                                 })
-                                console.log(result.data)
                             }
-                            console.log(result)
                         })
                 }
-                console.log(result)
             })
-        console.log("handleBlock", userId);
     }
     return (
         <div>

@@ -18,8 +18,6 @@ const Tagihan = () => {
                         <p className={styles.tagihan}>Tagihan</p>
                     </div>
                     <div>
-                        {/* <Link style={{ textDecoration: 'none' }} to="/buattagihan"><button className={styles.button}>Buat</button></Link> */}
-                        {/* <button>Buat</button> */}
                     </div>
                 </div>
                 <br></br>

@@ -39,12 +39,12 @@ const GetNotif = () => {
                             setRead()
                         } else {
                             setButtonLoading(false)
+                            localStorage.clear()
                             history.push('/login')
                         }
 
 
                     }
-                    console.log("result notif: ", result)
                 })
 
         }
@@ -59,7 +59,6 @@ const GetNotif = () => {
                 array.push(data.notif[i]._id)
             }
         }
-        console.log(array)
         if (token) {
             axios.post("https://paygua.com/api/user/notification", { notifId: array }, {
 
@@ -68,11 +67,8 @@ const GetNotif = () => {
                 }
             })
                 .then((result) => {
-
-                    console.log("set read started")
                 })
                 .catch(e => {
-                    console.log("errror")
                 })
 
         }

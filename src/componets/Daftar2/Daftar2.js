@@ -97,9 +97,7 @@ const Daftar2 = () => {
                             history.push('/dashboard')
                         }
                     }
-                    console.log(result)
                 })
-            console.log(typeof data.profilePicture)
         }
 
     };

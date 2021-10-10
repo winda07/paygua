@@ -26,7 +26,6 @@ const Qris = () => {
         if (e.target.name === "nominal") {
             value = value.length < 2 && value.toString().substring(0, 1) == 0 ? '0' : value;
             value = value == 0 || value == '0' ? 0 : value;
-            console.log("6", value)
             setValues({
                 ...data,
                 [e.target.name]: value
@@ -37,39 +36,32 @@ const Qris = () => {
                 [e.target.name]: e.target.value,
             });
         }
-        console.log("nominal:", data.nominal)
     };
     useEffect(() => {
         var numberField = document.getElementById("nominal")
         numberField.addEventListener("keyup", function (evt) {
             var n = parseInt(this.value.replace(/\D/g, ""), 10);
             numberField.value = n.toLocaleString('de-DE');
-            console.log(n)
         }, false);
     })
     useEffect(() => {
-        console.log("isClicked: ", isClicked)
-        // setErros(validation(data));
         setDataIsCorrect(false);
         setIsClicked(false);
     }, [])
 
     useEffect(() => {
         const valueNominal = document.getElementById("nominal").value;
-        console.log("control values", valueNominal);
         const token = localStorage.getItem("token");
         const getJwt = jwt(token)
         const user = localStorage.getItem("username");
         const dataSend = {
             nominal: valueNominal.replace(/\./g, ""),
-            // nominal: data.nominal,
             email: getJwt.email,
             payment: data.payment,
             Pesan: data.Pesan,
             username: user,
             name: data.name
         }
-        console.log(dataSend)
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             setButtonLoading(true)
             axios.post("https://paygua.com/api/transaction/create", dataSend)

@@ -23,7 +23,6 @@ const GetUser = () => {
     const [selectedPopUp, setSelectedPopUp] = useState("");
     useEffect(() => {
         const token = localStorage.getItem("tokenAdmin");
-        console.log(token)
         if (token) {
             axios.get("https://paygua.com/api/admin/user", {
                 headers: {
@@ -37,9 +36,7 @@ const GetUser = () => {
                             totaluser: result.data.data.total
                         })
                     }
-                    console.log(result)
                 })
-            // console.log(data.getuser)
         }
     }, []);
     const handlePopup = (userId, idx) => {
@@ -74,9 +71,7 @@ const GetUser = () => {
                         totaluser: result.data.data.total
                     })
                 }
-                console.log(result)
             })
-        console.log("submited", value);
     }
     const handleBlock = (userId) => {
         const token = localStorage.getItem("tokenAdmin");
@@ -101,15 +96,11 @@ const GetUser = () => {
                                     totaluser: result.data.data.total
                                 })
                             }
-                            console.log(result)
                         })
                 }
-                console.log(result)
             })
-        console.log("handleBlock", userId);
     }
     const getBalance = (userId) => {
-        console.log(userId)
         const token = localStorage.getItem("tokenAdmin");
         axios.get("https://paygua.com/api/admin/user/balance/" + userId, {
             headers: {
@@ -130,21 +121,13 @@ const GetUser = () => {
                             setpopupError(false)
                         }, 1000);
                         setMessage(result.data.errors.errorMessage)
-                        // alert(result.data.errors.errorMessage);
                     }
                 }
-                console.log(result)
             })
     }
     const updateUser = (userId, idx) => {
-        console.log(userId)
         const token = localStorage.getItem("tokenAdmin");
         const password = document.getElementById("password" + idx).value;
-        // const nominal = document.getElementById("nominal").value
-        console.log({
-            password: password,
-            nominal: parseInt(setbalance.balance)
-        })
         axios.post("https://paygua.com/api/admin/user/updateUser/" + userId, {
             password: password,
             nominal: parseInt(setbalance.balance)
@@ -168,13 +151,10 @@ const GetUser = () => {
                     }, 1000);
                     setMessage(result.data.errors.errorMessage)
                 }
-                console.log(result)
             })
     }
     const handleChange = (e) => {
         const value = e.target.value;
-        console.log(value)
-        console.log(e.target)
         getnewbalance({
             balance: value
         })
@@ -182,8 +162,6 @@ const GetUser = () => {
     return (
 
         <div>
-            {console.log(data.getuserinAdmin)}
-
             <div style={{ marginTop: "100px" }}>
                 <div style={{ display: "flex", justifyContent: "space-around" }}>
                     <b style={{ fontSize: "18px", marginRight: "280px" }}>Total User : {data.totaluser}</b>
@@ -244,7 +222,6 @@ const GetUser = () => {
                                     <button className={styles.btnSubmit} onClick={() => updateUser(userinAdmin._id, idx)}>
                                         <p className={styles.text}> Edit</p>
                                     </button>
-                                    {/* {console.log(userinAdmin._id)} */}
                                 </div>
 
                             </AdminPopupEdit>

@@ -33,13 +33,12 @@ const GetHistory = () => {
                             })
                         } else {
                             setButtonLoading(false)
+                            localStorage.clear()
                             history.push('/login')
                         }
                     }
-                    console.log(result)
 
                 })
-            console.log(data)
         }
     }, []);
     return (

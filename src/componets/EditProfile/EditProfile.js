@@ -43,7 +43,6 @@ const EditProfile = ({ formSubmit }) => {
     const urlPayGua = "Paygua.com/"
 
     useEffect(() => {
-        console.log("isClicked: ", isClicked)
         setErros(validation(data));
         setDataIsCorrect(false);
         setIsClicked(false);
@@ -99,24 +98,25 @@ const EditProfile = ({ formSubmit }) => {
                 }
             })
                 .then((result) => {
-                    if (result.data.status === 200) {
-                        setValues({
-                            ...data,
-                            email: result.data.data.email,
-                            name: result.data.data.name,
-                            username: result.data.data.username,
-                            bio: result.data.data.bio,
-                            profilePicture: result.data.data.profilePicture,
-                            whatsapp: result.data.data.whatsapp === "undefined" ? null : result.data.data.whatsapp,
-                            instagram: result.data.data.instagram === "undefined" ? null : result.data.data.instagram,
-                            web: result.data.data.web === "undefined" ? null : result.data.data.web,
-                            background: result.data.data.background
-                        })
-                    } else {
-                        history.push('/login')
+                    if (result.data && result.data.success) {
+                        if (result.data.status === 200) {
+                            setValues({
+                                ...data,
+                                email: result.data.data.email,
+                                name: result.data.data.name,
+                                username: result.data.data.username,
+                                bio: result.data.data.bio,
+                                profilePicture: result.data.data.profilePicture,
+                                whatsapp: result.data.data.whatsapp === "undefined" ? null : result.data.data.whatsapp,
+                                instagram: result.data.data.instagram === "undefined" ? null : result.data.data.instagram,
+                                web: result.data.data.web === "undefined" ? null : result.data.data.web,
+                                background: result.data.data.background
+                            })
+                        } else {
+                            localStorage.clear()
+                            history.push('/login')
+                        }
                     }
-                    console.log("whatsapp: ", result.data.data.whatsapp)
-
                 })
         }
     }, []);
@@ -134,14 +134,12 @@ const EditProfile = ({ formSubmit }) => {
 
             const formData = new FormData();
             for (var key in data) {
-                console.log(key)
                 if ((key === "profilePicture" && isUploaded) || (key === "background" && isUploadedBackground)) {
                     formData.append(key, data[key]);
                 } else if (key != "email" && key != "username") {
                     formData.append(key, data[key]);
                 }
             }
-            console.log("formData:", formData)
             const user = jwt(token);
             axios
                 .put("https://paygua.com/api/user/" + user.id, formData, {
@@ -152,7 +150,6 @@ const EditProfile = ({ formSubmit }) => {
                     'maxBodyLength': Infinity
                 })
                 .then((result) => {
-                    console.log(result)
                     if (result) {
                         if (result.data) {
                             if (result.data.status === 200) {
@@ -168,12 +165,10 @@ const EditProfile = ({ formSubmit }) => {
                             }
                         }
                     }
-                    console.log("data:", data)
                 })
                 .catch((e) => {
                     alert("error");
                 });
-            // }
         }
 
     };

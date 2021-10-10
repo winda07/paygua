@@ -26,14 +26,12 @@ const Pencairan = () => {
 
                             bank: result.data.data
                         })
-                        // console.log(result.data.data)
                     }
 
                 })
 
         }
     }, []);
-    console.log("data bank:", data.bank.length)
     const sendBank = (bank) => {
         history.push({
             pathname: "/RekeningBank",
@@ -41,7 +39,6 @@ const Pencairan = () => {
                 bank
             }
         })
-        console.log("bank name: ", bank)
     }
     const handleSearchSubmit = (e) => {
         const token = localStorage.getItem("token");
@@ -59,9 +56,7 @@ const Pencairan = () => {
                         bank: result.data.data
                     })
                 }
-                console.log(result)
             })
-        console.log("submited", value);
     }
     return (
         <>
@@ -92,7 +87,6 @@ const Pencairan = () => {
                             </div>
                         ))}
                     </div>
-                    {console.log("bankk:", data.bank.length)}
                 </div>
                 <Loading
                     trigger={loadingPopup}></Loading>

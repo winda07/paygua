@@ -11,7 +11,7 @@ import Popup from "../PopupLogin/PopupLogin"
 import Loading from "../Loading/Loading"
 import silang from "../../img/ion.svg"
 
-const Login = ({ submitForm }) => {
+const Login = () => {
   const [isRevealPwd, setIsRevealPwd] = useState(false);
   const [dataIsCorrect, setDataIsCorrect] = useState(false)
   const [errors, setErros] = useState({});
@@ -39,44 +39,25 @@ const Login = ({ submitForm }) => {
                   setButtonPopup(false)
                 }, 1000)
                 setMessage(result.data.errors.errorMessage)
-                console.log(result.data.errors.errorMessage)
               } else if (result.data.status === 200) {
                 const token = result.data.data.token;
                 const user = jwt(token)
                 localStorage.setItem('token', token);
                 localStorage.setItem('userId', user.id)
-                console.log("iscompleted", user.isCompleted)
-                console.log(token)
-                // console.log("userId", user.id.type)
-                // console.log('jwt: ', user)
                 if (user.isCompleted === false) {
-                  // submitForm(false)
-
-                  // setTimeout(() => {
                   setButtonLoading(false)
                   history.push("/daftar")
-                  // }, 3000)
                 } else {
-                  // setButtonLoading(true)
-                  // setTimeout(() => {
                   setButtonLoading(false)
                   history.push("/dashboard")
-                  // }, 100000)
                 }
-                // submitForm();
-
               }
-
-              // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZTg0Mjg0NGViNmMyZTc2MTg2ZmNkZiIsInVzZXJuYW1lIjoiU2FtIiwiaXNDb21wbGV0ZWQiOmZhbHNlLCJpYXQiOjE2MjY2MjA4NjEsImV4cCI6MzI1ODQyNTcyMn0.4w4tArc0MsqFxriJrh8GoOKR9DVmvg5pcYgJjOFxpf4
             }
           }
-          // console.log(result.data.data.token);
 
         })
         .catch((e) => {
-          console.log(e)
         });
-      // submitForm();
     }
   }, [errors]);
 
@@ -92,8 +73,6 @@ const Login = ({ submitForm }) => {
     setErros(validation(data));
     setDataIsCorrect(true)
   }
-
-  // console.log("submitForm on Register: ", submitForm)
 
   return (
     <div className={styles.App}>

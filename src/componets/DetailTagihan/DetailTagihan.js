@@ -35,10 +35,8 @@ const DetailTagihan = () => {
             invoiceId: location.state.invoiceId,
             isExpired: location.state.isExpired
         })
-        console.log(location)
     }, [])
     useEffect(() => {
-        console.log("isClicked: ", isClicked)
         setErros(validation(data));
         setDataIsCorrect(false);
         setIsClicked(false);
@@ -73,9 +71,8 @@ const DetailTagihan = () => {
                             },
                         }
                     )
-                    // console.log("nominal", data.nominal)
                     .then((result) => {
-                        if (result) {
+                        if (result.data && result.data.success) {
                             if (result.data.status === 200) {
 
                                 setButtonPopup(true);
@@ -83,13 +80,10 @@ const DetailTagihan = () => {
                                     setButtonPopup(false)
                                 }, 5000)
                             } else {
+                                localStorage.clear()
                                 history.push('/login')
                             }
-                            console.log("nominal: " + result.data.nominal)
                         }
-
-                        // console.log(result);
-                        // console.log(token);
                     })
                     .catch((e) => { });
             }
@@ -100,7 +94,6 @@ const DetailTagihan = () => {
 
     const handlesampah = (e) => {
         const token = localStorage.getItem("token");
-        // console.log(token)
         if (token) {
             axios
                 .delete(
@@ -112,15 +105,14 @@ const DetailTagihan = () => {
                     }
                 )
                 .then((result) => {
-                    if (result) {
+                    if (result.data && result.data.success) {
                         if (result.data.status === 200) {
                             history.push('/tagihan')
                         } else {
+                            localStorage.clear()
                             history.push('/login')
                         }
                     }
-                    // console.log(result);
-
                 })
                 .catch((e) => {
                 });

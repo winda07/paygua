@@ -18,16 +18,12 @@ const AdminHome = () => {
     const showSelected = (componentName) => {
         switch (componentName) {
             case "GetUser":
-                console.log("1")
                 return <GetUser />
             case "GetTransaction":
-                console.log("2")
                 return <GetTransaction />
             case "GetWithdrawal":
-                console.log("3")
                 return <GetWithdrawal />
             default:
-                console.log("def")
                 return <GetUser />
         }
     }
