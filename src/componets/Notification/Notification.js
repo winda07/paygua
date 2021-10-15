@@ -12,6 +12,7 @@ const Notification = () => {
                     <Link to="/dashboard"><img className={styles.arrow} src={arrow}></img></Link>
                     <b className={styles.notifikasi}>Notifikasi</b>
                 </div>
+                <br></br>
                 <GetNotif></GetNotif>
             </div>
         </div>
