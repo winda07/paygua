@@ -66,7 +66,7 @@ const ProfilePaymentType2 = (props) => {
         history.push({
             pathname: "/PaymentProfileInvoice",
             state: {
-                username: data.username,
+                username: paramobj.username,
                 invoiceId: paramobj.invoiceId
             }
         })

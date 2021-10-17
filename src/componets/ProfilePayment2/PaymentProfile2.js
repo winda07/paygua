@@ -95,7 +95,7 @@ const PaymentProfile2 = (props) => {
             nominal: valueNominal.replace(/\./g, ""),
             email: data.email,
             payment: paymentMethod,
-            username: username,
+            username: data.username,
             number: "0" + data.nomor
         }
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
@@ -263,6 +263,7 @@ const PaymentProfile2 = (props) => {
         }, 1000)
         navigator.clipboard.writeText(`${bca}`)
     }
+    console.log("location", location.state.username)
     useEffect(() => {
         axios.get("https://paygua.com/api/transaction/" + location.state.username + "/" + location.state.invoiceId, null, {
         })
@@ -278,7 +279,7 @@ const PaymentProfile2 = (props) => {
                         nominal: result.data.data.invoice.nominal,
                         pesan: result.data.data.invoice.message,
                         profilePicture: result.data.data.profilePicture,
-                        username: data.username
+                        username: location.state.username
                     })
 
                 } else if (result.data.status === 400) {
@@ -302,7 +303,7 @@ const PaymentProfile2 = (props) => {
                                 <br></br>
                                 <div className={styles.boxdua}>
                                     <img className={styles.boxdalam} src={data.profilePicture}></img>
-                                    <b className={styles.usernameCard}>@{username}</b>
+                                    <b className={styles.usernameCard}>@{location.state.username}</b>
                                     <div className={styles.bioContainer}>
                                         {
                                             data.bio.map((text, i) => {
