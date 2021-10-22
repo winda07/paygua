@@ -119,7 +119,7 @@ const GetNotif = () => {
                                                             ntif.type === "withdrawSuccess" ? <img src={withdrawSuccess}></img> : null || ntif.isSeen === "false" ? <img className={styles.rednotif} src={red}></img> : null}
                                             </div>
                                             <div>
-                                                <p style={{ marginLeft: "10px", fontSize: "16px", textAlign: "initial" }}>{ntif.message}</p>
+                                                <p style={{ marginLeft: "10px", fontSize: "16px", textAlign: "left" }}>{ntif.message}</p>
                                             </div>
                                         </div>
                                     </button>

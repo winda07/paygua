@@ -68,10 +68,10 @@ const DetailNotif = () => {
                         </div>
                         <div>
                             <div style={{ display: "flex", justifyContent: "space-around" }}>
-                                <p style={{ fontSize: "12px", fontWeight: "bolder" }}>STATUS PEMBAYARAN</p>
-                                <p> {data.isPaid ? <div style={{ fontSize: "12px", fontWeight: "boldere", color: "#1238F7" }}>
+                                <p style={{ fontSize: "12px", fontWeight: "bolder", marginLeft: "23px" }}>STATUS PEMBAYARAN</p>
+                                <p> {data.isPaid ? <div style={{ fontSize: "12px", fontWeight: "boldere", color: "#1238F7", marginLeft: "73px" }}>
                                     BERHASIL
-                                </div> : <div style={{ fontSize: "12px", fontWeight: "bolder", color: "#FF9900" }}>
+                                </div> : <div style={{ fontSize: "12px", fontWeight: "bolder", color: "#FF9900", marginLeft: "73px" }}>
                                     PENDING
                                 </div>}</p>
                             </div>
@@ -80,20 +80,19 @@ const DetailNotif = () => {
                                 <p style={{ fontSize: "12px", fontWeight: "bolder", color: "black", marginTop: "-5px" }}>{moment(data.date).format('DD MMMM YYYY, H:mm')} WIB</p>
                                 <p style={{ fontSize: "18px", fontWeight: "bolder", color: "#006AFF", marginTop: "20px" }}>{data.nominal}</p>
                             </div>
-
-                            <div style={{ display: "flex", marginLeft: "37px" }}>
-                                <div style={{ fontSize: "12px", fontWeight: "bolder", color: "#7A7A7A" }}>Nama Pengirim</div>
-                                <b style={{ fontSize: "12px", marginLeft: "115px" }}>{data.paidUser}</b>
+                            <div style={{ marginLeft: "37px" }}>
+                                <div style={{ fontSize: "12px", fontWeight: "bolder", color: "#7A7A7A", float: "left" }}>Nama Pengirim</div>
+                                <div style={{ float: "right", marginRight: "15px", fontSize: "12px", fontWeight: "bold" }}>{data.paidUser}</div>
                             </div>
-
-                            <div style={{ display: "flex", marginLeft: "37px" }}>
-                                <div style={{ fontSize: "12px", fontWeight: "bolder", color: "#7A7A7A" }}>Nama Penerima</div>
-                                <b style={{ fontSize: "12px", marginLeft: "110px" }}>{data.name}</b>
+                            <br></br>
+                            <div style={{ marginLeft: "37px" }}>
+                                <div style={{ fontSize: "12px", fontWeight: "bolder", color: "#7A7A7A", float: "left" }}>Nama Penerima</div>
+                                <b style={{ float: "right", marginRight: "15px", fontSize: "12px", fontWeight: "bold" }}>{data.name}</b>
                             </div>
-
+                            <br></br>
                             <div style={{ marginLeft: "37px" }}>
                                 <p style={{ fontSize: "12px", fontWeight: "bolder", color: "#7A7A7A" }}>Pesan</p>
-                                <p style={{ fontSize: "12px", fontWeight: "bolder", color: "black", marginTop: "-5px" }}>{data.message}</p>
+                                {data.message ? <p style={{ fontSize: "12px", fontWeight: "bolder", color: "black", marginTop: "-5px" }}>{data.message}</p> : <p style={{ fontSize: "12px", fontWeight: "bolder", color: "black", marginTop: "-5px" }}>-</p>}
                             </div>
                             <p style={{ fontSize: "12px", fontWeight: "bolder", color: "#7A7A7A", marginLeft: "37px", marginTop: "40px" }}>Terima pembayaran digital <br></br> gak pake ribet di <span style={{ color: "#006AFF", fontWeight: "bolder" }}>paygua.com</span></p>
                         </div>

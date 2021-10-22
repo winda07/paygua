@@ -10,6 +10,9 @@ import secure from "../../img/secure.svg"
 import logo from "../../img/logo.svg"
 import bg from "../../img/bg.svg"
 import Loading from "../Loading/Loading"
+import wa from "../../img/wa-.svg"
+import ig from "../../img/ig-.svg"
+import webb from "../../img/web-.svg"
 const ProfilePaymentType1 = (props) => {
     const [loadingPopup, setButtonLoading] = useState(false);
     const [render, setRender] = useState(false);
@@ -77,31 +80,30 @@ const ProfilePaymentType1 = (props) => {
                             <p className={styles.username}>@{data.username}</p>
                             <button onClick={shareParam} className={styles.button}>Bayar</button>
                             <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "10px" }}>
-                                {data.whatsapp === "undefined" ? null : <div>
+                                {data.whatsapp === "undefined" ? <div>
+                                    <img style={{ cursor: "pointer" }} src={wa}></img>
+                                    <figcaption style={{ fontSize: "12px", fontWeight: "normal", marginLeft: "-10px", cursor: "pointer" }}>Whatsapp</figcaption>
+                                </div> : <div>
                                     <a href={`https://api.whatsapp.com/send?phone=+${data.whatsapp}`}> <img style={{ cursor: "pointer" }} src={whatsapp}></img></a>
                                     <figcaption style={{ fontSize: "12px", fontWeight: "normal", marginLeft: "-10px", cursor: "pointer" }}>Whatsapp</figcaption>
                                 </div>}
-                                {data.instagram === "undefined" ? null :
+                                {data.instagram === "undefined" ? <div>
+                                    <img style={{ cursor: "pointer" }} src={ig}></img>
+                                    <figcaption style={{ fontSize: "12px", fontWeight: "normal", marginLeft: "-8px", cursor: "pointer" }}>Instagram</figcaption>
+                                </div> :
                                     <div>
                                         <a style={{ textDecoration: "none" }} href={`instagram://user?username=${data.instagram}`}><img style={{ cursor: "pointer" }} src={instagram}></img></a>
                                         <figcaption style={{ fontSize: "12px", fontWeight: "normal", marginLeft: "-8px", cursor: "pointer" }}>Instagram</figcaption>
                                     </div>}
-                                {data.web === "undefined" ? null :
+                                {data.web === "undefined" ? <div>
+                                    <img style={{ cursor: "pointer" }} src={webb}></img>
+                                    <figcaption style={{ fontSize: "12px", fontWeight: "normal", marginLeft: "6px", cursor: "pointer" }}>Web</figcaption>
+                                </div> :
                                     <div>
                                         <img onClick={Web} style={{ cursor: "pointer" }} src={web}></img>
                                         <figcaption style={{ fontSize: "12px", fontWeight: "normal", marginLeft: "6px", cursor: "pointer" }}>Web</figcaption>
                                     </div>}
                             </div>
-                            {/* <div className={styles.divimage}>
-                                <a href={`https://api.whatsapp.com/send?phone=+${data.whatsapp}`}> <img style={{ cursor: "pointer" }} src={whatsapp}></img></a>
-                                <a style={{ textDecoration: "none" }} href={`instagram://user?username=${data.instagram}`}><img style={{ cursor: "pointer" }} src={instagram}></img></a>
-                                <img onClick={Web} style={{ cursor: "pointer" }} src={web}></img>
-                            </div>
-                            <div className={styles.divimage2}>
-                                <a style={{ textDecoration: "none" }} href={`https://api.whatsapp.com/send?phone=+${data.whatsapp}`}><p style={{ marginLeft: "45px", color: 'black' }}>WhatsApp</p></a>
-                                <a style={{ textDecoration: "none" }} href={`instagram://user?username=${data.instagram}`}><p style={{ marginLeft: "40px", color: "black" }}>Instagram</p></a>
-                                <p onClick={Web} style={{ marginLeft: "42px" }}>Website</p>
-                            </div> */}
                             <hr className={styles.hr}></hr>
                             <p className={styles.bio}>{data.bio}</p>
                         </div>
