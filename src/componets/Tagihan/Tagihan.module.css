@@ -29,8 +29,6 @@
 }
 
 .button {
-  /* margin-left: 280px; */
-  /* margin-top: -40px; */
   position: relative;
   width: 84px;
   height: 34px;
@@ -42,9 +40,7 @@
 }
 
 .boxdua {
-  /* position: relative; */
   width: 100%;
-  /* padding: 0px 3px; */
   border-radius: 10px;
   background-color: white;
   box-shadow: 4px 5px 10px rgb(169, 169, 169);
@@ -76,7 +72,6 @@ h6 {
 .link {
   font-size: 12px;
   color: #838790;
-  /* margin-left: 20px; */
 }
 .a {
   border-radius: 100px;
@@ -84,6 +79,45 @@ h6 {
   margin-bottom: 8px;
   cursor: pointer;
   background-color: transparent;
+}
+
+.App {
+  align-items: center;
+  background-color: white;
+}
+.form-signin {
+  background-color: white;
+  width: 100%;
+  height: 790px;
+  max-width: 350px;
+  padding: 15px;
+  margin-bottom: 390px;
+  margin: 0px auto;
+}
+.arrow {
+  float: left;
+  width: 22px;
+  height: 22px;
+  margin-top: 28px;
+  margin-right: 90px;
+}
+.judul {
+  font-size: 24px;
+  color: black;
+}
+.image {
+  margin-left: 50px;
+}
+.div1 {
+  display: flex;
+  text-align: center;
+}
+.caption {
+  font-size: 16px;
+  color: #21242b;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 @media only screen and (max-width: 500px) {
   .form-signin {

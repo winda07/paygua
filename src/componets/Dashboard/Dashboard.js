@@ -101,7 +101,8 @@ const Dashboard = () => {
         <PopupHome trigger={HomePopup}>
           <div style={{ display: "flex", textAlign: "center", justifyContent: "space-evenly" }}>
             <div style={{ cursor: "pointer" }}>
-              <Link to="/buatTagihan"><img src={tagih}></img></Link>
+              <Link to="/tagihan"><img src={tagih}></img></Link>
+              {/* <Link to="/buatTagihan"><img src={tagih}></img></Link> */}
               <figcaption style={{ fontSize: "9px", color: "white" }}>Tagih</figcaption>
             </div>
             <div style={{ width: "38px", height: "38px", borderRadius: "100%", backgroundColor: "white", cursor: "pointer" }}>

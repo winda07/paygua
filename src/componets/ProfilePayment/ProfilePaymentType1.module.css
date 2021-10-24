@@ -78,6 +78,7 @@
   position: absolute;
   margin-top: -40px;
   border: 4px solid white;
+  object-fit: fill;
 }
 .BG {
   margin: 0px auto;
