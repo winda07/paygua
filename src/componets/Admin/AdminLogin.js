@@ -46,6 +46,7 @@ const AdminLogin = () => {
                             } else if (result.data.status === 200) {
                                 const tokenAdmin = result.data.data.token;
                                 localStorage.setItem('tokenAdmin', tokenAdmin);
+                                // console.log(tokenAdmin)
                                 setButtonLoading(false)
                                 history.replace("/AdminHome")
                             }

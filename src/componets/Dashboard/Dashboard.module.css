@@ -133,7 +133,7 @@
 .cop {
   margin-left: 145px;
   margin-bottom: 10px;
-  bottom: -5px;
+  bottom: -3px;
   cursor: pointer;
   position: absolute;
   color: red;
@@ -146,7 +146,7 @@
   position: absolute;
   color: white;
   position: absolute;
-  top: -2px;
+  top: -4px;
   font-size: 12px;
 }
 .picture {

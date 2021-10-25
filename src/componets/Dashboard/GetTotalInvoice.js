@@ -8,7 +8,7 @@ import Frame from "../../img/Frame.svg"
 import styles from "./Dashboard.module.css";
 import { DataUsageSharp } from "@material-ui/icons"
 import arrow from "../../img/arrow>.svg"
-
+import animation from "../../img/animation4.webp"
 const GetTotalInvoice = () => {
     const history = useHistory();
     const [data, setValues] = useState({
