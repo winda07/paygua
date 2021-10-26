@@ -13,7 +13,6 @@ import Loading from "../Loading/Loading"
 import wa from "../../img/wa-.svg"
 import ig from "../../img/ig-.svg"
 import webb from "../../img/web-.svg"
-import ImageRenderer from '../ImageRenderer/ImageRenderer';
 const ProfilePaymentType1 = (props) => {
     const [loadingPopup, setButtonLoading] = useState(false);
     const [render, setRender] = useState(false);
@@ -72,21 +71,9 @@ const ProfilePaymentType1 = (props) => {
                 {render ? <div>
                     <div className={styles["form-signin"]}>
                         {data.background ? <div>
-                            {/* <img className={styles.BG} src={data.background}></img> */}
-                            <ImageRenderer className={styles.BG}
-                                thumb={data.thumbnail}
-                                url={data.background}
-                                width={data.width}
-                                height={data.height}
-                            ></ImageRenderer>
+                            <img className={styles.BG} src={data.background}></img>
                         </div> : <div>
-                            <ImageRenderer
-                                // key={data.id}
-                                url={data.background}
-                                thumb={data.thumbnail}
-                                width={data.width}
-                                height={data.height}></ImageRenderer>
-                            {/* <img className={styles.BG} src={bg}></img> */}
+                            <img className={styles.BG} src={bg}></img>
                         </div>
                         }
                         <div className={styles.box}>
