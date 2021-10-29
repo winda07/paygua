@@ -46,6 +46,7 @@ import ProfilePayment2 from "./componets/ProfilePayment2/PaymentProfile2"
 import DetailNotif from "./componets/Notification/DetailNotif";
 import PrivateRoute from './PrivateRoute'
 import PrivateRoute2 from './PrivateRoute2'
+import Blank from "./componets/Blank/Blank";
 import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router";
@@ -128,6 +129,7 @@ const App = () => {
         <PrivateRoute path="/detailNotif" component={DetailNotif} />
         <Route exact path="/:username" component={ProfilePaymentType1}></Route>
         <Route exact path="/:username/:invoiceId" component={ProfilePaymentType2}></Route>
+        <Route exact path="/checkLogin/:userId" component={Blank}></Route>
         {/* <Route exact path="/:username">
           <DummyCmp type="type1" />
         </Route>

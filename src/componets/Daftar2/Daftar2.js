@@ -94,7 +94,8 @@ const Daftar2 = () => {
                     if (result.data) {
                         if (result.data.status === 200) {
                             setButtonLoading(false)
-                            history.push('/dashboard')
+                            history.push(`/checkLogin/${user.id}`)
+                            // history.push('/dashboard')
                         }
                     }
                 })

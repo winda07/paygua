@@ -50,9 +50,11 @@ const Login = () => {
                   history.push("/daftar")
                 } else {
                   setButtonLoading(false)
-                  history.push("/dashboard")
+                  history.push(`/checkLogin/${user.id}`)
+                  // history.push("/dashboard")
                 }
               }
+
             }
           }
 
