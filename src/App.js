@@ -90,6 +90,7 @@ const App = () => {
         <PrivateRoute2 path="/register" component={Form} />
         <PrivateRoute2 path="/verifLupaPassword" component={VerivLupas} />
         <PrivateRoute2 path="/lupaPassword" component={LupaPassword} />
+        <PrivateRoute path="/checkLogin/:userId" component={Blank}></PrivateRoute>
         <Route path="/auth/reset/:tokenid" component={ResetPassword} />
         <Route path="/auth/verify/:email/:tokenid" component={VerifyEmail}></Route>
         <Route path="/Success" component={Success}></Route>
@@ -129,7 +130,6 @@ const App = () => {
         <PrivateRoute path="/detailNotif" component={DetailNotif} />
         <Route exact path="/:username" component={ProfilePaymentType1}></Route>
         <Route exact path="/:username/:invoiceId" component={ProfilePaymentType2}></Route>
-        <Route exact path="/checkLogin/:userId" component={Blank}></Route>
         {/* <Route exact path="/:username">
           <DummyCmp type="type1" />
         </Route>
