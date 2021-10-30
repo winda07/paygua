@@ -42,7 +42,6 @@ const Login = () => {
               } else if (result.data.status === 200) {
                 const token = result.data.data.token;
                 const user = jwt(token)
-                console.log(token)
                 localStorage.setItem('token', token);
                 localStorage.setItem('userId', user.id)
                 if (user.isCompleted === false) {
