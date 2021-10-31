@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 const Settings = () => {
     const removetoken = () => {
         localStorage.clear();
-        console.log("test")
     }
     return (
         <div className={styles.App}>
