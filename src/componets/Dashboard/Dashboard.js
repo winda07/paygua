@@ -63,7 +63,11 @@ const Dashboard = () => {
     setTimeout(() => {
       setButtonPopup(false)
     }, 1000)
-    navigator.clipboard.writeText(`https://paygua.com/${user.username}`)
+    if(window.NativeAndroid) {
+      window.NativeAndroid.copyToClipboard(`https://paygua.com/${user.username}`)
+    } else {
+      navigator.clipboard.writeText(`https://paygua.com/${user.username}`)
+    }
   }
   const plusHandleClick = () => {
     setHome(!HomePopup)
