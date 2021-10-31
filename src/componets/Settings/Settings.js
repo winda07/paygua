@@ -5,8 +5,23 @@ import arrow from "../../img/arrow-left.svg"
 import check from "../../img/check.svg"
 import user from "../../img/profile.svg"
 import { Link } from "react-router-dom";
+import axios from "axios"
 const Settings = () => {
     const removetoken = () => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            axios.get("https://paygua.com/api/user/logout", {
+                headers: {
+                    Authorization: token,
+                }
+            })
+                .then((result) => {
+                    if (result.data.status === 200) {
+                        localStorage.clear();
+                    }
+                })
+
+        }
         localStorage.clear();
     }
     return (

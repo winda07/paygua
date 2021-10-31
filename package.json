@@ -57,5 +57,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "build": "^0.1.4",
+    "envify": "^4.1.0",
+    "terser": "^5.9.0",
+    "terser-brunch": "^4.1.0",
+    "uglifyify": "^5.0.2"
   }
 }
