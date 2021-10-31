@@ -47,6 +47,7 @@ import DetailNotif from "./componets/Notification/DetailNotif";
 import PrivateRoute from './PrivateRoute'
 import PrivateRoute2 from './PrivateRoute2'
 import Blank from "./componets/Blank/Blank";
+import QrDinamis from "./componets/QrStatis/QrDinamis";
 import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router";
@@ -123,6 +124,7 @@ const App = () => {
         <Route path="/SyaratdanKetentuan" component={SyaratdanKetentuan}></Route>
         <PrivateRoute path="/paymentSuccess" component={PaymentSuccess} />
         <PrivateRoute path="/Qris" component={Qris} />
+        <Route path="/QrDinamis" component={QrDinamis}></Route>
         <PrivateRoute path="/PilihBank" component={pilihBank} />
         <PrivateRoute path="/RekeningBank" component={RekeningBank} />
         <Route path="/PaymentProfile" component={ProfilePayment}></Route>

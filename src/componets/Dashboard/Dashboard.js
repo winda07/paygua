@@ -96,17 +96,24 @@ const Dashboard = () => {
         <div style={{ height: "130px" }}>
           <GetBalance></GetBalance>
         </div>
-        <GetTotalInvoice></GetTotalInvoice>
+        {/* <GetTotalInvoice></GetTotalInvoice> */}
         <br></br>
         <PopupHome trigger={HomePopup}>
           <div style={{ display: "flex", textAlign: "center", justifyContent: "space-evenly" }}>
-            <div style={{ cursor: "pointer" }}>
+            {/* <div style={{ cursor: "pointer" }}>
               <Link to="/tagihan"><img src={tagih}></img></Link>
-              {/* <Link to="/buatTagihan"><img src={tagih}></img></Link> */}
               <figcaption style={{ fontSize: "9px", color: "white" }}>Tagih</figcaption>
             </div>
             <div style={{ width: "38px", height: "38px", borderRadius: "100%", backgroundColor: "white", cursor: "pointer" }}>
               <Link to="/Qris"><img style={{ marginTop: "10px" }} src={qrstatis}></img></Link>
+              <figcaption style={{ fontSize: "9px", color: "white", marginTop: "10px" }}>Show QR</figcaption>
+            </div> */}
+            <div style={{ cursor: "pointer" }}>
+              <Link to="/Qris"><img src={tagih}></img></Link>
+              <figcaption style={{ fontSize: "9px", color: "white" }}>Tagih</figcaption>
+            </div>
+            <div style={{ width: "38px", height: "38px", borderRadius: "100%", backgroundColor: "white", cursor: "pointer" }}>
+              <Link to="/QrDinamis"><img style={{ marginTop: "10px" }} src={qrstatis}></img></Link>
               <figcaption style={{ fontSize: "9px", color: "white", marginTop: "10px" }}>Show QR</figcaption>
             </div>
             <div style={{ cursor: "pointer" }}>
