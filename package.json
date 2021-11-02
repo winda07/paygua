@@ -36,7 +36,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "webpack",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -59,10 +59,17 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "babel-loader": "^8.2.3",
     "build": "^0.1.4",
     "envify": "^4.1.0",
+    "html-webpack-plugin": "^5.5.0",
     "terser": "^5.9.0",
     "terser-brunch": "^4.1.0",
-    "uglifyify": "^5.0.2"
+    "uglifyify": "^5.0.2",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1"
   }
 }

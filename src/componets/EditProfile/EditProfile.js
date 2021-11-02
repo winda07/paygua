@@ -15,7 +15,7 @@ import Loading from "../Loading/Loading";
 import PopupSuksesUbah from "../PopupSuksesUbah/PopupSuksesUbah"
 import bg from "../../img/bg.svg"
 
-const EditProfile = ({ formSubmit }) => {
+const EditProfile = () => {
     const at = "@"
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
@@ -125,53 +125,53 @@ const EditProfile = ({ formSubmit }) => {
         setErros(validation(data));
         setDataIsCorrect(true);
         setIsClicked(true);
-        if (dataIsCorrect) {
-            setButtonLoading(true)
-            const token = localStorage.getItem("token");
+        // if (dataIsCorrect) {
+        setButtonLoading(true)
+        const token = localStorage.getItem("token");
 
-            const formData = new FormData();
-            for (var key in data) {
-                if ((key === "profilePicture" && isUploaded) || (key === "background" && isUploadedBackground)) {
-                    formData.append(key, data[key]);
-                } else if (key != "email" && key != "username") {
-                    formData.append(key, data[key]);
-                }
+        const formData = new FormData();
+        for (var key in data) {
+            if ((key === "profilePicture" && isUploaded) || (key === "background" && isUploadedBackground)) {
+                formData.append(key, data[key]);
+            } else if (key != "email" && key != "username") {
+                formData.append(key, data[key]);
             }
-            const user = jwt(token);
-            axios
-                .put("https://paygua.com/api/user/" + user.id, formData, {
-                    headers: {
-                        Authorization: token
-                    },
-                    'maxContentLength': Infinity,
-                    'maxBodyLength': Infinity
-                })
-                .then((result) => {
-                    if (result) {
-                        if (result.data) {
-                            if (result.data.status === 200) {
-                                setpopupAfterUpdate(true)
-                                setTimeout(() => {
-                                    setpopupAfterUpdate(false)
-                                }, 1000);
-                                setButtonLoading(false)
-                                setTimeout(() => {
-                                    history.push("/dashboard")
-                                }, 1000);
-
-                            } else {
-                                setButtonPopup(true);
-                                setMessage(result.data.errors.errorMessage)
-                                setButtonLoading(false)
-                            }
-
-                        }
-                    }
-                })
-                .catch((e) => {
-                    alert("error");
-                });
         }
+        const user = jwt(token);
+        axios
+            .put("https://paygua.com/api/user/" + user.id, formData, {
+                headers: {
+                    Authorization: token
+                },
+                'maxContentLength': Infinity,
+                'maxBodyLength': Infinity
+            })
+            .then((result) => {
+                if (result) {
+                    if (result.data) {
+                        if (result.data.status === 200) {
+                            setpopupAfterUpdate(true)
+                            setTimeout(() => {
+                                setpopupAfterUpdate(false)
+                            }, 1000);
+                            setButtonLoading(false)
+                            setTimeout(() => {
+                                history.push("/dashboard")
+                            }, 1000);
+
+                        } else {
+                            setButtonPopup(true);
+                            setMessage(result.data.errors.errorMessage)
+                            setButtonLoading(false)
+                        }
+
+                    }
+                }
+            })
+            .catch((e) => {
+                alert("error");
+            });
+        // }
 
     };
 
